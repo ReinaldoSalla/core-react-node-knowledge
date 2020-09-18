@@ -1,8 +1,11 @@
 import React from 'react';
+import Universal from './pages/Universal';
 import './App.css';
 
 const App = () => {
-  return <section>start</section>;
+  return (
+    <Universal />
+  );
 };
 
 export default App;
