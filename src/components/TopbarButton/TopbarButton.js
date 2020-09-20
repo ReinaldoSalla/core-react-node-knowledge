@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 import './TopbarButton.css';
 
+let nCalls = 0;
+
 const TopbarButton = ({ Svg, text, large=false }) => {
   const [isHovering, setIsHovering] = useState(false);
   const handleEnter = () => setIsHovering(true);
   const handleLeave = () => setIsHovering(false);
-
+  nCalls++;
+  console.log(`TopbarButton call n°: ${nCalls}`);
   return (
     <button 
       className='topbarbutton' 
