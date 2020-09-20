@@ -1,0 +1,53 @@
+.topbarbutton {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* border: 1px solid white; */
+  width: 100%;
+}
+
+.topbarbutton:hover {
+  cursor: pointer;
+}
+
+.topbarbutton-normalizer {
+  z-index: 2;
+  margin-bottom: 8px;
+  height: 32px;
+  /* border: 1px solid white; */
+}
+
+.topbarbutton-svg {
+  height: 32px;
+  width: 32px;
+  color: white;
+}
+
+.topbarbutton-svg-large {
+  height: 40px;
+  width: 40px;
+  color: white;
+  transform: translateY(-10%);
+}
+
+.topbarbutton-text {
+  z-index: 2;
+  font-size: 20px;
+  line-height: 0.7em;
+  color: white;
+  /* border: 1px solid white; */
+}
+
+.topbarbutton-filler {
+  position: absolute;
+  z-index: 1;
+  height: 80px;
+  width: 0%;
+  background: var(--hover-color);
+  transition: width 500ms;
+}
+
+.topbarbutton-fillter-transition {
+  width: 25%;
+}
