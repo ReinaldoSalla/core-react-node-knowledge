@@ -8,13 +8,15 @@ const Courosel = () => {
         JavaScript Guides
       </h1>
       <h2 className='courosel-description'>
-        Data processing and asyncronous programming
+        From data processing to asyncronous programming
       </h2>
       <div className='courosel-check'>
-
+        <span className='courosel-check-text'>
+          Check JavaScript Tutorials
+        </span>
       </div>
       <div className='courosel-inputs'>
-        
+        <div className='courosel-inputs-timer' />
       </div>
     </div>    
   );

@@ -5,8 +5,8 @@
   justify-content: space-evenly;
   width: 100%;
   height: 100%;
-  ;padding-top: 40px;
-  border: 5px solid red;
+  padding-top: 40px;
+  /* border: 5px solid red; */
 }
 
 .courosel-title {
@@ -26,14 +26,33 @@
 }
 
 .courosel-check {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 150px;
   height: 130px;
   border: 1px solid white;
   border-radius: 20px;
 }
 
+.courosel-check-text {
+  padding-bottom: 4px;
+  font-size: 28px;
+  font-weight: 600;
+  color: white;
+  text-align: center;
+}
+
 .courosel-inputs {
   width: 80%;
-  height: 30px;
+  height: 50px;
   border: 1px solid white;
+}
+
+.courosel-inputs-timer {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: white;
+
 }
