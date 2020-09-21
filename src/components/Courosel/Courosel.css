@@ -2,14 +2,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  /* padding-top: 40px; */
+  justify-content: space-evenly;
   width: 100%;
-  height: calc(100% - var(--topbar-height) - 100px);
-  /* height: 100%; */
-  /* margin-top: 80px; */
-  padding-top: 140px;
-  /* border: 10px solid red; */
+  height: 100%;
+  ;padding-top: 40px;
+  border: 5px solid red;
 }
 
 .courosel-title {
