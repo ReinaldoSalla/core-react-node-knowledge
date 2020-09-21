@@ -4,14 +4,14 @@
   --hover-color: #c41010;
 }
 
-/* html {
-  height: 100%;
-  width: 100%;
-} */
-
-body {
+html, body, #root, main, footer {
   padding: 0;
   margin: 0;
+  width: 100%;
+  height: 100%;
+}
+
+body {
   background: aliceblue;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Source Sans Pro', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',  sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -40,14 +40,14 @@ button {
   border: none;
 }
 
-/* .test {
-  height: 100vh;
-  width: 100vw;
+.test {
+  height: 100%;
+  width: 100%;
   background: red;
 }
 
 .test2 {
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
   background: green;
-} */
+}

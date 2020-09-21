@@ -17,8 +17,8 @@ export default App;
 // import './App.css';
 
 // export default () => (
-//   <>
+//   <main>
 //     <div className='test' />
 //     <div className='test2' />
-//   </>
+//   </main>
 // );
