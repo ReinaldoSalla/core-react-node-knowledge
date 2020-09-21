@@ -2,23 +2,27 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-between;
   /* padding-top: 40px; */
   width: 100%;
-  /* height: calc(100% - var(--topbar-height)); */
-  height: 100%;
+  height: calc(100% - var(--topbar-height) - 100px);
+  /* height: 100%; */
   /* margin-top: 80px; */
-  /* padding-top: 40px; */
+  padding-top: 140px;
   /* border: 10px solid red; */
 }
 
 .courosel-title {
+  padding: 0;
+  margin: 0 16px;
   font-size: 46px;
   color: white;
   text-align: center;
 }
 
 .courosel-description {
+  padding: 0;
+  margin: 0 16px;
   font-size: 32px;
   color: white;
   text-align: center;
