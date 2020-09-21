@@ -4,10 +4,10 @@
   --hover-color: #c41010;
 }
 
-:root, html, body {
+/* html {
   height: 100%;
   width: 100%;
-}
+} */
 
 body {
   padding: 0;
@@ -39,3 +39,15 @@ button {
   color: inherit;
   border: none;
 }
+
+/* .test {
+  height: 100vh;
+  width: 100vw;
+  background: red;
+}
+
+.test2 {
+  height: 100vh;
+  width: 100vw;
+  background: green;
+} */
