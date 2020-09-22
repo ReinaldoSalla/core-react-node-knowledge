@@ -15,18 +15,29 @@ const Courosel = () => {
           Check JavaScript Tutorials
         </span>
       </div>
-
-      <div className='courosel-inputs'>
-        <div className='courosel-inputs-input'>
-          <span className='courosel-inputs-inputs-text'> JavaScript</span>
+      <div className='courosel-select'>
+        <div className='courosel-select-inputs'>
+          <div className='courosel-select-inputs-input'>
+            <span className='courosel-select-inputs-input-text'>
+              JavaScript
+            </span>
+          </div>
+          <div className='courosel-select-inputs-input'>
+            <span className='courosel-select-inputs-input-text'>
+              React
+            </span>
+          </div>
+          <div className='courosel-select-inputs-input'>
+            <span className='courosel-select-inputs-input-text'>
+              Node
+            </span>
+          </div>
         </div>
-        <div className='courosel-inputs-input'>
-          <span className='courosel-inputs-inputs-text'> React </span>
-        </div>
-        <div className='courosel-inputs-input'>
-          <span className='courosel-inputs-inputs-text'> Node </span>
+        <div className='courosel-select-timer'>
+          <div className='courosel-select-timer-row' />
         </div>
       </div>
+
     </div>    
   );
 };
