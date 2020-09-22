@@ -18,7 +18,10 @@ export default App;
 
 // export default () => (
 //   <main>
-//     <div className='test' />
-//     <div className='test2' />
+//     <div className='app'>
+//       <span className='app-text'>
+//         Single line text
+//       </span>
+//     </div>
 //   </main>
 // );

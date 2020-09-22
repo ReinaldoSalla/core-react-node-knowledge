@@ -1,5 +1,5 @@
 /*
-breakpoints
+width breakpoints
 extra-small: 330
 small: 400
 medium: 576
@@ -48,14 +48,13 @@ button {
   border: none;
 }
 
-.test {
-  height: 100%;
-  width: 100%;
-  background: red;
+.app {
+  margin: 100px;
 }
 
-.test2 {
-  height: 100%;
-  width: 100%;
-  background: green;
+.app-text {
+  display: inline-block;
+  border: 1px solid black;
+  font-size: 16px;
+  line-height: 70%;
 }
