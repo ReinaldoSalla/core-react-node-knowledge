@@ -43,16 +43,37 @@
   text-align: center;
 }
 
-.courosel-inputs {
-  width: 80%;
-  height: 50px;
-  border: 1px solid white;
+.courosel-select {
+  display: flex;
+  align-items:
 }
 
-.courosel-inputs-timer {
-  width: 50px;
+.courosel-inputs {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 80%;
   height: 50px;
-  border-radius: 50%;
-  background: white;
+}
 
+.courosel-inputs-input {
+  width: 100px;
+  height: 30px;
+  border: 1px solid white;
+  border-radius: 5px;
+}
+
+.courosel-inputs-inputs-text {
+  font-size: 20px;
+  position: absolute;
+  text-align: center;
+  width: 100px;
+  color: white;
+}
+
+.courosel-timer {
+  margin-top: -50px;
+  width: 80%;
+  height: 50px;
+  border-top: 1px solid white;
 }
