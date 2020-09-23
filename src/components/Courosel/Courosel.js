@@ -4,7 +4,11 @@ import couroselReducer from './Courosel.reducer';
 import './Courosel.css';
 
 const Courosel = () => {
-  const [state, dispatch] = useReducer(couroselReducer, { index: 0 });
+  const [state, dispatch] = useReducer(couroselReducer, { 
+    firstTime: true,
+    pastFirstClick: 'no',
+    index: 0 
+  });
 
   // useEffect(() => {
   //   const handleNextItem = () => {
@@ -30,13 +34,12 @@ const Courosel = () => {
     dispatch({ type: CONSTANTS.MOVE_TO_THIRD_ITEM });
   };
 
-
   return (
     <div className='courosel'>
       <div style={{ color: 'white' }}>{state.index}</div>
 
 
-      <div className='courosel-content' key={state.index}>
+      <div className={`courosel-content${state.index === 0 ? ' courosel-content-keyframes-on' : ' courosel-content-keyframes-off'}`} >
         <h1 className='courosel-content-title'>
           JavaScript Guides
         </h1>
@@ -46,6 +49,36 @@ const Courosel = () => {
         <div className='courosel-content-check'>
           <span className='courosel-content-check-text'>
             Check JavaScript Tutorials
+          </span>
+        </div>
+      </div>
+
+
+      <div className={`courosel-content${state.index === 1 ? ' courosel-content-keyframes-on' : ' courosel-content-keyframes-off'} ${state.firstTime ? ' courosel-content-first-time' : ''} ${state.pastFirstClick === 'almost' && state.index !== 1 ? 'courosel-content-past-first-click-almost' : ''}`}>
+        <h1 className='courosel-content-title'>
+          React Guides
+        </h1>
+        <h2 className='courosel-content-description'>
+          Modern frontend with the popular facebook library
+        </h2>
+        <div className='courosel-content-check'>
+          <span className='courosel-content-check-text'>
+            Check React Tutorials
+          </span>
+        </div>
+      </div>
+
+
+      <div className={`courosel-content${state.index === 2 ? ' courosel-content-keyframes-on' : ' courosel-content-keyframes-off'} ${state.firstTime ? ' courosel-content-first-time' : ''} ${state.pastFirstClick === 'almost' && state.index !== 2 ? 'courosel-content-past-first-click-almost' : ''}`}>
+        <h1 className='courosel-content-title'>
+          Node Guides
+        </h1>
+        <h2 className='courosel-content-description'>
+          Dynamic backend structures with Node and GraphQL
+        </h2>
+        <div className='courosel-content-check'>
+          <span className='courosel-content-check-text'>
+            Check Node Tutorials
           </span>
         </div>
       </div>

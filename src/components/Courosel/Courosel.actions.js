@@ -1,8 +1,38 @@
-const moveToFirstItem = () => ({ index: 0 });
+const moveToFirstItem = (state) => {
+  let newPastFirstClick;
+  newPastFirstClick = state.pastFirstClick === 'no' && state.pastFirstClick !== 'almost'
+    ? 'almost'
+    : 'yes'
+  return {
+    firstTime: false,
+    pastFirstClick: newPastFirstClick,
+    index: 0
+  };
+};
 
-const moveToSecondItem = () => ({ index: 1 });
+const moveToSecondItem = (state) => {
+  let newPastFirstClick;
+  newPastFirstClick = state.pastFirstClick === 'no' && state.pastFirstClick !== 'almost'
+    ? 'almost'
+    : 'yes'
+  return {
+    firstTime: false,
+    pastFirstClick: newPastFirstClick,
+    index: 1
+  };
+};
 
-const moveToThirdItem = () => ({ index: 2 });
+const moveToThirdItem = (state) => {
+  let newPastFirstClick;
+  newPastFirstClick = state.pastFirstClick === 'no' && state.pastFirstClick !== 'almost'
+    ? 'almost'
+    : 'yes'
+  return {
+    firstTime: false,
+    pastFirstClick: newPastFirstClick,
+    index: 2
+  };
+};
 
 export {
   moveToFirstItem,
