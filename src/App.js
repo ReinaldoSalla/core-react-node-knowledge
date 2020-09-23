@@ -12,16 +12,3 @@ const App = () => {
 };
 
 export default App;
-
-// import React from 'react';
-// import './App.css';
-
-// export default () => (
-//   <main>
-//     <div className='app'>
-//       <span className='app-text'>
-//         Single line text
-//       </span>
-//     </div>
-//   </main>
-// );

@@ -47,14 +47,3 @@ button {
   color: inherit;
   border: none;
 }
-
-.app {
-  margin: 100px;
-}
-
-.app-text {
-  display: inline-block;
-  border: 1px solid black;
-  font-size: 16px;
-  line-height: 70%;
-}
