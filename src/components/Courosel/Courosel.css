@@ -10,7 +10,25 @@
 
 .courosel-content {
   padding-top: 50px;
+  position: absolute;
   /* opacity: 0; */
+  animation: 2000ms ease-in-out fade-in;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+
+  25% {
+    opacity: 0;
+    transform: scale(0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 .courosel-content-title {
@@ -70,6 +88,12 @@
   width: 100px;
   border: 1px solid white;
   border-radius: 5px;
+  transition: transform 500ms;
+}
+
+.courosel-select-inputs-input:hover {
+  cursor: pointer;
+  transform: scale(1.2);
 }
 
 .courosel-select-inputs-input-text {
