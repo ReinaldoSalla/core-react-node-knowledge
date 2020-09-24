@@ -22,6 +22,18 @@ const computeButtonCN = (isButtonActivated) => (
     : 'courosel-select-inputs-input courosel-select-inputs-input-disabled'
 );
 
+const computeButtonTextCN = (targetIndex, currIndex) => (
+  targetIndex === currIndex 
+    ? 'courosel-select-inputs-input-text courosel-select-inputs-input-text-transition'
+    : 'courosel-select-inputs-input-text'
+);
+
+const computeButtonFillerCN = (targetIndex, currIndex) => (
+  targetIndex === currIndex
+    ? 'courosel-select-inputs-input-filler courosel-select-inputs-input-filler-transition'
+    : 'courosel-select-inputs-input-filler'
+);
+
 const Courosel = () => {
   const [state, dispatch] = useReducer(couroselReducer, { 
     indexesStackOrderTwo: [0, 0],
@@ -52,27 +64,27 @@ const Courosel = () => {
   const handleFirstItem = async () => {
     if (state.indexesStackOrderTwo[1] !== 0) {
       dispatch({ type: CONSTANTS.MOVE_TO_FIRST_ITEM });
-      dispatch({ type: CONSTANTS.LOCK_ON_FIRST_BUTTON });
-      await sleep(2000);
-      dispatch({ type: CONSTANTS.FREE_ALL_BUTTONS });
+      // dispatch({ type: CONSTANTS.LOCK_ON_FIRST_BUTTON });
+      // await sleep(2000);
+      // dispatch({ type: CONSTANTS.FREE_ALL_BUTTONS });
     }
   };
 
   const handleSecondItem = async () => {
     if (state.indexesStackOrderTwo[1] !== 1) {
       dispatch({ type: CONSTANTS.MOVE_TO_SECOND_ITEM });
-      dispatch({ type: CONSTANTS.LOCK_ON_SECOND_BUTTON });
-      await sleep(2000);
-      dispatch({ type: CONSTANTS.FREE_ALL_BUTTONS });
+      // dispatch({ type: CONSTANTS.LOCK_ON_SECOND_BUTTON });
+      // await sleep(2000);
+      // dispatch({ type: CONSTANTS.FREE_ALL_BUTTONS });
     }
   };
 
   const handleThirdItem = async () => {
     if (state.indexesStackOrderTwo[1] !== 2) {
       dispatch({ type: CONSTANTS.MOVE_TO_THIRD_ITEM });
-      dispatch({ type: CONSTANTS.LOCK_ON_THIRD_BUTTON });
-      await sleep(2000);
-      dispatch({ type: CONSTANTS.FREE_ALL_BUTTONS });
+      // dispatch({ type: CONSTANTS.LOCK_ON_THIRD_BUTTON });
+      // await sleep(2000);
+      // dispatch({ type: CONSTANTS.FREE_ALL_BUTTONS });
     }
   };
 
@@ -93,6 +105,18 @@ const Courosel = () => {
   const reactButtonCN = computeButtonCN(state.isSecondButtonActivated);
 
   const nodeButtonCN = computeButtonCN(state.isThirdButtonActivated);
+
+  const javascriptButtonTextCN = computeButtonTextCN(0, state.indexesStackOrderTwo[1]);
+
+  const reactButtonTextCN = computeButtonTextCN(1, state.indexesStackOrderTwo[1]);
+
+  const nodeButtonTextCN = computeButtonTextCN(2, state.indexesStackOrderTwo[1]);
+
+  const javascriptButtonFillerCN = computeButtonFillerCN(0, state.indexesStackOrderTwo[1]);
+
+  const reactButtonFillerCN = computeButtonFillerCN(1, state.indexesStackOrderTwo[1]);
+
+  const nodeButtonFillerCN = computeButtonFillerCN(2, state.indexesStackOrderTwo[1]);
 
   return (
     <div className='courosel'>
@@ -150,25 +174,28 @@ const Courosel = () => {
             className={javascriptButtonCN}
             onClick={handleFirstItem}
           >
-            <span className='courosel-select-inputs-input-text'>
+            <span className={javascriptButtonTextCN}>
               JavaScript
             </span>
+            <div className={javascriptButtonFillerCN}/>
           </div>
           <div 
             className={reactButtonCN}
             onClick={handleSecondItem}
           >
-            <span className='courosel-select-inputs-input-text'>
+            <span className={reactButtonTextCN}>
               React
             </span>
+            <div className={reactButtonFillerCN} />
           </div>
           <div 
             className={nodeButtonCN}
             onClick={handleThirdItem}  
           >
-            <span className='courosel-select-inputs-input-text'>
+            <span className={nodeButtonTextCN}>
               Node
             </span>
+            <div className={nodeButtonFillerCN} />
           </div>
 
         </div>

@@ -143,6 +143,28 @@
   width: 100px;
   text-align: center;
   color: white;
+  transition: color 2000ms ease-in-out;
+  z-index: 2;
+}
+
+.courosel-select-inputs-input-text-transition {
+  color: black;
+}
+
+.courosel-select-inputs-input-filler {
+  height: 30px;
+  position: absolute;
+  background: white;
+  border-radius: 5px;
+  width: 0;
+  opacity: 0;
+  transition: width 2000ms ease-in-out, opacity 2000ms ease-in-out;
+  z-index: 1;
+}
+
+.courosel-select-inputs-input-filler-transition {
+  width: 100px;
+  opacity: 1;
 }
 
 .courosel-select-timer {
@@ -180,13 +202,18 @@
   }
 
   .courosel-select-inputs-input {
-    height: 22px;
     width: 80px;
+    height: 22px;
   }
 
   .courosel-select-inputs-input-text {
     font-size: 16px;
     width: 80px;
+  }
+
+  .courosel-select-inputs-input-filler-transition {
+    width: 80px;
+    height: 22px;
   }
 }
 
