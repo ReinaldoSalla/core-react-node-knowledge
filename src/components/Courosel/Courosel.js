@@ -3,11 +3,20 @@ import CONSTANTS from './Courosel.constants';
 import couroselReducer from './Courosel.reducer';
 import './Courosel.css';
 
+const computeCN = (lastIndex, currIndex, targetIndex) => {
+  if (currIndex === targetIndex) {
+    return `courosel-content courosel-content-keyframes-in`;
+  } else if (lastIndex === targetIndex) {
+    return `courosel-content courosel-content-keyframes-out`;
+  } else {
+    return 'courosel-content courosel-content-keyframes-off';
+  }
+};
+
 const Courosel = () => {
   const [state, dispatch] = useReducer(couroselReducer, { 
-    firstTime: true,
-    pastFirstClick: 'no',
-    index: 0 
+    lastAndCurrIndex: [0, 0],
+    firstIteration: true
   });
 
   // useEffect(() => {
@@ -36,11 +45,15 @@ const Courosel = () => {
 
   return (
     <div className='courosel'>
-      <div style={{ color: 'white' }}>{state.index}</div>
+      <div style={{ color: 'white' }}>{state.lastAndCurrIndex}</div>
+    
 
-
-      <div className={`courosel-content${state.index === 0 ? ' courosel-content-keyframes-on' : ' courosel-content-keyframes-off'}`} >
-        <h1 className='courosel-content-title'>
+      <div className={computeCN(
+        state.lastAndCurrIndex[0], 
+        state.lastAndCurrIndex[1], 
+        0
+      )}>
+        <h1 className='courosel-content-title'> 
           JavaScript Guides
         </h1>
         <h2 className='courosel-content-description'>
@@ -54,12 +67,16 @@ const Courosel = () => {
       </div>
 
 
-      <div className={`courosel-content${state.index === 1 ? ' courosel-content-keyframes-on' : ' courosel-content-keyframes-off'} ${state.firstTime ? ' courosel-content-first-time' : ''} ${state.pastFirstClick === 'almost' && state.index !== 1 ? 'courosel-content-past-first-click-almost' : ''}`}>
-        <h1 className='courosel-content-title'>
+      <div className={computeCN(
+        state.lastAndCurrIndex[0],
+        state.lastAndCurrIndex[1],
+        1
+      )}>
+        <h1 className='courosel-content-title'> 
           React Guides
         </h1>
         <h2 className='courosel-content-description'>
-          Modern frontend with the popular facebook library
+          Modern frontend development with the popular library from facebook
         </h2>
         <div className='courosel-content-check'>
           <span className='courosel-content-check-text'>
@@ -69,8 +86,12 @@ const Courosel = () => {
       </div>
 
 
-      <div className={`courosel-content${state.index === 2 ? ' courosel-content-keyframes-on' : ' courosel-content-keyframes-off'} ${state.firstTime ? ' courosel-content-first-time' : ''} ${state.pastFirstClick === 'almost' && state.index !== 2 ? 'courosel-content-past-first-click-almost' : ''}`}>
-        <h1 className='courosel-content-title'>
+      <div className={computeCN(
+        state.lastAndCurrIndex[0],
+        state.lastAndCurrIndex[1],
+        2
+      )}>
+        <h1 className='courosel-content-title'> 
           Node Guides
         </h1>
         <h2 className='courosel-content-description'>
@@ -110,6 +131,7 @@ const Courosel = () => {
               Node
             </span>
           </div>
+
         </div>
         <div className='courosel-select-timer'>
           <div className='courosel-select-timer-row' />

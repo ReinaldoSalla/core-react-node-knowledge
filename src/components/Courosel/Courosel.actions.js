@@ -1,36 +1,21 @@
 const moveToFirstItem = (state) => {
-  let newPastFirstClick;
-  newPastFirstClick = state.pastFirstClick === 'no' && state.pastFirstClick !== 'almost'
-    ? 'almost'
-    : 'yes'
   return {
-    firstTime: false,
-    pastFirstClick: newPastFirstClick,
-    index: 0
+    firstIteration: false,
+    lastAndCurrIndex: [state.lastAndCurrIndex[1], 0]
   };
 };
 
 const moveToSecondItem = (state) => {
-  let newPastFirstClick;
-  newPastFirstClick = state.pastFirstClick === 'no' && state.pastFirstClick !== 'almost'
-    ? 'almost'
-    : 'yes'
   return {
-    firstTime: false,
-    pastFirstClick: newPastFirstClick,
-    index: 1
+    firstIteration: false,
+    lastAndCurrIndex: [state.lastAndCurrIndex[1], 1]
   };
 };
 
 const moveToThirdItem = (state) => {
-  let newPastFirstClick;
-  newPastFirstClick = state.pastFirstClick === 'no' && state.pastFirstClick !== 'almost'
-    ? 'almost'
-    : 'yes'
   return {
-    firstTime: false,
-    pastFirstClick: newPastFirstClick,
-    index: 2
+    fistIteration: false,
+    lastAndCurrIndex: [state.lastAndCurrIndex[1], 2]
   };
 };
 

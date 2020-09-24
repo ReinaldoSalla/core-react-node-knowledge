@@ -22,7 +22,7 @@
   height: calc(100% - var(--topbar-height) - 20px);
 }
 
-.courosel-content-keyframes-on {
+.courosel-content-keyframes-in {
   animation: fade-in 2000ms ease-in-out;
   opacity: 1;
 }
@@ -44,7 +44,7 @@
   }
 }
 
-.courosel-content-keyframes-off {
+.courosel-content-keyframes-out {
   overflow: hidden;
   animation: fade-out 2000ms ease-in-out;
   opacity: 0;
@@ -62,7 +62,7 @@
   }
 }
 
-.courosel-content-first-time, .courosel-content-past-first-click-almost {
+.courosel-content-keyframes-off {
   display: none;
 }
 
