@@ -33,6 +33,10 @@ const Courosel = () => {
 
   const handleFirstItem = () => {
     dispatch({ type: CONSTANTS.MOVE_TO_FIRST_ITEM });
+    console.log('deactivate');
+    setTimeout(() => {
+      console.log('activate');
+    }, 2000);
   };
 
   const handleSecondItem = () => {
@@ -80,7 +84,7 @@ const Courosel = () => {
           React Guides
         </h1>
         <h2 className='courosel-content-description'>
-          Modern frontend development with the popular library from facebook
+          Modern frontend development with the popular facebook library
         </h2>
         <div className='courosel-content-check'>
           <span className='courosel-content-check-text'>
