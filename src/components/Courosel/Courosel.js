@@ -18,7 +18,8 @@ const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 const Courosel = () => {
   const [state, dispatch] = useReducer(couroselReducer, { 
-    lastAndCurrIndex: [0, 0]
+    lastAndCurrIndex: [0, 0],
+    areButtonsActivated: false
   });
 
   // useEffect(() => {
@@ -33,19 +34,32 @@ const Courosel = () => {
   //   return () => clearInterval(intervalId)
   // });
 
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      dispatch({ type: 'ACTIVATE_BUTTONS' });
+    }, 2000);
+    return () => clearTimeout(timeoutId);
+  }, []);
+
   const handleFirstItem = async () => {
     dispatch({ type: CONSTANTS.MOVE_TO_FIRST_ITEM });
-    console.log('deactivate');
+    dispatch({ type: CONSTANTS.DEACTIVATE_BUTTONS });
     await sleep(2000);
-    console.log('activate');
+    dispatch({ type: CONSTANTS.ACTIVATE_BUTTONS });
   };
 
-  const handleSecondItem = () => {
+  const handleSecondItem = async () => {
     dispatch({ type: CONSTANTS.MOVE_TO_SECOND_ITEM });
+    dispatch({ type: CONSTANTS.DEACTIVATE_BUTTONS });
+    await sleep(2000);
+    dispatch({ type: CONSTANTS.ACTIVATE_BUTTONS });
   };
 
-  const handleThirdItem = () => {
+  const handleThirdItem = async () => {
     dispatch({ type: CONSTANTS.MOVE_TO_THIRD_ITEM });
+    dispatch({ type: CONSTANTS.DEACTIVATE_BUTTONS });
+    await sleep(2000);
+    dispatch({ type: CONSTANTS.ACTIVATE_BUTTONS });
   };
 
   const getCN = (targetIndex) => computeCN(
@@ -111,7 +125,7 @@ const Courosel = () => {
       
 
       <div className='courosel-select'>
-        <div className='courosel-select-inputs'>
+        <div className={`courosel-select-inputs ${state.areButtonsActivated ? '' : ' courosel-select-inputs-disabled'}`}>
           <div 
             className='courosel-select-inputs-input'
             onClick={handleFirstItem}

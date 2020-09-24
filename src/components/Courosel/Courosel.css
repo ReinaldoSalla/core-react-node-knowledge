@@ -118,6 +118,10 @@
   height: 50px;
 }
 
+.courosel-select-inputs-disabled {
+  pointer-events: none;
+}
+
 .courosel-select-inputs-input {
   height: 30px;
   width: 100px;

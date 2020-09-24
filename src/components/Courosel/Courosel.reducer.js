@@ -2,7 +2,9 @@ import CONSTANTS from './Courosel.constants';
 import {
   moveToFirstItem,
   moveToSecondItem,
-  moveToThirdItem
+  moveToThirdItem,
+  activateButtons,
+  deactivateButtons
 } from './Courosel.actions';
 
 const couroselReducer = (state, action) => {
@@ -13,6 +15,10 @@ const couroselReducer = (state, action) => {
       return moveToSecondItem(state);
     case CONSTANTS.MOVE_TO_THIRD_ITEM:
       return moveToThirdItem(state);
+    case CONSTANTS.ACTIVATE_BUTTONS:
+      return activateButtons(state);
+    case CONSTANTS.DEACTIVATE_BUTTONS:
+      return deactivateButtons(state);
     default:
       return Error(`Action type '${action.type}' is not defined`);
   }
