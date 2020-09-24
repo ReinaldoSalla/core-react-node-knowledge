@@ -1,42 +1,60 @@
 const moveToFirstItem = (state) => {
   return {
     ...state,
-    lastAndCurrIndex: [state.lastAndCurrIndex[1], 0]
+    indexesStackOrderTwo: [state.indexesStackOrderTwo[1], 0]
   };
 };
 
 const moveToSecondItem = (state) => {
   return {
     ...state,
-    lastAndCurrIndex: [state.lastAndCurrIndex[1], 1]
+    indexesStackOrderTwo: [state.indexesStackOrderTwo[1], 1]
   };
 };
 
 const moveToThirdItem = (state) => {
   return {
     ...state,
-    lastAndCurrIndex: [state.lastAndCurrIndex[1], 2]
+    indexesStackOrderTwo: [state.indexesStackOrderTwo[1], 2]
   };
 };
 
-const activateButtons = (state) => {
+const freeAllButtons = (state) => {
   return {
     ...state,
-    areButtonsActivated: true
+    isFirstButtonActivated: true,
+    isSecondButtonActivated: true,
+    isThirdButtonActivated: true
   };
 };
 
-const deactivateButtons = (state) => {
-  return {
-    ...state,
-    areButtonsActivated: false
-  };
-};
+const lockOnFirstButton = (state) => ({
+  ...state,
+  isFirstButtonActivated: true,
+  isSecondButtonActivated: false,
+  isThirdButtonActivated: false
+});
+
+const lockOnSecondButton = (state) => ({
+  ...state,
+  isFirstButtonActivated: false,
+  isSecondButtonActivated: true,
+  isThirdButtonActivated: false
+});
+
+const lockOnThirdButton = (state) => ({
+  ...state,
+  isFirstButtonActivated: false,
+  isSecondButtonActivated: false,
+  isThirdButtonActivated: true
+})
 
 export {
   moveToFirstItem,
   moveToSecondItem,
   moveToThirdItem,
-  deactivateButtons,
-  activateButtons
+  freeAllButtons,
+  lockOnFirstButton,
+  lockOnSecondButton,
+  lockOnThirdButton
 };

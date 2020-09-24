@@ -3,6 +3,8 @@ import CONSTANTS from './Courosel.constants';
 import couroselReducer from './Courosel.reducer';
 import './Courosel.css';
 
+const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
 const computeCN = (targetIndex, lastIndex, currIndex) => {
   switch (targetIndex) {
     case currIndex:
@@ -14,12 +16,18 @@ const computeCN = (targetIndex, lastIndex, currIndex) => {
   }
 };
 
-const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+const computeButtonCN = (isButtonActivated) => (
+  isButtonActivated
+    ? 'courosel-select-inputs-input'
+    : 'courosel-select-inputs-input courosel-select-inputs-input-disabled'
+);
 
 const Courosel = () => {
   const [state, dispatch] = useReducer(couroselReducer, { 
-    lastAndCurrIndex: [0, 0],
-    areButtonsActivated: false
+    indexesStackOrderTwo: [0, 0],
+    isFirstButtonActivated: true,
+    isSecondButtonActivated: false,
+    isThirdButtonActivated: false
   });
 
   // useEffect(() => {
@@ -36,36 +44,42 @@ const Courosel = () => {
 
   useEffect(() => {
     const timeoutId = setTimeout(() => {
-      dispatch({ type: 'ACTIVATE_BUTTONS' });
+      dispatch({ type: CONSTANTS.FREE_ALL_BUTTONS });
     }, 2000);
     return () => clearTimeout(timeoutId);
   }, []);
 
   const handleFirstItem = async () => {
-    dispatch({ type: CONSTANTS.MOVE_TO_FIRST_ITEM });
-    dispatch({ type: CONSTANTS.DEACTIVATE_BUTTONS });
-    await sleep(2000);
-    dispatch({ type: CONSTANTS.ACTIVATE_BUTTONS });
+    if (state.indexesStackOrderTwo[1] !== 0) {
+      dispatch({ type: CONSTANTS.MOVE_TO_FIRST_ITEM });
+      dispatch({ type: CONSTANTS.LOCK_ON_FIRST_BUTTON });
+      await sleep(2000);
+      dispatch({ type: CONSTANTS.FREE_ALL_BUTTONS });
+    }
   };
 
   const handleSecondItem = async () => {
-    dispatch({ type: CONSTANTS.MOVE_TO_SECOND_ITEM });
-    dispatch({ type: CONSTANTS.DEACTIVATE_BUTTONS });
-    await sleep(2000);
-    dispatch({ type: CONSTANTS.ACTIVATE_BUTTONS });
+    if (state.indexesStackOrderTwo[1] !== 1) {
+      dispatch({ type: CONSTANTS.MOVE_TO_SECOND_ITEM });
+      dispatch({ type: CONSTANTS.LOCK_ON_SECOND_BUTTON });
+      await sleep(2000);
+      dispatch({ type: CONSTANTS.FREE_ALL_BUTTONS });
+    }
   };
 
   const handleThirdItem = async () => {
-    dispatch({ type: CONSTANTS.MOVE_TO_THIRD_ITEM });
-    dispatch({ type: CONSTANTS.DEACTIVATE_BUTTONS });
-    await sleep(2000);
-    dispatch({ type: CONSTANTS.ACTIVATE_BUTTONS });
+    if (state.indexesStackOrderTwo[1] !== 2) {
+      dispatch({ type: CONSTANTS.MOVE_TO_THIRD_ITEM });
+      dispatch({ type: CONSTANTS.LOCK_ON_THIRD_BUTTON });
+      await sleep(2000);
+      dispatch({ type: CONSTANTS.FREE_ALL_BUTTONS });
+    }
   };
 
   const getCN = (targetIndex) => computeCN(
     targetIndex,
-    state.lastAndCurrIndex[0],
-    state.lastAndCurrIndex[1]
+    state.indexesStackOrderTwo[0],
+    state.indexesStackOrderTwo[1]
   );
 
   const javascriptCN = getCN(0);
@@ -74,9 +88,15 @@ const Courosel = () => {
 
   const nodeCN = getCN(2);
 
+  const javascriptButtonCN = computeButtonCN(state.isFirstButtonActivated);
+
+  const reactButtonCN = computeButtonCN(state.isSecondButtonActivated);
+
+  const nodeButtonCN = computeButtonCN(state.isThirdButtonActivated);
+
   return (
     <div className='courosel'>
-      <div style={{ color: 'white' }}>{state.lastAndCurrIndex}</div>
+      <div style={{ color: 'white' }}>{state.indexesStackOrderTwo}</div>
     
 
       <div className={javascriptCN}>
@@ -125,9 +145,9 @@ const Courosel = () => {
       
 
       <div className='courosel-select'>
-        <div className={`courosel-select-inputs ${state.areButtonsActivated ? '' : ' courosel-select-inputs-disabled'}`}>
+        <div className={`courosel-select-inputs`}>
           <div 
-            className='courosel-select-inputs-input'
+            className={javascriptButtonCN}
             onClick={handleFirstItem}
           >
             <span className='courosel-select-inputs-input-text'>
@@ -135,7 +155,7 @@ const Courosel = () => {
             </span>
           </div>
           <div 
-            className='courosel-select-inputs-input'
+            className={reactButtonCN}
             onClick={handleSecondItem}
           >
             <span className='courosel-select-inputs-input-text'>
@@ -143,7 +163,7 @@ const Courosel = () => {
             </span>
           </div>
           <div 
-            className='courosel-select-inputs-input'
+            className={nodeButtonCN}
             onClick={handleThirdItem}  
           >
             <span className='courosel-select-inputs-input-text'>
