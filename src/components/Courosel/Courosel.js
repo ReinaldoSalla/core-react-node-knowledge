@@ -3,20 +3,20 @@ import CONSTANTS from './Courosel.constants';
 import couroselReducer from './Courosel.reducer';
 import './Courosel.css';
 
-const computeCN = (lastIndex, currIndex, targetIndex) => {
-  if (currIndex === targetIndex) {
-    return `courosel-content courosel-content-keyframes-in`;
-  } else if (lastIndex === targetIndex) {
-    return `courosel-content courosel-content-keyframes-out`;
-  } else {
-    return 'courosel-content courosel-content-keyframes-off';
+const computeCN = (targetIndex, lastIndex, currIndex) => {
+  switch (targetIndex) {
+    case currIndex:
+      return 'courosel-content courosel-content-keyframes-in';
+    case lastIndex:
+      return 'courosel-content courosel-content-keyframes-out';
+    default:
+      return 'courosel-content courosel-content-keyframes-off';
   }
 };
 
 const Courosel = () => {
   const [state, dispatch] = useReducer(couroselReducer, { 
-    lastAndCurrIndex: [0, 0],
-    firstIteration: true
+    lastAndCurrIndex: [0, 0]
   });
 
   // useEffect(() => {
@@ -43,16 +43,24 @@ const Courosel = () => {
     dispatch({ type: CONSTANTS.MOVE_TO_THIRD_ITEM });
   };
 
+  const getCN = (targetIndex) => computeCN(
+    targetIndex,
+    state.lastAndCurrIndex[0],
+    state.lastAndCurrIndex[1]
+  );
+
+  const javascriptCN = getCN(0);
+
+  const reactCN = getCN(1);
+
+  const nodeCN = getCN(2);
+
   return (
     <div className='courosel'>
       <div style={{ color: 'white' }}>{state.lastAndCurrIndex}</div>
     
 
-      <div className={computeCN(
-        state.lastAndCurrIndex[0], 
-        state.lastAndCurrIndex[1], 
-        0
-      )}>
+      <div className={javascriptCN}>
         <h1 className='courosel-content-title'> 
           JavaScript Guides
         </h1>
@@ -67,11 +75,7 @@ const Courosel = () => {
       </div>
 
 
-      <div className={computeCN(
-        state.lastAndCurrIndex[0],
-        state.lastAndCurrIndex[1],
-        1
-      )}>
+      <div className={reactCN}>
         <h1 className='courosel-content-title'> 
           React Guides
         </h1>
@@ -86,11 +90,7 @@ const Courosel = () => {
       </div>
 
 
-      <div className={computeCN(
-        state.lastAndCurrIndex[0],
-        state.lastAndCurrIndex[1],
-        2
-      )}>
+      <div className={nodeCN}>
         <h1 className='courosel-content-title'> 
           Node Guides
         </h1>
