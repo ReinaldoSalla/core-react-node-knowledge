@@ -14,6 +14,8 @@ const computeCN = (targetIndex, lastIndex, currIndex) => {
   }
 };
 
+const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
 const Courosel = () => {
   const [state, dispatch] = useReducer(couroselReducer, { 
     lastAndCurrIndex: [0, 0]
@@ -31,12 +33,11 @@ const Courosel = () => {
   //   return () => clearInterval(intervalId)
   // });
 
-  const handleFirstItem = () => {
+  const handleFirstItem = async () => {
     dispatch({ type: CONSTANTS.MOVE_TO_FIRST_ITEM });
     console.log('deactivate');
-    setTimeout(() => {
-      console.log('activate');
-    }, 2000);
+    await sleep(2000);
+    console.log('activate');
   };
 
   const handleSecondItem = () => {
