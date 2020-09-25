@@ -9,7 +9,7 @@ const CategoriesContents = ({
   Svg 
 }) => (
   <div className='categoriescontent'>
-    <div className='couroselcontent-wrapper'>
+    <div className='categoriescontent-iconwrapper'>
       <Svg />
     </div>
     <h4 className='categoriescontent-title'>

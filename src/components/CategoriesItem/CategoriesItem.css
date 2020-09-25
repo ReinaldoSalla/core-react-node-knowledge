@@ -13,3 +13,11 @@
   font-weight: 600;
   text-align: center;
 }
+
+.couroselitem-contents {
+  margin: 32px 16px 0 16px;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  border: 1px solid black;
+}

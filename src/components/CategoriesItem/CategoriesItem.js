@@ -15,15 +15,17 @@ const CategoriesItem = ({
     <h3 className='categoriesitem-description'>
       {description}
     </h3>
-    {contents.map((content, index) => (
-      <CategoriesContents 
-        key={index}
-        title={content.title}
-        description={content.description}
-        path={content.path}
-        Svg={Svg}
-      />
-    ))}
+    <div className='couroselitem-contents'>
+      {contents.map((content, index) => (
+        <CategoriesContents 
+          key={index}
+          title={content.title}
+          description={content.description}
+          path={content.path}
+          Svg={Svg}
+        />
+      ))}
+    </div>
   </>
 );
 
