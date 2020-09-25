@@ -12,16 +12,9 @@ const Universal = () => {
   return (
     <>
       <Topbar />
-      <main>
         {routesConfig.map((route, index) => (
           <RouteParser key={index} {...route} />
         ))}
-      </main>
-      {new Array(100).fill(0).map((_, index) => (
-        <div key={index}>
-          content #{index+1}
-        </div>
-      ))}
       <Footer />
     </>
   );

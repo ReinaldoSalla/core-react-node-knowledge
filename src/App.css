@@ -12,7 +12,7 @@ medium: 576
   --hover-color: #c41010;
 }
 
-html, body, #root, main, footer {
+html, body, #root, footer {
   padding: 0;
   margin: 0;
   width: 100%;
