@@ -50,11 +50,6 @@
   color: var(--font-color);
 }
 
-.categoriescontent-checkwrapper {
-  display: flex;
-  align-items: center;
-}
-
 .categoriescontent-checkwrapper-text {
   font-size: 18px;
   line-height: 70%;
@@ -63,12 +58,6 @@
   text-align: center;
   transform: translateY(-2.5px);
   color: var(--text-color);
-}
-
-.categoriescontent-checkwrapper-icon {
-  color: var(--text-color);
-  height: 18px;
-  width: 18px;
 }
 
 @media only screen and (max-width: 576px) {
@@ -97,10 +86,5 @@
 
   .categoriescontent-checkwrapper-text {
     font-size: 16px;
-  }
-
-  .catgoriescontent-checkwrapper-icon {
-    height: 16px;
-    width: 16px;
   }
 }

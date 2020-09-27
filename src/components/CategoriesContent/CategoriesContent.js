@@ -23,9 +23,8 @@ const CategoriesContents = ({
     </div>
     <div className='categoriescontent-checkwrapper'>
       <span className='categoriescontent-checkwrapper-text'>
-        Check {title} {/* → */}
+        Check {title} →
       </span>
-      <RightArrowSvg className='categoriescontent-checkwrapper-icon' />
     </div>
   </Link>
 );
