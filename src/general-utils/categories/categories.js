@@ -33,28 +33,6 @@ const categories = {
 			},
 		],
 	},
-	typescript: {
-		title: 'TypeScript',
-		description: 'Fundamentals for extending JavaScript',
-		contents: [
-			{
-				title: 'Types',
-				description: 'Statically type check JavaScript code',
-				path: '/types',
-			},
-			{
-				title: 'Interfaces',
-				description:
-					'Creating a blueprint for data consisting of key-value pairs',
-				path: '/interfaces',
-			},
-			{
-				title: 'Generics',
-				description: 'Allowing the usage of multiple types',
-				path: '/generics',
-			},
-		],
-	},
 	react: {
 		title: 'React',
 		description:
@@ -102,8 +80,8 @@ const categories = {
 			},
 		],
 	},
-	backend: {
-		title: 'GraphQL',
+	node: {
+		title: 'Node',
 		description: 'Extending applications with Node.js and GraphQL',
 		contents: [
 			{

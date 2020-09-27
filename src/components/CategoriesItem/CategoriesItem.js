@@ -15,7 +15,7 @@ const CategoriesItem = ({
     <h3 className='categoriesitem-description'>
       {description}
     </h3>
-    <div className='couroselitem-contents'>
+    <section className='categoriesitem-contents'>
       {contents.map((content, index) => (
         <CategoriesContents 
           key={index}
@@ -25,7 +25,10 @@ const CategoriesItem = ({
           Svg={Svg}
         />
       ))}
-    </div>
+      {new Array(4).fill(0).map((_, index) => (
+        <div key={index} className='categoriesitem-contents-empty' />
+      ))}
+    </section>
   </>
 );
 

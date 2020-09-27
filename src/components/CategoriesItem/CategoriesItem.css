@@ -14,10 +14,25 @@
   text-align: center;
 }
 
-.couroselitem-contents {
-  margin: 32px 16px 0 16px;
+.categoriesitem-contents {
+  margin-top: 32px;
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
-  border: 1px solid black;
+}
+
+.categoriesitem-contents-empty {
+  margin: 0 16px;
+  height: 0;
+  width: 350px;
+}
+
+@media only screen and (max-width: 576px) {
+  .categoriesitem-title {
+    font-size: 32px;
+  }
+
+  .categoriesitem-description {
+    font-size: 22px;
+  }
 }

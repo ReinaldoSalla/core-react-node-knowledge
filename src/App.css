@@ -1,15 +1,20 @@
 /*
-width breakpoints
-extra-small: 330
-small: 400
-medium: 576
+breakpoints: {
+  extraSmall: generateMedia(330),
+  small: generateMedia(576),
+  medium: generateMedia(768),
+  large: generateMedia(1024),
+  extraLarge: generateMedia(1200)
+}
 */
 
 :root {
   --topbar-height: 80px;
 
   --bg-color: #280808;
+  --bg-second-color: #f2f2f2;
   --hover-color: #c41010;
+  --font-color: #590b0b;
 }
 
 html, body, #root, footer {

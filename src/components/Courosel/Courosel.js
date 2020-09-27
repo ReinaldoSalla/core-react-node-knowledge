@@ -132,11 +132,10 @@ const Courosel = () => {
         </h2>
         <div className='courosel-content-check'>
           <span className='courosel-content-check-text'>
-            Check JavaScript Tutorials
+            Check JavaScript Tutorials 
           </span>
         </div>
       </div>
-
 
       <div className={reactCN}>
         <h1 className='courosel-content-title'> 
