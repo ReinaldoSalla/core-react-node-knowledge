@@ -20,8 +20,9 @@
   padding: 16px;
   width: 32px;
   height: 32px;
-  border: 1px solid black;
+  border: 1px solid var(--font-color);
   border-radius: 50%;
+  color: var(--font-color);
 }
 
 .categoriescontent-iconwrapper-icon {
@@ -57,7 +58,7 @@
   font-weight: 300;
   text-align: center;
   transform: translateY(-2.5px);
-  color: var(--text-color);
+  color: var(--font-color);
 }
 
 @media only screen and (max-width: 576px) {

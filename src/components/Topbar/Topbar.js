@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import TopbarButton from '../TopbarButton';
 import { ReactComponent as ContentsSvg } from '../../assets/icons/contents.svg'
 import { ReactComponent as JavaScriptSvg } from '../../assets/icons/javascript.svg';
@@ -8,6 +9,7 @@ import './Topbar.css';
 
 const Topbar = () => {
   const [isInTop, setIsInTop] = useState(window.pageYOffset <= 50);
+  const { pathname } = useLocation();
 
   useEffect(() => {
     const onScroll = () => {
@@ -24,7 +26,7 @@ const Topbar = () => {
         <TopbarButton Svg={JavaScriptSvg} text='Home' large/>
         <TopbarButton Svg={SearchSvg} text='Search' large/>
         <TopbarButton Svg={ProfileSvg} text='Profile' />
-        <div className={`topbar-filler${isInTop ? '' : ' topbar-filler-transition'}`} />
+        <div className={`topbar-filler${isInTop && pathname === '/' ? '' : ' topbar-filler-transition'}`} />
       </nav>
     </header>
   );

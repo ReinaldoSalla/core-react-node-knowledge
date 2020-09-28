@@ -1,0 +1,20 @@
+.basecontentpage {
+  padding: var(--topbar-height) 20px 0 20px;
+  animation: 500ms basecontentpage-fade-in;
+}
+
+@keyframes basecontentpage-fade-in {
+  from {
+    transform: translateX(-10%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.basecontentpage-text {
+  line-height: 1.7;
+}
