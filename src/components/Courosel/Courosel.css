@@ -7,7 +7,7 @@
   height: 100%;
   position: relative;
   overflow: hidden;  
-  /* border: 1px solid red; */
+  --courosel-animation-duration: 2500ms;
 }
 
 .courosel-content {
@@ -23,7 +23,7 @@
 }
 
 .courosel-content-keyframes-in {
-  animation: fade-in 2500ms forwards;
+  animation: fade-in var(--courosel-animation-duration) forwards;
 }
 
 @keyframes fade-in {
@@ -128,14 +128,14 @@
   transition: transform 500ms, opacity 500ms ease-in-out;
 }
 
-.courosel-select-inputs-input-disabled {
-  pointer-events: none;
-  opacity: 0.25;
-}
-
 .courosel-select-inputs-input:hover {
   cursor: pointer;
   transform: scale(1.2);
+}
+
+.courosel-select-inputs-input-disabled {
+  pointer-events: none;
+  opacity: 0.25;
 }
 
 .courosel-select-inputs-input-text {
@@ -144,7 +144,7 @@
   width: 100px;
   text-align: center;
   color: white;
-  transition: color 2500ms;
+  transition: color var(--courosel-animation-duration);
   z-index: 2;
 }
 
@@ -159,7 +159,7 @@
   border-radius: 5px;
   width: 0;
   opacity: 0;
-  transition: width 2500ms, opacity 2500ms;
+  transition: width var(--courosel-animation-duration), opacity var(--courosel-animation-duration);
   z-index: 1;
 }
 

@@ -3,8 +3,6 @@ import CONSTANTS from './Courosel.constants';
 import couroselReducer from './Courosel.reducer';
 import './Courosel.css';
 
-const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
-
 const computeCN = (targetIndex, lastIndex, currIndex) => {
   switch (targetIndex) {
     case currIndex:
@@ -42,50 +40,16 @@ const Courosel = () => {
     isThirdButtonActivated: true
   });
 
-  // useEffect(() => {
-  //   const handleNextItem = () => {
-  //     dispatch({ type: ACTION_TYPES.MOVE_TO_NEXT_ITEM });
-  //   }
-
-  //   const intervalId = setInterval(() => {
-  //     handleNextItem()
-  //   }, DURATION);
-
-  //   return () => clearInterval(intervalId)
-  // });
-
-  // useEffect(() => {
-  //   const timeoutId = setTimeout(() => {
-  //     dispatch({ type: CONSTANTS.FREE_ALL_BUTTONS });
-  //   }, 2000);
-  //   return () => clearTimeout(timeoutId);
-  // }, []);
-
   const handleFirstItem = async () => {
-    if (state.indexesStackOrderTwo[1] !== 0) {
-      dispatch({ type: CONSTANTS.MOVE_TO_FIRST_ITEM });
-      // dispatch({ type: CONSTANTS.LOCK_ON_FIRST_BUTTON });
-      // await sleep(2000);
-      // dispatch({ type: CONSTANTS.FREE_ALL_BUTTONS });
-    }
+    dispatch({ type: CONSTANTS.MOVE_TO_FIRST_ITEM });
   };
 
   const handleSecondItem = async () => {
-    if (state.indexesStackOrderTwo[1] !== 1) {
-      dispatch({ type: CONSTANTS.MOVE_TO_SECOND_ITEM });
-      // dispatch({ type: CONSTANTS.LOCK_ON_SECOND_BUTTON });
-      // await sleep(2000);
-      // dispatch({ type: CONSTANTS.FREE_ALL_BUTTONS });
-    }
+    dispatch({ type: CONSTANTS.MOVE_TO_SECOND_ITEM });
   };
 
   const handleThirdItem = async () => {
-    if (state.indexesStackOrderTwo[1] !== 2) {
-      dispatch({ type: CONSTANTS.MOVE_TO_THIRD_ITEM });
-      // dispatch({ type: CONSTANTS.LOCK_ON_THIRD_BUTTON });
-      // await sleep(2000);
-      // dispatch({ type: CONSTANTS.FREE_ALL_BUTTONS });
-    }
+    dispatch({ type: CONSTANTS.MOVE_TO_THIRD_ITEM });
   };
 
   const getCN = (targetIndex) => computeCN(
