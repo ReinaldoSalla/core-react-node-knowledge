@@ -31,7 +31,10 @@ const BaseContentPage = () => {
         </span>
       </div> 
       <p className='basecontentpage-text'>
-        After npm run start is finished, React will lauch a server in <a href='http://localhost:3000' target='_blank'>localhost:3000</a>. There are some files which are unnecessary for this guide. You can leave them if you want, but if you're interested in cleaning up, to start with the minimum amout of files and code, you may do the following.
+        After {' '}
+          <span className='basecontentpage-text-background'> 
+            npm run start 
+          </span> is finished, React will lauch a server in <a className='basecontentpage-link' href='http://localhost:3000' target='_blank'>localhost:3000</a>. There are some files which are unnecessary for this guide. You can leave them if you want, but if you're interested in cleaning up, to start with the minimum amout of files and code, you may do the following.
       </p>
       <p className='basecontentpage-text'>
         Inside the src folder, delete App.test.js, index.css, logo.svg, serviceWorker.js and setupTests.js

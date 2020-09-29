@@ -19,10 +19,24 @@
   line-height: 1.7;
 }
 
+.basecontentpage-text-background {
+  background: rgba(187,239,253,0.3);
+}
+
+.basecontentpage-link {
+  font-weight: 600;
+  color: red;
+  transition: color 250ms;
+}
+
+.basecontentpage-link:hover {
+  color: orange;
+}
+
 .basecontentpage-wrapper {
   display: flex;
   flex-direction: column;
-  background: black;
+  background: var(--bg-color);
   border-radius: 10px;
 }
 
