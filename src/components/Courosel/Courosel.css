@@ -179,10 +179,21 @@
 }
 
 .courosel-select-timer-row {
-  width: 50%;
   height: 10px;
   border-top: 2px solid white;
+  animation: grow-width 15000ms linear forwards;
 }
+
+@keyframes grow-width {
+  0% {
+    width: 0;
+  }
+
+  100% {
+    width: 100%;
+  }
+}
+
 
 @media only screen and (max-width: 576px) {
   .courosel-content-title {
