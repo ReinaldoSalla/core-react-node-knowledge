@@ -15,6 +15,8 @@ breakpoints: {
   --bg-second-color: #f2f2f2;
   --hover-color: #c41010;
   --font-color: #590b0b;
+
+  --courosel-animation-duration: 2500ms;
 }
 
 html, body, #root, footer {
