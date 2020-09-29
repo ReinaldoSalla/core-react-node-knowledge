@@ -18,3 +18,21 @@
 .basecontentpage-text {
   line-height: 1.7;
 }
+
+.basecontentpage-wrapper {
+  display: flex;
+  flex-direction: column;
+  background: black;
+  border-radius: 10px;
+}
+
+.basecontentpage-wrapper-text {
+  display: inline-block;
+  color: white;
+  word-spacing: 2px;
+  margin: 20px 20px 0 20px;
+}
+
+.basecontentpage-wrapper-text:last-of-type {
+  margin-bottom: 20px;
+}
