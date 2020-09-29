@@ -1,10 +1,11 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Footer.css';
 
 const Footer = () => (
   <footer className='footer'>
-    <span className='footer-link'> Contact </span>
-    <span className='footer-link'> Philosophy </span>
+    <Link className='footer-link' to='/contact'> Contact </Link>
+    <Link className='footer-link' to='/philosohpy'> Philosophy </Link>
     <span className='footer-msg'>
       Copyright © {new Date().getFullYear()} JavaScriptTemporal
     </span>

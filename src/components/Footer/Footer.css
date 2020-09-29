@@ -12,6 +12,11 @@
 .footer-link {
   font-size: 32px;
   color: white;
+  border-bottom: 1px solid white;
+}
+
+.footer-link:hover {
+  color: var(--hover-color);
 }
 
 .footer-msg, .footer-msg-italic {
