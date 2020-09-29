@@ -10,7 +10,7 @@ const BaseContentPage = () => {
       <h1>React - Rendering</h1>
       <h2>1. Intro</h2>
       <p className='basecontentpage-text'>
-        The idea of this guide is to explore JSX, styling and state management (useState and useReducer) in React. We'll use create-react-app to setup the project structure.
+        The idea of this guide is to explore JSX, styling and state management (useState and useReducer) in React, by creating a response and interactive webpage. We'll use create-react-app to setup the project structure.
       </p>
       <h2>2. Setup</h2>
       <p className='basecontentpage-text'>
@@ -46,7 +46,7 @@ const BaseContentPage = () => {
         And this code in App.js
       </p>
       <p className='basecontentpage-text'>
-        If you find yourself deleting these files too often, you can alternatively clone this <a href='https://google.com' target='_blank'>repository</a>. Of course service workers and testes are important for projects in production, but for guides and experimentation, they can be removed.
+        If you find yourself deleting these files too often, you can alternatively clone this <a href='https://google.com' target='_blank'>repository</a>. Of course service workers and testes are important for projects in production, but for guides like this one, they can be removed.
       </p>
       <h2>2. JSX</h2>
       <p className='basecontentpage-text'>
