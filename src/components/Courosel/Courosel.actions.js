@@ -19,42 +19,8 @@ const moveToThirdItem = (state) => {
   };
 };
 
-const freeAllButtons = (state) => {
-  return {
-    ...state,
-    isFirstButtonActivated: true,
-    isSecondButtonActivated: true,
-    isThirdButtonActivated: true
-  };
-};
-
-const lockOnFirstButton = (state) => ({
-  ...state,
-  isFirstButtonActivated: true,
-  isSecondButtonActivated: false,
-  isThirdButtonActivated: false
-});
-
-const lockOnSecondButton = (state) => ({
-  ...state,
-  isFirstButtonActivated: false,
-  isSecondButtonActivated: true,
-  isThirdButtonActivated: false
-});
-
-const lockOnThirdButton = (state) => ({
-  ...state,
-  isFirstButtonActivated: false,
-  isSecondButtonActivated: false,
-  isThirdButtonActivated: true
-})
-
 export {
   moveToFirstItem,
   moveToSecondItem,
   moveToThirdItem,
-  freeAllButtons,
-  lockOnFirstButton,
-  lockOnSecondButton,
-  lockOnThirdButton
 };
