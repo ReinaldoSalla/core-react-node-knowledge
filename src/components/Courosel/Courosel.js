@@ -3,6 +3,8 @@ import CONSTANTS from './Courosel.constants';
 import couroselReducer from './Courosel.reducer';
 import './Courosel.css';
 
+const asyncSleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
 const computeCN = (targetIndex, lastIndex, currIndex) => {
   switch (targetIndex) {
     case currIndex:
@@ -42,14 +44,20 @@ const Courosel = () => {
 
   const handleFirstItem = async () => {
     dispatch({ type: CONSTANTS.MOVE_TO_FIRST_ITEM });
+    await asyncSleep(500);
+    dispatch({ type: CONSTANTS.HIDDENLY_MOVE_LAST_ITEM });    
   };
 
   const handleSecondItem = async () => {
     dispatch({ type: CONSTANTS.MOVE_TO_SECOND_ITEM });
+    await asyncSleep(500);
+    dispatch({ type: CONSTANTS.HIDDENLY_MOVE_LAST_ITEM });
   };
 
   const handleThirdItem = async () => {
     dispatch({ type: CONSTANTS.MOVE_TO_THIRD_ITEM });
+    await asyncSleep(500);
+    dispatch({ type: CONSTANTS.HIDDENLY_MOVE_LAST_ITEM });
   };
 
   const getCN = (targetIndex) => computeCN(
@@ -84,7 +92,7 @@ const Courosel = () => {
 
   return (
     <div className='courosel'>
-      <div style={{ color: 'white' }}>{state.indexesStackOrderTwo}</div>
+      {/* <div style={{ color: 'white' }}>[{state.indexesStackOrderTwo[0]}, {state.indexesStackOrderTwo[1]}]</div> */}
     
 
       <div className={javascriptCN}>

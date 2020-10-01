@@ -19,8 +19,14 @@ const moveToThirdItem = (state) => {
   };
 };
 
+const hiddenlyMoveLastItem = (state) => ({
+  ...state,
+  indexesStackOrderTwo: [42, state.indexesStackOrderTwo[1]]
+});
+
 export {
   moveToFirstItem,
   moveToSecondItem,
   moveToThirdItem,
+  hiddenlyMoveLastItem
 };

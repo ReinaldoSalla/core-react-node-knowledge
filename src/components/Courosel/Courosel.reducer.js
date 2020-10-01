@@ -3,6 +3,7 @@ import {
   moveToFirstItem,
   moveToSecondItem,
   moveToThirdItem,
+  hiddenlyMoveLastItem,
 } from './Courosel.actions';
 
 const couroselReducer = (state, action) => {
@@ -13,6 +14,8 @@ const couroselReducer = (state, action) => {
       return moveToSecondItem(state);
     case CONSTANTS.MOVE_TO_THIRD_ITEM:
       return moveToThirdItem(state);
+    case CONSTANTS.HIDDENLY_MOVE_LAST_ITEM:
+      return hiddenlyMoveLastItem(state);
     default:
       return Error(`Action type '${action.type}' is not defined`);
   }
