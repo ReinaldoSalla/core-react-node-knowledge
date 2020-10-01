@@ -44,19 +44,19 @@ const Courosel = () => {
 
   const handleFirstItem = async () => {
     dispatch({ type: CONSTANTS.MOVE_TO_FIRST_ITEM });
-    await asyncSleep(500);
+    await asyncSleep(250);
     dispatch({ type: CONSTANTS.HIDDENLY_MOVE_LAST_ITEM });    
   };
 
   const handleSecondItem = async () => {
     dispatch({ type: CONSTANTS.MOVE_TO_SECOND_ITEM });
-    await asyncSleep(500);
+    await asyncSleep(250);
     dispatch({ type: CONSTANTS.HIDDENLY_MOVE_LAST_ITEM });
   };
 
   const handleThirdItem = async () => {
     dispatch({ type: CONSTANTS.MOVE_TO_THIRD_ITEM });
-    await asyncSleep(500);
+    await asyncSleep(250);
     dispatch({ type: CONSTANTS.HIDDENLY_MOVE_LAST_ITEM });
   };
 

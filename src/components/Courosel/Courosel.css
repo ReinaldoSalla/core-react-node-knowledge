@@ -46,9 +46,9 @@
 }
 
 .courosel-content-keyframes-out {
-  transform: scale(1.25);
+  transform: scale(2);
   opacity: 0;
-  transition: transform 500ms, opacity 500ms;
+  transition: transform 1000ms, opacity 250ms;
 }
 
 
