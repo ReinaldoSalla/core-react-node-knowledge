@@ -1,0 +1,38 @@
+courosel
+scrollTo
+BaseContentPage contentsbar
+stagger animations when visible categories content
+sidebar for mapping the contents
+stronger css, flexbox(basis grow, shrink, basis), zindex, position
+styledcomponents naming, atomic, prefix
+syntax highlight
+proptypes
+<main>
+err msg when using a module, like react-router-domwhat about the prefix that styled-components automatically added
+react articles
+backend articles
+javascript articles
+concat and philosofy
+generic basecontentpage reading data from somewhere
+cms
+
+setup a eslint
+clear errs eslint
+write automated tests for frontend and backend
+typescriptify
+sprigify
+componify
+video with better resolution but lower speed kbps
+handle the video stop start transition
+being able to stop the video and accessibility
+how to test on mobile
+final mobile layout optimization
+security frontend, security backend
+loading structures
+how to show a loading icon until the page loads, like how to properly initialize the screen for the first time, and avoid that first lag effect
+cross browser compatibility testing
+loading a media from s3
+remote database
+legal, mit licence
+deploy
+ci

@@ -1,0 +1,13 @@
+very quicky ui -> 1-bit, 2-storybook, 3-materialui, 4-exp html,css,js,react
+bus 5h 5h 5h
+gatsby, next
+redux, mobx, rxjs
+sass
+materialui, boostrap
+storybook, figma
+firebase, aws, strapi
+mongo, postgres, elasticsearch
+
+react native
+graphics
+ai
