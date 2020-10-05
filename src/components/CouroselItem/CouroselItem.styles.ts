@@ -1,10 +1,13 @@
 import styled from 'styled-components';
 import { animated } from 'react-spring';
 
-const CouroselItemWrapper = styled(animated.div)`
+const CouroselItemSharedWrapper = styled(animated.div)`
   display: flex;
-  flex-direction: column;
   align-items: center;
+`;
+
+const CouroselItemWrapper = styled(CouroselItemSharedWrapper)`
+  flex-direction: column;
   justify-content: space-evenly;
   height: calc(100% - var(--topbar-height) - 20px);
   position: absolute;
@@ -28,9 +31,7 @@ const CouroselItemDescription = styled.h2`
   text-align: center;
 `;
 
-const CouroselItemCheckWrapper = styled.div`
-  display: flex;
-  align-items: center;
+const CouroselItemCheckWrapper = styled(CouroselItemSharedWrapper)`
   justify-content: center;
   width: 150px;
   height: 130px;

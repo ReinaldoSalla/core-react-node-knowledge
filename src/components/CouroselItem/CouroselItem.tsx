@@ -22,7 +22,6 @@ const CouroselItem = ({ style, name, title, description, check }) => {
         </CouroselItemCheck>
       </CouroselItemCheckWrapper>
     </CouroselItemWrapper>
-
   );
 };
 
