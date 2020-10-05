@@ -10,14 +10,14 @@ import {
 const CouroselItem = ({ style, name, title, description, check }) => {
   return (
     <CouroselItemWrapper style={style}>
-      <CouroselItemTitle>
+      <CouroselItemTitle as='h1'>
         {title}
       </CouroselItemTitle>
-      <CouroselItemDescription>
+      <CouroselItemDescription as='h2'>
         {description}
       </CouroselItemDescription>
       <CouroselItemCheckWrapper>
-        <CouroselItemCheck>
+        <CouroselItemCheck as='span'>
           {check}
         </CouroselItemCheck>
       </CouroselItemCheckWrapper>

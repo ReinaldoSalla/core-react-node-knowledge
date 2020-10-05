@@ -6,6 +6,12 @@ const CouroselItemSharedWrapper = styled(animated.div)`
   align-items: center;
 `;
 
+const CouroselItemSharedText = styled.div`
+  margin: 0 16px;
+  color: white;
+  text-align: center;
+`;
+
 const CouroselItemWrapper = styled(CouroselItemSharedWrapper)`
   flex-direction: column;
   justify-content: space-evenly;
@@ -15,20 +21,12 @@ const CouroselItemWrapper = styled(CouroselItemSharedWrapper)`
   padding-bottom: 20px;
 `;
 
-const CouroselItemTitle = styled.h1`
-  padding: 0;
-  margin: 0 16px;
+const CouroselItemTitle = styled(CouroselItemSharedText)`
   font-size: 46px;
-  color: white;
-  text-align: center;
 `;
 
-const CouroselItemDescription = styled.h2`
-  padding: 0;
-  margin: 0 16px;
+const CouroselItemDescription = styled(CouroselItemSharedText)`
   font-size: 32px;
-  color: white;
-  text-align: center;
 `;
 
 const CouroselItemCheckWrapper = styled(CouroselItemSharedWrapper)`
@@ -39,12 +37,10 @@ const CouroselItemCheckWrapper = styled(CouroselItemSharedWrapper)`
   border-radius: 20px;
 `;
 
-const CouroselItemCheck = styled.span`
+const CouroselItemCheck = styled(CouroselItemSharedText)`
   padding-bottom: 4px;
   font-size: 28px;
   font-weight: 600;
-  color: white;
-  text-align: center;
 `;
 
 export {
