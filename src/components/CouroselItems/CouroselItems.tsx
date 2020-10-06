@@ -5,7 +5,7 @@ import {
   CouroselItemDescription,
   CouroselItemCheckWrapper,
   CouroselItemCheck
-} from './CouroselItem.styles';
+} from './CouroselItems.styles';
 
 const CouroselItem = ({ style, name, title, description, check }) => {
   return (

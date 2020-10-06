@@ -34,9 +34,26 @@ const CouroselInputText = styled.span`
   z-index: 2;
 `;
 
+const CouroselInputTimer = styled.div`
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 20px;
+`;
+
+const CouroselInputRow = styled.div`
+  height: 10px;
+  border-top: 2px solid white;
+  width: 50%;
+`;
+
 export {
   CouroselInputWrapper,
   CouroselInputArea,
   CouroselInputButton,
-  CouroselInputText
+  CouroselInputText,
+  CouroselInputTimer,
+  CouroselInputRow
 };

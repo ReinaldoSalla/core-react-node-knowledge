@@ -1,3 +1,6 @@
+import React from 'react';
+import CouroselItem from './CouroselItems';
+
 const titleGenerator = (name: string): string => `${name} Guides`;
 
 const checkGenerator = (name: string): string => `Check ${name} Tutorials`;
@@ -24,4 +27,17 @@ const texts = [
 	},
 ];
 
-export default texts;
+const couroselItems = texts.map(({ name, title, description, check }) => {
+  return ({ style }) => (
+    <CouroselItem 
+      style={style}
+      name={name}
+      title={title}
+      description={description}
+      check={check}
+    />
+  );
+});
+
+
+export default couroselItems;

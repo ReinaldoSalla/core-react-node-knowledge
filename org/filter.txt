@@ -19,6 +19,7 @@ cms
 setup a eslint
 clear errs eslint
 write automated tests for frontend and backend
+structure the files and hierarchy for the components, primary, secondary, 
 typescriptify
 sprigify
 componify

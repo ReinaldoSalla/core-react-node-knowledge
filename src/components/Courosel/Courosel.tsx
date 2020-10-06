@@ -1,32 +1,45 @@
-import React from 'react';
+import React, { useReducer, useEffect } from 'react';
 import { useTransition } from 'react-spring';
-import { Wrapper } from './Courosel.styles';
-import { transitionProps } from './Courosel.animations';
-import CouroselItem from '../CouroselItem';
+import { CouroselWrapper } from './Courosel.styles';
 import CouroselInput from '../CouroselInput';
-import texts from '../CouroselItem/CouroselItem.utils';
+import couroselInitialState from './Courosel.init';
+import { couroselTransitionProps } from './Courosel.animations';
+import couroselReducer from './Courosel.reducer';
+import COUROSEL_CONSTANTS from './Courosel.constants';
+import couroselItems from '../CouroselItems';
 
 const Courosel = () => {
-
+  const [state, dispatch] = useReducer(couroselReducer, couroselInitialState);
   const transitions = useTransition(0, null, {
-    ...transitionProps,
+    ...couroselTransitionProps,
     order: ['leave', 'enter', 'update']
   });
 
-  const couroselItems = texts.map(({ name, title, description, check }) => {
-    return ({ style }) => (
-      <CouroselItem 
-        style={style}
-        name={name}
-        title={title}
-        description={description}
-        check={check}
-      />
-    )
-  })
+  const handleFirstClick = () => {
+    dispatch({ type: COUROSEL_CONSTANTS.MOVE_TO_FIRST_ITEM });
+  };
+
+  const handleSecondClick = () => {
+    dispatch({ type: COUROSEL_CONSTANTS.MOVE_TO_SECOND_ITEM});
+  };
+
+  const handleThirdClick = () => {
+    dispatch({ type: COUROSEL_CONSTANTS.MOVE_TO_THIRD_ITEM });
+  };
+
+  useEffect(() => {
+    const handleNextItem = () => {
+      dispatch({ type: COUROSEL_CONSTANTS.MOVE_TO_NEXT_ITEM });
+    };
+
+    const intervalId = setInterval(() => {
+      handleNextItem();
+    }, COUROSEL_CONSTANTS.DURATION);
+    return () => clearInterval(intervalId);
+  });
 
   return (
-    <Wrapper>
+    <CouroselWrapper>
       {transitions.map(({ item, props, key }) => {
         const Item = couroselItems[item];
           return (
@@ -37,7 +50,7 @@ const Courosel = () => {
           )
       })}
       <CouroselInput />
-    </Wrapper>
+    </CouroselWrapper>
   );
 };
 

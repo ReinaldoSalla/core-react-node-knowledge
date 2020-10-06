@@ -1,34 +1,36 @@
-// const moveToFirstItem = (state) => {
-//   return {
-//     ...state,
-//     indexesStackOrderTwo: [state.indexesStackOrderTwo[1], 0]
-//   };
-// };
+const moveToNextItem = (state) => {
+	let newIndex = state.index + 1;
+	if (newIndex === 4) newIndex = 0; // couroselItems.length
+	return {
+		index: newIndex,
+		isTimerEnabled: true,
+	};
+};
 
-// const moveToSecondItem = (state) => {
-//   return {
-//     ...state,
-//     indexesStackOrderTwo: [state.indexesStackOrderTwo[1], 1]
-//   };
-// };
+const moveToFirstItem = () => ({
+	index: 0,
+	isTimerEnabled: false,
+});
 
-// const moveToThirdItem = (state) => {
-//   return {
-//     ...state,
-//     indexesStackOrderTwo: [state.indexesStackOrderTwo[1], 2]
-//   };
-// };
+const moveToSecondItem = () => ({
+	index: 1,
+	isTimerEnabled: false,
+});
 
-// const hiddenlyMoveLastItem = (state) => ({
-//   ...state,
-//   indexesStackOrderTwo: [42, state.indexesStackOrderTwo[1]]
-// });
+const moveToThirdItem = () => ({
+	index: 2,
+	isTimerEnabled: false,
+});
 
-// export {
-//   moveToFirstItem,
-//   moveToSecondItem,
-//   moveToThirdItem,
-//   hiddenlyMoveLastItem
-// };
+const moveToForthItem = () => ({
+	index: 3,
+	isTimerEnabled: false,
+});
 
-export default 0;
+export {
+	moveToNextItem,
+	moveToFirstItem,
+	moveToSecondItem,
+	moveToThirdItem,
+	moveToForthItem,
+};

@@ -3,7 +3,9 @@ import {
   CouroselInputWrapper,
   CouroselInputArea,
   CouroselInputButton,
-  CouroselInputText
+  CouroselInputText,
+  CouroselInputTimer,
+  CouroselInputRow
 } from './CouroselInput.styles';
 
 const CouroselInput: FunctionComponent = (): JSX.Element => {
@@ -26,6 +28,9 @@ const CouroselInput: FunctionComponent = (): JSX.Element => {
           </CouroselInputText>
         </CouroselInputButton>
       </CouroselInputArea>
+      <CouroselInputTimer>
+        <CouroselInputRow />
+      </CouroselInputTimer>
     </CouroselInputWrapper>
   );
 };

@@ -8,7 +8,7 @@ const customConfig = {
   input: { duration: 2000 }
 }
 
-const transitionProps: any = {
+const couroselTransitionProps: any = {
   config: customConfig.content,
   trail: 1000,
   from: { 
@@ -25,4 +25,4 @@ const transitionProps: any = {
   }
 };
 
-export { transitionProps };
+export { couroselTransitionProps };
