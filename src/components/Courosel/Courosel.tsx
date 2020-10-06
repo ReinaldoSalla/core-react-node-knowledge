@@ -3,6 +3,7 @@ import { useTransition } from 'react-spring';
 import { Wrapper } from './Courosel.styles';
 import { transitionProps } from './Courosel.animations';
 import CouroselItem from '../CouroselItem';
+import CouroselInput from '../CouroselInput';
 import texts from '../CouroselItem/CouroselItem.utils';
 
 const Courosel = () => {
@@ -35,6 +36,7 @@ const Courosel = () => {
             />
           )
       })}
+      <CouroselInput />
     </Wrapper>
   );
 };

@@ -1,1 +1,3 @@
-export default 0;
+import CouroselInput from './CouroselInput';
+
+export default CouroselInput;
