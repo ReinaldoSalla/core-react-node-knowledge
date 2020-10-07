@@ -18,6 +18,7 @@ cms
 
 setup a eslint
 clear errs eslint
+intergrate the repos 
 write automated tests for frontend and backend
 structure the files and hierarchy for the components, primary, secondary, 
 typescriptify

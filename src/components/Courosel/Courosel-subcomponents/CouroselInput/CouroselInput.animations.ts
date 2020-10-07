@@ -1,20 +1,28 @@
 import CONSTANTS from '../../Courosel.constants';
 
-const couroselInputAnimation = {
-  config: { 
-    duration: CONSTANTS.DURATION 
-  },
-  from: {
-    width: 0,
-    opacity: 0
-  },
-  to: {
-    width: 99,
-    opacity: 1
-  },
+const couroselTimerOffset = 15;
+
+const couroselTimerAnimation = {
+  config: { duration: CONSTANTS.DURATION },
+  from: { width: 0, opacity: 0 },
+  to: { width: 99, opacity: 1 },
   reset: true
 };
 
-const offset = 15;
+const getTextProps = (currentIndex: number, targetIndex: number): any => ({
+	config: { duration: 2000 },
+	color: currentIndex === targetIndex ? 'black' : 'white',
+});
 
-export { couroselInputAnimation, offset };
+const getInnerProps = (currentIndex: number, targetIndex: number): any => ({
+	config: { duration: 2000 },
+	background: currentIndex === targetIndex ? 'white' : 'rgba(0, 0, 0, 0)',
+	width: currentIndex === targetIndex ? '100%' : '0%',
+});
+
+export { 
+  couroselTimerAnimation, 
+  couroselTimerOffset,
+  getTextProps,
+  getInnerProps 
+};

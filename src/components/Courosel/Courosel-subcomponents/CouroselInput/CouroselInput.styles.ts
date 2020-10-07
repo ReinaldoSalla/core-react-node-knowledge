@@ -32,14 +32,17 @@ const CouroselInputButton = styled.div`
   }
 `;
 
-const CouroselInputText = styled.span`
+const CouroselInputText = styled(animated.span)`
   position: absolute;
   font-size: 20px;
   width: 100px;
   text-align: center;
-  color: white;
   z-index: 2;
 `;
+
+const CouroselInputInner = styled(animated.div)`
+  height: 100%;
+`
 
 const CouroselInputTimer = styled.div`
   margin-top: 8px;
@@ -60,6 +63,7 @@ export {
   CouroselInputArea,
   CouroselInputButton,
   CouroselInputText,
+  CouroselInputInner,
   CouroselInputTimer,
   CouroselInputRow
 };
