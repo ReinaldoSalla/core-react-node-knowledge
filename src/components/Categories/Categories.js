@@ -1,5 +1,5 @@
 import React from 'react';
-import CategoriesItem from '../CategoriesItem';
+import CategoriesItem from './Categories-subcomponents/CategoriesItem';
 import { ReactComponent as JavaScriptSvg } from '../../assets/icons/javascript.svg';
 import { ReactComponent as ReactSvg } from '../../assets/icons/react.svg';
 import { ReactComponent as ServerSvg } from '../../assets/icons/server.svg';

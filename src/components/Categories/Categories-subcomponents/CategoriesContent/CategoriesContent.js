@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ReactComponent as RightArrowSvg } from '../../assets/icons/arrow.right.svg';
 import './CategoriesContent.css'
 
 const CategoriesContents = ({ 
