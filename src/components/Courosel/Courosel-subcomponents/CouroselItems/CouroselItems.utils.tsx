@@ -28,13 +28,14 @@ const texts = [
 ];
 
 const couroselItems = texts.map(({ name, title, description, check }) => {
-  return ({ style }) => (
+  return ({ style, scrollToElement }) => (
     <CouroselItem 
       style={style}
       name={name}
       title={title}
       description={description}
-      check={check}
+			check={check}
+			scrollToElement={scrollToElement}
     />
   );
 });

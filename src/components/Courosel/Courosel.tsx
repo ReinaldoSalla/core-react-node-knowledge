@@ -8,6 +8,7 @@ import couroselReducer from './Courosel.reducer';
 import COUROSEL_CONSTANTS from './Courosel.constants';
 import couroselItems from './Courosel-subcomponents/CouroselItems';
 import useDocumentVisibility from '../../custom-hooks/document-visibility';
+import useScrollTo from '../../custom-hooks/scroll-to-element';
 
 const Courosel = () => {
   const [state, dispatch] = useReducer(couroselReducer, couroselInitialState);
@@ -16,6 +17,8 @@ const Courosel = () => {
     order: ['leave', 'enter', 'update']
   });
   const isDocumentVisible: boolean = useDocumentVisibility();
+  const dummyRef = 500;
+  const scrollToElement = useScrollTo(dummyRef);
 
   const handleFirstClick = () => {
     dispatch({ type: COUROSEL_CONSTANTS.MOVE_TO_FIRST_ITEM });
@@ -50,6 +53,7 @@ const Courosel = () => {
             <Item 
               key={key}
               style={props}
+              scrollToElement={scrollToElement}
             />
           );
       })}

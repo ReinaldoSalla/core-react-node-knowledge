@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, FunctionComponent } from 'react';
 import { useSpring } from 'react-spring';
 import {
   CouroselItemWrapper,
@@ -9,7 +9,23 @@ import {
 } from './CouroselItems.styles';
 import getCouroselItemProps from './CouroselItems.animations';
 
-const CouroselItem = ({ style, name, title, description, check }) => {
+interface CouroselItemProps {
+  style: any;
+  name: string;
+  title: string;
+  description: string;
+  check: string;
+  scrollToElement: () => void;
+}
+
+const CouroselItem: FunctionComponent<CouroselItemProps> = ({ 
+  style, 
+  name, 
+  title, 
+  description, 
+  check, 
+  scrollToElement 
+}): JSX.Element  => {
   const [isHovering, setIsHovering] = useState(false);
 
   const animationProps = useSpring(getCouroselItemProps(isHovering));
@@ -20,25 +36,26 @@ const CouroselItem = ({ style, name, title, description, check }) => {
 
   return (
     <CouroselItemWrapper style={style}>
-      <CouroselItemTitle 
+      <CouroselItemTitle
         style={animationProps}
+        onClick={scrollToElement}
         onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}  
+        onMouseLeave={handleMouseLeave}
       >
         {title}
       </CouroselItemTitle>
-      <CouroselItemDescription 
+      <CouroselItemDescription
         style={animationProps}
         onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}  
+        onMouseLeave={handleMouseLeave}
       >
         {description}
       </CouroselItemDescription>
       <CouroselItemCheckWrapper>
-        <CouroselItemCheck 
+        <CouroselItemCheck
           style={animationProps}
           onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}          
+          onMouseLeave={handleMouseLeave}
         >
           {check}
         </CouroselItemCheck>
