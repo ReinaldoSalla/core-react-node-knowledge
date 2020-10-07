@@ -19,7 +19,7 @@ const texts = [
 		check: checkGenerator('React'),
 	},
 	{
-		name: 'Node',
+		name: 'node',
 		title: titleGenerator('Node'),
 		description:
 			'Dynamic backend structures with Node and GraphQl',
@@ -28,14 +28,16 @@ const texts = [
 ];
 
 const couroselItems = texts.map(({ name, title, description, check }) => {
-  return ({ style, scrollToElement }) => (
+  return ({ style, scrollToJavascript, scrollToReact, scrollToNode }) => (
     <CouroselItem 
       style={style}
       name={name}
       title={title}
       description={description}
 			check={check}
-			scrollToElement={scrollToElement}
+			scrollToJavascript={scrollToJavascript}
+			scrollToReact={scrollToReact}
+			scrollToNode={scrollToNode}
     />
   );
 });

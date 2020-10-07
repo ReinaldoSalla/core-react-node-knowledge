@@ -10,7 +10,11 @@ import couroselItems from './Courosel-subcomponents/CouroselItems';
 import useDocumentVisibility from '../../custom-hooks/document-visibility';
 import useScrollTo from '../../custom-hooks/scroll-to-element';
 
-const Courosel = () => {
+const Courosel = ({
+  scrollToJavascript,
+  scrollToReact,
+  scrollToNode
+}) => {
   const [state, dispatch] = useReducer(couroselReducer, couroselInitialState);
   const transitions = useTransition(state.index, null, {
     ...couroselTransitionProps,
@@ -53,7 +57,9 @@ const Courosel = () => {
             <Item 
               key={key}
               style={props}
-              scrollToElement={scrollToElement}
+              scrollToJavascript={scrollToJavascript}
+              scrollToReact={scrollToReact}
+              scrollToNode={scrollToNode}
             />
           );
       })}

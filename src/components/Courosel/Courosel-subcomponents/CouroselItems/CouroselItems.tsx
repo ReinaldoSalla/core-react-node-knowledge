@@ -15,8 +15,28 @@ interface CouroselItemProps {
   title: string;
   description: string;
   check: string;
-  scrollToElement: () => void;
+  scrollToJavascript: () => void;
+  scrollToReact: () => void;
+  scrollToNode: () => void;
 }
+
+const getWhichElement = (
+  name,
+  scrollToJavascript,
+  scrollToReact,
+  scrollToNode
+) => {
+  switch (name) {
+    case 'javascript':
+      return scrollToJavascript;
+    case 'react':
+      return scrollToReact;
+    case 'node':
+      return scrollToNode;
+    default:
+      throw new Error(`Name ${name} is undefined`);
+  }
+};
 
 const CouroselItem: FunctionComponent<CouroselItemProps> = ({ 
   style, 
@@ -24,7 +44,9 @@ const CouroselItem: FunctionComponent<CouroselItemProps> = ({
   title, 
   description, 
   check, 
-  scrollToElement 
+  scrollToJavascript,
+  scrollToReact,
+  scrollToNode
 }): JSX.Element  => {
   const [isHovering, setIsHovering] = useState(false);
 
@@ -34,11 +56,18 @@ const CouroselItem: FunctionComponent<CouroselItemProps> = ({
 
   const handleMouseLeave = () => setIsHovering(false);
 
+  const scrollToElement = getWhichElement(
+    name,
+    scrollToJavascript,
+    scrollToReact,
+    scrollToNode
+  );
+
   return (
     <CouroselItemWrapper style={style}>
       <CouroselItemTitle
-        style={animationProps}
         onClick={scrollToElement}
+        style={animationProps}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >

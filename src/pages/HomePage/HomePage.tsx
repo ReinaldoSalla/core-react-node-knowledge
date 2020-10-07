@@ -6,11 +6,20 @@ import Categories from '../../components/Categories';
 import useScrollToElement from '../../custom-hooks/scroll-to-element';
 
 const HomePage = () => { 
-  const scrollToElement = useScrollToElement(500);
+  const javascriptRef: any = useRef(null);
+  const reactRef: any = useRef(null);
+  const nodeRef: any = useRef(null);
+  const scrollToJavascript = useScrollToElement(500);
+  const scrollToReact = useScrollToElement(1000);
+  const scrollToNode = useScrollToElement(2000);
   return (
     <Route path='/' exact>
       <VideoBackground />
-      <Courosel />
+      <Courosel 
+        scrollToJavascript={scrollToJavascript}
+        scrollToReact={scrollToReact}
+        scrollToNode={scrollToNode}
+      />
       <Categories />
     </Route>    
   );
