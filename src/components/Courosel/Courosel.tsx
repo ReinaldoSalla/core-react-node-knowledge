@@ -51,7 +51,7 @@ const Courosel = () => {
               key={key}
               style={props}
             />
-          )
+          );
       })}
       <CouroselInput 
         handleFirstClick={handleFirstClick}

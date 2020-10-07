@@ -1,17 +1,10 @@
-const customConfig = {
-  content: {
+const couroselTransitionProps: any = {
+  config: {
     mass: 5,
     tension: 50,
     friction: 26,
     clamp: true
   },
-  input: { 
-    duration: 2000 
-  }
-}
-
-const couroselTransitionProps: any = {
-  config: customConfig.content,
   trail: 1000,
   from: { 
     transform: 'scale(0.1)', 

@@ -30,6 +30,11 @@ const CouroselInputButton = styled.div`
     cursor: pointer;
     transform: scale(1.2);
   }
+
+  ${(props) => props.theme.breakpoints.small} {
+    width: 80px;
+    height: 24px;
+  }
 `;
 
 const CouroselInputText = styled(animated.span)`
@@ -38,10 +43,19 @@ const CouroselInputText = styled(animated.span)`
   width: 100px;
   text-align: center;
   z-index: 2;
+
+  ${(props) => props.theme.breakpoints.small} {
+    font-size: 16px;
+    width: 80px;
+  }
 `;
 
 const CouroselInputInner = styled(animated.div)`
   height: 100%;
+
+  ${(props) => props.theme.breakpoints.small} {
+    height: 24px;
+  }
 `
 
 const CouroselInputTimer = styled.div`
