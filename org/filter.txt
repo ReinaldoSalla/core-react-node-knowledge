@@ -1,4 +1,3 @@
-scrollTo
 BaseContentPage contentsbar
 stagger animations when visible categories content
 sidebar for mapping the contents
