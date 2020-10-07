@@ -9,8 +9,6 @@ import COUROSEL_CONSTANTS from './Courosel.constants';
 import couroselItems from './Courosel-subcomponents/CouroselItems';
 import useDocumentVisibility from '../../custom-hooks/document-visibility';
 
-let nCalls = 0;
-
 const Courosel = () => {
   const [state, dispatch] = useReducer(couroselReducer, couroselInitialState);
   const transitions = useTransition(state.index, null, {
@@ -18,9 +16,6 @@ const Courosel = () => {
     order: ['leave', 'enter', 'update']
   });
   const isDocumentVisible: boolean = useDocumentVisibility();
-  nCalls++;
-  console.log(nCalls);
-  console.log(isDocumentVisible);
 
   const handleFirstClick = () => {
     dispatch({ type: COUROSEL_CONSTANTS.MOVE_TO_FIRST_ITEM });
