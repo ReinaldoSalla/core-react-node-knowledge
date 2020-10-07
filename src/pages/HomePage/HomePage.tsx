@@ -15,7 +15,7 @@ const HomePage = () => {
 
   return (
     <Route path='/' exact>
-      <VideoBackground />
+      {/* <VideoBackground /> */}
       <Courosel 
         scrollToJavascript={scrollToJavascript}
         scrollToReact={scrollToReact}
