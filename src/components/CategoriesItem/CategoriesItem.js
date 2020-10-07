@@ -6,10 +6,11 @@ const CategoriesItem = ({
   title,
   description,
   contents,
-  Svg
+  Svg,
+  elementRef
 }) => (
   <>
-    <h2 className='categoriesitem-title'>
+    <h2 ref={elementRef} className='categoriesitem-title'>
       {title}
     </h2>
     <h3 className='categoriesitem-description'>

@@ -8,17 +8,7 @@ import {
   CouroselItemCheck
 } from './CouroselItems.styles';
 import getCouroselItemProps from './CouroselItems.animations';
-
-interface CouroselItemProps {
-  style: any;
-  name: string;
-  title: string;
-  description: string;
-  check: string;
-  scrollToJavascript: () => void;
-  scrollToReact: () => void;
-  scrollToNode: () => void;
-}
+import { CouroselItemProps } from './CouroselItems.types'; 
 
 const getWhichElement = (
   name,
@@ -74,6 +64,7 @@ const CouroselItem: FunctionComponent<CouroselItemProps> = ({
         {title}
       </CouroselItemTitle>
       <CouroselItemDescription
+        onClick={scrollToElement}
         style={animationProps}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
@@ -82,6 +73,7 @@ const CouroselItem: FunctionComponent<CouroselItemProps> = ({
       </CouroselItemDescription>
       <CouroselItemCheckWrapper>
         <CouroselItemCheck
+          onClick={scrollToElement}
           style={animationProps}
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}

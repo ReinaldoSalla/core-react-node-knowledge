@@ -42,5 +42,4 @@ const couroselItems = texts.map(({ name, title, description, check }) => {
   );
 });
 
-
 export default couroselItems;
