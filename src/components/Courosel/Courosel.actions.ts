@@ -1,6 +1,10 @@
+import couroselItems from './Courosel-subcomponents/CouroselItems';
+
 const moveToNextItem = (state) => {
 	let newIndex = state.index + 1;
-	if (newIndex === 4) newIndex = 0; // couroselItems.length
+	if (newIndex === couroselItems.length) {
+		newIndex = 0;
+	}
 	return {
 		index: newIndex,
 		isTimerEnabled: true,
@@ -22,15 +26,9 @@ const moveToThirdItem = () => ({
 	isTimerEnabled: false,
 });
 
-const moveToForthItem = () => ({
-	index: 3,
-	isTimerEnabled: false,
-});
-
 export {
 	moveToNextItem,
 	moveToFirstItem,
 	moveToSecondItem,
 	moveToThirdItem,
-	moveToForthItem,
 };

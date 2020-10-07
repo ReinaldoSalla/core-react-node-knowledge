@@ -3,7 +3,6 @@ import {
 	moveToFirstItem,
 	moveToSecondItem,
 	moveToThirdItem,
-	moveToForthItem,
 } from './Courosel.actions';
 import COUROSEL_CONSTANTS from './Courosel.constants';
 import { CouroselState, CouroselAction } from './Courosel.types';
@@ -21,8 +20,6 @@ const couroselReducer = (
 			return moveToSecondItem();
 		case COUROSEL_CONSTANTS.MOVE_TO_THIRD_ITEM:
 			return moveToThirdItem();
-		case COUROSEL_CONSTANTS.MOVE_TO_FORTH_ITEM:
-			return moveToForthItem();
 		default:
 			return state;
 	}

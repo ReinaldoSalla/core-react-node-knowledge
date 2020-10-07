@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { animated } from 'react-spring';
 
 const CouroselInputWrapper = styled.div`
   display: flex;
@@ -23,6 +24,12 @@ const CouroselInputButton = styled.div`
   width: 100px;
   border: 1px solid white;
   border-radius: 5px;
+  transition: transform 500ms;
+
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.2);
+  }
 `;
 
 const CouroselInputText = styled.span`
@@ -43,10 +50,9 @@ const CouroselInputTimer = styled.div`
   height: 20px;
 `;
 
-const CouroselInputRow = styled.div`
+const CouroselInputRow = styled(animated.div)`
   height: 10px;
   border-top: 2px solid white;
-  width: 50%;
 `;
 
 export {

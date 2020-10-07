@@ -21,16 +21,11 @@ interface MoveToThirdItem {
 	type: typeof COUROSEL_CONSTANTS.MOVE_TO_THIRD_ITEM;
 }
 
-interface MoveToForthItem {
-	type: typeof COUROSEL_CONSTANTS.MOVE_TO_FORTH_ITEM;
-}
-
 type CouroselAction =
 	| MoveToNextItem
 	| MoveToFirstItem
 	| MoveToSecondItem
 	| MoveToThirdItem
-	| MoveToForthItem;
 
 export type {
 	CouroselState,

@@ -5,7 +5,9 @@ const customConfig = {
     friction: 26,
     clamp: true
   },
-  input: { duration: 2000 }
+  input: { 
+    duration: 2000 
+  }
 }
 
 const couroselTransitionProps: any = {

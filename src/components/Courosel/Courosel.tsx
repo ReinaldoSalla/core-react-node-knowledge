@@ -1,16 +1,16 @@
 import React, { useReducer, useEffect } from 'react';
 import { useTransition } from 'react-spring';
 import { CouroselWrapper } from './Courosel.styles';
-import CouroselInput from '../CouroselInput';
+import CouroselInput from './Courosel-subcomponents/CouroselInput';
 import couroselInitialState from './Courosel.init';
 import { couroselTransitionProps } from './Courosel.animations';
 import couroselReducer from './Courosel.reducer';
 import COUROSEL_CONSTANTS from './Courosel.constants';
-import couroselItems from '../CouroselItems';
+import couroselItems from './Courosel-subcomponents/CouroselItems';
 
 const Courosel = () => {
   const [state, dispatch] = useReducer(couroselReducer, couroselInitialState);
-  const transitions = useTransition(0, null, {
+  const transitions = useTransition(state.index, null, {
     ...couroselTransitionProps,
     order: ['leave', 'enter', 'update']
   });
@@ -49,7 +49,11 @@ const Courosel = () => {
             />
           )
       })}
-      <CouroselInput />
+      <CouroselInput 
+        handleFirstClick={handleFirstClick}
+        handleSecondClick={handleSecondClick}
+        handleThirdClick={handleThirdClick}
+      />
     </CouroselWrapper>
   );
 };
