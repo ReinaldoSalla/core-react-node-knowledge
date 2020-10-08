@@ -1,7 +1,10 @@
 import styled from 'styled-components';
 
 const ContentWrapper = styled.div`
-  padding: ${(props) => props.theme.topbarHeight} 20px 0 20px;
+  padding: ${(props) => props.theme.topbarHeight} 0 0 32px;
+`;
+
+const ContentArea = styled.div`
   display: flex;
 `;
 
@@ -35,20 +38,22 @@ const ContentCommand = styled.span`
 `;
 
 const ContentSidebar = styled.div`
+  margin: 0 16px 0 32px;
   position: sticky;
   top: 100px;
   right: 20px;
   height: 300px;
   width: 150px;
   border: 1px solid black;
-`
+`;
 
 export {
   ContentWrapper,
+  ContentArea,
   ContentParagraph,
   ContentLink,
   ContentCommandsWrapper,
   ContentCommand,
-  ContentSidebar
+  ContentSidebar,
 }
 
