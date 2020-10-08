@@ -9,7 +9,7 @@ const texts = [
 	{
 		name: 'javascript',
 		title: titleGenerator('JavaScript'),
-		description: 'From data processing and asyncronous programming',
+		description: 'From data processing to asyncronous programming',
 		check: checkGenerator('JavaScript'),
 	},
 	{
