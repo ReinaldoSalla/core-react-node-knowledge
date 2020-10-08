@@ -1,9 +1,9 @@
 import React from 'react';
-import CategoriesBoard from './Categories-subcomponents/CategoriesBoard';
-import { ReactComponent as JavaScriptSvg } from '../../assets/icons/javascript.svg';
-import { ReactComponent as ReactSvg } from '../../assets/icons/react.svg';
-import { ReactComponent as ServerSvg } from '../../assets/icons/server.svg';
-import categories from '../../utils/categories-data';
+import CategoriesBoard from '../Categories-subcomponents/CategoriesBoard';
+import { ReactComponent as JavaScriptSvg } from  '../../../../../assets/icons/javascript.svg';
+import { ReactComponent as ReactSvg } from '../../../../../assets/icons/react.svg';
+import { ReactComponent as ServerSvg } from '../../../../../assets/icons/server.svg';
+import categories from '../../../../../utils/categories-data';
 import './Categories.css';
 
 const Categories = ({

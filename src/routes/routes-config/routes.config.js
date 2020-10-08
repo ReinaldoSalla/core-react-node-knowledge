@@ -1,14 +1,14 @@
-import HomePage from '../../pages/HomePage';
-import BaseContentPage from '../../pages/BaseContentPage';
+import Home from '../../pages/HomePage/Home';
+import Content from '../../pages/ContentPage/Content';
 
 const routesConfig = [
   {
     path: '/',
-    component: HomePage
+    component: Home
   },
   {
     path: '/rendering',
-    component: BaseContentPage
+    component: Content
   }
 ];
 

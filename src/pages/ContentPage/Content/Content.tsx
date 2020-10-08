@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import './BaseContentPage.css';
+import './Content.css';
 
 const BaseContentPage = () => {
   useEffect(() => {

@@ -1,4 +1,4 @@
-import CONSTANTS from '../../Courosel.constants';
+import CONSTANTS from '../../Courosel-component/Courosel.constants';
 
 const couroselTimerOffset = 15;
 
