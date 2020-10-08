@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const ContentWrapper = styled.div`
-  padding: ${(props) => props.theme.topbarHeight} 0 0 64px;
+  padding: ${(props) => props.theme.topbarHeight} 48px 0 48px;
 `;
 
 const ContentArea = styled.div`
@@ -38,13 +38,12 @@ const ContentCommand = styled.span`
 `;
 
 const ContentSidebar = styled.ul`
-  margin: 0 16px 0 64px;
+  margin: 0 0 0 72px;
   position: sticky;
   top: 100px;
   right: 20px;
   height: 300px;
   width: 150px;
-  /* border: 1px solid black; */
 `;
 
 const ContentSidebarItem = styled.li`
@@ -52,18 +51,15 @@ const ContentSidebarItem = styled.li`
   display: flex;
   align-items: center;
   justify-content: center;
-  /* border: 1px solid black; */
 `;
 
 const ContentSidebarText = styled.span`
   display: inline-block;
   width: 100px;
   line-height: 0.7;
-  /* border: 1px solid black; */
 `;
 
 const ContentSidebarCircle = styled.div`
-
   z-index: 2;
   margin-top: 2px;
   margin-right: 8px;
@@ -71,19 +67,6 @@ const ContentSidebarCircle = styled.div`
   height: 8px;
   border: 1px solid black;
   border-radius: 50%;
-`;
-
-interface ContentSidebarLineProps {
-  top: string;
-}
-
-const ContentSidebarLine = styled.div<ContentSidebarLineProps>`
-  z-index: -1;
-  position: absolute;
-  top: ${(props) => props.top};
-  left: 5px;
-  height: 34px;
-  border-right: 1px solid black;
 `;
 
 export {
@@ -96,6 +79,5 @@ export {
   ContentSidebar,
   ContentSidebarItem,
   ContentSidebarText,
-  ContentSidebarCircle,
-  ContentSidebarLine
+  ContentSidebarCircle
 }
