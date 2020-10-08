@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const ContentWrapper = styled.div`
-  padding: ${(props) => props.theme.topbarHeight} 0 0 32px;
+  padding: ${(props) => props.theme.topbarHeight} 0 0 64px;
 `;
 
 const ContentArea = styled.div`
@@ -38,34 +38,48 @@ const ContentCommand = styled.span`
 `;
 
 const ContentSidebar = styled.ul`
-  margin: 0 16px 0 32px;
+  margin: 0 16px 0 64px;
   position: sticky;
   top: 100px;
   right: 20px;
   height: 300px;
   width: 150px;
-  border: 1px solid black;
+  /* border: 1px solid black; */
 `;
 
 const ContentSidebarItem = styled.li`
+  margin-bottom: 32px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid black;
-  margin-bottom: 16px;
+  /* border: 1px solid black; */
 `;
 
-const ContentSidebarText = styled.div`
-  /* display: inline-block; */
-  /* margin-bottom: 16px; */
-  border: 1px solid black;
+const ContentSidebarText = styled.span`
+  display: inline-block;
+  width: 100px;
+  line-height: 0.7;
+  /* border: 1px solid black; */
 `;
 
 const ContentSidebarCircle = styled.div`
+
+  z-index: 2;
+  margin-top: 2px;
+  margin-right: 8px;
   width: 8px;
   height: 8px;
   border: 1px solid black;
   border-radius: 50%;
+`;
+
+const ContentSidebarLine = styled.div`
+  z-index: -1;
+  position: absolute;
+  top: 12px;
+  left: 5px;
+  height: 260px;
+  border-right: 1px solid black;
 `;
 
 export {
@@ -78,5 +92,6 @@ export {
   ContentSidebar,
   ContentSidebarItem,
   ContentSidebarText,
-  ContentSidebarCircle
+  ContentSidebarCircle,
+  ContentSidebarLine
 }

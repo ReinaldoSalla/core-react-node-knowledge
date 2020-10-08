@@ -9,7 +9,8 @@ import {
   ContentSidebar,
   ContentSidebarItem,
   ContentSidebarText,
-  ContentSidebarCircle
+  ContentSidebarCircle,
+  ContentSidebarLine
 } from './Content.styles';
 import './Content.css';
 
@@ -67,36 +68,43 @@ const Content = () => {
                 1. Intro
               </ContentSidebarText>
             </ContentSidebarItem>
-            <li>
+            <ContentSidebarItem>
+              <ContentSidebarCircle />              
               <ContentSidebarText>
                 2. Setup
               </ContentSidebarText>
-            </li>
-            <li>
+            </ContentSidebarItem>
+            <ContentSidebarItem>
+              <ContentSidebarCircle />
               <ContentSidebarText>
                 3. JSX
               </ContentSidebarText>
-            </li>
-            <li>
+            </ContentSidebarItem>
+            <ContentSidebarItem>
+              <ContentSidebarCircle />
               <ContentSidebarText>
                 4. Styling
               </ContentSidebarText>
-            </li>
-            <li>
+            </ContentSidebarItem>
+            <ContentSidebarItem>
+              <ContentSidebarCircle />
               <ContentSidebarText>
                 5. useState
               </ContentSidebarText>
-            </li>
-            <li>
+            </ContentSidebarItem>
+            <ContentSidebarItem>
+              <ContentSidebarCircle />
               <ContentSidebarText>
                 6. useReducer
               </ContentSidebarText>
-            </li>
-            <li>
+            </ContentSidebarItem>
+            <ContentSidebarItem>
+              <ContentSidebarCircle />
               <ContentSidebarText>
                 7. Final Code
               </ContentSidebarText>
-            </li>
+            </ContentSidebarItem>
+            <ContentSidebarLine />
         </ContentSidebar>
       </ContentArea>
     </ContentWrapper>

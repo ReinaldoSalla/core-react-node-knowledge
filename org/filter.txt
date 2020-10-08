@@ -14,6 +14,8 @@ concat and philosofy
 generic basecontentpage reading data from somewhere
 cms
 
+naming css classnames and styles components
+order of the css props, display, position, z-index, margin, padding
 setup a eslint
 clear errs eslint
 intergrate the repos 
