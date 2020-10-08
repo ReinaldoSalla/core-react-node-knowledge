@@ -37,7 +37,7 @@ const ContentCommand = styled.span`
   margin: 20px 20px 0 20px;
 `;
 
-const ContentSidebar = styled.div`
+const ContentSidebar = styled.ul`
   margin: 0 16px 0 32px;
   position: sticky;
   top: 100px;
@@ -45,6 +45,27 @@ const ContentSidebar = styled.div`
   height: 300px;
   width: 150px;
   border: 1px solid black;
+`;
+
+const ContentSidebarItem = styled.li`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid black;
+  margin-bottom: 16px;
+`;
+
+const ContentSidebarText = styled.div`
+  /* display: inline-block; */
+  /* margin-bottom: 16px; */
+  border: 1px solid black;
+`;
+
+const ContentSidebarCircle = styled.div`
+  width: 8px;
+  height: 8px;
+  border: 1px solid black;
+  border-radius: 50%;
 `;
 
 export {
@@ -55,5 +76,7 @@ export {
   ContentCommandsWrapper,
   ContentCommand,
   ContentSidebar,
+  ContentSidebarItem,
+  ContentSidebarText,
+  ContentSidebarCircle
 }
-

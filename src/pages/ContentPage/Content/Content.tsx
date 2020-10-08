@@ -6,7 +6,10 @@ import {
   ContentLink,
   ContentCommandsWrapper,
   ContentCommand,
-  ContentSidebar
+  ContentSidebar,
+  ContentSidebarItem,
+  ContentSidebarText,
+  ContentSidebarCircle
 } from './Content.styles';
 import './Content.css';
 
@@ -57,7 +60,44 @@ const Content = () => {
             If you find yourself deleting these files too often, you can alternatively clone this <ContentLink href='https://google.com' target='_blank'>repository</ContentLink>. Service workers and testes are important for projects in production, but for guides like this one, they can be removed.
           </ContentParagraph>
         </div>
-        <ContentSidebar/>
+        <ContentSidebar>
+            <ContentSidebarItem>
+              <ContentSidebarCircle />
+              <ContentSidebarText>
+                1. Intro
+              </ContentSidebarText>
+            </ContentSidebarItem>
+            <li>
+              <ContentSidebarText>
+                2. Setup
+              </ContentSidebarText>
+            </li>
+            <li>
+              <ContentSidebarText>
+                3. JSX
+              </ContentSidebarText>
+            </li>
+            <li>
+              <ContentSidebarText>
+                4. Styling
+              </ContentSidebarText>
+            </li>
+            <li>
+              <ContentSidebarText>
+                5. useState
+              </ContentSidebarText>
+            </li>
+            <li>
+              <ContentSidebarText>
+                6. useReducer
+              </ContentSidebarText>
+            </li>
+            <li>
+              <ContentSidebarText>
+                7. Final Code
+              </ContentSidebarText>
+            </li>
+        </ContentSidebar>
       </ContentArea>
     </ContentWrapper>
   );
