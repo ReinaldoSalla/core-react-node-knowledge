@@ -1,3 +1,3 @@
-import BaseContentPage from './Content';
+import Content from './Content';
 
-export default BaseContentPage;
+export default Content;
