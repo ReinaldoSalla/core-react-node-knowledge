@@ -1,9 +1,8 @@
 import React, { useRef } from 'react';
 import { Route } from 'react-router-dom';
-import VideoBackground from '../../components/VideoBackground';
 import Courosel from '../../components/Courosel';
 import Categories from '../../components/Categories';
-import useScrollToElement from '../../custom-hooks/scroll-to-element';
+import useScrollToElement from '../../hooks/useScrollToElement';
 
 const HomePage = () => { 
   const javascriptRef = useRef(null);
@@ -15,7 +14,6 @@ const HomePage = () => {
 
   return (
     <Route path='/' exact>
-      {/* <VideoBackground /> */}
       <Courosel 
         scrollToJavascript={scrollToJavascript}
         scrollToReact={scrollToReact}

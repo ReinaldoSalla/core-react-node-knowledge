@@ -1,8 +1,8 @@
 import React from 'react';
-import CategoriesContents from '../CategoriesContent';
-import './CategoriesItem.css';
+import CategoriesBox from '../CategoriesBox';
+import './CategoriesBoard.css';
 
-const CategoriesItem = ({
+const CategoriesBoard = ({
   title,
   description,
   contents,
@@ -18,7 +18,7 @@ const CategoriesItem = ({
     </h3>
     <section className='categoriesitem-contents'>
       {contents.map((content, index) => (
-        <CategoriesContents 
+        <CategoriesBox 
           key={index}
           title={content.title}
           description={content.description}
@@ -33,5 +33,5 @@ const CategoriesItem = ({
   </>
 );
 
-export default CategoriesItem;
+export default CategoriesBoard;
 

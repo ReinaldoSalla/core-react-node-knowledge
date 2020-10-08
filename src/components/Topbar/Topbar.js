@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import TopbarButton from '../TopbarButton';
+import TopbarButton from './Topbar-subcomponents/TopbarButton';
 import { ReactComponent as ContentsSvg } from '../../assets/icons/contents.svg'
 import { ReactComponent as JavaScriptSvg } from '../../assets/icons/javascript.svg';
 import { ReactComponent as SearchSvg } from '../../assets/icons/search.svg';

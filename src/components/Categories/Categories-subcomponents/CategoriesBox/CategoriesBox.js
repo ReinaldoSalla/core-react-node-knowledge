@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './CategoriesContent.css'
+import './CategoriesBox.css'
 
-const CategoriesContents = ({ 
+const CategoriesBox = ({ 
   title, 
   description, 
   path,
@@ -28,4 +28,4 @@ const CategoriesContents = ({
   </Link>
 );
 
-export default CategoriesContents;
+export default CategoriesBox;

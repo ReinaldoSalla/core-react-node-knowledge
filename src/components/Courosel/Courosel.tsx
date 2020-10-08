@@ -3,12 +3,12 @@ import { useTransition } from 'react-spring';
 import { CouroselWrapper } from './Courosel.styles';
 import CouroselInput from './Courosel-subcomponents/CouroselInput';
 import couroselItems from './Courosel-subcomponents/CouroselItems';
-import VideoBackground from '../VideoBackground';
+import CouroselBackground from './Courosel-subcomponents/CouroselBackground';
 import couroselInitialState from './Courosel.init';
 import { couroselTransitionProps } from './Courosel.animations';
 import couroselReducer from './Courosel.reducer';
 import COUROSEL_CONSTANTS from './Courosel.constants';
-import useDocumentVisibility from '../../custom-hooks/document-visibility';
+import useDocumentVisibility from '../../hooks/useDocumentVisibility';
 
 const Courosel = ({
   scrollToJavascript,
@@ -49,7 +49,7 @@ const Courosel = ({
 
   return (
     <>
-      <VideoBackground />
+      <CouroselBackground />
       <CouroselWrapper>
         {transitions.map(({ item, props, key }) => {
           const Item = couroselItems[item];
