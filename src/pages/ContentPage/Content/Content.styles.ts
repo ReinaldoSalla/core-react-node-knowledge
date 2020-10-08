@@ -73,12 +73,16 @@ const ContentSidebarCircle = styled.div`
   border-radius: 50%;
 `;
 
-const ContentSidebarLine = styled.div`
+interface ContentSidebarLineProps {
+  top: string;
+}
+
+const ContentSidebarLine = styled.div<ContentSidebarLineProps>`
   z-index: -1;
   position: absolute;
-  top: 12px;
+  top: ${(props) => props.top};
   left: 5px;
-  height: 260px;
+  height: 34px;
   border-right: 1px solid black;
 `;
 

@@ -67,18 +67,21 @@ const Content = () => {
               <ContentSidebarText>
                 1. Intro
               </ContentSidebarText>
+              <ContentSidebarLine top='12px'/>
             </ContentSidebarItem>
             <ContentSidebarItem>
               <ContentSidebarCircle />              
               <ContentSidebarText>
                 2. Setup
               </ContentSidebarText>
+              <ContentSidebarLine top='56px'/>
             </ContentSidebarItem>
             <ContentSidebarItem>
               <ContentSidebarCircle />
               <ContentSidebarText>
                 3. JSX
               </ContentSidebarText>
+              <ContentSidebarLine top='100px'/>
             </ContentSidebarItem>
             <ContentSidebarItem>
               <ContentSidebarCircle />
@@ -104,7 +107,6 @@ const Content = () => {
                 7. Final Code
               </ContentSidebarText>
             </ContentSidebarItem>
-            <ContentSidebarLine />
         </ContentSidebar>
       </ContentArea>
     </ContentWrapper>

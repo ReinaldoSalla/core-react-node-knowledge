@@ -14,8 +14,10 @@ concat and philosofy
 generic basecontentpage reading data from somewhere
 cms
 
+stronger css, flexbox(basis grow, shrink, basis), zindex, position, before, after
 naming css classnames and styles components
 order of the css props, display, position, z-index, margin, padding
+stronger html, <main> <button> <section> <article>
 setup a eslint
 clear errs eslint
 intergrate the repos 
