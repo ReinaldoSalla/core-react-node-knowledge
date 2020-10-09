@@ -1,16 +1,4 @@
 import React, { useEffect } from 'react';
-import {
-  ContentWrapper,
-  ContentArea,
-  ContentParagraph,
-  ContentLink,
-  ContentCommandsWrapper,
-  ContentCommand,
-  ContentSidebar,
-  ContentSidebarItem,
-  ContentSidebarText,
-  ContentSidebarCircle,
-} from './Content.styles';
 import './Content.css';
 
 const Content = () => {
@@ -18,94 +6,94 @@ const Content = () => {
     window.scrollTo(0, 0);
   }, []);
   return (
-    <ContentWrapper>
+    <div className='content_wrapper'>
       <h1>React - Rendering</h1>
-      <ContentArea>
+      <div className='content_container'>
         <div>
           <h2>1. Intro</h2>
-          <ContentParagraph>
+          <p className='content_text'>
             The idea of this guide is to explore JSX, styling and state management in React, by creating a resposive and interactive webpage. We'll use create-react-app to setup the project.
-          </ContentParagraph>
+          </p>
           <h2>2. Setup</h2>
-          <ContentParagraph>
-            Install the latest recommended version of <ContentLink href='https://nodejs.org/en/' target='_blank'>Node.js </ContentLink>
-          </ContentParagraph>
-          <ContentParagraph>
+          <p className='content_text'>
+            Install the latest recommended version of <a className='content_link' href='https://nodejs.org/en/' target='_blank'>Node.js </a>
+          </p>
+          <p className='content_text'>
             To start the project, type in your terminal
-          </ContentParagraph>
-          <ContentCommandsWrapper>
-            <ContentCommand>
+          </p>
+          <div className='content_area'>
+            <span className='content_command'>
               $ npx create-react-app jsexpert-rendering 
-            </ContentCommand>
-            <ContentCommand>
+            </span>
+            <span className='content_command'>
               $ cd jsexpert-rendering
-            </ContentCommand>
-            <ContentCommand>
+            </span>
+            <span className='content_command'>
               $ npm run start
-            </ContentCommand>
-          </ContentCommandsWrapper>
-          <ContentParagraph>
-            After {' '} npm run start is finished, React will lauch the app in <ContentLink className='basecontentpage-link' href='http://localhost:3000' target='_blank'>localhost:3000</ContentLink>. There are some files which are unnecessary for this guide. You can leave them if you want, but if you're interested in cleaning up, you may do the following.
-          </ContentParagraph>
-          <ContentParagraph>
+            </span>
+          </div>
+          <p className='content_text'>
+            After {' '} npm run start is finished, React will lauch the app in <a className='content_link' href='http://localhost:3000' target='_blank'>localhost:3000</a>. There are some files which are unnecessary for this guide. You can leave them if you want, but if you're interested in cleaning up, you may do the following.
+          </p>
+          <p className='content_text'>
             Inside the src folder, delete App.test.js, index.css, logo.svg, serviceWorker.js and setupTests.js
-          </ContentParagraph>
-          <ContentParagraph>
+          </p>
+          <p className='content_text'>
             Write this code in index.js
-          </ContentParagraph>
-          <ContentParagraph>
+          </p>
+          <p className='content_text'>
             And this code in App.js
-          </ContentParagraph>
-          <ContentParagraph>
-            If you find yourself deleting these files too often, you can alternatively clone this <ContentLink href='https://google.com' target='_blank'>repository</ContentLink>. Service workers and testes are important for projects in production, but for guides like this one, they can be removed.
-          </ContentParagraph>
+          </p>
+          <p className='content_text'>
+            If you find yourself deleting these files too often, you can alternatively clone this <a className='content_link' href='https://google.com' target='_blank'>repository</a>. Service workers and testes are important for projects in production, but for guides like this one, they can be removed.
+          </p>
         </div>
-        <ContentSidebar>
-            <ContentSidebarItem>
-              <ContentSidebarCircle />
-              <ContentSidebarText>
-                1. Intro
-              </ContentSidebarText>
-            </ContentSidebarItem>
-            <ContentSidebarItem>
-              <ContentSidebarCircle />              
-              <ContentSidebarText>
-                2. Setup
-              </ContentSidebarText>
-            </ContentSidebarItem>
-            <ContentSidebarItem>
-              <ContentSidebarCircle />
-              <ContentSidebarText>
-                3. JSX
-              </ContentSidebarText>
-            </ContentSidebarItem>
-            <ContentSidebarItem>
-              <ContentSidebarCircle />
-              <ContentSidebarText>
-                4. Styling
-              </ContentSidebarText>
-            </ContentSidebarItem>
-            <ContentSidebarItem>
-              <ContentSidebarCircle />
-              <ContentSidebarText>
-                5. useState
-              </ContentSidebarText>
-            </ContentSidebarItem>
-            <ContentSidebarItem>
-              <ContentSidebarCircle />
-              <ContentSidebarText>
-                6. useReducer
-              </ContentSidebarText>
-            </ContentSidebarItem>
-            <ContentSidebarItem>
-              <ContentSidebarCircle />
-              <ContentSidebarText>
-                7. Final Code
-              </ContentSidebarText>
-            </ContentSidebarItem>
-        </ContentSidebar>
-      </ContentArea>
-    </ContentWrapper>
+        <ul className='content_sidebar'>
+          <li className='content-sidebar-item'>
+            <div className='content-sidebar-circle' />
+            <span className='content-sidebar-text'>
+              1. Intro
+            </span>
+          </li>
+          <li className='content-sidebar-item'>
+            <div className='content-sidebar-circle' />              
+            <span className='content-sidebar-text'>
+              2. Setup
+            </span>
+          </li>
+          <li className='content-sidebar-item'>
+            <div className='content-sidebar-circle' />
+            <span className='content-sidebar-text'>
+              3. JSX
+            </span>
+          </li>
+          <li className='content-sidebar-item'>
+            <div className='content-sidebar-circle' />
+            <span className='content-sidebar-text'>
+              4. Styling
+            </span>
+          </li>
+          <li className='content-sidebar-item'>
+            <div className='content-sidebar-circle' />
+            <span className='content-sidebar-text'>
+              5. useState
+            </span>
+          </li>
+          <li className='content-sidebar-item'>
+            <div className='content-sidebar-circle' />
+            <span className='content-sidebar-text'>
+              6. useReducer
+            </span>
+          </li>
+          <li className='content-sidebar-item'>
+            <div className='content-sidebar-circle' />
+            <span className='content-sidebar-text'>
+              7. Final Code
+            </span>
+          </li>
+        </ul >
+      </div>
+    </div>
   );
 };
 

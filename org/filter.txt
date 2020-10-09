@@ -1,4 +1,7 @@
-BaseContentPage contentsbar
+finished
+
+todo
+BaseContentPage contentsbar, intersection observer = check if a element is visible, check where the user is on the document, infinite pagination, lazy loading imgs- 08/10/2020
 stagger animations when visible categories content
 sidebar for mapping the contents
 stronger css, flexbox(basis grow, shrink, basis), zindex, position
@@ -13,7 +16,6 @@ javascript articles
 concat and philosofy
 generic basecontentpage reading data from somewhere
 cms
-
 stronger css, flexbox(basis grow, shrink, basis), zindex, position, before, after
 naming css classnames and styles components
 order of the css props, display, position, z-index, margin, padding
