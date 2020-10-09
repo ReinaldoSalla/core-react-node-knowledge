@@ -1,11 +1,11 @@
 .content_wrapper {
   padding: var(--topbar-height) 48px 0 48px; 
-  animation: content_wrapper-fade-in 500ms;
+  animation: content_wrapper-fade-in 250ms;
 }
 
 @keyframes content_wrapper-fade-in {
   from {
-    transform: translateX(-10%);
+    transform: translateX(-5%);
     opacity: 0;
   }
 

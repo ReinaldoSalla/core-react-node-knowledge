@@ -1,12 +1,73 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './Content.css';
 
+// const useIntersectionObserver = ({ domNode }) => {
+//   const observerRef: any = useRef(null);
+
+//   useEffect(() => {
+    // const handleIntersect = (entries) => {
+    //   console.log(entries);
+    // };
+
+    // const options = {
+    //   root: null,
+    //   rootMargin: '0px',
+    //   threshold: 1
+    // };
+
+//     // IntersectionObserver is created lazily once 
+//     // https://reactjs.org/docs/hooks-faq.html
+//     const getObserver = () => {
+//       if (observerRef.current === null) {
+//         observerRef.current = new IntersectionObserver(handleIntersect, options);
+//       }
+//       return observerRef.current;
+//     }
+
+//     const observer = getObserver();
+//     if (domNode.current) {
+//       observer.observe(domNode.current);
+//     }
+//     return () => observer.unobserve(domNode.current);
+
+//   }, []);
+
+//   return [];
+// };
+
+const useIntersectionObserver = (domNode) => {
+  const [isIntersecting, setIntersecting] = useState(false);
+  
+  useEffect(() => {
+    const observer = new IntersectionObserver(([entry]) => {
+      console.log(entry);
+      setIntersecting(entry.isIntersecting);
+    }, { root: null, rootMargin: '0px', threshold: 0 });
+
+    if (domNode.current) {
+      observer.observe(domNode.current);
+    }
+
+    return () => observer.unobserve(domNode.current);
+  }, []);
+
+  return isIntersecting;
+}
+
 const Content = () => {
+  const domNode: any = useRef();
+  const isIntersecting = useIntersectionObserver(domNode);
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
   return (
     <div className='content_wrapper'>
+      <div style={{ position: 'fixed' }}>
+        <h1>{isIntersecting ? 'yes' : 'not'}</h1>
+      </div>
+      <div style={{ height: '500px', width: '500px', marginTop: '1000px', border: '1px solid black' }} ref={domNode}>
+        box
+      </div>
       <h1>React - Rendering</h1>
       <div className='content_container'>
         <div>
@@ -47,6 +108,22 @@ const Content = () => {
           <p className='content_text'>
             If you find yourself deleting these files too often, you can alternatively clone this <a className='content_link' href='https://google.com' target='_blank'>repository</a>. Service workers and testes are important for projects in production, but for guides like this one, they can be removed.
           </p>
+        <h2>3. JSX</h2>
+        <p className='content_text'>
+          For each IntersectionObserverEntry in the list entries, we look to see if the entry's intersectionRatio is going up; if it is, we set the target's background-color to the string in increasingColor (remember, it's "rgba(40, 40, 190, ratio)"), replaces the word "ratio" with the entry's intersectionRatio. The result: not only does the color get changed, but the transparency of the target element changes, too; as the intersection ratio goes down, the background color's alpha value goes down with it, resulting in an element that's more transparent.
+        </p>
+        <p className='content_text'>
+          For each IntersectionObserverEntry in the list entries, we look to see if the entry's intersectionRatio is going up; if it is, we set the target's background-color to the string in increasingColor (remember, it's "rgba(40, 40, 190, ratio)"), replaces the word "ratio" with the entry's intersectionRatio. The result: not only does the color get changed, but the transparency of the target element changes, too; as the intersection ratio goes down, the background color's alpha value goes down with it, resulting in an element that's more transparent.
+        </p>
+        <p className='content_text'>
+          For each IntersectionObserverEntry in the list entries, we look to see if the entry's intersectionRatio is going up; if it is, we set the target's background-color to the string in increasingColor (remember, it's "rgba(40, 40, 190, ratio)"), replaces the word "ratio" with the entry's intersectionRatio. The result: not only does the color get changed, but the transparency of the target element changes, too; as the intersection ratio goes down, the background color's alpha value goes down with it, resulting in an element that's more transparent.
+        </p>
+        <p className='content_text'>
+          For each IntersectionObserverEntry in the list entries, we look to see if the entry's intersectionRatio is going up; if it is, we set the target's background-color to the string in increasingColor (remember, it's "rgba(40, 40, 190, ratio)"), replaces the word "ratio" with the entry's intersectionRatio. The result: not only does the color get changed, but the transparency of the target element changes, too; as the intersection ratio goes down, the background color's alpha value goes down with it, resulting in an element that's more transparent.
+        </p>
+        <p className='content_text'>
+          For each IntersectionObserverEntry in the list entries, we look to see if the entry's intersectionRatio is going up; if it is, we set the target's background-color to the string in increasingColor (remember, it's "rgba(40, 40, 190, ratio)"), replaces the word "ratio" with the entry's intersectionRatio. The result: not only does the color get changed, but the transparency of the target element changes, too; as the intersection ratio goes down, the background color's alpha value goes down with it, resulting in an element that's more transparent.
+        </p>
         </div>
         <ul className='content_sidebar'>
           <li className='content-sidebar-item'>
