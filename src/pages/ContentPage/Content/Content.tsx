@@ -13,7 +13,7 @@ const useIntersectionObserver = (domNode) => {
   useEffect(() => {
     // IntersectionObserver is created lazily once
     // https://reactjs.org/docs/hooks-faq.html
-    const getObserver = () => {
+    const getObserver= () => {
       if (observerRef.current === null) {
         observerRef.current = new IntersectionObserver(([entry]) => {
           setIntersecting(entry.isIntersecting);
@@ -37,21 +37,31 @@ const useIntersectionObserver = (domNode) => {
 const Content = () => {
   const introDomNode = useRef(null);
   const setupDomNode = useRef(null);
+  const jsxDomNode = useRef(null);
+  const stylingDomNode = useRef(null);
+  const useStateDomNode = useRef(null);
+  const useReducerDomNode = useRef(null);
+  const finalCodeDomNode = useRef(null);
 
-  const isIntersectingIntro = useIntersectionObserver(introDomNode);
-  const isIntersectingSetup = useIntersectionObserver(setupDomNode);
+  const isIntroIntersecting = useIntersectionObserver(introDomNode);
+  const isSetupIntersecting = useIntersectionObserver(setupDomNode);
+  // const isIntersectingJsx = useIntersectionObserver(jsxDomNode);
+  // const isIntersectingStyling = useIntersectionObserver(stylingDomNode);
+  // const isIntersectingUseState = useIntersectionObserver(useStateDomNode);
+  // const isIntersectingUseReducer = useIntersectionObserver(useReducerDomNode);
+  // const isIntersectingFinalCode = useIntersectionObserver(finalCodeDomNode);
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  const introContentSidebarCircleCN = computeContentSidebarCircleCN(isIntersectingIntro);
-  const introContentSidebarTextCN = computeContentSidebarTextCN(isIntersectingIntro);
-  
-  const setupContentSidebarCircleCN = computeContentSidebarCircleCN(isIntersectingSetup, isIntersectingIntro);
-  const setupContentSidebarTextCN = computeContentSidebarTextCN(isIntersectingSetup, isIntersectingIntro)
+  const introContentSidebarCircleCN = computeContentSidebarCircleCN(isIntroIntersecting);
+  const introContentSidebarTextCN = computeContentSidebarTextCN(isIntroIntersecting);
 
-    return (
+  const setupContentSidebarCircleCN = computeContentSidebarCircleCN(isSetupIntersecting, isIntroIntersecting);
+  const setupContentSidebarTextCN = computeContentSidebarTextCN(isSetupIntersecting, isIntroIntersecting)
+
+  return (
     <div className='content_wrapper'>
       <h1>React - Rendering</h1>
       <div className='content_container'>
