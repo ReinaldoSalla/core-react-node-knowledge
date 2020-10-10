@@ -19,10 +19,6 @@
   display: flex;
 }
 
-.content_box {
-  border: 1px solid black;
-}
-
 .content_text {
   line-height: 1.7;;
 }
