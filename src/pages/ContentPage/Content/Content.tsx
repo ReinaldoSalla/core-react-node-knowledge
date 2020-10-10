@@ -8,7 +8,7 @@ import './Content.css';
 
 const useIntersectionObserver = (domNode) => {
   const [isIntersecting, setIntersecting] = useState(false);
-  const observerRef: any = useRef(null);
+  const observerRef = useRef<IntersectionObserver | null>(null);
   
   useEffect(() => {
     // IntersectionObserver is created lazily once
@@ -20,20 +20,23 @@ const useIntersectionObserver = (domNode) => {
         }, { root: null, rootMargin: '-80px', threshold: 0 });
         return observerRef.current;
       }
+      return null;
     }
 
     const observer = getObserver();
     const localDomNode = domNode.current;
-    observer.observe(localDomNode);
-    return () => observer.unobserve(localDomNode);
+    if (observer !== null) {
+      observer.observe(localDomNode);
+      return () => observer.unobserve(localDomNode);
+    }
   }, [domNode]);
 
   return isIntersecting;
-}
+};
 
 const Content = () => {
-  const introDomNode: any = useRef(null);
-  const setupDomNode: any = useRef(null);
+  const introDomNode = useRef(null);
+  const setupDomNode = useRef(null);
 
   const isIntersectingIntro = useIntersectionObserver(introDomNode);
   const isIntersectingSetup = useIntersectionObserver(setupDomNode);
@@ -48,7 +51,7 @@ const Content = () => {
   const setupContentSidebarCircleCN = computeContentSidebarCircleCN(isIntersectingSetup, isIntersectingIntro);
   const setupContentSidebarTextCN = computeContentSidebarTextCN(isIntersectingSetup, isIntersectingIntro)
 
-  return (
+    return (
     <div className='content_wrapper'>
       <h1>React - Rendering</h1>
       <div className='content_container'>
