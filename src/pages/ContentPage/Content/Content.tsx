@@ -17,7 +17,7 @@ const useIntersectionObserver = (domNode) => {
       if (observerRef.current === null) {
         observerRef.current = new IntersectionObserver(([entry]) => {
           setIntersecting(entry.isIntersecting);
-        }, { root: null, rootMargin: '0px', threshold: 0 });
+        }, { root: null, rootMargin: '-80px', threshold: 0 });
         return observerRef.current;
       }
     }
@@ -32,22 +32,29 @@ const useIntersectionObserver = (domNode) => {
 }
 
 const Content = () => {
-  const introNode: any = useRef();
-  const isIntersecting = useIntersectionObserver(introNode);
+  const introDomNode: any = useRef(null);
+  const setupDomNode: any = useRef(null);
+
+  const isIntersectingIntro = useIntersectionObserver(introDomNode);
+  const isIntersectingSetup = useIntersectionObserver(setupDomNode);
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  const contentSidebarCircleCN = computeContentSidebarCircleCN(isIntersecting);
-  const contentSidebarTextCN = computeContentSidebarTextCN(isIntersecting);
+  const introContentSidebarCircleCN = computeContentSidebarCircleCN(isIntersectingIntro);
+  const introContentSidebarTextCN = computeContentSidebarTextCN(isIntersectingIntro);
+  
+  const setupContentSidebarCircleCN = computeContentSidebarCircleCN(isIntersectingSetup, isIntersectingIntro);
+  const setupContentSidebarTextCN = computeContentSidebarTextCN(isIntersectingSetup, isIntersectingIntro)
+
   return (
     <div className='content_wrapper'>
       <h1>React - Rendering</h1>
       <div className='content_container'>
         <div>
 
-          <div className='content_box' ref={introNode}>
+          <div className='content_box' ref={introDomNode}>
             <h2>1. Intro</h2>
             <p className='content_text'>
               The idea of this guide is to explore JSX, styling and state management in React, by creating a resposive and interactive webpage. We'll use create-react-app to setup the project.
@@ -66,8 +73,7 @@ const Content = () => {
             </p>
           </div>
 
-          <div className='content_box'>
-
+          <div className='content_box' ref={setupDomNode}>
             <h2>2. Setup</h2>
             <p className='content_text'>
               Install the latest recommended version of <a className='content_link' href='https://nodejs.org/en/' target='_blank' rel="noopener noreferrer">Node.js </a>
@@ -204,20 +210,20 @@ const Content = () => {
             </p>
           </div>
 
-        </div>
+        </div>;
 
         <ul className='content_sidebar'>
 
           <li className='content_sidebar-item'>
-            <div className={contentSidebarCircleCN} />
-            <span className={contentSidebarTextCN}>
+            <div className={introContentSidebarCircleCN} />
+            <span className={introContentSidebarTextCN}>  
               1. Intro
             </span>
           </li>
 
           <li className='content_sidebar-item'>
-            <div className='content_sidebar-circle' />              
-            <span className='content_sidebar-text'>
+            <div className={setupContentSidebarCircleCN} />              
+            <span className={setupContentSidebarTextCN}>
               2. Setup
             </span>
           </li>
