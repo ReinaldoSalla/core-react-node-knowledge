@@ -5,7 +5,6 @@ import {
 } from './Content.names';
 import './Content.css';
 
-
 const useIntersectionObserver = (domNode) => {
   const [isIntersecting, setIntersecting] = useState(false);
   const observerRef = useRef<IntersectionObserver | null>(null);
@@ -45,11 +44,11 @@ const Content = () => {
 
   const isIntroIntersecting = useIntersectionObserver(introDomNode);
   const isSetupIntersecting = useIntersectionObserver(setupDomNode);
-  // const isIntersectingJsx = useIntersectionObserver(jsxDomNode);
-  // const isIntersectingStyling = useIntersectionObserver(stylingDomNode);
-  // const isIntersectingUseState = useIntersectionObserver(useStateDomNode);
-  // const isIntersectingUseReducer = useIntersectionObserver(useReducerDomNode);
-  // const isIntersectingFinalCode = useIntersectionObserver(finalCodeDomNode);
+  const isJsxIntersecting = useIntersectionObserver(jsxDomNode);
+  const isStylingIntersecting = useIntersectionObserver(stylingDomNode);
+  const isUseStateIntersecting = useIntersectionObserver(useStateDomNode);
+  const isUseReducerIntersecting = useIntersectionObserver(useReducerDomNode);
+  const isFinalCodeIntersecting = useIntersectionObserver(finalCodeDomNode);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -60,6 +59,21 @@ const Content = () => {
 
   const setupContentSidebarCircleCN = computeContentSidebarCircleCN(isSetupIntersecting, isIntroIntersecting);
   const setupContentSidebarTextCN = computeContentSidebarTextCN(isSetupIntersecting, isIntroIntersecting)
+
+  const jsxContentSidebarCircleCN = computeContentSidebarCircleCN(isJsxIntersecting, isSetupIntersecting);
+  const jsxContentSidebarTextCN = computeContentSidebarTextCN(isJsxIntersecting, isSetupIntersecting);
+
+  const stylingContentSidebarCircleCN = computeContentSidebarCircleCN(isStylingIntersecting, isJsxIntersecting);
+  const stylingContentSidebarTextCN = computeContentSidebarTextCN(isStylingIntersecting, isJsxIntersecting)
+
+  const useStateContentSidebarCircleCN = computeContentSidebarCircleCN(isUseStateIntersecting, isStylingIntersecting);
+  const useStateContentSidebarTextCN = computeContentSidebarTextCN(isUseStateIntersecting, isStylingIntersecting);
+
+  const useReducerContentSidebarCircleCN = computeContentSidebarCircleCN(isUseReducerIntersecting, isUseStateIntersecting);
+  const useReducerContentSidebarTextCN = computeContentSidebarTextCN(isUseReducerIntersecting, isUseStateIntersecting);
+
+  const finalCodeContentSidebarCircleCN = computeContentSidebarCircleCN(isFinalCodeIntersecting, isUseReducerIntersecting);
+  const finalCodeContentSidebarTextCN = computeContentSidebarTextCN(isFinalCodeIntersecting, isUseReducerIntersecting)
 
   return (
     <div className='content_wrapper'>
@@ -128,7 +142,7 @@ const Content = () => {
             </p>
           </div>
 
-          <div className='content_box'>
+          <div className='content_box' ref={jsxDomNode}>
             <h2>3. JSX</h2>
             <p className='content_text'>
               For each IntersectionObserverEntry in the list entries, we look to see if the entry's intersectionRatio is going up; if it is, we set the target's background-color to the string in increasingColor (remember, it's "rgba(40, 40, 190, ratio)"), replaces the word "ratio" with the entry's intersectionRatio. The result: not only does the color get changed, but the transparency of the target element changes, too; as the intersection ratio goes down, the background color's alpha value goes down with it, resulting in an element that's more transparent.
@@ -147,7 +161,7 @@ const Content = () => {
             </p>
           </div>
 
-          <div className='content_box'>
+          <div className='content_box' ref={stylingDomNode}>
             <h2>4. Styling</h2>
             <p className='content_text'>
               For each IntersectionObserverEntry in the list entries, we look to see if the entry's intersectionRatio is going up; if it is, we set the target's background-color to the string in increasingColor (remember, it's "rgba(40, 40, 190, ratio)"), replaces the word "ratio" with the entry's intersectionRatio. The result: not only does the color get changed, but the transparency of the target element changes, too; as the intersection ratio goes down, the background color's alpha value goes down with it, resulting in an element that's more transparent.
@@ -166,7 +180,7 @@ const Content = () => {
             </p>
           </div>
 
-          <div className='content_box'>
+          <div className='content_box' ref={useStateDomNode}>
             <h2>5. useState</h2>
             <p className='content_text'>
               For each IntersectionObserverEntry in the list entries, we look to see if the entry's intersectionRatio is going up; if it is, we set the target's background-color to the string in increasingColor (remember, it's "rgba(40, 40, 190, ratio)"), replaces the word "ratio" with the entry's intersectionRatio. The result: not only does the color get changed, but the transparency of the target element changes, too; as the intersection ratio goes down, the background color's alpha value goes down with it, resulting in an element that's more transparent.
@@ -185,7 +199,7 @@ const Content = () => {
             </p>
           </div>
 
-          <div className='content_box'>
+          <div className='content_box' ref={useReducerDomNode}>
             <h2>6. useReducer</h2>
             <p className='content_text'>
               For each IntersectionObserverEntry in the list entries, we look to see if the entry's intersectionRatio is going up; if it is, we set the target's background-color to the string in increasingColor (remember, it's "rgba(40, 40, 190, ratio)"), replaces the word "ratio" with the entry's intersectionRatio. The result: not only does the color get changed, but the transparency of the target element changes, too; as the intersection ratio goes down, the background color's alpha value goes down with it, resulting in an element that's more transparent.
@@ -204,7 +218,7 @@ const Content = () => {
             </p>
           </div>
 
-          <div className='content_box'>
+          <div className='content_box' ref={finalCodeDomNode}>
             <h2>7. Final Code</h2>
             <p className='content_text'>
               For each IntersectionObserverEntry in the list entries, we look to see if the entry's intersectionRatio is going up; if it is, we set the target's background-color to the string in increasingColor (remember, it's "rgba(40, 40, 190, ratio)"), replaces the word "ratio" with the entry's intersectionRatio. The result: not only does the color get changed, but the transparency of the target element changes, too; as the intersection ratio goes down, the background color's alpha value goes down with it, resulting in an element that's more transparent.
@@ -241,32 +255,32 @@ const Content = () => {
             </span>
           </li>
           <li className='content_sidebar-item'>
-            <div className='content_sidebar-circle' />
-            <span className='content_sidebar-text'>
+            <div className={jsxContentSidebarCircleCN}/>
+            <span className={jsxContentSidebarTextCN}>
               3. JSX
             </span>
           </li>
           <li className='content_sidebar-item'>
-            <div className='content_sidebar-circle' />
-            <span className='content_sidebar-text'>
+            <div className={stylingContentSidebarCircleCN}/>
+            <span className={stylingContentSidebarTextCN}>
               4. Styling
             </span>
           </li>
           <li className='content_sidebar-item'>
-            <div className='content_sidebar-circle' />
-            <span className='content_sidebar-text'>
+            <div className={useStateContentSidebarCircleCN}/>
+            <span className={useStateContentSidebarTextCN}>
               5. useState
             </span>
           </li>
           <li className='content_sidebar-item'>
-            <div className='content_sidebar-circle' />
-            <span className='content_sidebar-text'>
+            <div className={useReducerContentSidebarCircleCN}/>
+            <span className={useReducerContentSidebarTextCN}>
               6. useReducer
             </span>
           </li>
           <li className='content_sidebar-item'>
-            <div className='content_sidebar-circle' />
-            <span className='content_sidebar-text'>
+            <div className={finalCodeContentSidebarCircleCN}/>
+            <span className={finalCodeContentSidebarTextCN}>
               7. Final Code
             </span>
           </li>
