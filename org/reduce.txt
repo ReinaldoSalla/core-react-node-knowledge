@@ -1,6 +1,6 @@
-reactjs vs reactnative = reactjs, ?
-javascript, typescript = typescript, ?
-className vs inline vs styledcomponents = className, ?
-css transition/keyframes vs react-spring = css transition/keyframes, ?
+reactjs vs reactnative = reactjs, because instant access
+javascript, typescript = typescript, because code quality
+className vs inline vs styledcomponents = className, because low level
+css transition/keyframes vs react-spring = css transition/keyframes, because low level
 function declaration vs arrow function = arrow function, because that's the default in eslint
 max number of chars per line = 80, because that's the default in prettier
