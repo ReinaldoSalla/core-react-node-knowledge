@@ -1,11 +1,18 @@
-finished
+javascripttemporal
 
-todo
+
+
+
+preparation for level 1
+
+
+
+
+
 BaseContentPage contentsbar, intersection observer = check if a element is visible, check where the user is on the document, infinite pagination, lazy loading imgs- 08/10/2020
 stagger animations when visible categories content
 sidebar for mapping the contents
 stronger css, flexbox(basis grow, shrink, basis), zindex, position
-styledcomponents naming, atomic, prefix
 syntax highlight
 proptypes
 <main>
@@ -17,12 +24,13 @@ concat and philosofy
 generic basecontentpage reading data from somewhere
 cms
 stronger css, flexbox(basis grow, shrink, basis), zindex, position, before, after
-naming css classnames and styles components
+naming css classnames
 order of the css props, display, position, z-index, margin, padding
 stronger html, <main> <button> <section> <article>
+file, folder structure in react, components, subcomponents, commoncomponents
+monorepo
 setup a eslint
 clear errs eslint
-intergrate the repos 
 write automated tests for frontend and backend
 structure the files and hierarchy for the components, primary, secondary, 
 typescriptify
