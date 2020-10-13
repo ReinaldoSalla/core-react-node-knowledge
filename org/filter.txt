@@ -1,14 +1,16 @@
 javascripttemporal
 scrollTo ContentSidebar
-intersectionobserver instead of scroll listener for topbar animation in homepage
 syntax highlight
 decide if its open or closed for more tutorials
+intersectionobserver instead of scroll listener for topbar animation in homepage
 
 preparation for level 1
 position
 z-index
 flexbox
 centering and text centering crisis
+::before ::after
+:nth-child, :nth-of-type, :not
 decibe between css classNames vs css modules for my workflow
 sharing css for smaller css files in production
 naming in css
@@ -23,8 +25,3 @@ files structure in react, subcomponents and common-components problem
 difference between clone and fork
 difference between merge and rebase
 send versions on git
-graphql-node.js-expressjs
-graphql-apollo
-graphql-relay
-redux
-redux saga
