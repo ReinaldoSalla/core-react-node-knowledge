@@ -1,15 +1,21 @@
 javascripttemporal
 scrollTo ContentSidebar
 intersectionobserver instead of scroll listener for topbar animation in homepage
+decide if its open or closed for more tutorials
 
 preparation for level 1
 position
 z-index
 flexbox
 centering and text centering crisis
+decibe between css classNames vs css modules for my workflow
 sharing css for smaller css files in production
 naming in css
 <main>
 <button>
 <section>
 <article>
+how to measure the performance in react
+next.js
+gatsby.js
+files structure in react, subcomponents and common-components problem

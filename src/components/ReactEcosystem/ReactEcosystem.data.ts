@@ -1,5 +1,15 @@
 const options = [
   {
+    title: 'language',
+    items: [
+      'javascript',
+      'typescript',
+      'flux',
+      'elm',
+      'reason'
+    ]
+  },
+  {
     title: 'structure',
     items: [
       'create-react-app',
@@ -39,6 +49,7 @@ const options = [
       'redux',
       'redux saga',
       'apollo graphql',
+      'relay graphql',
       'recoil',
       'mobx'
     ]
