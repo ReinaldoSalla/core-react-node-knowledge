@@ -38,6 +38,12 @@ legal, mit licence
 deploy
 ci
 
+graphql-node.js-expressjs
+graphql-apollo
+graphql relay
+redux
+redux saga
+
 common iq javascript
 common iq typescript
 common iq react
