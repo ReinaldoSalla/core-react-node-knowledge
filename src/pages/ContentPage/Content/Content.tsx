@@ -3,6 +3,7 @@ import {
   computeContentSidebarCircleCN,
   computeContentSidebarTextCN 
 } from './Content.names';
+import useScrollToElement from '../../../hooks/useScrollToElement';
 import './Content.css';
 
 const useIntersectionObserver = (domNode) => {
@@ -41,6 +42,14 @@ const Content = () => {
   const useStateDomNode = useRef(null);
   const useReducerDomNode = useRef(null);
   const finalCodeDomNode = useRef(null);
+
+  const scrollToIntro = useScrollToElement(introDomNode);
+  const scrollToSetup = useScrollToElement(setupDomNode);
+  const scrollToJsx = useScrollToElement(jsxDomNode);
+  const scrollToStyling = useScrollToElement(stylingDomNode);
+  const scrollToUseState = useScrollToElement(useStateDomNode);
+  const scrollToUseReducer = useScrollToElement(useReducerDomNode);
+  const scrollToFinalCode = useScrollToElement(finalCodeDomNode);
 
   const isIntroIntersecting = useIntersectionObserver(introDomNode);
   const isSetupIntersecting = useIntersectionObserver(setupDomNode);
@@ -231,44 +240,65 @@ const Content = () => {
 
           <li className='content_sidebar-item'>
             <div className={introContentSidebarCircleCN} />
-            <span className={introContentSidebarTextCN}>  
+            <span 
+              className={introContentSidebarTextCN}
+              onClick={scrollToIntro}  
+            >  
               1. Intro
             </span>
           </li>
 
           <li className='content_sidebar-item'>
             <div className={setupContentSidebarCircleCN} />              
-            <span className={setupContentSidebarTextCN}>
+            <span 
+              className={setupContentSidebarTextCN}
+              onClick={scrollToSetup}  
+            >
               2. Setup
             </span>
           </li>
           <li className='content_sidebar-item'>
             <div className={jsxContentSidebarCircleCN}/>
-            <span className={jsxContentSidebarTextCN}>
+            <span 
+              className={jsxContentSidebarTextCN}
+              onClick={scrollToJsx}  
+            >
               3. JSX
             </span>
           </li>
           <li className='content_sidebar-item'>
             <div className={stylingContentSidebarCircleCN}/>
-            <span className={stylingContentSidebarTextCN}>
+            <span 
+              className={stylingContentSidebarTextCN}
+              onClick={scrollToStyling}  
+            >
               4. Styling
             </span>
           </li>
           <li className='content_sidebar-item'>
             <div className={useStateContentSidebarCircleCN}/>
-            <span className={useStateContentSidebarTextCN}>
+            <span 
+              className={useStateContentSidebarTextCN}
+              onClick={scrollToUseState}  
+            >
               5. useState
             </span>
           </li>
           <li className='content_sidebar-item'>
             <div className={useReducerContentSidebarCircleCN}/>
-            <span className={useReducerContentSidebarTextCN}>
+            <span 
+              className={useReducerContentSidebarTextCN}
+              onClick={scrollToUseReducer}  
+            >
               6. useReducer
             </span>
           </li>
           <li className='content_sidebar-item'>
             <div className={finalCodeContentSidebarCircleCN}/>
-            <span className={finalCodeContentSidebarTextCN}>
+            <span 
+              className={finalCodeContentSidebarTextCN}
+              onClick={scrollToFinalCode}  
+            >
               7. Final Code
             </span>
           </li>
