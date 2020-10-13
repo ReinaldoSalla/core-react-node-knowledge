@@ -1,4 +1,9 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { 
+  useState, 
+  useEffect, 
+  useRef,
+  MutableRefObject 
+} from 'react';
 import { 
   computeContentSidebarCircleCN,
   computeContentSidebarTextCN 
@@ -6,7 +11,10 @@ import {
 import useScrollToElement from '../../../hooks/useScrollToElement';
 import './Content.css';
 
-const useIntersectionObserver = (domNode, rootMargin='-200px') => {
+const useIntersectionObserver = (
+  domNode: MutableRefObject<HTMLDivElement>, 
+  rootMargin: string = '-200px'
+) => {
   const [isIntersecting, setIntersecting] = useState(false);
   const observerRef = useRef<IntersectionObserver | null>(null);
   
@@ -35,13 +43,13 @@ const useIntersectionObserver = (domNode, rootMargin='-200px') => {
 };
 
 const Content = () => {
-  const introDomNode = useRef(null);
-  const setupDomNode = useRef(null);
-  const jsxDomNode = useRef(null);
-  const stylingDomNode = useRef(null);
-  const useStateDomNode = useRef(null);
-  const useReducerDomNode = useRef(null);
-  const finalCodeDomNode = useRef(null);
+  const introDomNode = useRef<HTMLDivElement>(null!);
+  const setupDomNode = useRef<HTMLDivElement>(null!);
+  const jsxDomNode = useRef<HTMLDivElement>(null!);
+  const stylingDomNode = useRef<HTMLDivElement>(null!);
+  const useStateDomNode = useRef<HTMLDivElement>(null!);
+  const useReducerDomNode = useRef<HTMLDivElement>(null!);
+  const finalCodeDomNode = useRef<HTMLDivElement>(null!);
 
   const scrollToIntro = useScrollToElement(introDomNode);
   const scrollToSetup = useScrollToElement(setupDomNode);
