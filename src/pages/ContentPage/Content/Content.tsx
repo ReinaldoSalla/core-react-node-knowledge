@@ -6,7 +6,7 @@ import {
 import useScrollToElement from '../../../hooks/useScrollToElement';
 import './Content.css';
 
-const useIntersectionObserver = (domNode) => {
+const useIntersectionObserver = (domNode, rootMargin='-200px') => {
   const [isIntersecting, setIntersecting] = useState(false);
   const observerRef = useRef<IntersectionObserver | null>(null);
   
@@ -17,7 +17,7 @@ const useIntersectionObserver = (domNode) => {
       if (observerRef.current === null) {
         observerRef.current = new IntersectionObserver(([entry]) => {
           setIntersecting(entry.isIntersecting);
-        }, { root: null, rootMargin: `${-80-20}px`, threshold: 0 });
+        }, { root: null, rootMargin: rootMargin, threshold: 0 });
         return observerRef.current;
       }
       return null;
@@ -51,7 +51,7 @@ const Content = () => {
   const scrollToUseReducer = useScrollToElement(useReducerDomNode);
   const scrollToFinalCode = useScrollToElement(finalCodeDomNode);
 
-  const isIntroIntersecting = useIntersectionObserver(introDomNode);
+  const isIntroIntersecting = useIntersectionObserver(introDomNode, '-100px');
   const isSetupIntersecting = useIntersectionObserver(setupDomNode);
   const isJsxIntersecting = useIntersectionObserver(jsxDomNode);
   const isStylingIntersecting = useIntersectionObserver(stylingDomNode);
