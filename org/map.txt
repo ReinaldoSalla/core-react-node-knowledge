@@ -1,8 +1,5 @@
 sidebar for mapping the contents
-stronger css, flexbox(basis grow, shrink, basis), zindex, position
-syntax highlight
 proptypes
-<main>
 err msg when using a module, like react-router-domwhat about the prefix that styled-components automatically added
 react articles
 backend articles
@@ -37,12 +34,6 @@ remote database
 legal, mit licence
 deploy
 ci
-
-graphql-node.js-expressjs
-graphql-apollo
-graphql relay
-redux
-redux saga
 
 common iq javascript
 common iq typescript

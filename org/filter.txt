@@ -1,6 +1,7 @@
 javascripttemporal
 scrollTo ContentSidebar
 intersectionobserver instead of scroll listener for topbar animation in homepage
+syntax highlight
 decide if its open or closed for more tutorials
 
 preparation for level 1
@@ -16,6 +17,14 @@ naming in css
 <section>
 <article>
 how to measure the performance in react
-next.js
 gatsby.js
+next.js
 files structure in react, subcomponents and common-components problem
+difference between clone and fork
+difference between merge and rebase
+send versions on git
+graphql-node.js-expressjs
+graphql-apollo
+graphql-relay
+redux
+redux saga
