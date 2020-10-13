@@ -1,8 +1,8 @@
 import React, { useRef } from 'react';
 import { Route } from 'react-router-dom';
-import Courosel from '../Home-components/Courosel/Courosel-component';
-import Categories from '../Home-components/Categories/Categories-component';
-import useScrollToElement from '../../../hooks/useScrollToElement';
+import Courosel from '../../components/Courosel';
+import Categories from '../../components/Categories';
+import useScrollToElement from '../../hooks/useScrollToElement';
 
 const Home = () => { 
   const javascriptRef = useRef(null);

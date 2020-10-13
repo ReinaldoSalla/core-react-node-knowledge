@@ -1,5 +1,5 @@
-import Home from '../../pages/HomePage/Home';
-import Content from '../../pages/ContentPage/Content';
+import Home from '../../pages/HomePage';
+import Content from '../../pages/ContentPage';
 
 const routesConfig = [
   {

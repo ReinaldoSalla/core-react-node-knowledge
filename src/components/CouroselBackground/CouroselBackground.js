@@ -1,5 +1,5 @@
 import React from 'react';
-import video from '../../../../../../assets/videos/tech.1920x1080px.1000kbps.mp4';
+import video from '../../assets/videos/tech.1920x1080px.1000kbps.mp4';
 import './CouroselBackground.css';
 
 const CouroselBackground = () => (

@@ -1,4 +1,4 @@
-import couroselItems from '../Courosel-subcomponents/CouroselItems';
+import couroselItems from '../CouroselItems';
 
 const moveToNextItem = (state) => {
 	let newIndex = state.index + 1;

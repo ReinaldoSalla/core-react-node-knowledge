@@ -1,14 +1,14 @@
 import React, { useReducer, useEffect } from 'react';
 import { useTransition } from 'react-spring';
 import { CouroselWrapper } from './Courosel.styles';
-import CouroselInput from '../Courosel-subcomponents/CouroselInput';
-import couroselItems from '../Courosel-subcomponents/CouroselItems';
-import CouroselBackground from '../Courosel-subcomponents/CouroselBackground';
+import CouroselInput from '../CouroselInput';
+import couroselItems from '../CouroselItems';
+import CouroselBackground from '../CouroselBackground';
 import couroselInitialState from './Courosel.init';
 import { couroselTransitionProps } from './Courosel.animations';
 import couroselReducer from './Courosel.reducer';
 import COUROSEL_CONSTANTS from './Courosel.constants';
-import useDocumentVisibility from '../../../../../hooks/useDocumentVisibility';
+import useDocumentVisibility from '../../hooks/useDocumentVisibility';
 
 const Courosel = ({
   scrollToJavascript,

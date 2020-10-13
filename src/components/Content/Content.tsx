@@ -8,7 +8,7 @@ import {
   computeContentSidebarCircleCN,
   computeContentSidebarTextCN 
 } from './Content.names';
-import useScrollToElement from '../../../hooks/useScrollToElement';
+import useScrollToElement from '../../hooks/useScrollToElement';
 import './Content.css';
 
 const useIntersectionObserver = (
@@ -29,7 +29,7 @@ const useIntersectionObserver = (
         return observerRef.current;
       }
       return null;
-    }
+    };
 
     const observer = getObserver();
     const localDomNode = domNode.current;

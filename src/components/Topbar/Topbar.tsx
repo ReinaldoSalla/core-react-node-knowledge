@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import TopbarButton from '../Topbar-subcomponents/TopbarButton';
-import { ReactComponent as ContentsSvg } from '../../../../../assets/icons/contents.svg';
-import { ReactComponent as JavaScriptSvg } from '../../../../../assets/icons/javascript.svg';
-import { ReactComponent as SearchSvg } from '../../../../../assets/icons/search.svg';
-import { ReactComponent as ProfileSvg } from '../../../../../assets/icons/profile.svg';
+import TopbarButton from '../TopbarButton';
+import { ReactComponent as ContentsSvg } from '../../assets/icons/contents.svg';
+import { ReactComponent as JavaScriptSvg } from '../../assets/icons/javascript.svg';
+import { ReactComponent as SearchSvg } from '../../assets/icons/search.svg';
+import { ReactComponent as ProfileSvg } from '../../assets/icons/profile.svg';
 import './Topbar.css';
 
 const Topbar = () => {
