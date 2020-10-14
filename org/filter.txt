@@ -1,8 +1,8 @@
 javascripttemporal
 scrollTo ContentSidebar
 syntax highlight
-decide if its open or closed for more tutorials
-intersectionobserver instead of scroll listener for topbar animation in homepage
+decide if it's going to be private or open
+decide if it's going to be javascripttemporal or reacttemporal
 
 preparation for level 1
 position
@@ -19,9 +19,6 @@ naming in css
 <section>
 <article>
 how to measure the performance in react
-gatsby.js
-next.js
-files structure in react, subcomponents and common-components problem
 difference between clone and fork
 difference between merge and rebase
 send versions on git

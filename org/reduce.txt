@@ -1,6 +1,8 @@
 reactjs vs reactnative = reactjs, because instant access
 javascript, typescript = typescript, because code quality
-className vs inline vs styledcomponents = className, because low level
-css transition/keyframes vs react-spring = css transition/keyframes, because low level
+className vs inline vs styledcomponents = styledcomponents, because css-in-js is the future
+css transition/keyframes vs react-spring = react-spring, because it allows for more complex animations
 function declaration vs arrow function = arrow function, because that's the default in eslint
 max number of chars per line = 80, because that's the default in prettier
+should techtemporal private or open = private for now, and maybe open some day
+should techtemporal be javascripttemporal or reacttemporal = javascripttemporal, because javascript has more potential long term
