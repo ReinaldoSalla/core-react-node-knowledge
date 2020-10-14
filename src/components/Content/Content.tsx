@@ -8,6 +8,11 @@ import {
   computeContentSidebarCircleCN,
   computeContentSidebarTextCN 
 } from './Content.names';
+import {
+  ContentWrapper,
+  ContentContainer
+} from './Content.styles';
+import ContentCore from '../ContentCore';
 import useScrollToElement from '../../hooks/useScrollToElement';
 import './Content.css';
 
@@ -93,17 +98,20 @@ const Content = () => {
   const finalCodeContentSidebarTextCN = computeContentSidebarTextCN(isFinalCodeIntersecting, isUseReducerIntersecting)
 
   return (
-    <div className='content_wrapper'>
+    <ContentWrapper>
       <h1>React - Rendering</h1>
-      <div className='content_container'>
+      <ContentContainer>
         <div>
 
-          <div className='content_box' ref={introDomNode}>
+          <ContentCore 
+            introDomNode={introDomNode}
+          />
+          {/* <div className='content_box' ref={introDomNode}>
             <h2>1. Intro</h2>
             <p className='content_text'>
               The idea of this guide is to explore JSX, styling and state management in React, by creating a resposive and interactive webpage. We'll use create-react-app to setup the project.
             </p>
-          </div>
+          </div> */}
 
           <div className='content_box' ref={setupDomNode}>
             <h2>2. Setup</h2>
@@ -311,9 +319,17 @@ const Content = () => {
             </span>
           </li>
         </ul >
-      </div>
-    </div>
+      </ContentContainer>
+    </ContentWrapper>
   );
 };
 
 export default Content;
+
+
+/*
+wrapper
+container
+area
+box
+*/

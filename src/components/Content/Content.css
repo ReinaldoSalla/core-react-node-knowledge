@@ -1,21 +1,3 @@
-.content_wrapper {
-  padding: var(--topbar-height) 48px 0 48px; 
-  animation: content_wrapper-fade-in 250ms;
-}
-
-@keyframes content_wrapper-fade-in {
-  from {
-    transform: translateX(-10%);
-    opacity: 0;
-  }
-
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-
-
 .content_container {
   display: flex;
 }
