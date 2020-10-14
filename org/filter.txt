@@ -1,24 +1,54 @@
-javascripttemporal
-scrollTo ContentSidebar
+mobile content sidebar
 syntax highlight
-decide if it's going to be private or open
-decide if it's going to be javascripttemporal or reacttemporal
-
-preparation for level 1
+eslint
+err using a module
+proptypes
+create the first react articles
+topbar
+sidebar
+<List />
+gatsby
+graphql express node
+apollo graphql
+the backend and apollo frontend for javascripttemporal
+remote database
+sharing css for smaller css files in production
+naming in css
+order of the css props
+contact and philosophy
+react-springify and styled-componify
+typescriptify
+make sure the loading works for the initial load (specially for the video and the courosel item, which is buggy even locally), so maybe some Loading animation for 5 secs could be usefull
 position
 z-index
 flexbox
 centering and text centering crisis
 ::before ::after
 :nth-child, :nth-of-type, :not
-decibe between css classNames vs css modules for my workflow
-sharing css for smaller css files in production
-naming in css
 <main>
 <button>
 <section>
 <article>
 how to measure the performance in react
+testing frontend
 difference between clone and fork
 difference between merge and rebase
 send versions on git
+monorepo or what the best way to structure frontend/backend repo
+react-core articles
+react-libs articles
+backend articles
+javascript articles
+generic content component reading data from somewhere
+testing frontend, testing backend
+seo
+browser compatibility
+accessibility
+legal
+deploy
+ci
+common iq javascript
+common iq typescript
+common iq react
+work on history
+how to highlight so
