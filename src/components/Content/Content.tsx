@@ -13,6 +13,7 @@ import {
   ContentContainer
 } from './Content.styles';
 import ContentCore from '../ContentCore';
+import ContentNavigation from '../ContentNavigation';
 import useScrollToElement from '../../hooks/useScrollToElement';
 import './Content.css';
 
@@ -112,8 +113,24 @@ const Content = () => {
             finalCodeDomNode={finalCodeDomNode}
           />
         </div>;
+        <ContentNavigation 
+          isIntroIntersecting={isIntroIntersecting}
+          isSetupIntersecting={isSetupIntersecting}
+          isJsxIntersecting={isJsxIntersecting}
+          isStylingIntersecting={isStylingIntersecting}
+          isUseStateIntersecting={isUseStateIntersecting}
+          isUseReducerIntersecting={isUseReducerIntersecting}
+          isFinalCodeIntersecting={isFinalCodeIntersecting}
+          scrollToIntro={scrollToIntro}
+          scrollToSetup={scrollToSetup}
+          scrollToJsx={scrollToJsx}
+          scrollToStyling={scrollToStyling}
+          scrollToUseState={scrollToUseState}
+          scrollToUseReducer={scrollToUseReducer}
+          scrollToFinalCode={scrollToFinalCode}
+        />
 
-        <ul className='content_sidebar'>
+        {/* <ul className='content_sidebar'>
 
           <li className='content_sidebar-item'>
             <div className={introContentSidebarCircleCN} />
@@ -179,7 +196,7 @@ const Content = () => {
               7. Final Code
             </span>
           </li>
-        </ul >
+        </ul > */}
       </ContentContainer>
     </ContentWrapper>
   );
