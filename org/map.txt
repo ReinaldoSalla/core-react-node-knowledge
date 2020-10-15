@@ -1,0 +1,14 @@
+more on typescript
+materialui
+antd
+next
+redux
+redux saga
+recoil
+authorization 
+payment gateway
+firebase
+aws
+mongodb
+postgres
+react native
