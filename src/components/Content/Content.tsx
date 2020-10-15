@@ -76,28 +76,7 @@ const Content = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-
-  const introContentSidebarCircleCN = computeContentSidebarCircleCN(isIntroIntersecting);
-  const introContentSidebarTextCN = computeContentSidebarTextCN(isIntroIntersecting);
-
-  const setupContentSidebarCircleCN = computeContentSidebarCircleCN(isSetupIntersecting, isIntroIntersecting);
-  const setupContentSidebarTextCN = computeContentSidebarTextCN(isSetupIntersecting, isIntroIntersecting)
-
-  const jsxContentSidebarCircleCN = computeContentSidebarCircleCN(isJsxIntersecting, isSetupIntersecting);
-  const jsxContentSidebarTextCN = computeContentSidebarTextCN(isJsxIntersecting, isSetupIntersecting);
-
-  const stylingContentSidebarCircleCN = computeContentSidebarCircleCN(isStylingIntersecting, isJsxIntersecting);
-  const stylingContentSidebarTextCN = computeContentSidebarTextCN(isStylingIntersecting, isJsxIntersecting)
-
-  const useStateContentSidebarCircleCN = computeContentSidebarCircleCN(isUseStateIntersecting, isStylingIntersecting);
-  const useStateContentSidebarTextCN = computeContentSidebarTextCN(isUseStateIntersecting, isStylingIntersecting);
-
-  const useReducerContentSidebarCircleCN = computeContentSidebarCircleCN(isUseReducerIntersecting, isUseStateIntersecting);
-  const useReducerContentSidebarTextCN = computeContentSidebarTextCN(isUseReducerIntersecting, isUseStateIntersecting);
-
-  const finalCodeContentSidebarCircleCN = computeContentSidebarCircleCN(isFinalCodeIntersecting, isUseReducerIntersecting);
-  const finalCodeContentSidebarTextCN = computeContentSidebarTextCN(isFinalCodeIntersecting, isUseReducerIntersecting)
-
+  
   return (
     <ContentWrapper>
       <h1>React - Rendering</h1>
@@ -129,74 +108,6 @@ const Content = () => {
           scrollToUseReducer={scrollToUseReducer}
           scrollToFinalCode={scrollToFinalCode}
         />
-
-        {/* <ul className='content_sidebar'>
-
-          <li className='content_sidebar-item'>
-            <div className={introContentSidebarCircleCN} />
-            <span 
-              className={introContentSidebarTextCN}
-              onClick={scrollToIntro}  
-            >  
-              1. Intro
-            </span>
-          </li>
-
-          <li className='content_sidebar-item'>
-            <div className={setupContentSidebarCircleCN} />              
-            <span 
-              className={setupContentSidebarTextCN}
-              onClick={scrollToSetup}  
-            >
-              2. Setup
-            </span>
-          </li>
-          <li className='content_sidebar-item'>
-            <div className={jsxContentSidebarCircleCN}/>
-            <span 
-              className={jsxContentSidebarTextCN}
-              onClick={scrollToJsx}  
-            >
-              3. JSX
-            </span>
-          </li>
-          <li className='content_sidebar-item'>
-            <div className={stylingContentSidebarCircleCN}/>
-            <span 
-              className={stylingContentSidebarTextCN}
-              onClick={scrollToStyling}  
-            >
-              4. Styling
-            </span>
-          </li>
-          <li className='content_sidebar-item'>
-            <div className={useStateContentSidebarCircleCN}/>
-            <span 
-              className={useStateContentSidebarTextCN}
-              onClick={scrollToUseState}  
-            >
-              5. useState
-            </span>
-          </li>
-          <li className='content_sidebar-item'>
-            <div className={useReducerContentSidebarCircleCN}/>
-            <span 
-              className={useReducerContentSidebarTextCN}
-              onClick={scrollToUseReducer}  
-            >
-              6. useReducer
-            </span>
-          </li>
-          <li className='content_sidebar-item'>
-            <div className={finalCodeContentSidebarCircleCN}/>
-            <span 
-              className={finalCodeContentSidebarTextCN}
-              onClick={scrollToFinalCode}  
-            >
-              7. Final Code
-            </span>
-          </li>
-        </ul > */}
       </ContentContainer>
     </ContentWrapper>
   );

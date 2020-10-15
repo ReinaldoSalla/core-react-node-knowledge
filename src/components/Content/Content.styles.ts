@@ -6,6 +6,10 @@ const ContentWrapper = styled.div`
 
 const ContentContainer = styled.div`
   display: flex;
+
+  ${(props) => props.theme.breakpoints.medium} {
+    flex-direction: column;
+  }
 `;
 
 export {
