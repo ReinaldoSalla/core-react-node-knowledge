@@ -4,5 +4,3 @@ className vs inline vs styledcomponents = styledcomponents, because css-in-js is
 css transition/keyframes vs react-spring = react-spring, because it allows for more complex animations
 function declaration vs arrow function = arrow function, because that's the default in eslint
 max number of chars per line = 80, because that's the default in prettier
-should techtemporal private or open = private for now, and maybe open some day
-should techtemporal be javascripttemporal or reacttemporal = javascripttemporal, because javascript has more potential long term
