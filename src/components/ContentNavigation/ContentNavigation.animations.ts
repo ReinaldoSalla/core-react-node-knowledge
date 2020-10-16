@@ -7,9 +7,9 @@ const getCircleAnimation = (
 });
 
 const getTextAnimation = (
+  innerWidth: number,
   currFlag: boolean, 
   prevFlag: boolean | null = null,
-  innerWidth = 800
 ) => {
   if (innerWidth >= 768) {
     return {

@@ -10,7 +10,8 @@ const ContentNavigationWrapper = styled.ol`
   width: 150px;
 
   ${(props) => props.theme.breakpoints.medium} {
-    position: sticky;
+    margin: 0;
+    position: static;
   }
 `;
 
@@ -22,6 +23,11 @@ const ContentNavigationItem = styled.li`
 
   &:hover {
     cursor: pointer;
+  }
+
+  ${(props) => props.theme.breakpoints.medium} {
+    display: block;
+    margin-bottom: 24px;
   }
 `;
 
@@ -43,25 +49,15 @@ const ContentNavigationText = styled(animated.span)`
   display: inline-block;
   width: 100px;
   line-height: 0.7;
+
+  ${(props) => props.theme.breakpoints.medium} {
+    width: auto;
+  }
 `;
-
-const getFinalCircleStyle = (animation, innerWidth) => (
-  innerWidth >= 768  
-    ? animation 
-    : { display: 'none' }
-);
-
-const getFinalTextStyle = (animation, innerWidth) => (
-  innerWidth >= 768
-    ? animation
-    : { color: 'black' }
-);
 
 export {
   ContentNavigationWrapper,
   ContentNavigationItem,
   ContentNavigationCircle,
   ContentNavigationText,
-  getFinalCircleStyle,
-  getFinalTextStyle
 };
