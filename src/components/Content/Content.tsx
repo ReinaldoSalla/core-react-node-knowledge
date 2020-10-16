@@ -91,7 +91,7 @@ const Content = () => {
             useReducerDomNode={useReducerDomNode}
             finalCodeDomNode={finalCodeDomNode}
           />
-        </div>;
+        </div>
         <ContentNavigation 
           isIntroIntersecting={isIntroIntersecting}
           isSetupIntersecting={isSetupIntersecting}
