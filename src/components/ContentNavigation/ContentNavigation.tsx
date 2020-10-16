@@ -36,13 +36,13 @@ const ContentNavigation: FunctionComponent<ContentNavigationProps> = ({
   const useReducerCircleAnimation = useSpring(getCircleAnimation(isUseReducerIntersecting, isUseStateIntersecting));
   const finalCodeCircleAnimation = useSpring(getCircleAnimation(isFinalCodeIntersecting, isUseReducerIntersecting));
   
-  const introTextAnimation = useSpring(getTextAnimation(window.innerWidth, isIntroIntersecting));
-  const setupTextAnimation = useSpring(getTextAnimation(window.innerWidth, isSetupIntersecting, isIntroIntersecting));
-  const jsxTextAnimation = useSpring(getTextAnimation(window.innerWidth, isJsxIntersecting, isSetupIntersecting));
-  const stylingTextAnimation = useSpring(getTextAnimation(window.innerWidth, isStylingIntersecting, isJsxIntersecting));
-  const useStateTextAnimation = useSpring(getTextAnimation(window.innerWidth, isUseStateIntersecting, isStylingIntersecting));
-  const useReducerTextAnimation = useSpring(getTextAnimation(window.innerWidth, isUseReducerIntersecting, isUseStateIntersecting));
-  const finalCodeTextAnimation = useSpring(getTextAnimation(window.innerWidth, isFinalCodeIntersecting, isUseReducerIntersecting));
+  const introTextAnimation = useSpring(getTextAnimation(isIntroIntersecting));
+  const setupTextAnimation = useSpring(getTextAnimation(isSetupIntersecting, isIntroIntersecting));
+  const jsxTextAnimation = useSpring(getTextAnimation(isJsxIntersecting, isSetupIntersecting));
+  const stylingTextAnimation = useSpring(getTextAnimation(isStylingIntersecting, isJsxIntersecting));
+  const useStateTextAnimation = useSpring(getTextAnimation(isUseStateIntersecting, isStylingIntersecting));
+  const useReducerTextAnimation = useSpring(getTextAnimation(isUseReducerIntersecting, isUseStateIntersecting));
+  const finalCodeTextAnimation = useSpring(getTextAnimation(isFinalCodeIntersecting, isUseReducerIntersecting));
 
   return (
     <ContentNavigationWrapper>

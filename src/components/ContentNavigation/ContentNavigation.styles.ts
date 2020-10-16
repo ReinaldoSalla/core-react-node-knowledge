@@ -10,8 +10,7 @@ const ContentNavigationWrapper = styled.ol`
   width: 150px;
 
   ${(props) => props.theme.breakpoints.medium} {
-    margin: 0;
-    position: static;
+    display: none;
   }
 `;
 
@@ -24,11 +23,6 @@ const ContentNavigationItem = styled.li`
   &:hover {
     cursor: pointer;
   }
-
-  ${(props) => props.theme.breakpoints.medium} {
-    display: block;
-    margin-bottom: 24px;
-  }
 `;
 
 const ContentNavigationCircle = styled(animated.div)`
@@ -39,20 +33,12 @@ const ContentNavigationCircle = styled(animated.div)`
   border: 1px solid black;
   border-radius: 50%;
   background: 50%;
-
-  ${(props) => props.theme.breakpoints.medium} {
-    display: none;
-  }
 `;
 
 const ContentNavigationText = styled(animated.span)`
   display: inline-block;
   width: 100px;
   line-height: 0.7;
-
-  ${(props) => props.theme.breakpoints.medium} {
-    width: auto;
-  }
 `;
 
 export {

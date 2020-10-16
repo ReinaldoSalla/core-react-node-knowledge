@@ -7,18 +7,11 @@ const getCircleAnimation = (
 });
 
 const getTextAnimation = (
-  innerWidth: number,
   currFlag: boolean, 
   prevFlag: boolean | null = null,
-) => {
-  if (innerWidth >= 768) {
-    return {
-      color: currFlag && !prevFlag ? 'red' : 'black'
-    }
-  }
-  return { color: 'black' }
-}
-
+) => ({
+  color: currFlag && !prevFlag ? 'red' : 'black'
+});
 
 export { 
   getTextAnimation,
