@@ -17,3 +17,30 @@ const App = () => {
 };
 
 export default App;
+
+// import React from 'react';
+// import styled from 'styled-components';
+
+// const Wrapper = styled.div`
+//   display: flex;
+//   flex-direction: column-reverse;
+// `;
+
+// const FirstItem = styled.div`
+//   width: 50px;
+//   height: 50px;
+//   background: red;
+// `;
+
+// const SecondItem = styled.div`
+//   width: 50px;
+//   height: 50px;
+//   background: blue;
+// `
+
+// export default () => (
+//   <Wrapper>
+//     <FirstItem />
+//     <SecondItem />
+//   </Wrapper>
+// );

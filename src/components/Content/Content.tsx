@@ -4,10 +4,6 @@ import React, {
   useRef,
   MutableRefObject 
 } from 'react';
-import { 
-  computeContentSidebarCircleCN,
-  computeContentSidebarTextCN 
-} from './Content.names';
 import {
   ContentWrapper,
   ContentContainer
@@ -16,6 +12,8 @@ import ContentCore from '../ContentCore';
 import ContentNavigation from '../ContentNavigation';
 import useScrollToElement from '../../hooks/useScrollToElement';
 import './Content.css';
+
+let nCalls = 0;
 
 const useIntersectionObserver = (
   domNode: MutableRefObject<HTMLDivElement>, 

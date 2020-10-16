@@ -4,12 +4,14 @@ import {
   ContentNavigationWrapper,
   ContentNavigationItem,
   ContentNavigationCircle,
-  ContentNavigationText
+  ContentNavigationText,
+  getFinalCircleStyle,
+  getFinalTextStyle
 } from './ContentNavigation.styles';
 import { ContentNavigationProps } from './ContentNavigation.types';
 import { 
   getTextAnimation,
-  getCircleAnimation 
+  getCircleAnimation
 } from './ContentNavigation.animations';
 
 const ContentNavigation: FunctionComponent<ContentNavigationProps> = ({
@@ -36,7 +38,7 @@ const ContentNavigation: FunctionComponent<ContentNavigationProps> = ({
   const useReducerCircleAnimation = useSpring(getCircleAnimation(isUseReducerIntersecting, isUseStateIntersecting));
   const finalCodeCircleAnimation = useSpring(getCircleAnimation(isFinalCodeIntersecting, isUseReducerIntersecting));
   
-  const introTextAnimation = useSpring(getTextAnimation(isIntroIntersecting));
+  const introTextAnimation = useSpring(getTextAnimation(isIntroIntersecting, null, window.innerWidth));
   const setupTextAnimation = useSpring(getTextAnimation(isSetupIntersecting, isIntroIntersecting));
   const jsxTextAnimation = useSpring(getTextAnimation(isJsxIntersecting, isSetupIntersecting));
   const stylingTextAnimation = useSpring(getTextAnimation(isStylingIntersecting, isJsxIntersecting));

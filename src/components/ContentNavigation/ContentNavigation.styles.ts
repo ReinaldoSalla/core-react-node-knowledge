@@ -8,6 +8,10 @@ const ContentNavigationWrapper = styled.ol`
   right: 20px;
   height: 300px;
   width: 150px;
+
+  ${(props) => props.theme.breakpoints.medium} {
+    position: sticky;
+  }
 `;
 
 const ContentNavigationItem = styled.li`
@@ -28,6 +32,11 @@ const ContentNavigationCircle = styled(animated.div)`
   height: 8px;
   border: 1px solid black;
   border-radius: 50%;
+  background: 50%;
+
+  ${(props) => props.theme.breakpoints.medium} {
+    display: none;
+  }
 `;
 
 const ContentNavigationText = styled(animated.span)`
@@ -36,9 +45,23 @@ const ContentNavigationText = styled(animated.span)`
   line-height: 0.7;
 `;
 
+const getFinalCircleStyle = (animation, innerWidth) => (
+  innerWidth >= 768  
+    ? animation 
+    : { display: 'none' }
+);
+
+const getFinalTextStyle = (animation, innerWidth) => (
+  innerWidth >= 768
+    ? animation
+    : { color: 'black' }
+);
+
 export {
   ContentNavigationWrapper,
   ContentNavigationItem,
   ContentNavigationCircle,
-  ContentNavigationText
+  ContentNavigationText,
+  getFinalCircleStyle,
+  getFinalTextStyle
 };
