@@ -4,3 +4,8 @@ className vs inline vs styledcomponents = styledcomponents, because css-in-js is
 css transition/keyframes vs react-spring = react-spring, because it allows for more complex animations
 function declaration vs arrow function = arrow function, because that's the default in eslint
 max number of chars per line = 80, because that's the default in prettier
+should programmingtemporal be open or close = open, because that's how real apps work
+
+sould i go for uw or so = ?
+should i use create-react-app or next or gatsby for programmingtemporal = ?
+should i go with fireabse or amplify or realcode with the backend for programmingtemporal = ?
