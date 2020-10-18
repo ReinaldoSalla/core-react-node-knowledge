@@ -4,6 +4,8 @@ sass
 less
 materialui
 antd
+antd motion
+framer motion
 next
 redux
 redux saga

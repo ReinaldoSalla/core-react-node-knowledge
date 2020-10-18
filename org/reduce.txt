@@ -7,5 +7,3 @@ max number of chars per line = 80, because that's the default in prettier
 should programmingtemporal be open or close = open, because that's how real apps work
 
 sould i go for uw or so = ?
-should i use create-react-app or next or gatsby for programmingtemporal = ?
-should i go with fireabse or amplify or realcode with the backend for programmingtemporal = ?
