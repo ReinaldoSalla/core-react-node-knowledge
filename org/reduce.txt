@@ -4,15 +4,6 @@ className vs inline vs styledcomponents = styledcomponents, because css-in-js is
 css transition/keyframes vs react-spring = react-spring, because it allows for more complex animations
 function declaration vs arrow function = arrow function, because that's the default in eslint
 max number of chars per line = 80, because that's the default in prettier
-
-blocking
-go for gi or tt or so = ?
-should progrtemp be open or close = ?
-should i use create-react-app or next or gatsby for progrtemp = ?
-what should be the name of progrtemp = ?
-
-inclinattion
-gi, because it's react-oriented
-close, because that's legally safe
-create-react-app, more chances to impress chalenges, with lazy loading routes, lazy loading imgs and seo optimization
-jsexp
+go for gi or tt or so = gi, because it's rc oriented
+create-react-app vs next vs gatsby = create-react-app, more chances to stand out, with lazy loading routes, lazy loading imgs and seo optimization 
+should progrtemp be open or close = close, because then i can start in gi sonner, and maybe open up some day if necessary

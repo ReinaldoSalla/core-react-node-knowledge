@@ -1,23 +1,3 @@
-gatsby
-
-topbar
-home banner
-list 
-content page top banner, review and comments
-syntax highlight
-footer page
-
-the backend, graphql apis, authentication, get, post, remote database
-apollo graphql for state management in the frontend
-
-sharing css for smaller css files in production
-naming in css
-order of the css props
-react-springify and styled-componify
-typescriptify
-eslint, prettier, husky
-make sure the loading works for the initial load (specially for the video and the courosel item, which is buggy even locally), so maybe some Loading animation for 5 secs could be usefull
-
 display property
 position
 z-index
@@ -30,6 +10,23 @@ centering and text centering crisis
 <button>
 <section>
 <article>
+
+topbar
+home banner
+list 
+content page top banner, review and comments
+syntax highlight
+footer page
+
+sharing css for smaller css files in production
+naming in css
+order of the css props
+
+best structure for a create-react-app project
+react-springify and styled-componify
+typescriptify
+eslint, prettier, husky
+make sure the loading works for the initial load (specially for the video and the courosel item, which is buggy even locally), so maybe some Loading animation for 5 secs could be usefull
 
 how to measure the performance in react
 difference between clone and fork
@@ -45,3 +42,5 @@ accessibility
 legal
 deploy
 ci
+
+create articles for what i belive to be important
