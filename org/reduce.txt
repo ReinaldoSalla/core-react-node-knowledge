@@ -1,9 +1,0 @@
-reactjs vs reactnative = reactjs, because instant access
-javascript, typescript = typescript, because code quality
-className vs inline vs styledcomponents = styledcomponents, because css-in-js is the future
-css transition/keyframes vs react-spring = react-spring, because it allows for more complex animations
-function declaration vs arrow function = arrow function, because that's the default in eslint
-max number of chars per line = 80, because that's the default in prettier
-go for gi or tt or so = gi, because it's rc oriented
-create-react-app vs next vs gatsby = create-react-app, more chances to stand out, with lazy loading routes, lazy loading imgs and seo optimization 
-should progrtemp be open or close = close, because then i can start in gi sonner, and maybe open up some day if necessary
