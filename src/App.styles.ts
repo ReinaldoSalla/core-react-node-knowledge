@@ -52,7 +52,8 @@ const globalTheme = {
     large: generateMedia(1024),
     extraLarge: generateMedia(1200)
   },
-  topbarHeight: '80px'
+  topbarHeight: '80px',
+  bgColor: '#280808'
 };
 
 

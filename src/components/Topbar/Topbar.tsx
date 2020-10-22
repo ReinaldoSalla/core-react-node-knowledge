@@ -1,37 +1,35 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { useLocation } from 'react-router-dom';
+import { useSpring, config } from 'react-spring';
+import useIsInTop from '../../hooks/useIsInTop';
 import TopbarButton from '../TopbarButton';
 import { ReactComponent as ContentsSvg } from '../../assets/icons/contents.svg';
 import { ReactComponent as JavaScriptSvg } from '../../assets/icons/javascript.svg';
 import { ReactComponent as SearchSvg } from '../../assets/icons/search.svg';
 import { ReactComponent as ProfileSvg } from '../../assets/icons/profile.svg';
-import './Topbar.css';
+import { getTopbarAnimation } from './Topbar.animations';
+import {
+  TopbarWrapper,
+  TopbarFiller
+} from './Topbar.styles';
 
 const Topbar = () => {
-  const [isInTop, setIsInTop] = useState(window.pageYOffset <= 50);
+  const isInTop = useIsInTop(50);
   const { pathname } = useLocation();
 
-  useEffect(() => {
-    const onScroll = () => {
-      setIsInTop(window.pageYOffset <= 50);
-    };
-    window.addEventListener('scroll', onScroll);
-    return () => window.removeEventListener('scroll', onScroll);
-  });
+  const topbarFillerAnimation = useSpring(getTopbarAnimation(isInTop));
 
   return (
     <header>
-      <nav className='topbar'>
+      <TopbarWrapper>
         <TopbarButton Svg={ContentsSvg} text='Contents' />
         <TopbarButton Svg={JavaScriptSvg} text='Home' large/>
         <TopbarButton Svg={SearchSvg} text='Search' large/>
         <TopbarButton Svg={ProfileSvg} text='Profile' />
-        <div className={`topbar-filler${isInTop && pathname === '/' ? '' : ' topbar-filler-transition'}`} />
-      </nav>
+        <TopbarFiller style={topbarFillerAnimation}/>
+      </TopbarWrapper>
     </header>
   );
 };
 
 export default Topbar;
-
-
