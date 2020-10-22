@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const CouroselWrapper = styled.div`
+const CouroselWrapper = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;

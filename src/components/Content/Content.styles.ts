@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const ContentWrapper = styled.div`
+const ContentWrapper = styled.article`
   padding: var(--topbar-height) 48px 0 48px; 
 `;
 

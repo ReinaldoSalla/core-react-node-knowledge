@@ -11,29 +11,31 @@ const Categories = ({
   reactRef,
   nodeRef
 }) => (
-	<div className='categories'>
-		<CategoriesBoard
-			title={categories.javascript.title}
-			description={categories.javascript.description}
-      contents={categories.javascript.contents}
-      Svg={JavaScriptSvg}
-      elementRef={javascriptRef}
-		/>
-    <CategoriesBoard
-      title={categories.react.title}
-      description={categories.react.description}
-      contents={categories.react.contents}
-      Svg={ReactSvg}
-      elementRef={reactRef}
-    />
-    <CategoriesBoard 
-      title={categories.node.title}
-      description={categories.node.description}
-      contents={categories.node.contents}
-      Svg={ServerSvg}
-      elementRef={nodeRef}
-    />
-	</div>
+  <main>
+    <section className='categories'>
+      <CategoriesBoard
+        title={categories.javascript.title}
+        description={categories.javascript.description}
+        contents={categories.javascript.contents}
+        Svg={JavaScriptSvg}
+        elementRef={javascriptRef}
+      />
+      <CategoriesBoard
+        title={categories.react.title}
+        description={categories.react.description}
+        contents={categories.react.contents}
+        Svg={ReactSvg}
+        elementRef={reactRef}
+      />
+      <CategoriesBoard 
+        title={categories.node.title}
+        description={categories.node.description}
+        contents={categories.node.contents}
+        Svg={ServerSvg}
+        elementRef={nodeRef}
+      />
+    </section>
+  </main>
 );
 
 export default Categories;

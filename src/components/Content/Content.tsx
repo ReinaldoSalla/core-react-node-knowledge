@@ -73,38 +73,40 @@ const Content = () => {
   }, []);
   
   return (
-    <ContentWrapper>
-      <h1>React - Rendering</h1>
-      <ContentContainer>
-        <div>
-          <ContentCore 
-            introDomNode={introDomNode}
-            setupDomNode={setupDomNode}
-            jsxDomNode={jsxDomNode}
-            stylingDomNode={stylingDomNode}
-            useStateDomNode={useStateDomNode}
-            useReducerDomNode={useReducerDomNode}
-            finalCodeDomNode={finalCodeDomNode}
+    <main>
+      <ContentWrapper>
+        <h1>React - Rendering</h1>
+        <ContentContainer>
+          <section>
+            <ContentCore 
+              introDomNode={introDomNode}
+              setupDomNode={setupDomNode}
+              jsxDomNode={jsxDomNode}
+              stylingDomNode={stylingDomNode}
+              useStateDomNode={useStateDomNode}
+              useReducerDomNode={useReducerDomNode}
+              finalCodeDomNode={finalCodeDomNode}
+            />
+          </section>
+          <ContentNavigation 
+            isIntroIntersecting={isIntroIntersecting}
+            isSetupIntersecting={isSetupIntersecting}
+            isJsxIntersecting={isJsxIntersecting}
+            isStylingIntersecting={isStylingIntersecting}
+            isUseStateIntersecting={isUseStateIntersecting}
+            isUseReducerIntersecting={isUseReducerIntersecting}
+            isFinalCodeIntersecting={isFinalCodeIntersecting}
+            scrollToIntro={scrollToIntro}
+            scrollToSetup={scrollToSetup}
+            scrollToJsx={scrollToJsx}
+            scrollToStyling={scrollToStyling}
+            scrollToUseState={scrollToUseState}
+            scrollToUseReducer={scrollToUseReducer}
+            scrollToFinalCode={scrollToFinalCode}
           />
-        </div>
-        <ContentNavigation 
-          isIntroIntersecting={isIntroIntersecting}
-          isSetupIntersecting={isSetupIntersecting}
-          isJsxIntersecting={isJsxIntersecting}
-          isStylingIntersecting={isStylingIntersecting}
-          isUseStateIntersecting={isUseStateIntersecting}
-          isUseReducerIntersecting={isUseReducerIntersecting}
-          isFinalCodeIntersecting={isFinalCodeIntersecting}
-          scrollToIntro={scrollToIntro}
-          scrollToSetup={scrollToSetup}
-          scrollToJsx={scrollToJsx}
-          scrollToStyling={scrollToStyling}
-          scrollToUseState={scrollToUseState}
-          scrollToUseReducer={scrollToUseReducer}
-          scrollToFinalCode={scrollToFinalCode}
-        />
-      </ContentContainer>
-    </ContentWrapper>
+        </ContentContainer>
+      </ContentWrapper>
+    </main>
   );
 };
 
