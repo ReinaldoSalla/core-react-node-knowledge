@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-const useIsInTop = (offset) => {
+const useIsInTop = (offset: number): boolean => {
   const [isInTop, setIsInTop] = useState(window.pageYOffset <= offset);
 
   useEffect(() => {

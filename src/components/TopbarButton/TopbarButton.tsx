@@ -1,25 +1,54 @@
 import React, { useState } from 'react';
 import { useSpring } from 'react-spring';
-import './TopbarButton.css';
+import { useLocation } from 'react-router-dom';
+import { getTopbarButtonAnimation } from './TopbarButton.animations';
+import {
+  TopbarButtonWrapper,
+  TopbarButtonNormalizer,
+  TopbarButtonSvg,
+  TopbarButtonText,
+  TopbarButtonFiller
+} from './TopbarButton.styles';
 
-const TopbarButton = ({ Svg, text, large=false }) => {
+const TopbarButton = ({
+  Svg,
+  text,
+  title,
+  tag,
+  adjustSvg=false
+}) => {
   const [isHovering, setIsHovering] = useState(false);
+  const { pathname } = useLocation();
+
   const handleEnter = () => setIsHovering(true);
+
   const handleLeave = () => setIsHovering(false);
+
+  const handleClick = () => {
+    pathname === '/'
+      ? window.scroll({ top: 0, left: 0, behavior: 'smooth'})
+      : window.scroll({ top: 0, left: 0});
+  };
+
+  const animation = useSpring(getTopbarButtonAnimation(isHovering));
+
   return (
-    <button 
-      className='topbarbutton' 
-      onMouseEnter={handleEnter}
+    <TopbarButtonWrapper 
+      onMouseEnter={handleEnter} 
       onMouseLeave={handleLeave}
+      onClick={handleClick}  
+      title={title}
+      as={tag}
+      to='/'
     >
-      <div className='topbarbutton-normalizer'>
-        <Svg className={`topbarbutton-svg${large ? '-large' : ''}`} />
-      </div>
-      <span className='topbarbutton-text'>
+      <TopbarButtonNormalizer>
+        <TopbarButtonSvg as={Svg} adjustSvg={adjustSvg}/>
+      </TopbarButtonNormalizer>
+      <TopbarButtonText>
         {text}
-      </span>
-      <div className={`topbarbutton-filler${isHovering ? ' topbarbutton-fillter-transition' : ''}`} />
-    </button>
+      </TopbarButtonText>
+      <TopbarButtonFiller style={animation} />
+    </TopbarButtonWrapper>
   );
 };
 
