@@ -15,6 +15,7 @@ const TopbarButton = ({
   text,
   title,
   tag,
+  handleClick,
   adjustSvg=false
 }) => {
   const [isHovering, setIsHovering] = useState(false);
@@ -23,12 +24,6 @@ const TopbarButton = ({
   const handleEnter = () => setIsHovering(true);
 
   const handleLeave = () => setIsHovering(false);
-
-  const handleClick = () => {
-    pathname === '/'
-      ? window.scroll({ top: 0, left: 0, behavior: 'smooth'})
-      : window.scroll({ top: 0, left: 0});
-  };
 
   const animation = useSpring(getTopbarButtonAnimation(isHovering));
 

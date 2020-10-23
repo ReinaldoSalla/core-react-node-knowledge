@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSpring } from 'react-spring';
+import { useLocation } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { getTopbarAnimation } from './Topbar.animations';
 import useIsInTop from '../../hooks/useIsInTop';
@@ -14,8 +15,15 @@ import TopbarButton from '../TopbarButton';
 
 const Topbar = () => {
   const isInTop = useIsInTop(50);
+  const { pathname } = useLocation();
 
   const topbarFillerAnimation = useSpring(getTopbarAnimation(isInTop));
+
+  const handleClickHome = () => {
+    pathname === '/'
+      ? window.scroll({ top: 0, left: 0, behavior: 'smooth'})
+      : window.scroll({ top: 0, left: 0});
+  };
 
   return (
     <header>
@@ -25,19 +33,22 @@ const Topbar = () => {
           text='ProgrGuides'
           title='Navigate to the home page'
           tag={Link}
+          handleClick={handleClickHome}
           adjustSvg
         />
         <TopbarButton 
           Svg={ContentsSvg} 
           text='Contents'
           title='Acess all contents'
-          tag={Link}
+          tag={'button'}
+          handleClick={() => console.log('click contents')}
         />
         <TopbarButton 
           Svg={SearchSvg} 
           text='Search'
           title='Search all contents'
-          tag={Link}
+          tag={'button'}
+          handleClick={() => console.log('click search')}
           adjustSvg
         />
         <TopbarFiller style={topbarFillerAnimation}/>

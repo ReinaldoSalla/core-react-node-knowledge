@@ -13,6 +13,11 @@ const TopbarButtonWrapper = styled(Link)`
   &:hover {
     cursor: pointer;
   }
+
+  &:focus {
+    font-weight: 800; 
+  }
+
 `;
 
 const TopbarButtonNormalizer = styled.div`
