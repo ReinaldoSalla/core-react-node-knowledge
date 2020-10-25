@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { animated } from 'react-spring';
 import { Link } from 'react-router-dom';
 
-const TopbarButtonWrapper = styled(Link)`
+const TopbarButtonWrapper = styled(animated.div)`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -13,11 +13,6 @@ const TopbarButtonWrapper = styled(Link)`
   &:hover {
     cursor: pointer;
   }
-
-  &:focus {
-    font-weight: 800; 
-  }
-
 `;
 
 const TopbarButtonNormalizer = styled.div`
@@ -30,7 +25,7 @@ interface TopbarButtonSvgProps {
   adjustSvg: boolean;
 }
 
-const TopbarButtonSvg = styled.div<TopbarButtonSvgProps>`
+const TopbarButtonSvg = styled(animated.div)<TopbarButtonSvgProps>`
   width: ${(props) => props.adjustSvg ? '40px' : '32px'};
   height: ${(props) => props.adjustSvg ? '40px' : '32px'};
   color: white;

@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useSpring } from 'react-spring';
-import { useLocation } from 'react-router-dom';
 import { getTopbarButtonAnimation } from './TopbarButton.animations';
 import {
   TopbarButtonWrapper,
@@ -9,6 +8,7 @@ import {
   TopbarButtonText,
   TopbarButtonFiller
 } from './TopbarButton.styles';
+import { animated } from 'react-spring';
 
 const TopbarButton = ({
   Svg,
@@ -16,16 +16,18 @@ const TopbarButton = ({
   title,
   tag,
   handleClick,
-  adjustSvg=false
+  adjustSvg=false,
+  svgAnimation={}
 }) => {
   const [isHovering, setIsHovering] = useState(false);
-  const { pathname } = useLocation();
 
   const handleEnter = () => setIsHovering(true);
 
   const handleLeave = () => setIsHovering(false);
 
-  const animation = useSpring(getTopbarButtonAnimation(isHovering));
+  const topbarButtonFillerAnimation = useSpring(getTopbarButtonAnimation(
+    isHovering
+  ));
 
   return (
     <TopbarButtonWrapper 
@@ -37,12 +39,16 @@ const TopbarButton = ({
       to='/'
     >
       <TopbarButtonNormalizer>
-        <TopbarButtonSvg as={Svg} adjustSvg={adjustSvg}/>
+        <TopbarButtonSvg 
+          style={svgAnimation} 
+          as={animated(Svg)} 
+          adjustSvg={adjustSvg}
+        />
       </TopbarButtonNormalizer>
       <TopbarButtonText>
         {text}
       </TopbarButtonText>
-      <TopbarButtonFiller style={animation} />
+      <TopbarButtonFiller style={topbarButtonFillerAnimation} />
     </TopbarButtonWrapper>
   );
 };
