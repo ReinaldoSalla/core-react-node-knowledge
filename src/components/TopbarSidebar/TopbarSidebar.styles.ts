@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { animated } from 'react-spring';
-import { Link } from 'react-router-dom';
 import { ReactComponent as SidebarSvg } from '../../assets/icons/contents.svg';
 
 const TopbarSidebarWrapper = styled.button`
@@ -13,6 +12,15 @@ const TopbarSidebarWrapper = styled.button`
 
   &:hover {
     cursor: pointer;
+  }
+
+  &:focus {
+    /* outline: 1px solid red;     */
+    outline: none;
+  }
+
+  &:active {
+    outline: none;
   }
 `;
 
