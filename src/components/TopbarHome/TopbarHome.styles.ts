@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 import { animated } from 'react-spring';
 import { Link } from 'react-router-dom';
-import { ReactComponent as SidebarSvg } from '../../assets/icons/contents.svg';
+import { ReactComponent as JavascriptSvg } from '../../assets/icons/javascript.svg';
 
-const TopbarSidebarWrapper = styled.button`
+const TopbarHomeWrapper = styled(Link)`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -16,19 +16,20 @@ const TopbarSidebarWrapper = styled.button`
   }
 `;
 
-const TopbarSidebarNormalizer = styled.div`
+const TopbarHomeNormalizer = styled.div`
   z-index: 2;
   margin-bottom: 8px;
   height: 32px;
 `;
 
-const TopbarSidebarSvg = styled(animated(SidebarSvg))`
-  width: 32px;
-  height: 32px;
+const TopbarHomeSvg = styled(animated(JavascriptSvg))`
+  width: 40px;
+  height: 40px;
   color: white;
+  transform: translate(0%, -10%);
 `;
 
-const TopbarSidebarText = styled.span`
+const TopbarHomeText = styled.span`
   z-index: 2;
   font-size: 20px;
   line-height: 0.7em;
@@ -39,7 +40,7 @@ const TopbarSidebarText = styled.span`
   }
 `;
 
-const TopbarSidebarFiller = styled(animated.div)`
+const TopbarHomeFiller = styled(animated.div)`
   position: absolute;
   z-index: 1;
   height: 80px;
@@ -47,10 +48,10 @@ const TopbarSidebarFiller = styled(animated.div)`
 `;
 
 export {
-  TopbarSidebarWrapper,
-  TopbarSidebarNormalizer,
-  TopbarSidebarSvg,
-  TopbarSidebarText,
-  TopbarSidebarFiller
+  TopbarHomeWrapper,
+  TopbarHomeNormalizer,
+  TopbarHomeSvg,
+  TopbarHomeText,
+  TopbarHomeFiller
 };
 

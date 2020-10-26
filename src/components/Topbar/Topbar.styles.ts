@@ -1,7 +1,11 @@
 import styled from 'styled-components';
 import { animated } from 'react-spring';
 
-const TopbarWrapper = styled.nav`
+const TopbarHeader = styled.header`
+  /* height: 80px; */
+`
+
+const TopbarNav = styled.nav`
   position: fixed;
   top: 0;
   z-index: 2;
@@ -23,6 +27,7 @@ const TopbarFiller = styled(animated.div)<TopbarFillerProps>`
 `;
 
 export {
-  TopbarWrapper,
+  TopbarHeader,
+  TopbarNav,
   TopbarFiller
 };

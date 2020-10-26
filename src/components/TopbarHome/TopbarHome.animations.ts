@@ -1,4 +1,4 @@
-const getTopbarButtonAnimation = (isHovering) => ({
+const getHoverAnimation = (isHovering) => ({
   config: isHovering
     ? { mass: 1, tension: 140, friction: 26 }
     : { mass: 2, tension: 140, friction: 26 , clamp: true },
@@ -8,4 +8,4 @@ const getTopbarButtonAnimation = (isHovering) => ({
   }
 });
 
-export { getTopbarButtonAnimation };
+export { getHoverAnimation };

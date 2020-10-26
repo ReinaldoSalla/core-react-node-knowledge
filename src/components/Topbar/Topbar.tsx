@@ -3,9 +3,11 @@ import { useSpring } from 'react-spring';
 import { TopbarProps } from './Topbar.types';
 import { getTopbarAnimation } from './Topbar.animations';
 import TopbarSidebar from '../TopbarSidebar';
+import TopbarHome from '../TopbarHome';
 import useIsInTop from '../../hooks/useIsInTop';
 import {
-  TopbarWrapper,
+  TopbarHeader,
+  TopbarNav,
   TopbarFiller
 } from './Topbar.styles';
 
@@ -18,15 +20,16 @@ const Topbar: FunctionComponent<TopbarProps> = ({
   const topbarFillerAnimation = useSpring(getTopbarAnimation(isInTop));
 
   return (
-    <header>
-      <TopbarWrapper>
+    <TopbarHeader>
+      <TopbarNav>
+        <TopbarHome />
         <TopbarSidebar 
           isSidebarVisible={isSidebarVisible}
           toggleSidebar={toggleSidebar}
         />
         <TopbarFiller style={topbarFillerAnimation}/>
-      </TopbarWrapper>
-    </header>
+      </TopbarNav>
+    </TopbarHeader>
   );
 };
 

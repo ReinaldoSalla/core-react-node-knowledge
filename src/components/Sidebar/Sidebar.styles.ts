@@ -6,7 +6,7 @@ const SidebarWrapper = styled.div`
   left: 0;
   height: 500px;
   width: 500px;
-  background: red;
+  background: transparent;
 `;
 
 export { SidebarWrapper };
