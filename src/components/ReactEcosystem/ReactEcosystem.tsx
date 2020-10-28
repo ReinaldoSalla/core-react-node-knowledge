@@ -1,6 +1,5 @@
 import React from 'react';
 import { options } from './ReactEcosystem.data';
-import './ReactEcosystem.css';
 
 const ReactEcosystem = () => {
   return (
