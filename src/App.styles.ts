@@ -11,7 +11,7 @@ const GlobalStyle = createGlobalStyle`
   body {
     padding: 0;
     margin: 0;
-    background: aliceBlue;
+    background: aliceblue;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Source Sans Pro', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -53,7 +53,9 @@ const globalTheme = {
     extraLarge: generateMedia(1200)
   },
   topbarHeight: '80px',
-  bgColor: '#280808'
+  bgColor: '#280808',
+  secondaryBgColor: '#392c2c',
+  // secondaryBgColor: '#131313',
 };
 
 

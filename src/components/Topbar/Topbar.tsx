@@ -22,11 +22,13 @@ const Topbar: FunctionComponent<TopbarProps> = ({
   return (
     <TopbarHeader>
       <TopbarNav>
-        <TopbarHome />
         <TopbarSidebar 
           isSidebarVisible={isSidebarVisible}
           toggleSidebar={toggleSidebar}
         />
+        <TopbarHome />
+        <TopbarHome />
+        <TopbarHome />
         <TopbarFiller style={topbarFillerAnimation}/>
       </TopbarNav>
     </TopbarHeader>
