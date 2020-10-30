@@ -13,6 +13,7 @@ import Footer from '../../components/Footer';
 
 const Universal = () => {
   const [isSidebarVisible, setIsSidebarVisible] = useState(false);
+
   const toggleSidebar = () => setIsSidebarVisible(!isSidebarVisible);
 
   return (
