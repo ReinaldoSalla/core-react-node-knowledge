@@ -23,11 +23,30 @@ const SidebarTitle = styled.h2`
 const SidebarContent = styled.li`
   color: white;
   margin: 8px 0;
-`
+`;
+
+const SidebarExit = styled.div`
+  position: absolute;
+  top: 8px;
+  right: 0;
+  font-size: 24px;
+  width: 32px;
+  height: 24px;
+  color: white;
+  transition: color 250ms;
+  font-family: sans-serif;
+
+  &:hover {
+    color: ${(props) => props.theme.hoverColor};
+    cursor: pointer;
+  }
+
+`;
 
 export { 
   SidebarWrapper,
   SidebarContainer,
   SidebarTitle,
-  SidebarContent
+  SidebarContent,
+  SidebarExit
 };

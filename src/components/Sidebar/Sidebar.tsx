@@ -4,7 +4,8 @@ import {
   SidebarWrapper,
   SidebarContainer,
   SidebarTitle,
-  SidebarContent
+  SidebarContent,
+  SidebarExit
 } from './Sidebar.styles';
 
 const data = [
@@ -89,6 +90,7 @@ const Sidebar = ({
           ))}
         </SidebarContainer>
       ))}
+      {/* <SidebarExit onClick={toggleSidebar}>X</SidebarExit> */}
     </SidebarWrapper>
   );
 };

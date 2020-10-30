@@ -38,7 +38,7 @@ const TopbarHome = () => {
         <TopbarHomeSvg />
       </TopbarHomeNormalizer>
       <TopbarHomeText>
-        ProgrTemp
+        Home
       </TopbarHomeText>
       <TopbarHomeFiller style={hoverAnimation} />
     </TopbarHomeWrapper>
