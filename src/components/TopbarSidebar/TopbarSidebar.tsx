@@ -23,8 +23,6 @@ const TopbarSidebar = ({ toggleSidebar, isSidebarVisible }) => {
 
   const svgAnimation = useSpring(getSvgAnimation(isSidebarVisible));
 
-  console.log(isSidebarVisible);
-
   return (
     <TopbarSidebarWrapper 
       onMouseEnter={handleEnter} 

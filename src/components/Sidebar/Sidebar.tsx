@@ -82,7 +82,7 @@ const Sidebar = ({
       {transitions.map(({ item, key, props }) => (
         <SidebarContainer style={props} key={key}>
           <SidebarTitle>{item.title}</SidebarTitle>
-          {item.contents.map((content, index) =>(
+          {item.contents.map((content, index) => (
             <ul key={index}>
               <SidebarContent>{content}</SidebarContent>
             </ul>

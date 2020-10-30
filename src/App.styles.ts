@@ -55,7 +55,7 @@ const globalTheme = {
   topbarHeight: '80px',
   bgColor: '#280808',
   secondaryBgColor: '#392c2c',
-  // secondaryBgColor: '#131313',
+  hoverColor: '#c41010',
 };
 
 
