@@ -1,3 +1,5 @@
+import { config } from 'react-spring';
+
 const getHoverAnimation = (isHovering) => ({
   config: isHovering
     ? { mass: 1, tension: 140, friction: 26 }
@@ -9,6 +11,7 @@ const getHoverAnimation = (isHovering) => ({
 });
 
 const getSvgAnimation = (isSidebarVisible) => ({
+  config: config.slow,
   from: { transform: 'rotate(0deg)' },
   to: async (next) => {
     await next({
