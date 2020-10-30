@@ -12,7 +12,7 @@ import {
   TopbarSidebarFiller
 } from './TopbarSidebar.styles';
 
-const TopbarSidebar = ({ toggleSidebar, isSidebarVisible }) => {
+const TopbarSidebar = ({ toggleSidebar, isSidebarActive }) => {
   const [isHovering, setIsHovering] = useState(false);
 
   const handleEnter = () => setIsHovering(true);
@@ -21,7 +21,7 @@ const TopbarSidebar = ({ toggleSidebar, isSidebarVisible }) => {
 
   const hoverAnimation = useSpring(getHoverAnimation(isHovering));
 
-  const svgAnimation = useSpring(getSvgAnimation(isSidebarVisible));
+  const svgAnimation = useSpring(getSvgAnimation(isSidebarActive));
 
   return (
     <TopbarSidebarWrapper 

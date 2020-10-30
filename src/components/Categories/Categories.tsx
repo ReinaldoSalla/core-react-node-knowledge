@@ -12,13 +12,13 @@ const Categories = ({
   javascriptRef,
   reactRef,
   nodeRef,
-  isSidebarVisible
+  isSidebarActive
 }) => {
-  const spring = useSpring(getSpring(isSidebarVisible));
+  const spring = useSpring(getSpring(isSidebarActive));
 
   return (
     <main>
-      <CategoriesWrapper style={spring} disabled={isSidebarVisible}>
+      <CategoriesWrapper style={spring} disabled={isSidebarActive}>
         <CategoriesBoard
           title={categories.javascript.title}
           description={categories.javascript.description}

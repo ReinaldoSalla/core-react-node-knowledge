@@ -1,8 +1,8 @@
 import React from 'react';
 import Content from '../../components/Content';
 
-const ContentPage = ({ isSidebarVisible }) => (
-  <Content isSidebarVisible={isSidebarVisible}/>
+const ContentPage = ({ isSidebarActive }) => (
+  <Content isSidebarActive={isSidebarActive}/>
 );
 
 export default Content;

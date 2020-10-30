@@ -8,12 +8,12 @@ const getTopbarAnimation = (isInTop) => ({
   }
 });
 
-const getTopbarSidebarAnimation = (isSidebarVisible) => ({
+const getTopbarSidebarAnimation = (isSidebarActive) => ({
   config: { duration: 1000 },
   from: { transform: 'rotate(0deg)' },
   to: async (next) => {
     await next({
-      transform: isSidebarVisible ? 'rotate(180deg)' : 'rotate(0deg)',
+      transform: isSidebarActive ? 'rotate(180deg)' : 'rotate(0deg)',
     });
   },
 });

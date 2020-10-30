@@ -39,7 +39,7 @@ const data = [
 ];
 
 const Sidebar = ({
-  isSidebarVisible,
+  isSidebarActive,
   toggleSidebar
 }) => {
   const springRef: any = useRef();
@@ -54,14 +54,14 @@ const Sidebar = ({
     },
     to: async (next) => {
       await next({
-        opacity: isSidebarVisible ? 1 : 0,
-        transform: isSidebarVisible ? 'translate3d(0%, 0, 0)' : 'translate3d(-100%, 0, 0)'
+        opacity: isSidebarActive ? 1 : 0,
+        transform: isSidebarActive ? 'translate3d(0%, 0, 0)' : 'translate3d(-100%, 0, 0)'
       });
     }
   });
 
   const transitions = useTransition(
-    isSidebarVisible ? data : [],
+    isSidebarActive ? data : [],
     item => item.title,
     {
       ref: transitionsRef,
@@ -74,8 +74,8 @@ const Sidebar = ({
   );
 
   useChain(
-    isSidebarVisible ? [springRef, transitionsRef] : [transitionsRef, springRef],
-    [0, isSidebarVisible ? 0.4 : 0.5]
+    isSidebarActive ? [springRef, transitionsRef] : [transitionsRef, springRef],
+    [0, isSidebarActive ? 0.4 : 0.5]
   );
 
   return (

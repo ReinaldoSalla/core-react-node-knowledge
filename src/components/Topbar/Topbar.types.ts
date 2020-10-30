@@ -1,5 +1,5 @@
 interface TopbarProps {
-  isSidebarVisible: boolean;
+  isSidebarActive: boolean;
   toggleSidebar: () => void;
 }
 

@@ -22,14 +22,14 @@ const couroselTransitionProps: any = {
   }
 };
 
-const getCouroselSpring = (isSidebarVisible) => ({
+const getCouroselSpring = (isSidebarActive) => ({
   config: config.slow,
   from: { 
-    opacity: isSidebarVisible ? 0.5 : 1 
+    opacity: isSidebarActive ? 0.5 : 1 
   },
   to: async (next) => {
     await next({ 
-      opacity: isSidebarVisible ? 0.5 : 1
+      opacity: isSidebarActive ? 0.5 : 1
     });  
   },
 });

@@ -12,30 +12,30 @@ import ContentPage from '../../pages/ContentPage';
 import Footer from '../../components/Footer';
 
 const Universal = () => {
-  const [isSidebarVisible, setIsSidebarVisible] = useState(false);
+  const [isSidebarActive, setisSidebarActive] = useState(false);
 
-  const toggleSidebar = () => setIsSidebarVisible(!isSidebarVisible);
+  const toggleSidebar = () => setisSidebarActive(!isSidebarActive);
 
   return (
     <>
       <Topbar 
-        isSidebarVisible={isSidebarVisible}
+        isSidebarActive={isSidebarActive}
         toggleSidebar={toggleSidebar}
       />
       <Sidebar 
-        isSidebarVisible={isSidebarVisible}
+        isSidebarActive={isSidebarActive}
         toggleSidebar={toggleSidebar}
       />
       <Search />
       <Switch>
         <Route exact path='/'>
-          <HomePage isSidebarVisible={isSidebarVisible} />
+          <HomePage isSidebarActive={isSidebarActive} />
         </Route>
         <Route path='/rendering'>
-          <ContentPage isSidebarVisible={isSidebarVisible} />
+          <ContentPage isSidebarActive={isSidebarActive} />
         </Route>
       </Switch>      
-      <Footer isSidebarVisible={isSidebarVisible} />
+      <Footer isSidebarActive={isSidebarActive} />
     </>
   );
 };

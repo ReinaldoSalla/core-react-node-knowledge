@@ -11,7 +11,7 @@ import {
   TopbarSearchFiller
 } from './TopbarSearch.styles';
 
-const TopbarSearch = ({ toggleSidebar, isSidebarVisible }) => {
+const TopbarSearch = ({ toggleSidebar, isSidebarActive }) => {
   const [isHovering, setIsHovering] = useState(false);
 
   const handleEnter = () => setIsHovering(true);

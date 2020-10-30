@@ -12,7 +12,7 @@ import {
 } from './Topbar.styles';
 
 const Topbar: FunctionComponent<TopbarProps> = ({
-  isSidebarVisible,
+  isSidebarActive,
   toggleSidebar
 }): JSX.Element => {
   const isInTop = useIsInTop(50);
@@ -23,7 +23,7 @@ const Topbar: FunctionComponent<TopbarProps> = ({
     <TopbarHeader>
       <TopbarNav>
         <TopbarSidebar 
-          isSidebarVisible={isSidebarVisible}
+          isSidebarActive={isSidebarActive}
           toggleSidebar={toggleSidebar}
         />
         <TopbarHome />
