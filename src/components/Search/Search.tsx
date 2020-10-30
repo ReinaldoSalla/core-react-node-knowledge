@@ -1,9 +1,24 @@
 import React from 'react';
-import { SearchWrapper } from './Search.styles';
+import { 
+  SearchWrapper,
+  SearchContainer,
+  SearchTitle,
+  SearchInput 
+} from './Search.styles';
 
 const Search = () => {
   return (
-    <SearchWrapper />
+    <SearchWrapper>
+      <SearchContainer>
+        <SearchTitle>
+          Search anything
+        </SearchTitle>
+        <SearchInput
+          type='text' 
+          placeholder='e.g. GraphQL'
+        />
+      </SearchContainer>
+    </SearchWrapper>
   );
 };
 
