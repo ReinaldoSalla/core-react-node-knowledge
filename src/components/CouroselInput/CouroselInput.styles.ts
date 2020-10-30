@@ -8,7 +8,7 @@ const CouroselInputWrapper = styled.div`
   width: 80%;
   position: absolute;
   bottom: 10px;
-  z-index: 1;
+  z-index: 0;
 `;
 
 const CouroselInputArea = styled.div`
@@ -42,7 +42,7 @@ const CouroselInputText = styled(animated.span)`
   font-size: 20px;
   width: 100px;
   text-align: center;
-  z-index: 2;
+  z-index: 1;
 
   ${(props) => props.theme.breakpoints.small} {
     font-size: 16px;

@@ -6,8 +6,8 @@ const SearchWrapper = styled(animated.aside)`
   justify-content: center;
   align-items: center;
   position: fixed;
-  top: 80px;
-  z-index: 3;
+  /* top: 40px; */
+  z-index: 1;
   width: 100%;
   height: 500px;
   background: ${(props) => props.theme.bgColor};
@@ -25,7 +25,7 @@ const SearchTitle = styled.span`
   font-size: 32px;
   text-align: center;
   width: 100%;
-  margin-top: 32px;
+  margin-top: 128px;
   color: white;
 `;
 

@@ -7,7 +7,8 @@ const TopbarSearchWrapper = styled.button`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  z-index: 2;
+  /* position: relative; */
+  z-index: 4;
   width: 100%;
 
   &:hover {
