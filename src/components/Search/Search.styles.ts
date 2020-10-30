@@ -1,6 +1,7 @@
 import styled from 'styled-components';
+import { animated } from 'react-spring';
 
-const SearchWrapper = styled.aside`
+const SearchWrapper = styled(animated.aside)`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -9,7 +10,7 @@ const SearchWrapper = styled.aside`
   z-index: 3;
   width: 100%;
   height: 500px;
-  background: ${(props) => props.theme.secondaryBgColor};
+  background: ${(props) => props.theme.bgColor};
 `;
 
 const SearchContainer = styled.div`

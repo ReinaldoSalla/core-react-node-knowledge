@@ -1,0 +1,3 @@
+const getTransitions = (isSearchActive: boolean) => ({
+  
+})
