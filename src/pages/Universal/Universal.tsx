@@ -3,11 +3,12 @@ Universal component rendered throughout the whole app.
 */
 
 import React, { useState } from 'react';
+import { Switch, Route } from 'react-router-dom';
 import Topbar from '../../components/Topbar';
 import Sidebar from '../../components/Sidebar';
+import HomePage from '../../pages/HomePage';
+import ContentPage from '../../pages/ContentPage';
 import Footer from '../../components/Footer';
-import RouteParser from '../../routes/RouteParser';
-import routesConfig from '../../routes/routes-config';
 
 const Universal = () => {
   const [isSidebarVisible, setIsSidebarVisible] = useState(false);
@@ -23,9 +24,14 @@ const Universal = () => {
         isSidebarVisible={isSidebarVisible}
         toggleSidebar={toggleSidebar}
       />
-      {routesConfig.map((route, index) => (
-        <RouteParser key={index} {...route} />
-      ))}
+      <Switch>
+        <Route exact path='/'>
+          <HomePage />
+        </Route>
+        <Route path='/rendering'>
+          <ContentPage />
+        </Route>
+      </Switch>      
       <Footer isSidebarVisible={isSidebarVisible} />
     </>
   );
