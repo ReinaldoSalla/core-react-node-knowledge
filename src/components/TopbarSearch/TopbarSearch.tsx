@@ -11,7 +11,7 @@ import {
   TopbarSearchFiller
 } from './TopbarSearch.styles';
 
-const TopbarSearch = ({ toggleSidebar, isSidebarActive }) => {
+const TopbarSearch = ({ isSearchActive, toggleSearch }) => {
   const [isHovering, setIsHovering] = useState(false);
 
   const handleEnter = () => setIsHovering(true);
@@ -24,13 +24,13 @@ const TopbarSearch = ({ toggleSidebar, isSidebarActive }) => {
     <TopbarSearchWrapper 
       onMouseEnter={handleEnter} 
       onMouseLeave={handleLeave}
-      onClick={toggleSidebar}  
+      onClick={toggleSearch}  
     >
       <TopbarSearchNormalizer>
         <TopbarSearchSvg />
       </TopbarSearchNormalizer>
       <TopbarSearchText>
-        Contents
+        Search
       </TopbarSearchText>
       <TopbarSearchFiller style={hoverAnimation} />
     </TopbarSearchWrapper>

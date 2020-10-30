@@ -13,20 +13,27 @@ import Footer from '../../components/Footer';
 
 const Universal = () => {
   const [isSidebarActive, setisSidebarActive] = useState(false);
+  const [isSearchActive, setIsSearchActive] = useState(false);
 
   const toggleSidebar = () => setisSidebarActive(!isSidebarActive);
+  const toggleSearch = () => setIsSearchActive(!isSearchActive);  
 
   return (
     <>
       <Topbar 
         isSidebarActive={isSidebarActive}
+        isSearchActive={isSearchActive}
         toggleSidebar={toggleSidebar}
+        toggleSearch={toggleSearch}
       />
       <Sidebar 
         isSidebarActive={isSidebarActive}
         toggleSidebar={toggleSidebar}
       />
-      <Search />
+      <Search
+        isSearchActive={isSearchActive}
+        toggleSearch={toggleSearch}
+      />
       <Switch>
         <Route exact path='/'>
           <HomePage isSidebarActive={isSidebarActive} />

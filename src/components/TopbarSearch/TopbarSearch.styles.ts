@@ -31,8 +31,9 @@ const TopbarSearchNormalizer = styled.div`
 `;
 
 const TopbarSearchSvg = styled(SearchSvg)`
-  width: 32px;
-  height: 32px;
+  width: 40px;
+  height: 40px;
+  transform: translate(0, -10%);
   color: white;
 `;
 

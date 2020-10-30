@@ -12,7 +12,7 @@ import {
   TopbarSidebarFiller
 } from './TopbarSidebar.styles';
 
-const TopbarSidebar = ({ toggleSidebar, isSidebarActive }) => {
+const TopbarSidebar = ({ isSidebarActive, toggleSidebar }) => {
   const [isHovering, setIsHovering] = useState(false);
 
   const handleEnter = () => setIsHovering(true);

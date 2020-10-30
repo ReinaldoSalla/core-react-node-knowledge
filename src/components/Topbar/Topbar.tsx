@@ -4,6 +4,7 @@ import { TopbarProps } from './Topbar.types';
 import { getTopbarAnimation } from './Topbar.animations';
 import TopbarSidebar from '../TopbarSidebar';
 import TopbarHome from '../TopbarHome';
+import TopbarSearch from '../TopbarSearch';
 import useIsInTop from '../../hooks/useIsInTop';
 import {
   TopbarHeader,
@@ -13,7 +14,9 @@ import {
 
 const Topbar: FunctionComponent<TopbarProps> = ({
   isSidebarActive,
-  toggleSidebar
+  isSearchActive,
+  toggleSidebar,
+  toggleSearch
 }): JSX.Element => {
   const isInTop = useIsInTop(50);
 
@@ -27,7 +30,10 @@ const Topbar: FunctionComponent<TopbarProps> = ({
           toggleSidebar={toggleSidebar}
         />
         <TopbarHome />
-        <TopbarHome />
+        <TopbarSearch 
+          isSearchActive={isSearchActive}
+          toggleSearch={toggleSearch}
+        />
         <TopbarHome />
         <TopbarFiller style={topbarFillerAnimation}/>
       </TopbarNav>
