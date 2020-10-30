@@ -27,7 +27,12 @@ type CouroselAction =
 	| MoveToSecondItem
 	| MoveToThirdItem
 
+interface CouroselWrapperProps {
+	disabled: boolean
+}
+
 export type {
 	CouroselState,
 	CouroselAction,
+	CouroselWrapperProps
 };

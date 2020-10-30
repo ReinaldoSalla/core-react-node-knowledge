@@ -4,10 +4,12 @@ import React, {
   useRef,
   MutableRefObject 
 } from 'react';
+import { useSpring } from 'react-spring';
 import {
   ContentWrapper,
   ContentContainer
 } from './Content.styles';
+import { getSpring } from './Content.animations';
 import ContentCore from '../ContentCore';
 import ContentNavigation from '../ContentNavigation';
 import useScrollToElement from '../../hooks/useScrollToElement';
@@ -43,7 +45,7 @@ const useIntersectionObserver = (
   return isIntersecting;
 };
 
-const Content = () => {
+const Content = ({ isSidebarVisible }) => {
   const introDomNode = useRef<HTMLDivElement>(null!);
   const setupDomNode = useRef<HTMLDivElement>(null!);
   const jsxDomNode = useRef<HTMLDivElement>(null!);
@@ -71,10 +73,12 @@ const Content = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  const spring = useSpring(getSpring(isSidebarVisible));
   
   return (
     <main>
-      <ContentWrapper>
+      <ContentWrapper style={spring} disabled={isSidebarVisible}>
         <h1>React - Rendering</h1>
         <ContentContainer>
           <section>

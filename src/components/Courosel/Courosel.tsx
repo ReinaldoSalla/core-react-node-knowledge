@@ -1,11 +1,14 @@
 import React, { useReducer, useEffect } from 'react';
-import { useTransition } from 'react-spring';
+import { useSpring, useTransition } from 'react-spring';
 import { CouroselWrapper } from './Courosel.styles';
 import CouroselInput from '../CouroselInput';
 import couroselItems from '../CouroselItems';
 import CouroselBackground from '../CouroselBackground';
 import couroselInitialState from './Courosel.init';
-import { couroselTransitionProps } from './Courosel.animations';
+import { 
+  couroselTransitionProps,
+  getCouroselSpring 
+} from './Courosel.animations';
 import couroselReducer from './Courosel.reducer';
 import COUROSEL_CONSTANTS from './Courosel.constants';
 import useDocumentVisibility from '../../hooks/useDocumentVisibility';
@@ -13,7 +16,8 @@ import useDocumentVisibility from '../../hooks/useDocumentVisibility';
 const Courosel = ({
   scrollToJavascript,
   scrollToReact,
-  scrollToNode
+  scrollToNode,
+  isSidebarVisible
 }) => {
   const [state, dispatch] = useReducer(couroselReducer, couroselInitialState);
   const transitions = useTransition(state.index, null, {
@@ -47,10 +51,15 @@ const Courosel = ({
     }
   });
 
+  const couroselSpring = useSpring(getCouroselSpring(isSidebarVisible));
+
   return (
     <>
       <CouroselBackground />
-      <CouroselWrapper>
+      <CouroselWrapper 
+        style={couroselSpring}
+        disabled={isSidebarVisible}
+      >
         {transitions.map(({ item, props, key }) => {
           const Item = couroselItems[item];
             return (

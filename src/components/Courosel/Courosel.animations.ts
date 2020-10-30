@@ -1,3 +1,5 @@
+import { config } from 'react-spring';
+
 const couroselTransitionProps: any = {
   config: {
     mass: 5,
@@ -20,4 +22,19 @@ const couroselTransitionProps: any = {
   }
 };
 
-export { couroselTransitionProps };
+const getCouroselSpring = (isSidebarVisible) => ({
+  config: config.slow,
+  from: { 
+    opacity: isSidebarVisible ? 0.5 : 1 
+  },
+  to: async (next) => {
+    await next({ 
+      opacity: isSidebarVisible ? 0.5 : 1
+    });  
+  },
+});
+
+export { 
+  couroselTransitionProps,
+  getCouroselSpring 
+};

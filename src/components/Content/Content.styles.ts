@@ -1,7 +1,10 @@
 import styled from 'styled-components';
+import { animated } from 'react-spring';
+import { ContentWrapperProps } from './Content.types';
 
-const ContentWrapper = styled.article`
+const ContentWrapper = styled(animated.article)<ContentWrapperProps>`
   padding: var(--topbar-height) 48px 0 48px; 
+  pointer-events: ${(props) => props.disabled ? 'none' : 'auto'};
 `;
 
 const ContentContainer = styled.div`
