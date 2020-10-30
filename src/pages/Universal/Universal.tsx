@@ -6,6 +6,7 @@ import React, { useState } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import Topbar from '../../components/Topbar';
 import Sidebar from '../../components/Sidebar';
+import Search from '../../components/Search';
 import HomePage from '../../pages/HomePage';
 import ContentPage from '../../pages/ContentPage';
 import Footer from '../../components/Footer';
@@ -24,6 +25,7 @@ const Universal = () => {
         isSidebarVisible={isSidebarVisible}
         toggleSidebar={toggleSidebar}
       />
+      <Search />
       <Switch>
         <Route exact path='/'>
           <HomePage isSidebarVisible={isSidebarVisible} />
