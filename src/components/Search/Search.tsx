@@ -14,18 +14,6 @@ import {
   SearchInput 
 } from './Search.styles';
 
-const DummyComponent = () => <div>xxx</div>;
-
-// let items = [
-//   <SearchTitle>
-//     Search anything
-//   </SearchTitle>,
-//   <SearchInput
-//     type='text' 
-//     placeholder='e.g. GraphQL'
-//   />
-// ];
-
 let rawItems = [
   ({ style }) => <SearchTitle style={style}>Searh anything</SearchTitle>,
   ({ style }) => <SearchInput style={style} type='text' placeholder='e.g. GraphQL' />,
@@ -76,10 +64,9 @@ const Search: FunctionComponent<SearchProps> = ({
   return (
     <SearchWrapper style={spring}>
       <SearchContainer>
-        {transitions.map(({ item, key, props }) => {
-          const Component: any = item.component;
-          return <Component style={props} key={key} />
-        })}
+        {transitions.map(({ item, key, props }) => (
+          <item.component style={props} key={key} />
+        ))}
       </SearchContainer>
     </SearchWrapper>
   );
