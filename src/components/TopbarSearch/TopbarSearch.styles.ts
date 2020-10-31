@@ -31,7 +31,7 @@ const TopbarSearchNormalizer = styled.div`
   height: 32px;
 `;
 
-const TopbarSearchSvg = styled(SearchSvg)`
+const TopbarSearchSvg = styled(animated(SearchSvg))`
   width: 40px;
   height: 40px;
   transform: translate(0, -10%);

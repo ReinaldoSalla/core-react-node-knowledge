@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useSpring } from 'react-spring';
 import { 
   getHoverAnimation,
+  getSvgAnimation
 } from './TopbarSearch.animations';
 import {
   TopbarSearchWrapper,
@@ -18,7 +19,9 @@ const TopbarSearch = ({ isSearchActive, toggleSearch }) => {
 
   const handleLeave = () => setIsHovering(false);
 
-  const hoverAnimation = useSpring(getHoverAnimation(isHovering));
+  const hoverSpring = useSpring(getHoverAnimation(isHovering));
+
+  const svgSpring = useSpring(getSvgAnimation(isSearchActive));
 
   return (
     <TopbarSearchWrapper 
@@ -27,12 +30,12 @@ const TopbarSearch = ({ isSearchActive, toggleSearch }) => {
       onClick={toggleSearch}  
     >
       <TopbarSearchNormalizer>
-        <TopbarSearchSvg />
+        <TopbarSearchSvg style={svgSpring}/>
       </TopbarSearchNormalizer>
       <TopbarSearchText>
         Search
       </TopbarSearchText>
-      <TopbarSearchFiller style={hoverAnimation} />
+      <TopbarSearchFiller style={hoverSpring} />
     </TopbarSearchWrapper>
   );
 };
