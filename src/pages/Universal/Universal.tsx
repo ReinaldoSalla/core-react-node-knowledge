@@ -13,7 +13,7 @@ import Footer from '../../components/Footer';
 
 const Universal = () => {
   const [isSidebarActive, setisSidebarActive] = useState(false);
-  const [isSearchActive, setIsSearchActive] = useState(false);
+  const [isSearchActive, setIsSearchActive] = useState(true);
 
   const toggleSidebar = () => setisSidebarActive(!isSidebarActive);
   const toggleSearch = () => setIsSearchActive(!isSearchActive);  

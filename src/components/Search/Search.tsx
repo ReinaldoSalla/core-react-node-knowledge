@@ -9,14 +9,16 @@ import {
 import { SearchProps } from './Search.types';
 import { 
   SearchWrapper,
-  SearchContainer,
   SearchTitle,
-  SearchInput 
+  SearchInput,
+  SearchInputContainer,
+  SearchExit
 } from './Search.styles';
 
 let rawItems = [
   ({ style }) => <SearchTitle style={style}>Searh anything</SearchTitle>,
-  ({ style }) => <SearchInput style={style} type='text' placeholder='e.g. GraphQL' />,
+  ({ style }) => <SearchInputContainer> <SearchInput style={style} type='text' placeholder='e.g. GraphQL' /> </SearchInputContainer>,
+  ({ style }) => <SearchExit style={style}>x</SearchExit>
 ];
 
 const items = rawItems.map((item, index) => ({
@@ -58,16 +60,26 @@ const Search: FunctionComponent<SearchProps> = ({
 
   useChain(
     isSearchActive ? [springRef, transitionsRef] : [transitionsRef, springRef],
-    [0, 0.3]
+    [0, isSearchActive ? 0.3 : 0.5]
   );
+
+  // const transitionsExit: any = useTransition(isSearchActive, null, {
+  //   config: config.slow,
+  //   from: { opacity: 0 },
+  //   enter: { opacity: 1 },
+  //   leave: { opacity: 0 }
+  // });
 
   return (
     <SearchWrapper style={spring}>
-      <SearchContainer>
+      {/* <SearchContainer> */}
         {transitions.map(({ item, key, props }) => (
-          <item.component style={props} key={key} />
+          <item.component style={props} key={key}/>
         ))}
-      </SearchContainer>
+        {/* {transitionsExit.map(({ item, key, props }) => (
+          item && <SearchExit style={props} key={key}>X</SearchExit>
+        ))} */}
+      {/* </SearchContainer> */}
     </SearchWrapper>
   );
 };

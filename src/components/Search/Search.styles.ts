@@ -2,9 +2,6 @@ import styled from 'styled-components';
 import { animated } from 'react-spring';
 
 const SearchWrapper = styled(animated.aside)`
-  display: flex;
-  justify-content: center;
-  align-items: center;
   position: fixed;
   /* top: 40px; */
   z-index: 1;
@@ -14,10 +11,10 @@ const SearchWrapper = styled(animated.aside)`
 `;
 
 const SearchContainer = styled.div`
-  position: absolute;
+  /* position: absolute;
   flex-direction: column;
   width: calc(100% - 256px);
-  height: 100%;
+  height: 100%; */
 `;
 
 const SearchTitle = styled(animated.span)`
@@ -25,22 +22,44 @@ const SearchTitle = styled(animated.span)`
   font-size: 32px;
   text-align: center;
   width: 100%;
-  margin-top: 128px;
+  margin-top: 180px;
   color: white;
+`;
+
+const SearchInputContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  width: 100%;
 `;
 
 const SearchInput = styled(animated.input)`
   height: 60px;
-  width: calc(100% - 32px);
-  margin-top: 32px;
+  width: calc(100% - 200px);
+  margin-top: 48px;
   border-radius: 20px;
   font-size: 24px;
   padding: 0 16px;
+`;
+
+const SearchExit = styled(animated.div)`
+  position: absolute;
+  top: 135px;
+  right: 32px;
+  font-size: 40px;
+  color: white;
+  transition: color 250;
+
+  &:hover {
+    color: ${(props) => props.theme.hoverColor};
+    cursor: pointer;
+  }
 `;
 
 export { 
   SearchWrapper, 
   SearchContainer,
   SearchTitle,
-  SearchInput 
+  SearchInputContainer,
+  SearchInput,
+  SearchExit 
 };
