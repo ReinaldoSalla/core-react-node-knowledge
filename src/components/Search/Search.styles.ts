@@ -20,7 +20,7 @@ const SearchContainer = styled.div`
   height: 100%;
 `;
 
-const SearchTitle = styled.span`
+const SearchTitle = styled(animated.span)`
   display: inline-block;
   font-size: 32px;
   text-align: center;
@@ -29,7 +29,7 @@ const SearchTitle = styled.span`
   color: white;
 `;
 
-const SearchInput = styled.input`
+const SearchInput = styled(animated.input)`
   height: 60px;
   width: calc(100% - 32px);
   margin-top: 32px;
