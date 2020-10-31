@@ -38,7 +38,7 @@ const Search: FunctionComponent<SearchProps> = ({
     },
     to: async (next) => {
       await next({
-        height: isSearchActive ? '800px' : '0px'
+        height: isSearchActive ? '800px' : '0px',
       });
     },
   });
@@ -50,15 +50,15 @@ const Search: FunctionComponent<SearchProps> = ({
       ref: transitionsRef,
       unique: true,
       trail: 500 / items.length,
-      from: { opacity: 0 },
-      enter: { opacity: 1 },
-      leave: { opacity: 0 }
+      from: { opacity: 0, transform: 'scale(0.5)', },
+      enter: { opacity: 1, transform: 'scale(1)', },
+      leave: { opacity: 0, transform: 'scale(0.9)', },
     }
   );
 
   useChain(
     isSearchActive ? [springRef, transitionsRef] : [transitionsRef, springRef],
-    [0, isSearchActive ? 0.5 : 0.4]
+    [0, 0.3]
   );
 
   return (
