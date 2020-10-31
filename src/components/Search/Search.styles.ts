@@ -24,6 +24,7 @@ const SearchTitle = styled(animated.span)`
   width: 100%;
   margin-top: 180px;
   color: white;
+  /* border: 10px solid red; */
 `;
 
 const SearchInputContainer = styled.div`
@@ -43,9 +44,9 @@ const SearchInput = styled(animated.input)`
 
 const SearchExit = styled(animated.div)`
   position: absolute;
-  top: 135px;
+  top: calc(100px);
   right: 32px;
-  font-size: 40px;
+  font-size: 48px;
   color: white;
   transition: color 250;
 

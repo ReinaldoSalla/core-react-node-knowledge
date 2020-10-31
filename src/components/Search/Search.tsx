@@ -16,9 +16,9 @@ import {
 } from './Search.styles';
 
 let rawItems = [
-  ({ style }) => <SearchTitle style={style}>Searh anything</SearchTitle>,
-  ({ style }) => <SearchInputContainer> <SearchInput style={style} type='text' placeholder='e.g. GraphQL' /> </SearchInputContainer>,
-  ({ style }) => <SearchExit style={style}>x</SearchExit>
+  ({ style, toggleSearch }) => <SearchTitle style={style}>Searh anything</SearchTitle>,
+  ({ style, toggleSearch }) => <SearchInputContainer> <SearchInput style={style} type='text' placeholder='e.g. GraphQL' /> </SearchInputContainer>,
+  ({ style, toggleSearch }) => <SearchExit onClick={toggleSearch} style={style}>x</SearchExit>
 ];
 
 const items = rawItems.map((item, index) => ({
@@ -74,7 +74,7 @@ const Search: FunctionComponent<SearchProps> = ({
     <SearchWrapper style={spring}>
       {/* <SearchContainer> */}
         {transitions.map(({ item, key, props }) => (
-          <item.component style={props} key={key}/>
+          <item.component style={props} key={key} toggleSearch={toggleSearch}/>
         ))}
         {/* {transitionsExit.map(({ item, key, props }) => (
           item && <SearchExit style={props} key={key}>X</SearchExit>
