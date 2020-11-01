@@ -1,7 +1,12 @@
 import styled from 'styled-components';
 
+const ContentCoreTitle = styled.h2`
+  color: ${(props) => props.theme.textColor};
+`;
+
 const ContentCoreText = styled.p`
   line-height: 1.7;
+  color: ${(props) => props.theme.textColor};
 `;
 
 const ContentCoreLink = styled.a`
@@ -34,6 +39,7 @@ const ContentCoreHighlight = styled.span`
 `;
 
 export { 
+  ContentCoreTitle,
   ContentCoreText,
   ContentCoreLink,
   ContentCoreContainer,

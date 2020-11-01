@@ -7,6 +7,7 @@ import React, {
 import { useSpring } from 'react-spring';
 import {
   ContentWrapper,
+  ContentTitle,
   ContentContainer
 } from './Content.styles';
 import { getSpring } from './Content.animations';
@@ -79,7 +80,7 @@ const Content = ({ isSidebarActive }) => {
   return (
     <main>
       <ContentWrapper style={spring} disabled={isSidebarActive}>
-        <h1>React - Rendering</h1>
+        <ContentTitle>React - Rendering</ContentTitle>
         <ContentContainer>
           <section>
             <ContentCore 

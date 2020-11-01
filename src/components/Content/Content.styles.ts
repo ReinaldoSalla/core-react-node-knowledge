@@ -7,6 +7,10 @@ const ContentWrapper = styled(animated.article)<ContentWrapperProps>`
   pointer-events: ${(props) => props.disabled ? 'none' : 'auto'};
 `;
 
+const ContentTitle = styled.h1`
+  color: ${(props) => props.theme.textColor};
+`;
+
 const ContentContainer = styled.div`
   display: flex;
 
@@ -17,6 +21,7 @@ const ContentContainer = styled.div`
 
 export {
   ContentWrapper,
+  ContentTitle,
   ContentContainer
 };
 

@@ -1,5 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import {
+  ContentCoreTitle,
   ContentCoreText,
   ContentCoreLink,
   ContentCoreContainer,
@@ -20,13 +21,13 @@ const ContentCore: FunctionComponent<ContentCoreProps> = ({
   return (
     <>
       <section ref={introDomNode}>
-        <h2>1. Intro</h2>
+        <ContentCoreTitle>1. Intro</ContentCoreTitle>
         <ContentCoreText>
           The idea of this guide is to explore JSX, styling and state management in React, by creating a resposive and interactive webpage. We'll use create-react-app to setup the project.
         </ContentCoreText>
       </section>
       <section ref={setupDomNode}>
-        <h2>2. Setup</h2>
+        <ContentCoreTitle>2. Setup</ContentCoreTitle>
         <ContentCoreText>
           Install the latest recommended version of <ContentCoreLink href='https://nodejs.org/en/' target='_blank'  rel="noopener noreferrer"> Node.js </ContentCoreLink>
         </ContentCoreText>
@@ -67,7 +68,7 @@ const ContentCore: FunctionComponent<ContentCoreProps> = ({
         </ContentCoreText>
       </section>
       <section ref={jsxDomNode}>
-        <h2>3. JSX</h2>
+        <ContentCoreTitle>3. JSX</ContentCoreTitle>
         <ContentCoreText >
           For each IntersectionObserverEntry in the list entries, we look to see if the entry's intersectionRatio is going up; if it is, we set the target's background-color to the string in increasingColor (remember, it's "rgba(40, 40, 190, ratio)"), replaces the word "ratio" with the entry's intersectionRatio. The result: not only does the color get changed, but the transparency of the target element changes, too; as the intersection ratio goes down, the background color's alpha value goes down with it, resulting in an element that's more transparent.
         </ContentCoreText>
@@ -86,7 +87,7 @@ const ContentCore: FunctionComponent<ContentCoreProps> = ({
       </section>
 
       <section ref={stylingDomNode}>
-        <h2>4. Styling</h2>
+        <ContentCoreTitle>4. Styling</ContentCoreTitle>
         <ContentCoreText >
           For each IntersectionObserverEntry in the list entries, we look to see if the entry's intersectionRatio is going up; if it is, we set the target's background-color to the string in increasingColor (remember, it's "rgba(40, 40, 190, ratio)"), replaces the word "ratio" with the entry's intersectionRatio. The result: not only does the color get changed, but the transparency of the target element changes, too; as the intersection ratio goes down, the background color's alpha value goes down with it, resulting in an element that's more transparent.
         </ContentCoreText>
@@ -105,7 +106,7 @@ const ContentCore: FunctionComponent<ContentCoreProps> = ({
       </section>
 
       <section ref={useStateDomNode}>
-        <h2>5. useState</h2>
+        <ContentCoreTitle>5. useState</ContentCoreTitle>
         <ContentCoreText >
           For each IntersectionObserverEntry in the list entries, we look to see if the entry's intersectionRatio is going up; if it is, we set the target's background-color to the string in increasingColor (remember, it's "rgba(40, 40, 190, ratio)"), replaces the word "ratio" with the entry's intersectionRatio. The result: not only does the color get changed, but the transparency of the target element changes, too; as the intersection ratio goes down, the background color's alpha value goes down with it, resulting in an element that's more transparent.
         </ContentCoreText>
@@ -124,7 +125,7 @@ const ContentCore: FunctionComponent<ContentCoreProps> = ({
       </section>
 
       <section ref={useReducerDomNode}>
-        <h2>6. useReducer</h2>
+        <ContentCoreTitle>6. useReducer</ContentCoreTitle>
         <ContentCoreText >
           For each IntersectionObserverEntry in the list entries, we look to see if the entry's intersectionRatio is going up; if it is, we set the target's background-color to the string in increasingColor (remember, it's "rgba(40, 40, 190, ratio)"), replaces the word "ratio" with the entry's intersectionRatio. The result: not only does the color get changed, but the transparency of the target element changes, too; as the intersection ratio goes down, the background color's alpha value goes down with it, resulting in an element that's more transparent.
         </ContentCoreText>
@@ -143,7 +144,7 @@ const ContentCore: FunctionComponent<ContentCoreProps> = ({
       </section>
 
       <section ref={finalCodeDomNode}>
-        <h2>7. Final Code</h2>
+        <ContentCoreTitle>7. Final Code</ContentCoreTitle>
         <ContentCoreText >
           For each IntersectionObserverEntry in the list entries, we look to see if the entry's intersectionRatio is going up; if it is, we set the target's background-color to the string in increasingColor (remember, it's "rgba(40, 40, 190, ratio)"), replaces the word "ratio" with the entry's intersectionRatio. The result: not only does the color get changed, but the transparency of the target element changes, too; as the intersection ratio goes down, the background color's alpha value goes down with it, resulting in an element that's more transparent.
         </ContentCoreText>

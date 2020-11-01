@@ -25,11 +25,11 @@ const Topbar: FunctionComponent<TopbarProps> = ({
   return (
     <TopbarHeader>
       <TopbarNav>
+        <TopbarHome />
         <TopbarSidebar 
           isSidebarActive={isSidebarActive}
           toggleSidebar={toggleSidebar}
         />
-        <TopbarHome />
         <TopbarSearch 
           isSearchActive={isSearchActive}
           toggleSearch={toggleSearch}
