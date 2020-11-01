@@ -1,6 +1,11 @@
 import React from 'react';
 import CategoriesBox from '../CategoriesBox';
-import './CategoriesBoard.css';
+import {
+  CategoriesBoardTitle,
+  CategoriesBoardDescription,
+  CategoriesBoardContents,
+  CategoriesBoardEmpty
+} from './CategoriesBoard.styles';
 
 const CategoriesBoard = ({
   title,
@@ -10,13 +15,13 @@ const CategoriesBoard = ({
   elementRef
 }) => (
   <>
-    <h2 ref={elementRef} className='categoriesitem-title'>
+    <CategoriesBoardTitle ref={elementRef}>
       {title}
-    </h2>
-    <h3 className='categoriesitem-description'>
+    </CategoriesBoardTitle>
+    <CategoriesBoardDescription>
       {description}
-    </h3>
-    <section className='categoriesitem-contents'>
+    </CategoriesBoardDescription>
+    <CategoriesBoardContents>
       {contents.map((content, index) => (
         <CategoriesBox 
           key={index}
@@ -27,9 +32,9 @@ const CategoriesBoard = ({
         />
       ))}
       {new Array(4).fill(0).map((_, index) => (
-        <div key={index} className='categoriesitem-contents-empty' />
+        <CategoriesBoardEmpty key={index} />
       ))}
-    </section>
+    </CategoriesBoardContents>
   </>
 );
 
