@@ -7,7 +7,7 @@
   min-height: 350px;
   width: 350px;
   box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.1);
-	background: var(--bg-second-color);
+	background: black;
 	transition: transform 500ms;
 }
 
