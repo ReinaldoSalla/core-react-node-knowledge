@@ -46,6 +46,10 @@ const CategoriesBoardTitle = styled.h2`
   margin: 0 16px;
   padding: 0;
   color: ${(props) => props.theme.textColor};
+
+  ${(props) => props.theme.breakpoints.small} {
+    font-size: 32px;
+  }
 `;
 
 const CategoriesBoardDescription = styled.h3`
@@ -55,6 +59,10 @@ const CategoriesBoardDescription = styled.h3`
   margin: 32px 16px 0 16px;
   padding: 0;
   color: ${(props) => props.theme.textColor};
+
+  ${(props) => props.theme.breakpoints.small} {
+    font-size: 22px;
+  }
 `;
 
 const CategoriesBoardContents = styled.section`
