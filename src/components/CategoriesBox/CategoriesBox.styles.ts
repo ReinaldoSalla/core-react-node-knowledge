@@ -2,25 +2,23 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 const Wrapper = styled(Link)`
-  margin: 0 16px 48px 16px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
+  flex: 1 1 auto;
   width: 350px;
   min-height: 350px;
-  border: 1px solid #393838;
-  /* box-shadow: 4px 4px 4px 4px #272727; */
+  border-width: 1px 2px;
+  border-style: solid;
+  border-color: #393838;
+  margin: 0 32px 48px 32px;
   background: ${(props) => props.theme.boxBgColor};
-  transition: transform 500ms;
+  transition: border-color;
   
   &:hover {
     cursor: pointer;
-    transform: scale(1.1);
-  }
-
-  ${(props) => props.theme.breakpoints.small} {
-    margin: 0 64px 48px 64px;
+    border-color: red;
   }
 `;
 

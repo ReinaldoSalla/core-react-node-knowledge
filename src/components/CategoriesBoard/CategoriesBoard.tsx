@@ -1,6 +1,7 @@
 import React from 'react';
 import CategoriesBox from '../CategoriesBox';
 import {
+  Wrapper,
   CategoriesBoardTitle,
   CategoriesBoardDescription,
   CategoriesBoardContents,
@@ -14,7 +15,7 @@ const CategoriesBoard = ({
   Svg,
   elementRef
 }) => (
-  <>
+  <Wrapper>
     <CategoriesBoardTitle ref={elementRef}>
       {title}
     </CategoriesBoardTitle>
@@ -35,7 +36,7 @@ const CategoriesBoard = ({
         <CategoriesBoardEmpty key={index} />
       ))}
     </CategoriesBoardContents>
-  </>
+  </Wrapper>
 );
 
 export default CategoriesBoard;

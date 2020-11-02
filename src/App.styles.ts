@@ -46,7 +46,7 @@ const generateMedia = (number: number): string => (
 
 const globalTheme = {
   breakpoints: {
-    extraSmall: generateMedia(330),
+    extraSmall: generateMedia(400),
     small: generateMedia(576),
     medium: generateMedia(768),
     large: generateMedia(1024),
