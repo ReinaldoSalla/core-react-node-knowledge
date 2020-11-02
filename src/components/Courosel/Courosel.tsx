@@ -55,7 +55,7 @@ const Courosel = ({
 
   return (
     <>
-      <CouroselBackground />
+      {/* <CouroselBackground /> */}
       <CouroselWrapper 
         style={couroselSpring}
         disabled={isSidebarActive}

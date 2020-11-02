@@ -11,7 +11,7 @@ const GlobalStyle = createGlobalStyle`
   body {
     padding: 0;
     margin: 0;
-    background: #0b0b0b;
+    background: black;//#0b0b0b;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Source Sans Pro', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -53,11 +53,13 @@ const globalTheme = {
     extraLarge: generateMedia(1200)
   },
   topbarHeight: '80px',
-  bgColor: '#280808',
+  topbarBgColor: '#280808',
   secondaryBgColor: '#392c2c',
   hoverColor: '#c41010',
-  // textColor: 'rgba(255, 255, 255, 0.85)',
-  textColor: 'rgba(255, 255, 255, 0.7)',
+  textColor: 'rgba(255, 255, 255, 0.85)',
+  weakerTextColor: 'rgba(255, 255, 255, 0.7)',
+  pageBgColor: '#0b0b0b',
+  boxBgColor: '#272727',
 };
 
 export { GlobalStyle, globalTheme };

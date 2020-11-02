@@ -7,14 +7,11 @@ const Wrapper = styled(Link)`
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
-  min-height: 350px;
   width: 350px;
+  min-height: 350px;
+  border: 1px solid #393838;
   /* box-shadow: 4px 4px 4px 4px #272727; */
-	/* background: ${(props) => props.theme.bgColor}; */
-  /* background: #0d321f; */
-  /* background: #091a11; */
-  /* background: #111; */
-  background: #272727;
+  background: ${(props) => props.theme.boxBgColor};
   transition: transform 500ms;
   
   &:hover {
@@ -74,7 +71,7 @@ const Description = styled.p`
   text-align: center;
   font-size: 18px;
   font-weight: 500;
-  color: ${(props) => props.theme.textColor};
+  color: ${(props) => props.theme.weakerTextColor};
 
 
   ${(props) => props.theme.breakpoints.small} {

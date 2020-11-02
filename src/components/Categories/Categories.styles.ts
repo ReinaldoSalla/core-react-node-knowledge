@@ -3,9 +3,9 @@ import { animated } from 'react-spring';
 import { CategoriesWrapperProps } from './Categories.types' 
 
 const CategoriesWrapper = styled(animated.section)<CategoriesWrapperProps>`
-  margin-top: 48px;
+  padding-top: 48px;
   pointer-events: ${(props) => props.disabled ? 'none' : 'auto'};
-  color: yellow;
+  background: ${(props) => props.theme.pageBgColor};
 `;
 
 export { CategoriesWrapper };

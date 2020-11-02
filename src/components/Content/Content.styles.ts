@@ -4,6 +4,7 @@ import { ContentWrapperProps } from './Content.types';
 
 const ContentWrapper = styled(animated.article)<ContentWrapperProps>`
   padding: var(--topbar-height) 48px 0 48px; 
+  background: ${(props) => props.theme.pageBgColor};
   pointer-events: ${(props) => props.disabled ? 'none' : 'auto'};
 `;
 

@@ -7,7 +7,7 @@ const SearchWrapper = styled(animated.aside)`
   z-index: 1;
   width: 100%;
   height: 500px;
-  background: ${(props) => props.theme.bgColor};
+  background: ${(props) => props.theme.topbarBgColor};
 `;
 
 const SearchContainer = styled.div`

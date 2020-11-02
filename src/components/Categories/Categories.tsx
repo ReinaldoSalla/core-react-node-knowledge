@@ -40,56 +40,6 @@ const Categories = ({
           Svg={ServerSvg}
           elementRef={nodeRef}
         />
-
-        <CategoriesBoard
-          title={categories.react.title}
-          description={categories.react.description}
-          contents={categories.react.contents}
-          Svg={ReactSvg}
-          elementRef={reactRef}
-        />
-
-        <CategoriesBoard
-          title={categories.react.title}
-          description={categories.react.description}
-          contents={categories.react.contents}
-          Svg={ReactSvg}
-          elementRef={reactRef}
-        />
-
-        <CategoriesBoard
-          title={categories.react.title}
-          description={categories.react.description}
-          contents={categories.react.contents}
-          Svg={ReactSvg}
-          elementRef={reactRef}
-        />
-
-<CategoriesBoard
-          title={categories.react.title}
-          description={categories.react.description}
-          contents={categories.react.contents}
-          Svg={ReactSvg}
-          elementRef={reactRef}
-        />
-
-        <CategoriesBoard
-          title={categories.react.title}
-          description={categories.react.description}
-          contents={categories.react.contents}
-          Svg={ReactSvg}
-          elementRef={reactRef}
-        />
-
-        <CategoriesBoard
-          title={categories.react.title}
-          description={categories.react.description}
-          contents={categories.react.contents}
-          Svg={ReactSvg}
-          elementRef={reactRef}
-        />
-
-
       </CategoriesWrapper>
     </main>
   );

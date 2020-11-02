@@ -23,7 +23,7 @@ interface TopbarFillerProps {
 
 const TopbarFiller = styled(animated.div)<TopbarFillerProps>`
   position: absolute;
-  background: ${(props) => props.theme.bgColor};
+  background: ${(props) => props.theme.topbarBgColor};
   width: 100%;
 `;
 
