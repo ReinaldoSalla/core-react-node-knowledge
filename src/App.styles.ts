@@ -56,9 +56,8 @@ const globalTheme = {
   bgColor: '#280808',
   secondaryBgColor: '#392c2c',
   hoverColor: '#c41010',
-  textColor: 'rgba(255, 255, 255, 0.85)',
-  // textColor: 'white',
-  mainBgColor: '#0b0b0b',
+  // textColor: 'rgba(255, 255, 255, 0.85)',
+  textColor: 'rgba(255, 255, 255, 0.7)',
 };
 
 export { GlobalStyle, globalTheme };

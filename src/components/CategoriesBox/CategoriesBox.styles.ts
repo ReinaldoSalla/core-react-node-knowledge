@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';
 
 const Wrapper = styled(Link)`
   margin: 0 16px 48px 16px;
@@ -9,8 +9,12 @@ const Wrapper = styled(Link)`
   justify-content: space-evenly;
   min-height: 350px;
   width: 350px;
-  box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.1);
-	background: black;
+  /* box-shadow: 4px 4px 4px 4px #272727; */
+	/* background: ${(props) => props.theme.bgColor}; */
+  /* background: #0d321f; */
+  /* background: #091a11; */
+  /* background: #111; */
+  background: #272727;
   transition: transform 500ms;
   
   &:hover {
@@ -27,9 +31,9 @@ const IconWrapper = styled.div`
   padding: 12px;
   width: 24px;
   height: 24px;
-  border: 1px solid var(--font-color);
+  border: 1px solid ${(props) => props.theme.textColor};
   border-radius: 50%;
-  color: var(--font-color);
+  color: ${(props) => props.theme.textColor};
 
   ${(props) => props.theme.breakpoints.small} {
     padding: 12px;
@@ -54,7 +58,7 @@ const Title = styled.h4`
   font-size: 20px;
   font-weight: 600;
   text-align: center;
-  color: var(--font-color);
+  color: ${(props) => props.theme.textColor};
 
   ${(props) => props.theme.breakpoints.small} {
     font-size: 18px;
@@ -70,7 +74,7 @@ const Description = styled.p`
   text-align: center;
   font-size: 18px;
   font-weight: 500;
-  color: var(--font-color);
+  color: ${(props) => props.theme.textColor};
 
 
   ${(props) => props.theme.breakpoints.small} {
@@ -78,14 +82,14 @@ const Description = styled.p`
   }
 `;
 
-const Text = styled.span`
+const Check = styled.span`
   font-size: 16px;
   line-height: 70%;
   margin-right: 8px;
   font-weight: 300;
   text-align: center;
   transform: translateY(-2.5px);
-  color: var(--font-color);
+  color: ${(props) => props.theme.textColor};
 
   ${(props) => props.theme.breakpoints.small} {
     font-size: 14px;
@@ -99,5 +103,5 @@ export {
   Title,
   DescriptionWrapper,
   Description,
-  Text
-}
+  Check
+};

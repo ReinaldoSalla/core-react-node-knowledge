@@ -12,7 +12,7 @@ const CouroselWrapper = styled(animated.section)<CouroselWrapperProps>`
   height: 100%;
   overflow: hidden;
   pointer-events: ${(props) => props.disabled ? 'none': 'auto'};
-  background: black;
+  /* background: black; */
 `;
 
 export {

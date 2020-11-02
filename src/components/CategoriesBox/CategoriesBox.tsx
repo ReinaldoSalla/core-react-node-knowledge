@@ -1,6 +1,13 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import './CategoriesBox.css'
+import {
+  Wrapper,
+  IconWrapper,
+  Icon,
+  Title,
+  DescriptionWrapper,
+  Description,
+  Check
+} from './CategoriesBox.styles';
 
 const CategoriesBox = ({ 
   title, 
@@ -8,24 +15,22 @@ const CategoriesBox = ({
   path,
   Svg 
 }) => (
-  <Link className='categoriescontent' to={path}>
-    <div className='categoriescontent-iconwrapper'>
-      <Svg className='categoriescontent-iconwrapper-icon'/>
-    </div>
-    <h4 className='categoriescontent-title'>
+  <Wrapper to={path}>
+    <IconWrapper >
+      <Icon as={Svg} />
+    </IconWrapper>
+    <Title >
       {title}
-    </h4>
-    <div className='categoriescontent-descriptionwrapper'>
-      <p className='categoriescontent-descriptionwrapper-description'>
+    </Title>
+    <DescriptionWrapper >
+      <Description >
         {description}
-      </p>
-    </div>
-    <div className='categoriescontent-checkwrapper'>
-      <span className='categoriescontent-checkwrapper-text'>
-        Check {title} →
-      </span>
-    </div>
-  </Link>
+      </Description>
+    </DescriptionWrapper>
+    <Check >
+      Check {title} →
+    </Check>
+  </Wrapper>
 );
 
 export default CategoriesBox;

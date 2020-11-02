@@ -38,24 +38,24 @@ const Courosel = ({
     dispatch({ type: COUROSEL_CONSTANTS.MOVE_TO_THIRD_ITEM });
   };
 
-  useEffect(() => {
-    const handleNextItem = () => {
-      dispatch({ type: COUROSEL_CONSTANTS.MOVE_TO_NEXT_ITEM });
-    };
+  // useEffect(() => {
+  //   const handleNextItem = () => {
+  //     dispatch({ type: COUROSEL_CONSTANTS.MOVE_TO_NEXT_ITEM });
+  //   };
 
-    if (isDocumentVisible) {
-      const intervalId = setInterval(() => {
-        handleNextItem();
-      }, COUROSEL_CONSTANTS.DURATION);
-      return () => clearInterval(intervalId);
-    }
-  });
+  //   if (isDocumentVisible) {
+  //     const intervalId = setInterval(() => {
+  //       handleNextItem();
+  //     }, COUROSEL_CONSTANTS.DURATION);
+  //     return () => clearInterval(intervalId);
+  //   }
+  // });
 
   const couroselSpring = useSpring(getCouroselSpring(isSidebarActive));
 
   return (
     <>
-      {/* <CouroselBackground /> */}
+      <CouroselBackground />
       <CouroselWrapper 
         style={couroselSpring}
         disabled={isSidebarActive}
