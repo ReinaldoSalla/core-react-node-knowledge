@@ -1,12 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
-  :root {
-    /* Firefox scrollbar (>= 64) */
-    /* scrollbar-width: thin; */
-    /* height: 100%; */
-  }
-
   html, body, #root, footer {
     padding: 0;
     margin: 0;
