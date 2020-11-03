@@ -10,7 +10,6 @@ const ContentWrapper = styled(animated.article)<ContentWrapperProps>`
 
 const ContentTitle = styled.h1`
   font-size: 32px;
-  /* border: 1px solid red; */
   padding-top: 24px;
   color: ${(props) => props.theme.textColor};
 `;

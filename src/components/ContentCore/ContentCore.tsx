@@ -46,7 +46,7 @@ const ContentCore: FunctionComponent<ContentCoreProps> = ({
           </ContentCoreCommand>
         </ContentCoreContainer>
         <ContentCoreText>
-          After <ContentCoreHighlight> npm run start </ContentCoreHighlight>is finished, React will lauch the app in <ContentCoreLink href='http://localhost:3000' target='_blank' rel="noopener noreferrer">localhost:3000</ContentCoreLink>. There are some files which are unnecessary for this guide. You can leave them if you want, but if you're interested in cleaning up, you may do the following.
+          When <ContentCoreHighlight> npm run start </ContentCoreHighlight>finishes, React will lauch the app in <ContentCoreLink href='http://localhost:3000' target='_blank' rel="noopener noreferrer">localhost:3000</ContentCoreLink>. There are some files which are unnecessary for this guide. You can leave them if you want, but if you're interested in cleaning up, you may do the following.
         </ContentCoreText>
         <ContentCoreText>
           Inside the src folder, delete App.test.js, index.css, logo.svg, serviceWorker.js and setupTests.js

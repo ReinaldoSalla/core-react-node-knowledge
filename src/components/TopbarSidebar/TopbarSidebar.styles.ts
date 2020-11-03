@@ -28,11 +28,12 @@ const TopbarSidebarNormalizer = styled.div`
   z-index: 2;
   margin-bottom: 8px;
   height: 32px;
+  width: 32px;
 `;
 
 const TopbarSidebarSvg = styled(animated(SidebarSvg))`
-  width: 32px;
-  height: 32px;
+  width: 100%;
+  height: 100%;
   color: white;
 `;
 

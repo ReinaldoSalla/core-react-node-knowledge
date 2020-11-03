@@ -29,8 +29,8 @@ const TopbarSearch = ({ isSearchActive, toggleSearch }) => {
       onMouseLeave={handleLeave}
       onClick={toggleSearch}  
     >
-      <TopbarSearchNormalizer>
-        <TopbarSearchSvg style={svgSpring}/>
+      <TopbarSearchNormalizer style={svgSpring}>
+        <TopbarSearchSvg />
       </TopbarSearchNormalizer>
       <TopbarSearchText>
         Search

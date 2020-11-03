@@ -25,7 +25,7 @@ const TopbarSearchWrapper = styled.button`
   }
 `;
 
-const TopbarSearchNormalizer = styled.div`
+const TopbarSearchNormalizer = styled(animated.div)`
   z-index: 2;
   margin-bottom: 8px;
   height: 32px;
