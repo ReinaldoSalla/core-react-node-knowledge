@@ -4,7 +4,6 @@ import { animated } from 'react-spring';
 import { FooterTextProps, FooterContainerProps } from './Footer.types';
 
 const FooterWrapper = styled.footer`
-  margin-top: 2rem;
   height: calc(100% - var(--topbar-height));
   background: var(--bg-color);
 `;

@@ -6,7 +6,6 @@ import {
   FooterLink,
   FooterText
 } from './Footer.styles';
-import './Footer.css';
 
 const Footer = ({
   isSidebarActive

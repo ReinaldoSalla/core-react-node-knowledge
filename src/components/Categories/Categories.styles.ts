@@ -6,6 +6,7 @@ const CategoriesWrapper = styled(animated.section)<CategoriesWrapperProps>`
   padding-top: 48px;
   pointer-events: ${(props) => props.disabled ? 'none' : 'auto'};
   background: ${(props) => props.theme.pageBgColor};
+  padding-bottom: 2rem;
 `;
 
 export { CategoriesWrapper };
