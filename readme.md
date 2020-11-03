@@ -1,13 +1,3 @@
-index.js
-
-Component.js
-
-Component.reducer.js
-
-Component.actions.js
-
-Component.constants.js
-
-Component.styles.css
-
-Component.animations.css
+1-accessibility, borderize when tabbed, but not when clicked
+2-disable scroll when modals are open
+3-pressing return close the modals
