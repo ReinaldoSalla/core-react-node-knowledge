@@ -78,6 +78,9 @@ const Sidebar = ({
     [0, isSidebarActive ? 0.4 : 0.5]
   );
 
+  document.body.style.overflowY = isSidebarActive ? 'hidden' : 'auto';
+  // document.body.style.paddingRight = isSidebarActive ? '15px' : '0px';
+
   return (
     <SidebarWrapper style={spring}>
       {transitions.map(({ item, key, props }) => (

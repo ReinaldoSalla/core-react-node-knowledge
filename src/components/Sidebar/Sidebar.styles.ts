@@ -6,9 +6,9 @@ const SidebarWrapper = styled(animated.aside)`
   top: ${(props) => props.theme.topbarHeight};
   left: 0;
   z-index: 3;
-  width: 250px;
+  width: 500px;
   height: 100%;
-  background: ${(props) => props.theme.secondaryBgColor};
+  background: ${(props) => props.theme.boxBgColor};
 `;
 
 const SidebarContainer = styled(animated.section)`
