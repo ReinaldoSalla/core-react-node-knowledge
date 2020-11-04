@@ -34,7 +34,6 @@ const Topbar: FunctionComponent<TopbarProps> = ({
           isSearchActive={isSearchActive}
           toggleSearch={toggleSearch}
         />
-        <TopbarHome />
         <TopbarFiller style={topbarFillerAnimation}/>
       </TopbarNav>
     </TopbarHeader>

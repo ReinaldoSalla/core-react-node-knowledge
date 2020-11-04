@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import React, { useEffect, FunctionComponent } from 'react';
 import {
   ContentCoreTitle,
   ContentCoreText,
@@ -8,6 +8,11 @@ import {
   ContentCoreHighlight
 } from './ContentCore.styles';
 import { ContentCoreProps } from './ContentCore.types';
+import Prism from 'prismjs';
+import 'prismjs/components/prism-jsx.min.js';
+import "prismjs/themes/prism-okaidia.css";
+import "prismjs/plugins/line-highlight/prism-line-highlight.min.js";
+import "prismjs/plugins/line-highlight/prism-line-highlight.css"
 
 const ContentCore: FunctionComponent<ContentCoreProps> = ({ 
   introDomNode,
@@ -18,8 +23,66 @@ const ContentCore: FunctionComponent<ContentCoreProps> = ({
   useReducerDomNode,
   finalCodeDomNode 
 }): JSX.Element => {
+  useEffect(() => {
+    Prism.highlightAll();
+  }, []);
   return (
     <>
+<pre className="language-javascript">
+  <code className="language-javascript" style={{ whiteSpace: 'pre-wrap'}}>
+  {`
+onSubmit(e) {
+  e.preventDefault();
+  const job = {
+    title: 'Developer',
+    company: 'Facebook' 
+  };
+}
+  `}
+  </code>
+</pre>
+<pre className="language-jsx">
+  <code className="language-jsx"style={{ whiteSpace: 'pre-wrap'}}>
+  {`
+function tick() {
+  const element = (
+    <div>
+      <h1>Hello, world!</h1>
+      <h2>It is {new Date().toLocaleTimeString()}.</h2>
+    </div>
+  );
+  ReactDOM.render(    
+    element,    
+    document.getElementById('root')  
+  );
+}
+setInterval(tick, 1000);
+  `}
+  </code>
+</pre>
+
+<pre className="language-jsx" data-line="6">
+  <code className="language-jsx"style={{ whiteSpace: 'pre-wrap'}}>
+  {`
+function tick() {
+  const element = (
+    <div>
+      <h1>Hello, world!</h1>
+      <h2>It is {new Date().toLocaleTimeString()}.</h2>
+      <h3>new content to be displayed</h3>
+    </div>
+  );
+  ReactDOM.render(    
+    element,    
+    document.getElementById('root')  
+  );
+}
+setInterval(tick, 1000);
+  `}
+  </code>
+</pre>
+
+
       <section ref={introDomNode}>
         <ContentCoreTitle>1. Intro</ContentCoreTitle>
         <ContentCoreText>
