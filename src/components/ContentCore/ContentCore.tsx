@@ -1,4 +1,5 @@
 import React, { useEffect, FunctionComponent } from 'react';
+import { useLocation } from 'react-router-dom';
 import {
   ContentCoreTitle,
   ContentCoreText,
@@ -10,7 +11,6 @@ import {
 import { ContentCoreProps } from './ContentCore.types';
 import Prism from 'prismjs';
 import 'prismjs/components/prism-jsx.min.js';
-// import "prismjs/themes/prism-okaidia.css";
 import './prism.css';
 
 const ContentCore: FunctionComponent<ContentCoreProps> = ({ 
@@ -22,9 +22,18 @@ const ContentCore: FunctionComponent<ContentCoreProps> = ({
   useReducerDomNode,
   finalCodeDomNode 
 }): JSX.Element => {
+
+  const { pathname, hash } = useLocation();
+
   useEffect(() => {
     Prism.highlightAll();
   }, []);
+
+  useEffect(() => {
+    console.log(hash);
+    console.log(pathname);
+  })
+
   return (
     <>
       <section ref={introDomNode}>
@@ -200,6 +209,26 @@ setInterval(tick, 1000);
           For each IntersectionObserverEntry in the list entries, we look to see if the entry's intersectionRatio is going up; if it is, we set the target's background-color to the string in increasingColor (remember, it's "rgba(40, 40, 190, ratio)"), replaces the word "ratio" with the entry's intersectionRatio. The result: not only does the color get changed, but the transparency of the target element changes, too; as the intersection ratio goes down, the background color's alpha value goes down with it, resulting in an element that's more transparent.
         </ContentCoreText>
       </section>
+
+      <section id='test'>
+        <ContentCoreTitle>7. Final Code</ContentCoreTitle>
+        <ContentCoreText >
+          For each IntersectionObserverEntry in the list entries, we look to see if the entry's intersectionRatio is going up; if it is, we set the target's background-color to the string in increasingColor (remember, it's "rgba(40, 40, 190, ratio)"), replaces the word "ratio" with the entry's intersectionRatio. The result: not only does the color get changed, but the transparency of the target element changes, too; as the intersection ratio goes down, the background color's alpha value goes down with it, resulting in an element that's more transparent.
+        </ContentCoreText>
+        <ContentCoreText >
+          For each IntersectionObserverEntry in the list entries, we look to see if the entry's intersectionRatio is going up; if it is, we set the target's background-color to the string in increasingColor (remember, it's "rgba(40, 40, 190, ratio)"), replaces the word "ratio" with the entry's intersectionRatio. The result: not only does the color get changed, but the transparency of the target element changes, too; as the intersection ratio goes down, the background color's alpha value goes down with it, resulting in an element that's more transparent.
+        </ContentCoreText>
+        <ContentCoreText >
+          For each IntersectionObserverEntry in the list entries, we look to see if the entry's intersectionRatio is going up; if it is, we set the target's background-color to the string in increasingColor (remember, it's "rgba(40, 40, 190, ratio)"), replaces the word "ratio" with the entry's intersectionRatio. The result: not only does the color get changed, but the transparency of the target element changes, too; as the intersection ratio goes down, the background color's alpha value goes down with it, resulting in an element that's more transparent.
+        </ContentCoreText>
+        <ContentCoreText >
+          For each IntersectionObserverEntry in the list entries, we look to see if the entry's intersectionRatio is going up; if it is, we set the target's background-color to the string in increasingColor (remember, it's "rgba(40, 40, 190, ratio)"), replaces the word "ratio" with the entry's intersectionRatio. The result: not only does the color get changed, but the transparency of the target element changes, too; as the intersection ratio goes down, the background color's alpha value goes down with it, resulting in an element that's more transparent.
+        </ContentCoreText>
+        <ContentCoreText >
+          For each IntersectionObserverEntry in the list entries, we look to see if the entry's intersectionRatio is going up; if it is, we set the target's background-color to the string in increasingColor (remember, it's "rgba(40, 40, 190, ratio)"), replaces the word "ratio" with the entry's intersectionRatio. The result: not only does the color get changed, but the transparency of the target element changes, too; as the intersection ratio goes down, the background color's alpha value goes down with it, resulting in an element that's more transparent.
+        </ContentCoreText>
+      </section>
+
     </>
   );
 };

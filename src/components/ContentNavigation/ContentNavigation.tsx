@@ -1,5 +1,7 @@
 import React, { FunctionComponent } from 'react';
 import { useSpring } from 'react-spring';
+import { useLocation } from 'react-router-dom';
+import { HashLink } from 'react-router-hash-link';
 import {
   ContentNavigationWrapper,
   ContentNavigationItem,
@@ -109,6 +111,16 @@ const ContentNavigation: FunctionComponent<ContentNavigationProps> = ({
           7. Final Code
         </ContentNavigationText>
       </ContentNavigationItem>
+
+      <HashLink to={`/rendering#test`}>
+        <ContentNavigationItem>
+          <ContentNavigationCircle style={finalCodeCircleAnimation}/>
+          <ContentNavigationText>
+            8. test
+          </ContentNavigationText>
+        </ContentNavigationItem>
+      </HashLink>
+
     </ContentNavigationWrapper>
   );
 };
