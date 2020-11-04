@@ -19,15 +19,15 @@ const ContentCoreLink = styled.a`
   }
 `;
 
-const ContentCoreContainer = styled.section`
+const ContentCoreContainer = styled.ul`
   padding-bottom: 20px;
   display: flex;
   flex-direction: column;
-  background: var(--bg-color);
+  background: rgb(35, 38, 43);
   border-radius: 10px;
 `;
 
-const ContentCoreCommand = styled.span`
+const ContentCoreCommand = styled.li`
   display: inline-block;
   color: white;
   word-spacing: 2px;

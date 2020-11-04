@@ -10,9 +10,8 @@ import {
 import { ContentCoreProps } from './ContentCore.types';
 import Prism from 'prismjs';
 import 'prismjs/components/prism-jsx.min.js';
-import "prismjs/themes/prism-okaidia.css";
-import "prismjs/plugins/line-highlight/prism-line-highlight.min.js";
-import "prismjs/plugins/line-highlight/prism-line-highlight.css"
+// import "prismjs/themes/prism-okaidia.css";
+import './prism.css';
 
 const ContentCore: FunctionComponent<ContentCoreProps> = ({ 
   introDomNode,
@@ -28,61 +27,6 @@ const ContentCore: FunctionComponent<ContentCoreProps> = ({
   }, []);
   return (
     <>
-<pre className="language-javascript">
-  <code className="language-javascript" style={{ whiteSpace: 'pre-wrap'}}>
-  {`
-onSubmit(e) {
-  e.preventDefault();
-  const job = {
-    title: 'Developer',
-    company: 'Facebook' 
-  };
-}
-  `}
-  </code>
-</pre>
-<pre className="language-jsx">
-  <code className="language-jsx"style={{ whiteSpace: 'pre-wrap'}}>
-  {`
-function tick() {
-  const element = (
-    <div>
-      <h1>Hello, world!</h1>
-      <h2>It is {new Date().toLocaleTimeString()}.</h2>
-    </div>
-  );
-  ReactDOM.render(    
-    element,    
-    document.getElementById('root')  
-  );
-}
-setInterval(tick, 1000);
-  `}
-  </code>
-</pre>
-
-<pre className="language-jsx" data-line="6">
-  <code className="language-jsx"style={{ whiteSpace: 'pre-wrap'}}>
-  {`
-function tick() {
-  const element = (
-    <div>
-      <h1>Hello, world!</h1>
-      <h2>It is {new Date().toLocaleTimeString()}.</h2>
-      <h3>new content to be displayed</h3>
-    </div>
-  );
-  ReactDOM.render(    
-    element,    
-    document.getElementById('root')  
-  );
-}
-setInterval(tick, 1000);
-  `}
-  </code>
-</pre>
-
-
       <section ref={introDomNode}>
         <ContentCoreTitle>1. Intro</ContentCoreTitle>
         <ContentCoreText>
@@ -129,6 +73,38 @@ setInterval(tick, 1000);
         <ContentCoreText>
           For each IntersectionObserverEntry in the list entries, we look to see if the entry's intersectionRatio is going up; if it is, we set the target's background-color to the string in increasingColor (remember, it's "rgba(40, 40, 190, ratio)"), replaces the word "ratio" with the entry's intersectionRatio. The result: not only does the color get changed, but the transparency of the target element changes, too; as the intersection ratio goes down, the background color's alpha value goes down with it, resulting in an element that's more transparent.
         </ContentCoreText>
+        <pre className="language-javascript">
+        <code className="language-javascript" style={{ whiteSpace: 'pre-wrap'}}>
+{`
+onSubmit(e) {
+  e.preventDefault();
+  const job = {
+    title: 'Developer',
+    company: 'Facebook' 
+  };
+}
+`}
+        </code>
+      </pre>
+      <pre className="language-jsx">
+        <code className="language-jsx"style={{ whiteSpace: 'pre-wrap'}}>
+{`
+function tick() {
+  const element = (
+    <div>
+      <h1>Hello, world!</h1>
+      <h2>It is {new Date().toLocaleTimeString()}.</h2>
+    </div>
+  );
+  ReactDOM.render(    
+    element,    
+    document.getElementById('root')  
+  );
+}
+setInterval(tick, 1000);
+`}
+        </code>
+      </pre>
       </section>
       <section ref={jsxDomNode}>
         <ContentCoreTitle>3. JSX</ContentCoreTitle>
