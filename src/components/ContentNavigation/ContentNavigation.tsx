@@ -1,7 +1,6 @@
-import React, { FunctionComponent } from 'react';
+import React, { useEffect, FunctionComponent } from 'react';
 import { useSpring } from 'react-spring';
 import { useLocation } from 'react-router-dom';
-import { HashLink } from 'react-router-hash-link';
 import {
   ContentNavigationWrapper,
   ContentNavigationItem,
@@ -30,6 +29,9 @@ const ContentNavigation: FunctionComponent<ContentNavigationProps> = ({
   scrollToUseReducer,
   scrollToFinalCode
 }): JSX.Element => {
+
+  const { pathname, hash } = useLocation();
+
   const introCircleAnimation = useSpring(getCircleAnimation(isIntroIntersecting));
   const setupCircleAnimation = useSpring(getCircleAnimation(isSetupIntersecting, isIntroIntersecting));
   const jsxCircleAnimation = useSpring(getCircleAnimation(isJsxIntersecting, isSetupIntersecting));
@@ -46,81 +48,95 @@ const ContentNavigation: FunctionComponent<ContentNavigationProps> = ({
   const useReducerTextAnimation = useSpring(getTextAnimation(isUseReducerIntersecting, isUseStateIntersecting));
   const finalCodeTextAnimation = useSpring(getTextAnimation(isFinalCodeIntersecting, isUseReducerIntersecting));
 
+  useEffect(() => {
+    const goToBlock = () => {
+      switch (hash) {
+        case '#intro':
+          return scrollToIntro();
+        case '#setup':
+          return scrollToSetup();
+        case '#jsx':
+          return scrollToJsx();
+        case '#styling':
+          return scrollToStyling();
+        case '#useState':
+          return scrollToUseState();
+        case '#useReducer':
+          return scrollToUseReducer();
+        case '#final-code':
+          return scrollToFinalCode();
+        default:
+          return window.scroll(0, 0);      
+      }
+    }
+    goToBlock();
+  }, []);
+
   return (
     <ContentNavigationWrapper>
-      <ContentNavigationItem>
+      <ContentNavigationItem
+        to={`${pathname}#intro`}
+        onClick={scrollToIntro}
+      >
         <ContentNavigationCircle style={introCircleAnimation} />
-        <ContentNavigationText 
-          style={introTextAnimation}
-          onClick={scrollToIntro}
-        >
+        <ContentNavigationText style={introTextAnimation}>
           1. Intro
         </ContentNavigationText>
       </ContentNavigationItem>
-      <ContentNavigationItem>
+      <ContentNavigationItem
+        to={`${pathname}#setup`}
+        onClick={scrollToSetup}
+      >
         <ContentNavigationCircle style={setupCircleAnimation}/>
-        <ContentNavigationText 
-          style={setupTextAnimation} 
-          onClick={scrollToSetup}
-        >
+        <ContentNavigationText style={setupTextAnimation}>
           2. Setup
         </ContentNavigationText>
       </ContentNavigationItem>
-      <ContentNavigationItem>
+      <ContentNavigationItem
+        to={`${pathname}#jsx`}
+        onClick={scrollToJsx}
+      >
         <ContentNavigationCircle style={jsxCircleAnimation}/>
-        <ContentNavigationText 
-          style={jsxTextAnimation}
-          onClick={scrollToJsx}
-        >
+        <ContentNavigationText style={jsxTextAnimation}>
           3. JSX
         </ContentNavigationText>
       </ContentNavigationItem>
-      <ContentNavigationItem>
+      <ContentNavigationItem
+        to={`${pathname}#styling`}
+        onClick={scrollToStyling}
+      >
         <ContentNavigationCircle style={stylingCircleAnimation}/>
-        <ContentNavigationText 
-          style={stylingTextAnimation}
-          onClick={scrollToStyling}
-        >
+        <ContentNavigationText style={stylingTextAnimation}>
           4. Styling
         </ContentNavigationText>
       </ContentNavigationItem>
-      <ContentNavigationItem>
+      <ContentNavigationItem
+        to={`${pathname}#useState`}
+        onClick={scrollToUseState}
+      >
         <ContentNavigationCircle  style={useStateCircleAnimation}/>
-        <ContentNavigationText 
-          style={useStateTextAnimation}
-          onClick={scrollToUseState}
-        >
+        <ContentNavigationText style={useStateTextAnimation}>
           5. useState
         </ContentNavigationText>
       </ContentNavigationItem>
-      <ContentNavigationItem>
+      <ContentNavigationItem
+        to={`${pathname}#useReducer`}
+        onClick={scrollToUseReducer}
+      >
         <ContentNavigationCircle style={useReducerCircleAnimation}/>
-        <ContentNavigationText 
-          style={useReducerTextAnimation}
-          onClick={scrollToUseReducer}
-        >
+        <ContentNavigationText style={useReducerTextAnimation}>
           6. useReducer
         </ContentNavigationText>
       </ContentNavigationItem>
-      <ContentNavigationItem>
+      <ContentNavigationItem 
+        to={`${pathname}#final-code`} 
+        onClick={scrollToFinalCode}
+      >
         <ContentNavigationCircle style={finalCodeCircleAnimation}/>
-        <ContentNavigationText 
-          style={finalCodeTextAnimation}
-          onClick={scrollToFinalCode}
-        >
+        <ContentNavigationText style={finalCodeTextAnimation}>
           7. Final Code
         </ContentNavigationText>
       </ContentNavigationItem>
-
-      <HashLink to={`/rendering#test`}>
-        <ContentNavigationItem>
-          <ContentNavigationCircle style={finalCodeCircleAnimation}/>
-          <ContentNavigationText>
-            8. test
-          </ContentNavigationText>
-        </ContentNavigationItem>
-      </HashLink>
-
     </ContentNavigationWrapper>
   );
 };

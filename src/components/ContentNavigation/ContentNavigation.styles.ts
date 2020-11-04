@@ -1,7 +1,8 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 import { animated } from 'react-spring';
 
-const ContentNavigationWrapper = styled.ol`
+const ContentNavigationWrapper = styled.aside`
   margin: 0 0 0 72px;
   position: sticky;
   top: 100px;
@@ -14,7 +15,7 @@ const ContentNavigationWrapper = styled.ol`
   }
 `;
 
-const ContentNavigationItem = styled.li`
+const ContentNavigationItem = styled(Link)`
   display: flex;
   align-items: center;
   justify-content: center;

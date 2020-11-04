@@ -71,9 +71,9 @@ const Content = ({ isSidebarActive }) => {
   const isUseReducerIntersecting = useIntersectionObserver(useReducerDomNode);
   const isFinalCodeIntersecting = useIntersectionObserver(finalCodeDomNode);
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+  // useEffect(() => {
+  //   window.scrollTo(0, 0);
+  // }, []);
 
   const spring = useSpring(getSpring(isSidebarActive));
   
