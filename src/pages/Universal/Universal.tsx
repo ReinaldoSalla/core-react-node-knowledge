@@ -2,7 +2,7 @@
 Universal component rendered throughout the whole app.
 */
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import Topbar from '../../components/Topbar';
 import Sidebar from '../../components/Sidebar';
@@ -12,10 +12,25 @@ import ContentPage from '../../pages/ContentPage';
 import Footer from '../../components/Footer';
 
 const Universal = () => {
-  const [isSidebarActive, setisSidebarActive] = useState(false);
+  const [isSidebarActive, setIsSidebarActive] = useState(false);
   const [isSearchActive, setIsSearchActive] = useState(false);
 
-  const toggleSidebar = () => setisSidebarActive(!isSidebarActive);
+  const toggleSidebar = () => {
+    if (!isSidebarActive) {
+      setIsSidebarActive(true);
+      document.body.style.overflowY = 'scroll';
+      document.body.style.position = 'fixed';
+      document.body.style.top = '-500px';//`-${500.current}px`; 
+    } else {
+      setIsSidebarActive(false);
+      document.body.style.overflowY = 'auto';
+      document.body.style.position = 'static';
+      // document.body.style.top = '-1000px';
+      window.scrollTo({ top: 1000, left: 0 });
+    }
+    // window.scrollTo({ top: 1000, left: 0 });
+  };
+
   const toggleSearch = () => setIsSearchActive(!isSearchActive);  
 
   return (

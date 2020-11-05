@@ -65,6 +65,8 @@ const data = [
   },
 ];
 
+let nCalls = 0;
+
 const Sidebar = ({
   isSidebarActive,
   toggleSidebar
@@ -106,11 +108,14 @@ const Sidebar = ({
     [0, isSidebarActive ? 0.4 : 0.5]
   );
 
-  // if (isSidebarActive) {
-  //   if (document.documentElement.scrollTop !== 0) {
-  //     topRef.current = document.documentElement.scrollTop;
-  //   }
-  // }
+  if (isSidebarActive) {
+    if (document.documentElement.scrollTop !== 0) {
+      topRef.current = document.documentElement.scrollTop;
+    } else {
+      topRef.current = topRef.current;
+    }
+  }
+
   // document.body.style.overflowY = isSidebarActive ? 'scroll' : 'auto';
   // document.body.style.position = isSidebarActive ? 'fixed' : 'static';
   // document.body.style.top = isSidebarActive ? `-${topRef.current}px` : '';
