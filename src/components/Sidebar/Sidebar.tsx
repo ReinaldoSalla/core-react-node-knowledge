@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useSpring, useTransition, useChain, config } from 'react-spring';
 import { 
   SidebarWrapper,
@@ -35,7 +35,34 @@ const data = [
       'MongoDB',
       'Passport.js'
     ],
-  }
+  },
+  {
+    title: '1',
+    contents: [
+      'Rendering (JSX)',
+      'State management',
+      'Side Effects',
+      'Memoization',
+      'Suspense',
+      'Intersecion Observer'
+    ],
+  },
+  {
+    title: 'b',
+    contents: [
+      'react-router',
+      'styled-components',
+      'react-spring'
+    ],
+  },
+  {
+    title: 'c',
+    contents: [
+      'GraphQL',
+      'MongoDB',
+      'Passport.js'
+    ],
+  },
 ];
 
 const Sidebar = ({
@@ -44,6 +71,7 @@ const Sidebar = ({
 }) => {
   const springRef: any = useRef();
   const transitionsRef: any = useRef();
+  const topRef: any = useRef();
 
   const spring = useSpring({
     config: config.slow,
@@ -78,8 +106,14 @@ const Sidebar = ({
     [0, isSidebarActive ? 0.4 : 0.5]
   );
 
-  document.body.style.overflowY = isSidebarActive ? 'hidden' : 'auto';
-  // document.body.style.paddingRight = isSidebarActive ? '15px' : '0px';
+  // if (isSidebarActive) {
+  //   if (document.documentElement.scrollTop !== 0) {
+  //     topRef.current = document.documentElement.scrollTop;
+  //   }
+  // }
+  // document.body.style.overflowY = isSidebarActive ? 'scroll' : 'auto';
+  // document.body.style.position = isSidebarActive ? 'fixed' : 'static';
+  // document.body.style.top = isSidebarActive ? `-${topRef.current}px` : '';
 
   return (
     <SidebarWrapper style={spring}>

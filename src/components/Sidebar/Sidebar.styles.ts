@@ -9,6 +9,11 @@ const SidebarWrapper = styled(animated.aside)`
   width: 500px;
   height: 100%;
   background: ${(props) => props.theme.boxBgColor};
+  overflow-y: hidden;
+
+  &:hover {
+    overflow-y: scroll;
+  }
 `;
 
 const SidebarContainer = styled(animated.section)`

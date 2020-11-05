@@ -33,7 +33,7 @@ const TopbarSidebar = ({ isSidebarActive, toggleSidebar }) => {
         <TopbarSidebarSvg style={svgAnimation} />
       </TopbarSidebarNormalizer>
       <TopbarSidebarText>
-        Home
+        Contents
       </TopbarSidebarText>
       <TopbarSidebarFiller style={hoverAnimation} />
     </TopbarSidebarWrapper>

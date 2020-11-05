@@ -18,3 +18,11 @@ const App = () => {
 };
 
 export default App;
+
+// import React from 'react';
+
+// export default () => (
+//   <div style={{ height: '500px', width: '500px', background: 'red' }}>
+//     <div style={{ height: 'calc(50% + 50px)', width: '50%', background: 'green' }} />
+//   </div>
+// )
