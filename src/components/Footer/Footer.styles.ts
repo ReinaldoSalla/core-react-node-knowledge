@@ -6,9 +6,13 @@ import { FooterTextProps, FooterContainerProps } from './Footer.types';
 const FooterWrapper = styled.footer`
   height: calc(100% - var(--topbar-height));
   background: var(--bg-color);
+  position: relative;
+  z-index: 2;
 `;
 
 const FooterContainer = styled(animated.div)<FooterContainerProps>`
+  position: relative;
+  z-index: 2;
   height: 100%;
   display: flex;
   flex-direction: column;

@@ -65,8 +65,6 @@ const data = [
   },
 ];
 
-let nCalls = 0;
-
 const Sidebar = ({
   isSidebarVisible,
   toggleSidebar

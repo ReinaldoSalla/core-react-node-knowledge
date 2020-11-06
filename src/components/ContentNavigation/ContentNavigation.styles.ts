@@ -5,6 +5,7 @@ import { ContentNavigationWrapperProps } from './ContentNavigation.types';
 
 const ContentNavigationWrapper = styled.aside<ContentNavigationWrapperProps>`
   position: ${(props) => props.isSidebarVisible ? 'fixed' : 'sticky'};
+  z-index: 1;
   top: 100px;
   right: ${(props) => props.isSidebarVisible ? '32px' : '20px' };
   height: 300px;
