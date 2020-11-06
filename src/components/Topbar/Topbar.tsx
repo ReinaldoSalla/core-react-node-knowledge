@@ -20,7 +20,10 @@ const Topbar: FunctionComponent<TopbarProps> = ({
 }): JSX.Element => {
   const isInTop = useIsInTop(50);
 
-  const topbarFillerAnimation = useSpring(getTopbarAnimation(isInTop));
+  const topbarFillerAnimation = useSpring(getTopbarAnimation(
+    isInTop,
+    isSidebarVisible
+  ));
 
   return (
     <TopbarHeader>

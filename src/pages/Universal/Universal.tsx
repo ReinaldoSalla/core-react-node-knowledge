@@ -18,14 +18,7 @@ const Universal = () => {
 
   const toggleSidebar = () => {
     if (!isSidebarVisible) {
-      if (document.documentElement.scrollTop !== 0) {
-        topRef.current = document.documentElement.scrollTop;
-      } else {
-        topRef.current = topRef.current;
-      }
-    }
-    console.log(topRef.current);
-    if (!isSidebarVisible) {
+      topRef.current = document.documentElement.scrollTop;
       setisSidebarVisible(true);
       document.body.style.overflowY = 'scroll';
       document.body.style.position = 'fixed';
