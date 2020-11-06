@@ -1,25 +1,16 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { animated } from 'react-spring';
-
-interface ContentNavigationWrapperProps {
-  isSidebarVisible: boolean;
-  top: number;
-}
+import { ContentNavigationWrapperProps } from './ContentNavigation.types';
 
 const ContentNavigationWrapper = styled.aside<ContentNavigationWrapperProps>`
-  /* position: sticky; */
   position: ${(props) => props.isSidebarVisible ? 'fixed' : 'sticky'};
   top: 100px;
-  /* top: ${(props) => props.isSidebarVisible ? `${props.top}` : '100px'}; */
-  /* right: 20px; */
   right: ${(props) => props.isSidebarVisible ? '32px' : '20px' };
   height: 300px;
   width: 150px;
-  /* margin: 0 0 0 72px; */
   margin-top: ${(props) => props.isSidebarVisible ? `${props.top <= 100 ? '97px' : '0px'}` : '0px' };
   margin-left: 72px;
-  /* border: 5px solid red; */
 
   ${(props) => props.theme.breakpoints.medium} {
     display: none;

@@ -17,4 +17,9 @@ interface ContentNavigationProps {
   topRef: any;
 }
 
-export type { ContentNavigationProps };
+interface ContentNavigationWrapperProps {
+  isSidebarVisible: boolean;
+  top: number;
+}
+
+export type { ContentNavigationProps, ContentNavigationWrapperProps };

@@ -7,6 +7,7 @@ import React, {
 import { useSpring } from 'react-spring';
 import {
   ContentWrapper,
+  ContentSection,
   ContentTitle,
   ContentContainer
 } from './Content.styles';
@@ -71,20 +72,14 @@ const Content = ({ isSidebarVisible, topRef }) => {
   const isUseReducerIntersecting = useIntersectionObserver(useReducerDomNode);
   const isFinalCodeIntersecting = useIntersectionObserver(finalCodeDomNode);
 
-  // useEffect(() => {
-  //   window.scrollTo(0, 0);
-  // }, []);
-
   const spring = useSpring(getSpring(isSidebarVisible));
-
-  
   
   return (
     <main>
-      <ContentWrapper style={spring} disabled={isSidebarVisible}>
+      <ContentWrapper style={spring} isSidebarVisible={isSidebarVisible}>
         <ContentTitle>React - Rendering</ContentTitle>
         <ContentContainer>
-          <section style={{ marginRight: isSidebarVisible ? '190px' : '0px' }}>
+          <ContentSection isSidebarVisible={isSidebarVisible}>
             <ContentCore 
               introDomNode={introDomNode}
               setupDomNode={setupDomNode}
@@ -94,7 +89,7 @@ const Content = ({ isSidebarVisible, topRef }) => {
               useReducerDomNode={useReducerDomNode}
               finalCodeDomNode={finalCodeDomNode}
             />
-          </section>
+          </ContentSection>
           <ContentNavigation 
             isIntroIntersecting={isIntroIntersecting}
             isSetupIntersecting={isSetupIntersecting}

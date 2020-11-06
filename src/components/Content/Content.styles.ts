@@ -3,9 +3,19 @@ import { animated } from 'react-spring';
 import { ContentWrapperProps } from './Content.types';
 
 const ContentWrapper = styled(animated.article)<ContentWrapperProps>`
-  padding: var(--topbar-height) 48px 36px 48px; 
+  padding: ${(props) => `${props.theme.topbarHeight} 48px 36px 48px`};
   background: ${(props) => props.theme.pageBgColor};
-  pointer-events: ${(props) => props.disabled ? 'none' : 'auto'};
+  pointer-events: ${(props) => props.isSidebarVisible ? 'none' : 'auto'};
+`;
+
+const ContentSection = styled.section<ContentWrapperProps>`
+  @media only screen and (min-width: 769px) {
+    margin-right: ${(props) => props.isSidebarVisible ? '190px' : '0px'};
+  }
+
+  ${(props) => props.theme.breakpoints.medium} {
+    margin-right: '0px';
+  }
 `;
 
 const ContentTitle = styled.h1`
@@ -24,6 +34,7 @@ const ContentContainer = styled.div`
 
 export {
   ContentWrapper,
+  ContentSection,
   ContentTitle,
   ContentContainer
 };

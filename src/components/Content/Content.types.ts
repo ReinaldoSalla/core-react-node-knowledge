@@ -1,5 +1,5 @@
 interface ContentWrapperProps {
-  disabled: boolean
+  isSidebarVisible: boolean;
 }
 
 export type { ContentWrapperProps };
