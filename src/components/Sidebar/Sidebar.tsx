@@ -108,18 +108,6 @@ const Sidebar = ({
     [0, isSidebarVisible ? 0.4 : 0.5]
   );
 
-  if (isSidebarVisible) {
-    if (document.documentElement.scrollTop !== 0) {
-      topRef.current = document.documentElement.scrollTop;
-    } else {
-      topRef.current = topRef.current;
-    }
-  }
-
-  // document.body.style.overflowY = isSidebarVisible ? 'scroll' : 'auto';
-  // document.body.style.position = isSidebarVisible ? 'fixed' : 'static';
-  // document.body.style.top = isSidebarVisible ? `-${topRef.current}px` : '';
-
   return (
     <SidebarWrapper style={spring}>
       {transitions.map(({ item, key, props }) => (
@@ -132,7 +120,7 @@ const Sidebar = ({
           ))}
         </SidebarContainer>
       ))}
-      {/* <SidebarExit onClick={toggleSidebar}>X</SidebarExit> */}
+      <SidebarExit onClick={toggleSidebar}>X</SidebarExit>
     </SidebarWrapper>
   );
 };
