@@ -2,7 +2,7 @@
 Universal component rendered throughout the whole app.
 */
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import Topbar from '../../components/Topbar';
 import Sidebar from '../../components/Sidebar';
@@ -14,21 +14,29 @@ import Footer from '../../components/Footer';
 const Universal = () => {
   const [isSidebarActive, setIsSidebarActive] = useState(false);
   const [isSearchActive, setIsSearchActive] = useState(false);
+  const topRef: any = useRef();
 
   const toggleSidebar = () => {
+    if (!isSidebarActive) {
+      if (document.documentElement.scrollTop !== 0) {
+        topRef.current = document.documentElement.scrollTop;
+      } else {
+        topRef.current = topRef.current;
+      }
+    }
+    console.log(topRef.current);
     if (!isSidebarActive) {
       setIsSidebarActive(true);
       document.body.style.overflowY = 'scroll';
       document.body.style.position = 'fixed';
-      document.body.style.top = '-500px';//`-${500.current}px`; 
+      document.body.style.top = `-${topRef.current}px`;
     } else {
       setIsSidebarActive(false);
       document.body.style.overflowY = 'auto';
       document.body.style.position = 'static';
-      // document.body.style.top = '-1000px';
-      window.scrollTo({ top: 1000, left: 0 });
+      document.body.style.top = '';
+      window.scrollTo({ top: topRef.current, left: 0 });
     }
-    // window.scrollTo({ top: 1000, left: 0 });
   };
 
   const toggleSearch = () => setIsSearchActive(!isSearchActive);  
