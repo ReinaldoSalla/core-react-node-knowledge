@@ -2,7 +2,7 @@
 Universal component rendered throughout the whole app.
 */
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import Topbar from '../../components/Topbar';
 import Sidebar from '../../components/Sidebar';
@@ -55,7 +55,7 @@ const Universal = () => {
           <HomePage isSidebarVisible={isSidebarVisible} />
         </Route>
         <Route path='/rendering'>
-          <ContentPage isSidebarVisible={isSidebarVisible} />
+          <ContentPage isSidebarVisible={isSidebarVisible} topRef={topRef} />
         </Route>
       </Switch>      
       <Footer isSidebarVisible={isSidebarVisible} />

@@ -1,4 +1,4 @@
-import React, { useEffect, FunctionComponent } from 'react';
+import React, { useEffect, useRef, FunctionComponent } from 'react';
 import { useSpring } from 'react-spring';
 import { useLocation } from 'react-router-dom';
 import {
@@ -27,7 +27,9 @@ const ContentNavigation: FunctionComponent<ContentNavigationProps> = ({
   scrollToStyling,
   scrollToUseState,
   scrollToUseReducer,
-  scrollToFinalCode
+  scrollToFinalCode,
+  isSidebarVisible,
+  topRef,
 }): JSX.Element => {
 
   const { pathname, hash } = useLocation();
@@ -73,7 +75,10 @@ const ContentNavigation: FunctionComponent<ContentNavigationProps> = ({
   }, []);
 
   return (
-    <ContentNavigationWrapper>
+    <ContentNavigationWrapper 
+      isSidebarVisible={isSidebarVisible} 
+      top={topRef.current}
+    >
       <ContentNavigationItem
         to={`${pathname}#intro`}
         onClick={scrollToIntro}

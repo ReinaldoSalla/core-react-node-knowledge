@@ -46,7 +46,7 @@ const useIntersectionObserver = (
   return isIntersecting;
 };
 
-const Content = ({ isSidebarVisible }) => {
+const Content = ({ isSidebarVisible, topRef }) => {
   const introDomNode = useRef<HTMLDivElement>(null!);
   const setupDomNode = useRef<HTMLDivElement>(null!);
   const jsxDomNode = useRef<HTMLDivElement>(null!);
@@ -76,13 +76,15 @@ const Content = ({ isSidebarVisible }) => {
   // }, []);
 
   const spring = useSpring(getSpring(isSidebarVisible));
+
+  
   
   return (
     <main>
       <ContentWrapper style={spring} disabled={isSidebarVisible}>
         <ContentTitle>React - Rendering</ContentTitle>
         <ContentContainer>
-          <section>
+          <section style={{ marginRight: isSidebarVisible ? '190px' : '0px' }}>
             <ContentCore 
               introDomNode={introDomNode}
               setupDomNode={setupDomNode}
@@ -108,6 +110,8 @@ const Content = ({ isSidebarVisible }) => {
             scrollToUseState={scrollToUseState}
             scrollToUseReducer={scrollToUseReducer}
             scrollToFinalCode={scrollToFinalCode}
+            isSidebarVisible={isSidebarVisible}
+            topRef={topRef}
           />
         </ContentContainer>
       </ContentWrapper>
