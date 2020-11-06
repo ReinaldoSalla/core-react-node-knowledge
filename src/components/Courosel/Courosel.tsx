@@ -17,7 +17,7 @@ const Courosel = ({
   scrollToJavascript,
   scrollToReact,
   scrollToNode,
-  isSidebarActive
+  isSidebarVisible
 }) => {
   const [state, dispatch] = useReducer(couroselReducer, couroselInitialState);
   const transitions = useTransition(state.index, null, {
@@ -51,14 +51,14 @@ const Courosel = ({
   //   }
   // });
 
-  const couroselSpring = useSpring(getCouroselSpring(isSidebarActive));
+  const couroselSpring = useSpring(getCouroselSpring(isSidebarVisible));
 
   return (
     <>
       <CouroselBackground />
       <CouroselWrapper 
         style={couroselSpring}
-        disabled={isSidebarActive}
+        disabled={isSidebarVisible}
       >
         {transitions.map(({ item, props, key }) => {
           const Item = couroselItems[item];

@@ -10,12 +10,12 @@ const getHoverAnimation = (isHovering) => ({
   }
 });
 
-const getSvgAnimation = (isSidebarActive) => ({
+const getSvgAnimation = (isSidebarVisible) => ({
   config: config.slow,
   from: { transform: 'rotate(0deg)' },
   to: async (next) => {
     await next({
-      transform: isSidebarActive ? 'rotate(180deg)' : 'rotate(0deg)',
+      transform: isSidebarVisible ? 'rotate(180deg)' : 'rotate(0deg)',
     });
   },
 });

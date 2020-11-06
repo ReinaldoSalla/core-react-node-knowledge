@@ -8,22 +8,22 @@ import {
 } from './Footer.styles';
 
 const Footer = ({
-  isSidebarActive
+  isSidebarVisible
 }) => {
   const spring = useSpring({
     config: config.molasses,
     from: { 
-      opacity: isSidebarActive ? 0.5 : 1
+      opacity: isSidebarVisible ? 0.5 : 1
     },
     to: async (next) => {
       await next({
-        opacity: isSidebarActive ? 0.5 : 1
+        opacity: isSidebarVisible ? 0.5 : 1
       });
     },
   });
   return (
     <FooterWrapper>
-      <FooterContainer style={spring} disabled={isSidebarActive}>
+      <FooterContainer style={spring} disabled={isSidebarVisible}>
         <FooterLink to='/contact'> Contact </FooterLink>
         <FooterLink to='/philosohpy'> Philosophy </FooterLink>
         <FooterText>

@@ -12,12 +12,12 @@ import ContentPage from '../../pages/ContentPage';
 import Footer from '../../components/Footer';
 
 const Universal = () => {
-  const [isSidebarActive, setIsSidebarActive] = useState(false);
-  const [isSearchActive, setIsSearchActive] = useState(false);
+  const [isSidebarVisible, setisSidebarVisible] = useState(false);
+  const [isSearchVisible, setisSearchVisible] = useState(false);
   const topRef: any = useRef();
 
   const toggleSidebar = () => {
-    if (!isSidebarActive) {
+    if (!isSidebarVisible) {
       if (document.documentElement.scrollTop !== 0) {
         topRef.current = document.documentElement.scrollTop;
       } else {
@@ -25,13 +25,13 @@ const Universal = () => {
       }
     }
     console.log(topRef.current);
-    if (!isSidebarActive) {
-      setIsSidebarActive(true);
+    if (!isSidebarVisible) {
+      setisSidebarVisible(true);
       document.body.style.overflowY = 'scroll';
       document.body.style.position = 'fixed';
       document.body.style.top = `-${topRef.current}px`;
     } else {
-      setIsSidebarActive(false);
+      setisSidebarVisible(false);
       document.body.style.overflowY = 'auto';
       document.body.style.position = 'static';
       document.body.style.top = '';
@@ -39,33 +39,33 @@ const Universal = () => {
     }
   };
 
-  const toggleSearch = () => setIsSearchActive(!isSearchActive);  
+  const toggleSearch = () => setisSearchVisible(!isSearchVisible);  
 
   return (
     <>
       <Topbar 
-        isSidebarActive={isSidebarActive}
-        isSearchActive={isSearchActive}
+        isSidebarVisible={isSidebarVisible}
+        isSearchVisible={isSearchVisible}
         toggleSidebar={toggleSidebar}
         toggleSearch={toggleSearch}
       />
       <Sidebar 
-        isSidebarActive={isSidebarActive}
+        isSidebarVisible={isSidebarVisible}
         toggleSidebar={toggleSidebar}
       />
       <Search
-        isSearchActive={isSearchActive}
+        isSearchVisible={isSearchVisible}
         toggleSearch={toggleSearch}
       />
       <Switch>
         <Route exact path='/'>
-          <HomePage isSidebarActive={isSidebarActive} />
+          <HomePage isSidebarVisible={isSidebarVisible} />
         </Route>
         <Route path='/rendering'>
-          <ContentPage isSidebarActive={isSidebarActive} />
+          <ContentPage isSidebarVisible={isSidebarVisible} />
         </Route>
       </Switch>      
-      <Footer isSidebarActive={isSidebarActive} />
+      <Footer isSidebarVisible={isSidebarVisible} />
     </>
   );
 };

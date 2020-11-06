@@ -68,7 +68,7 @@ const data = [
 let nCalls = 0;
 
 const Sidebar = ({
-  isSidebarActive,
+  isSidebarVisible,
   toggleSidebar
 }) => {
   const springRef: any = useRef();
@@ -84,14 +84,14 @@ const Sidebar = ({
     },
     to: async (next) => {
       await next({
-        opacity: isSidebarActive ? 1 : 0,
-        transform: isSidebarActive ? 'translate3d(0%, 0, 0)' : 'translate3d(-100%, 0, 0)'
+        opacity: isSidebarVisible ? 1 : 0,
+        transform: isSidebarVisible ? 'translate3d(0%, 0, 0)' : 'translate3d(-100%, 0, 0)'
       });
     }
   });
 
   const transitions = useTransition(
-    isSidebarActive ? data : [],
+    isSidebarVisible ? data : [],
     item => item.title,
     {
       ref: transitionsRef,
@@ -104,11 +104,11 @@ const Sidebar = ({
   );
 
   useChain(
-    isSidebarActive ? [springRef, transitionsRef] : [transitionsRef, springRef],
-    [0, isSidebarActive ? 0.4 : 0.5]
+    isSidebarVisible ? [springRef, transitionsRef] : [transitionsRef, springRef],
+    [0, isSidebarVisible ? 0.4 : 0.5]
   );
 
-  if (isSidebarActive) {
+  if (isSidebarVisible) {
     if (document.documentElement.scrollTop !== 0) {
       topRef.current = document.documentElement.scrollTop;
     } else {
@@ -116,9 +116,9 @@ const Sidebar = ({
     }
   }
 
-  // document.body.style.overflowY = isSidebarActive ? 'scroll' : 'auto';
-  // document.body.style.position = isSidebarActive ? 'fixed' : 'static';
-  // document.body.style.top = isSidebarActive ? `-${topRef.current}px` : '';
+  // document.body.style.overflowY = isSidebarVisible ? 'scroll' : 'auto';
+  // document.body.style.position = isSidebarVisible ? 'fixed' : 'static';
+  // document.body.style.top = isSidebarVisible ? `-${topRef.current}px` : '';
 
   return (
     <SidebarWrapper style={spring}>

@@ -1,6 +1,6 @@
 interface TopbarProps {
-  isSidebarActive: boolean;
-  isSearchActive: boolean;
+  isSidebarVisible: boolean;
+  isSearchVisible: boolean;
   toggleSidebar: () => void;
   toggleSearch: () => void;
 }

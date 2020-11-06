@@ -4,7 +4,7 @@ import Courosel from '../../components/Courosel';
 import Categories from '../../components/Categories';
 import useScrollToElement from '../../hooks/useScrollToElement';
 
-const Home = ({ isSidebarActive }) => { 
+const Home = ({ isSidebarVisible }) => { 
   const javascriptRef = useRef(null);
   const reactRef = useRef(null);
   const nodeRef = useRef(null);
@@ -18,13 +18,13 @@ const Home = ({ isSidebarActive }) => {
         scrollToJavascript={scrollToJavascript}
         scrollToReact={scrollToReact}
         scrollToNode={scrollToNode}
-        isSidebarActive={isSidebarActive}
+        isSidebarVisible={isSidebarVisible}
       />
       <Categories 
         javascriptRef={javascriptRef}
         reactRef={reactRef}
         nodeRef={nodeRef}
-        isSidebarActive={isSidebarActive}
+        isSidebarVisible={isSidebarVisible}
       />
     </Route>    
   );

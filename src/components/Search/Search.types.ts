@@ -1,5 +1,5 @@
 interface SearchProps {
-  isSearchActive: boolean;
+  isSearchVisible: boolean;
   toggleSearch: () => void;
 }
 

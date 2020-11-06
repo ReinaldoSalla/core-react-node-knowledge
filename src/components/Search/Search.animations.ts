@@ -1,4 +1,4 @@
-const getTransitions = (isSearchActive: boolean) => ({
+const getTransitions = (isSearchVisible: boolean) => ({
   
 });
 

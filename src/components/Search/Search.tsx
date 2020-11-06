@@ -27,7 +27,7 @@ const items = rawItems.map((item, index) => ({
 }));
 
 const Search: FunctionComponent<SearchProps> = ({
-  isSearchActive,
+  isSearchVisible,
   toggleSearch
 }): JSX.Element => {
   const springRef: any = useRef();
@@ -36,17 +36,17 @@ const Search: FunctionComponent<SearchProps> = ({
   const spring = useSpring({
     ref: springRef,
     from: {
-      height: isSearchActive ? '800px' : '0px'
+      height: isSearchVisible ? '800px' : '0px'
     },
     to: async (next) => {
       await next({
-        height: isSearchActive ? '800px' : '0px',
+        height: isSearchVisible ? '800px' : '0px',
       });
     },
   });
 
   const transitions = useTransition(
-    isSearchActive ? items : [], 
+    isSearchVisible ? items : [], 
     item => item.key,
     {
       ref: transitionsRef,
@@ -59,11 +59,11 @@ const Search: FunctionComponent<SearchProps> = ({
   );
 
   useChain(
-    isSearchActive ? [springRef, transitionsRef] : [transitionsRef, springRef],
-    [0, isSearchActive ? 0.3 : 0.5]
+    isSearchVisible ? [springRef, transitionsRef] : [transitionsRef, springRef],
+    [0, isSearchVisible ? 0.3 : 0.5]
   );
 
-  // const transitionsExit: any = useTransition(isSearchActive, null, {
+  // const transitionsExit: any = useTransition(isSearchVisible, null, {
   //   config: config.slow,
   //   from: { opacity: 0 },
   //   enter: { opacity: 1 },

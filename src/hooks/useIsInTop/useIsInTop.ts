@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { inspect } from '../../utils/inspect';
 
 const useIsInTop = (offset: number): boolean => {
   const [isInTop, setIsInTop] = useState(window.pageYOffset <= offset);

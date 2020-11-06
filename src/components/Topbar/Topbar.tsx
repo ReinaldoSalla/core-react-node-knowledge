@@ -13,8 +13,8 @@ import {
 } from './Topbar.styles';
 
 const Topbar: FunctionComponent<TopbarProps> = ({
-  isSidebarActive,
-  isSearchActive,
+  isSidebarVisible,
+  isSearchVisible,
   toggleSidebar,
   toggleSearch
 }): JSX.Element => {
@@ -27,11 +27,11 @@ const Topbar: FunctionComponent<TopbarProps> = ({
       <TopbarNav>
         <TopbarHome />
         <TopbarSidebar 
-          isSidebarActive={isSidebarActive}
+          isSidebarVisible={isSidebarVisible}
           toggleSidebar={toggleSidebar}
         />
         <TopbarSearch 
-          isSearchActive={isSearchActive}
+          isSearchVisible={isSearchVisible}
           toggleSearch={toggleSearch}
         />
         <TopbarFiller style={topbarFillerAnimation}/>

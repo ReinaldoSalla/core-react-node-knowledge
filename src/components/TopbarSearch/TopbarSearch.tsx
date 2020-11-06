@@ -12,7 +12,7 @@ import {
   TopbarSearchFiller
 } from './TopbarSearch.styles';
 
-const TopbarSearch = ({ isSearchActive, toggleSearch }) => {
+const TopbarSearch = ({ isSearchVisible, toggleSearch }) => {
   const [isHovering, setIsHovering] = useState(false);
 
   const handleEnter = () => setIsHovering(true);
@@ -21,7 +21,7 @@ const TopbarSearch = ({ isSearchActive, toggleSearch }) => {
 
   const hoverSpring = useSpring(getHoverAnimation(isHovering));
 
-  const svgSpring = useSpring(getSvgAnimation(isSearchActive));
+  const svgSpring = useSpring(getSvgAnimation(isSearchVisible));
 
   return (
     <TopbarSearchWrapper 
