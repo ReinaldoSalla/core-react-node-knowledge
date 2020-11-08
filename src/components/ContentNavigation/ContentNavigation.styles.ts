@@ -35,7 +35,7 @@ const ContentNavigationWrapper = styled.aside.attrs<Unknown>(props => {
     bottom = '';
   } else if (props.isSidebarVisible && props.isIntersecting) {
     position = 'absolute';
-    top = `${props.top-98}px`;
+    top = props.top <= 100 ? props.top : `${props.top-98}px`;
     right = '0px';
     bottom = '';
   } else if (props.isSidebarVisible && !props.isIntersecting) {
@@ -58,7 +58,7 @@ const ContentNavigationWrapper = styled.aside.attrs<Unknown>(props => {
   right: ${(props) => props.right};
   height: 300px;
   margin-left: 72px;
-  border: 1px solid green;
+  border: 1px solid transparent;
 
   ${(props) => props.theme.breakpoints.medium} {
     display: none;

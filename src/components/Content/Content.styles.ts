@@ -27,7 +27,7 @@ const ContentTitle = styled.h1`
 const ContentContainer = styled.div`
   display: flex;
   position: relative;
-  border: 1px solid blue;
+  border: 1px solid transparent;
 
   ${(props) => props.theme.breakpoints.medium} {
     flex-direction: column-reverse;
