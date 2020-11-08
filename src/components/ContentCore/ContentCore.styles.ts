@@ -1,5 +1,9 @@
 import styled from 'styled-components';
 
+const ContentCoreWrapper = styled.div`
+  border: 1px solid transparent;
+`;
+
 const ContentCoreTitle = styled.h2`
   color: ${(props) => props.theme.textColor};
 `;
@@ -39,6 +43,7 @@ const ContentCoreHighlight = styled.span`
 `;
 
 export { 
+  ContentCoreWrapper,
   ContentCoreTitle,
   ContentCoreText,
   ContentCoreLink,

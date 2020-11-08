@@ -1,5 +1,6 @@
 import React, { useEffect, FunctionComponent } from 'react';
 import {
+  ContentCoreWrapper,
   ContentCoreTitle,
   ContentCoreText,
   ContentCoreLink,
@@ -27,7 +28,7 @@ const ContentCore: FunctionComponent<ContentCoreProps> = ({
   }, []);
 
   return (
-    <>
+    <ContentCoreWrapper>
       <section ref={introDomNode}>
         <ContentCoreTitle>1. Intrwo</ContentCoreTitle>
         <ContentCoreText>
@@ -202,7 +203,7 @@ setInterval(tick, 1000);
         </ContentCoreText>
       </section>
 
-    </>
+    </ContentCoreWrapper>
   );
 };
 

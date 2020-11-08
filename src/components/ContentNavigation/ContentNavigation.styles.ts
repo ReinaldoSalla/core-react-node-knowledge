@@ -1,16 +1,62 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { animated } from 'react-spring';
-import { ContentNavigationWrapperProps } from './ContentNavigation.types';
+// import { ContentNavigationWrapperProps } from './ContentNavigation.types';
 
-const ContentNavigationWrapper = styled.aside<ContentNavigationWrapperProps>`
-  position: ${(props) => props.isSidebarVisible ? 'absolute' : 'sticky' };
+// const ContentNavigationWrapper = styled.aside<ContentNavigationWrapperProps>`
+  // position: ${(props) => !props.isSidebarVisible ? 'sticky' : 'absolute' };
+  // z-index: 1;
+  // top: ${(props) => props.isIntersecting && !props.isSidebarVisible ? '100px' : ''};
+  // bottom: ${(props) => props.isIntersecting && !props.isSidebarVisible ? '' : '10px' };
+  // right: 20px;
+  // height: 300px;
+  // width: 150px;
+  // margin-left: 72px;
+  // border: 1px solid green;
+
+  // ${(props) => props.theme.breakpoints.medium} {
+  //   display: none;
+  // }
+// `;
+
+interface Unknown {
+  [key: string]: any;
+}
+
+const ContentNavigationWrapper = styled.aside.attrs<Unknown>(props => {
+  let position,
+      top,
+      right,
+      bottom;
+  if (!props.isSidebarVisible) {
+    position = 'sticky';
+    top = '100px';
+    right = '20px';
+    bottom = '';
+  } else if (props.isSidebarVisible && props.isIntersecting) {
+    position = 'absolute';
+    top = `${props.top-98}px`;
+    right = '0px';
+    bottom = '';
+  } else if (props.isSidebarVisible && !props.isIntersecting) {
+    position = 'absolute';
+    top = '';
+    right = '0px';
+    bottom = '0px';
+  } 
+  return {
+    position,
+    top,
+    right,
+    bottom
+  };
+})<Unknown>`
+  position: ${(props) => props.position};
   z-index: 1;
-  top: ${(props) => props.isSidebarVisible ? `${props.top}px` : '100px' };
-  /* top: 100px; */
-  right: 20px;
+  top: ${(props) => props.top};
+  bottom: ${(props) => props.bottom};
+  right: ${(props) => props.right};
   height: 300px;
-  width: 150px;
   margin-left: 72px;
   border: 1px solid green;
 

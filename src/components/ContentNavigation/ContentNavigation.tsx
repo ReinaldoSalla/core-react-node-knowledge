@@ -33,7 +33,7 @@ const useIntersectionObserver = (
       if (observerRef.current === null) {
         observerRef.current = new IntersectionObserver(([entry]) => {
           setIsIntersecting(entry.isIntersecting);
-        }, { root: null, rootMargin: `${-300-80}px 0px 0px 0px`, threshold: 0 });
+        }, { root: null, rootMargin: `${-300-100}px 0px 0px 0px`, threshold: 0 });
         return observerRef.current;
       }
       return null;
@@ -49,8 +49,6 @@ const useIntersectionObserver = (
 
   return isIntersecting;
 };
-
-let nCalls = 0;
 
 const ContentNavigation: FunctionComponent<ContentNavigationProps> = ({
   isIntroIntersecting,
@@ -73,9 +71,7 @@ const ContentNavigation: FunctionComponent<ContentNavigationProps> = ({
 
   const navDomNode = useRef<HTMLDivElement>(null!);
 
-  const x = useIntersectionObserver(navDomNode);
-
-  console.log(x);
+  const isIntersecting = useIntersectionObserver(navDomNode);
 
   const { pathname, hash } = useLocation();
 
@@ -121,7 +117,8 @@ const ContentNavigation: FunctionComponent<ContentNavigationProps> = ({
 
   return (
     <ContentNavigationWrapper 
-      isSidebarVisible={isSidebarVisible} 
+      isSidebarVisible={isSidebarVisible}
+      isIntersecting={isIntersecting}
       top={topRef.current}
       ref={navDomNode}
     >

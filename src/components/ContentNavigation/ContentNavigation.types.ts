@@ -19,6 +19,7 @@ interface ContentNavigationProps {
 
 interface ContentNavigationWrapperProps {
   isSidebarVisible: boolean;
+  isIntersecting: boolean;
   top: number;
 }
 
