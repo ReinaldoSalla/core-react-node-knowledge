@@ -1,4 +1,10 @@
-import React, { useEffect, useRef, FunctionComponent } from 'react';
+import React, { 
+  useState, 
+  useEffect,
+  useRef, 
+  FunctionComponent,
+  MutableRefObject 
+} from 'react';
 import { useSpring } from 'react-spring';
 import { useLocation } from 'react-router-dom';
 import {
@@ -12,6 +18,39 @@ import {
   getTextAnimation,
   getCircleAnimation
 } from './ContentNavigation.animations';
+
+const useIntersectionObserver = (
+  domNode: MutableRefObject<HTMLDivElement>, 
+  rootMargin: string = '0px'
+) => {
+  const [isIntersecting, setIsIntersecting] = useState(false);
+  const observerRef = useRef<IntersectionObserver | null>(null);
+  
+  useEffect(() => {
+    // IntersectionObserver is created lazily once
+    // https://reactjs.org/docs/hooks-faq.html
+    const getObserver= () => {
+      if (observerRef.current === null) {
+        observerRef.current = new IntersectionObserver(([entry]) => {
+          setIsIntersecting(entry.isIntersecting);
+        }, { root: null, rootMargin: `${-300-80}px 0px 0px 0px`, threshold: 0 });
+        return observerRef.current;
+      }
+      return null;
+    };
+
+    const observer = getObserver();
+    const localDomNode = domNode.current;
+    if (observer !== null) {
+      observer.observe(localDomNode);
+      return () => observer.unobserve(localDomNode);
+    }
+  }, [domNode]);
+
+  return isIntersecting;
+};
+
+let nCalls = 0;
 
 const ContentNavigation: FunctionComponent<ContentNavigationProps> = ({
   isIntroIntersecting,
@@ -31,6 +70,12 @@ const ContentNavigation: FunctionComponent<ContentNavigationProps> = ({
   isSidebarVisible,
   topRef,
 }): JSX.Element => {
+
+  const navDomNode = useRef<HTMLDivElement>(null!);
+
+  const x = useIntersectionObserver(navDomNode);
+
+  console.log(x);
 
   const { pathname, hash } = useLocation();
 
@@ -78,6 +123,7 @@ const ContentNavigation: FunctionComponent<ContentNavigationProps> = ({
     <ContentNavigationWrapper 
       isSidebarVisible={isSidebarVisible} 
       top={topRef.current}
+      ref={navDomNode}
     >
       <ContentNavigationItem
         to={`${pathname}#intro`}

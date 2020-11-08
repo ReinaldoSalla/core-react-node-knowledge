@@ -4,14 +4,15 @@ import { animated } from 'react-spring';
 import { ContentNavigationWrapperProps } from './ContentNavigation.types';
 
 const ContentNavigationWrapper = styled.aside<ContentNavigationWrapperProps>`
-  position: ${(props) => props.isSidebarVisible ? 'fixed' : 'sticky'};
+  position: ${(props) => props.isSidebarVisible ? 'absolute' : 'sticky' };
   z-index: 1;
-  top: 100px;
-  right: ${(props) => props.isSidebarVisible ? '32px' : '20px' };
+  top: ${(props) => props.isSidebarVisible ? `${props.top}px` : '100px' };
+  /* top: 100px; */
+  right: 20px;
   height: 300px;
   width: 150px;
-  margin-top: ${(props) => props.isSidebarVisible ? `${props.top <= 100 ? '97px' : '0px'}` : '0px' };
   margin-left: 72px;
+  border: 1px solid green;
 
   ${(props) => props.theme.breakpoints.medium} {
     display: none;
