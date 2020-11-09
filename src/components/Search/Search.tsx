@@ -15,15 +15,29 @@ import {
   SearchExit
 } from './Search.styles';
 
-let rawItems = [
-  ({ style }) => <SearchTitle style={style}>Searh anything</SearchTitle>,
-  ({ style }) => <SearchInputContainer> <SearchInput style={style} type='text' placeholder='e.g. GraphQL' /> </SearchInputContainer>,
-  ({ style, toggleSearch }) => <SearchExit onClick={toggleSearch} style={style}>x</SearchExit>
-];
+const Title = ({ style }) => (
+  <SearchTitle style={style}>Searh anything</SearchTitle>
+);
 
-const items = rawItems.map((item, index) => ({
-  component: item,
-  key: index
+const Input = ({ style }) => (
+  <SearchInputContainer> 
+    <SearchInput 
+      style={style} 
+      type='text' 
+      placeholder='e.g. GraphQL' 
+    /> 
+  </SearchInputContainer>
+);
+
+const Exit = ({ style, toggleSearch }) => (
+  <SearchExit onClick={toggleSearch} style={style}>x</SearchExit>
+);
+
+const rawComponents = [Title, Input, Exit];
+
+const components = rawComponents.map((component, key) => ({
+  component,
+  key
 }));
 
 const Search: FunctionComponent<SearchProps> = ({
@@ -46,12 +60,12 @@ const Search: FunctionComponent<SearchProps> = ({
   });
 
   const transitions = useTransition(
-    isSearchVisible ? items : [], 
+    isSearchVisible ? components : [], 
     item => item.key,
     {
       ref: transitionsRef,
       unique: true,
-      trail: 500 / items.length,
+      trail: 500 / components.length,
       from: { opacity: 0, transform: 'scale(0.5)', },
       enter: { opacity: 1, transform: 'scale(1)', },
       leave: { opacity: 0, transform: 'scale(0.9)', },

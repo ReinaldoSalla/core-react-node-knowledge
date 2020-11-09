@@ -10,33 +10,74 @@ import {
 
 const data = [
   {
-    title: 'React',
+    title: 'JavaScript',
     contents: [
-      'Rendering (JSX)',
-      'State management',
-      'Side Effects',
-      'Memoization',
-      'Suspense',
-      'Intersecion Observer'
-    ],
+      'Functions',
+      'Loops',
+      'Generators',
+      'Promises',
+      'Async Await'
+    ]
   },
   {
-    title: 'React Libraries',
+    title: 'React',
     contents: [
-      'react-router',
-      'styled-components',
-      'react-spring'
-    ],
+      'Rendering',
+      'State',
+      'Side Effects',
+      'Memoization',
+      'Lazy Loading',
+      'React Router',
+      'Styled Components',
+      'React Spring'
+    ]
   },
   {
     title: 'Node',
     contents: [
       'GraphQL',
-      'MongoDB',
-      'Passport.js'
-    ],
+      'FaunaDB',
+      'Authentication'
+    ]
   },
 ];
+
+const ItemMappedFromData = ({ style, title, contents }) => (
+  <SidebarContainer style={style}>
+    <SidebarTitle>{title}</SidebarTitle>
+    {contents.map((content, index) => (
+      <ul key={index}>
+        <SidebarContent>{content}</SidebarContent>
+      </ul>
+    ))}
+  </SidebarContainer>
+);
+
+const partialItems = data.map(({ title, contents }) => (
+  ({ style }) => (
+    <ItemMappedFromData 
+      style={style}
+      title={title}
+      contents={contents}
+    />
+  )
+));
+
+const remainingItem = ({ style, toggleSidebar }) => (
+  <SidebarExit 
+    style={style}
+    onClick={toggleSidebar}
+  >
+    X
+  </SidebarExit>
+);
+
+const rawItems = [...partialItems, remainingItem];
+
+const items = rawItems.map((rawItem, index) => ({
+  component: rawItem,
+  key: index
+}));
 
 const Sidebar = ({
   isSidebarVisible,

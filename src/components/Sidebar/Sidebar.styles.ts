@@ -9,7 +9,6 @@ const SidebarWrapper = styled(animated.aside)`
   width: 300px;
   height: 100%;
   background: ${(props) => props.theme.boxBgColor};
-  overflow-y: hidden;
 `;
 
 const SidebarContainer = styled(animated.section)`
@@ -29,7 +28,7 @@ const SidebarContent = styled.li`
 const SidebarExit = styled.div`
   position: absolute;
   top: 8px;
-  left: 250px;
+  right: 0px;
   font-size: 24px;
   width: 32px;
   height: 24px;
