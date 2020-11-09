@@ -5,12 +5,12 @@ import Categories from '../../components/Categories';
 import useScrollToElement from '../../hooks/useScrollToElement';
 
 const Home = ({ isSidebarVisible }) => { 
-  const javascriptRef = useRef(null);
-  const reactRef = useRef(null);
-  const nodeRef = useRef(null);
-  const scrollToJavascript = useScrollToElement(javascriptRef);
-  const scrollToReact = useScrollToElement(reactRef);
-  const scrollToNode = useScrollToElement(nodeRef);
+  const javascriptRef = useRef<HTMLElement>(null!);
+  const reactRef = useRef<HTMLElement>(null!);
+  const nodeRef = useRef<HTMLElement>(null!);
+  const scrollToJavascript = useScrollToElement(javascriptRef, -100);
+  const scrollToReact = useScrollToElement(reactRef, -100);
+  const scrollToNode = useScrollToElement(nodeRef, -100);
 
   return (
     <Route path='/' exact>

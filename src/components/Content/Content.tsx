@@ -17,7 +17,7 @@ import ContentNavigation from '../ContentNavigation';
 import useScrollToElement from '../../hooks/useScrollToElement';
 
 const useIntersectionObserver = (
-  domNode: MutableRefObject<HTMLDivElement>, 
+  domNode: MutableRefObject<HTMLElement>, 
   rootMargin: string = '-200px'
 ) => {
   const [isIntersecting, setIntersecting] = useState(false);
@@ -48,21 +48,21 @@ const useIntersectionObserver = (
 };
 
 const Content = ({ isSidebarVisible, topRef }) => {
-  const introDomNode = useRef<HTMLDivElement>(null!);
-  const setupDomNode = useRef<HTMLDivElement>(null!);
-  const jsxDomNode = useRef<HTMLDivElement>(null!);
-  const stylingDomNode = useRef<HTMLDivElement>(null!);
-  const useStateDomNode = useRef<HTMLDivElement>(null!);
-  const useReducerDomNode = useRef<HTMLDivElement>(null!);
-  const finalCodeDomNode = useRef<HTMLDivElement>(null!);
+  const introDomNode = useRef<HTMLElement>(null!);
+  const setupDomNode = useRef<HTMLElement>(null!);
+  const jsxDomNode = useRef<HTMLElement>(null!);
+  const stylingDomNode = useRef<HTMLElement>(null!);
+  const useStateDomNode = useRef<HTMLElement>(null!);
+  const useReducerDomNode = useRef<HTMLElement>(null!);
+  const finalCodeDomNode = useRef<HTMLElement>(null!);
 
-  const scrollToIntro = useScrollToElement(introDomNode);
-  const scrollToSetup = useScrollToElement(setupDomNode);
-  const scrollToJsx = useScrollToElement(jsxDomNode);
-  const scrollToStyling = useScrollToElement(stylingDomNode);
-  const scrollToUseState = useScrollToElement(useStateDomNode);
-  const scrollToUseReducer = useScrollToElement(useReducerDomNode);
-  const scrollToFinalCode = useScrollToElement(finalCodeDomNode);
+  const scrollToIntro = useScrollToElement(introDomNode, 100);
+  const scrollToSetup = useScrollToElement(setupDomNode, 100);
+  const scrollToJsx = useScrollToElement(jsxDomNode, 100);
+  const scrollToStyling = useScrollToElement(stylingDomNode, 100);
+  const scrollToUseState = useScrollToElement(useStateDomNode, 100);
+  const scrollToUseReducer = useScrollToElement(useReducerDomNode, 100);
+  const scrollToFinalCode = useScrollToElement(finalCodeDomNode, 100);
 
   const isIntroIntersecting = useIntersectionObserver(introDomNode, '-100px');
   const isSetupIntersecting = useIntersectionObserver(setupDomNode);

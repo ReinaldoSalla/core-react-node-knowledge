@@ -15,7 +15,7 @@ interface ContentNavigationProps {
   scrollToFinalCode: () => void;
   isSidebarVisible: boolean;
   topRef: any;
-}
+} 
 
 interface ContentNavigationWrapperProps {
   isSidebarVisible: boolean;
