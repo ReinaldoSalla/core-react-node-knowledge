@@ -6,14 +6,10 @@ const SidebarWrapper = styled(animated.aside)`
   top: ${(props) => props.theme.topbarHeight};
   left: 0;
   z-index: 3;
-  width: 500px;
+  width: 300px;
   height: 100%;
   background: ${(props) => props.theme.boxBgColor};
   overflow-y: hidden;
-
-  &:hover {
-    overflow-y: scroll;
-  }
 `;
 
 const SidebarContainer = styled(animated.section)`
@@ -33,7 +29,7 @@ const SidebarContent = styled.li`
 const SidebarExit = styled.div`
   position: absolute;
   top: 8px;
-  right: 0;
+  left: 250px;
   font-size: 24px;
   width: 32px;
   height: 24px;

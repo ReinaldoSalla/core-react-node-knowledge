@@ -56,13 +56,13 @@ const Content = ({ isSidebarVisible, topRef }) => {
   const useReducerDomNode = useRef<HTMLElement>(null!);
   const finalCodeDomNode = useRef<HTMLElement>(null!);
 
-  const scrollToIntro = useScrollToElement(introDomNode, 100);
-  const scrollToSetup = useScrollToElement(setupDomNode, 100);
-  const scrollToJsx = useScrollToElement(jsxDomNode, 100);
-  const scrollToStyling = useScrollToElement(stylingDomNode, 100);
-  const scrollToUseState = useScrollToElement(useStateDomNode, 100);
-  const scrollToUseReducer = useScrollToElement(useReducerDomNode, 100);
-  const scrollToFinalCode = useScrollToElement(finalCodeDomNode, 100);
+  const scrollToIntro = useScrollToElement(introDomNode, -10);
+  const scrollToSetup = useScrollToElement(setupDomNode, -10);
+  const scrollToJsx = useScrollToElement(jsxDomNode, -10);
+  const scrollToStyling = useScrollToElement(stylingDomNode, -10);
+  const scrollToUseState = useScrollToElement(useStateDomNode, -10);
+  const scrollToUseReducer = useScrollToElement(useReducerDomNode, -10);
+  const scrollToFinalCode = useScrollToElement(finalCodeDomNode, -10);
 
   const isIntroIntersecting = useIntersectionObserver(introDomNode, '-100px');
   const isSetupIntersecting = useIntersectionObserver(setupDomNode);

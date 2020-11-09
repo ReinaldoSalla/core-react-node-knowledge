@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useRef } from 'react';
 import { useSpring, useTransition, useChain, config } from 'react-spring';
 import { 
   SidebarWrapper,
@@ -36,33 +36,6 @@ const data = [
       'Passport.js'
     ],
   },
-  {
-    title: '1',
-    contents: [
-      'Rendering (JSX)',
-      'State management',
-      'Side Effects',
-      'Memoization',
-      'Suspense',
-      'Intersecion Observer'
-    ],
-  },
-  {
-    title: 'b',
-    contents: [
-      'react-router',
-      'styled-components',
-      'react-spring'
-    ],
-  },
-  {
-    title: 'c',
-    contents: [
-      'GraphQL',
-      'MongoDB',
-      'Passport.js'
-    ],
-  },
 ];
 
 const Sidebar = ({
@@ -71,7 +44,6 @@ const Sidebar = ({
 }) => {
   const springRef: any = useRef();
   const transitionsRef: any = useRef();
-  const topRef: any = useRef();
 
   const spring = useSpring({
     config: config.slow,
