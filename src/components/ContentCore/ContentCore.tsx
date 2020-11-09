@@ -1,6 +1,7 @@
 import React, { useEffect, FunctionComponent } from 'react';
 import {
   ContentCoreWrapper,
+  ContentCoreHeading,
   ContentCoreTitle,
   ContentCoreText,
   ContentCoreLink,
@@ -29,6 +30,7 @@ const ContentCore: FunctionComponent<ContentCoreProps> = ({
 
   return (
     <ContentCoreWrapper>
+      <ContentCoreHeading>React - Rendering</ContentCoreHeading>
       <section ref={introDomNode}>
         <ContentCoreTitle>1. Intrwo</ContentCoreTitle>
         <ContentCoreText>

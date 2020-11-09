@@ -77,7 +77,6 @@ const Content = ({ isSidebarVisible, topRef }) => {
   return (
     <main>
       <ContentWrapper style={spring} isSidebarVisible={isSidebarVisible}>
-        <ContentTitle>React - Rendering</ContentTitle>
         <ContentContainer>
           <ContentSection isSidebarVisible={isSidebarVisible}>
             <ContentCore 

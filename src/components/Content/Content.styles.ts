@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { animated } from 'react-spring';
 import { ContentWrapperProps } from './Content.types';
 
-const ContentWrapper = styled(animated.article)<ContentWrapperProps>`
+const ContentWrapper = styled(animated.div)<ContentWrapperProps>`
   padding: ${(props) => `${props.theme.topbarHeight} 48px 36px 48px`};
   background: ${(props) => props.theme.pageBgColor};
   pointer-events: ${(props) => props.isSidebarVisible ? 'none' : 'auto'};

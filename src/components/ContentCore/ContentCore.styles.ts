@@ -4,6 +4,12 @@ const ContentCoreWrapper = styled.div`
   border: 1px solid transparent;
 `;
 
+const ContentCoreHeading = styled.h1`
+  font-size: 2em;
+  padding: 0.5em 0;
+  color: white;
+`;
+
 const ContentCoreTitle = styled.h2`
   color: ${(props) => props.theme.textColor};
 `;
@@ -44,6 +50,7 @@ const ContentCoreHighlight = styled.span`
 
 export { 
   ContentCoreWrapper,
+  ContentCoreHeading,
   ContentCoreTitle,
   ContentCoreText,
   ContentCoreLink,
