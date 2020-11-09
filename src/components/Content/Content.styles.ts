@@ -6,6 +6,14 @@ const ContentWrapper = styled(animated.article)<ContentWrapperProps>`
   padding: ${(props) => `${props.theme.topbarHeight} 48px 36px 48px`};
   background: ${(props) => props.theme.pageBgColor};
   pointer-events: ${(props) => props.isSidebarVisible ? 'none' : 'auto'};
+
+  ${(props) => props.theme.breakpoints.medium} {
+    padding: ${(props) => `${props.theme.topbarHeight} 36px 36px 36px`}
+  }
+
+  ${(props) => props.theme.breakpoints.small} {
+    padding: ${(props) => `${props.theme.topbarHeight} 24px 36px 24px`}
+  }
 `;
 
 const ContentSection = styled.section<ContentWrapperProps>`

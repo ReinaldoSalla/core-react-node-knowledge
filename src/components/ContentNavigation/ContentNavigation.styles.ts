@@ -31,17 +31,17 @@ const ContentNavigationWrapper = styled.aside.attrs<Unknown>(props => {
   if (!props.isSidebarVisible) {
     position = 'sticky';
     top = '100px';
-    right = '20px';
+    right = '60px';
     bottom = '';
   } else if (props.isSidebarVisible && props.isIntersecting) {
     position = 'absolute';
     top = props.top <= 100 ? props.top : `${props.top-98}px`;
-    right = '0px';
+    right = '11px';
     bottom = '';
   } else if (props.isSidebarVisible && !props.isIntersecting) {
     position = 'absolute';
     top = '';
-    right = '0px';
+    right = '11px';
     bottom = '0px';
   } 
   return {
