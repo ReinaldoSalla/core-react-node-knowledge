@@ -76,9 +76,9 @@ const Content = ({ isSidebarVisible, topRef }) => {
   
   return (
     <main>
-      <ContentWrapper style={spring} isSidebarVisible={isSidebarVisible}>
+      <ContentWrapper $isSidebarVisible={isSidebarVisible}>
         <ContentContainer>
-          <ContentSection isSidebarVisible={isSidebarVisible}>
+          <ContentSection $isSidebarVisible={isSidebarVisible}>
             <ContentCore 
               introDomNode={introDomNode}
               setupDomNode={setupDomNode}

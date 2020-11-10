@@ -5,4 +5,4 @@ const ContentPage = ({ isSidebarVisible, topRef }) => (
   <Content isSidebarVisible={isSidebarVisible} topRef={topRef} />
 );
 
-export default Content;
+export default ContentPage;
