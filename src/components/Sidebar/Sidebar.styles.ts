@@ -12,10 +12,6 @@ const SidebarWrapper = styled(animated.aside)`
   overflow-y: auto;
   overflow-x: hidden;
 
-  /* @media only screen and (max-height: 700px) {
-    overflow-y: scroll;
-  } */
-
   ${(props) => props.theme.breakpoints.small} {
     width: 100%;
   }

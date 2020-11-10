@@ -1,11 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import Exit from './SidebarExit.styles';
 
-interface SidebarExitProps {
-  style: any;
-  toggleSidebar: () => void;
-}
-
 const SidebarExit = ({ 
   style, 
   toggleSidebar 

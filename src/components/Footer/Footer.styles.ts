@@ -18,7 +18,7 @@ const FooterContainer = styled(animated.div)<FooterContainerProps>`
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
-  pointer-events: ${(props) => props.disabled ? 'none' : 'auto'};
+  /* pointer-events: ${(props) => props.disabled ? 'none' : 'auto'}; */
 `;
 
 const FooterLink = styled(Link)`

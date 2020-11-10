@@ -8,7 +8,8 @@ import {
 } from './Footer.styles';
 
 const Footer = ({
-  isSidebarVisible
+  isSidebarVisible,
+  closeSidebar
 }) => {
   const spring = useSpring({
     config: config.molasses,
@@ -23,7 +24,7 @@ const Footer = ({
   });
   return (
     <FooterWrapper>
-      <FooterContainer style={spring} disabled={isSidebarVisible}>
+      <FooterContainer style={spring} onClick={closeSidebar} disabled={isSidebarVisible}>
         <FooterLink to='/contact'> Contact </FooterLink>
         <FooterLink to='/philosohpy'> Philosophy </FooterLink>
         <FooterText>

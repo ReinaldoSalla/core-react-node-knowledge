@@ -12,23 +12,35 @@ import ContentPage from '../../pages/ContentPage';
 import Footer from '../../components/Footer';
 
 const Universal = () => {
-  const [isSidebarVisible, setisSidebarVisible] = useState(false);
+  const [isSidebarVisible, setIsSidebarVisible] = useState(false);
   const [isSearchVisible, setisSearchVisible] = useState(false);
   const topRef: any = useRef();
 
   const toggleSidebar = () => {
     if (!isSidebarVisible) {
       topRef.current = document.documentElement.scrollTop;
-      setisSidebarVisible(true);
+      setIsSidebarVisible(true);
       document.body.style.overflowY = 'scroll';
       document.body.style.position = 'fixed';
       document.body.style.top = `-${topRef.current}px`;
     } else {
-      setisSidebarVisible(false);
+      setIsSidebarVisible(false);
       document.body.style.overflowY = 'auto';
       document.body.style.position = 'static';
       document.body.style.top = '';
       window.scrollTo({ top: topRef.current, left: 0 });
+    }
+  };
+
+  const closeSidebar = () => {
+    if (!isSidebarVisible) {
+      topRef.current = document.documentElement.scrollTop;
+    } else {
+      setIsSidebarVisible(false);
+      document.body.style.overflowY = 'auto';
+      document.body.style.position = 'static';
+      document.body.style.top = '';
+      window.scrollTo({ top: topRef.current, left: 0 });      
     }
   };
 
@@ -58,7 +70,10 @@ const Universal = () => {
           <ContentPage isSidebarVisible={isSidebarVisible} topRef={topRef} />
         </Route>
       </Switch>      
-      <Footer isSidebarVisible={isSidebarVisible} />
+      <Footer 
+        isSidebarVisible={isSidebarVisible} 
+        closeSidebar={closeSidebar}
+      />
     </>
   );
 };
