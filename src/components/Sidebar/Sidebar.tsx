@@ -2,11 +2,10 @@ import React, { useRef } from 'react';
 import { useSpring, useTransition, useChain, config } from 'react-spring';
 import { 
   SidebarWrapper,
-  SidebarContainer,
-  SidebarTitle,
-  SidebarContent,
-  SidebarExit
+  Exit
 } from './Sidebar.styles';
+import SidebarTopic from '../SidebarTopic';
+import SidebarExit from '../SidebarExit';
 
 const data = [
   {
@@ -42,20 +41,11 @@ const data = [
   },
 ];
 
-const ItemMappedFromData = ({ style, title, contents }) => (
-  <SidebarContainer style={style}>
-    <SidebarTitle>{title}</SidebarTitle>
-    {contents.map((content, index) => (
-      <ul key={index}>
-        <SidebarContent>{content}</SidebarContent>
-      </ul>
-    ))}
-  </SidebarContainer>
-);
+const symbol = ['x'];
 
 const partialItems = data.map(({ title, contents }) => (
   ({ style }) => (
-    <ItemMappedFromData 
+    <SidebarTopic 
       style={style}
       title={title}
       contents={contents}
@@ -63,16 +53,28 @@ const partialItems = data.map(({ title, contents }) => (
   )
 ));
 
-const remainingItem = ({ style, toggleSidebar }) => (
-  <SidebarExit 
+const exitItem = symbol.map((item) => (
+  ({ style, toggleSidebar }) => (
+    <SidebarExit 
+      style={style}
+      exitSymbol={item}
+      toggleSidebar={toggleSidebar}
+    />
+  )
+));
+
+const test = ({ style, toggleSidebar }) => (
+  <Exit 
     style={style}
     onClick={toggleSidebar}
   >
     X
-  </SidebarExit>
+  </Exit>
+  // <SidebarExit style={style} toggleSidebar={toggleSidebar} />
 );
 
-const rawItems = [...partialItems, remainingItem];
+
+const rawItems = [...partialItems, test];
 
 const items = rawItems.map((rawItem, index) => ({
   component: rawItem,

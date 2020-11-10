@@ -25,7 +25,7 @@ const SidebarContent = styled.li`
   margin: 8px 0;
 `;
 
-const SidebarExit = styled(animated.div)`
+const Exit = styled(animated.div)`
   position: absolute;
   top: 8px;
   right: 0px;
@@ -47,5 +47,5 @@ export {
   SidebarContainer,
   SidebarTitle,
   SidebarContent,
-  SidebarExit
+  Exit
 };
