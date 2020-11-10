@@ -13,7 +13,8 @@ const CategoriesBoard = ({
   description,
   contents,
   Svg,
-  elementRef
+  elementRef,
+  isSidebarVisible
 }) => (
   <Wrapper>
     <CategoriesBoardTitle ref={elementRef}>
@@ -30,6 +31,7 @@ const CategoriesBoard = ({
           description={content.description}
           path={content.path}
           Svg={Svg}
+          isSidebarVisible={isSidebarVisible}
         />
       ))}
       {new Array(4).fill(0).map((_, index) => (

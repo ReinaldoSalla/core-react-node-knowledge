@@ -1,10 +1,14 @@
-import React, { useRef } from 'react';
+import React, { FunctionComponent, useRef } from 'react';
 import { Route } from 'react-router-dom';
+import HomeProps from './Home.types';
 import Courosel from '../../components/Courosel';
 import Categories from '../../components/Categories';
 import useScrollToElement from '../../hooks/useScrollToElement';
 
-const Home = ({ isSidebarVisible }) => { 
+const Home: FunctionComponent<HomeProps> = ({ 
+  isSidebarVisible,
+  closeSidebar 
+}): JSX.Element => { 
   const javascriptRef = useRef<HTMLElement>(null!);
   const reactRef = useRef<HTMLElement>(null!);
   const nodeRef = useRef<HTMLElement>(null!);
@@ -25,6 +29,7 @@ const Home = ({ isSidebarVisible }) => {
         reactRef={reactRef}
         nodeRef={nodeRef}
         isSidebarVisible={isSidebarVisible}
+        closeSidebar={closeSidebar}
       />
     </Route>    
   );

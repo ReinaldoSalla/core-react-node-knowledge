@@ -13,9 +13,10 @@ const CategoriesBox = ({
   title, 
   description, 
   path,
-  Svg 
+  Svg,
+  isSidebarVisible
 }) => (
-  <Wrapper to={path}>
+  <Wrapper to={path} $isSidebarVisible={isSidebarVisible}>
     <IconWrapper >
       <Icon as={Svg} />
     </IconWrapper>

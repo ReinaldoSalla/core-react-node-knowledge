@@ -64,7 +64,10 @@ const Universal = () => {
       />
       <Switch>
         <Route exact path='/'>
-          <HomePage isSidebarVisible={isSidebarVisible} />
+          <HomePage
+            isSidebarVisible={isSidebarVisible} 
+            closeSidebar={closeSidebar}
+          />
         </Route>
         <Route path='/rendering'>
           <ContentPage isSidebarVisible={isSidebarVisible} topRef={topRef} />
