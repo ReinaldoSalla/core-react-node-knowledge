@@ -9,7 +9,7 @@ const getHoverAnimation = (isHovering) => ({
 });
 
 const getSvgAnimation = (isSidebarVisible) => ({
-  config: { mass: 1, tension: 200, friction: 60 },
+  config: { mass: 1, tension: 240, friction: 60 },
   from: { transform: 'rotate(0deg)' },
   to: async (next) => {
     await next({
