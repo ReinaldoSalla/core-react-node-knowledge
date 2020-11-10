@@ -10,14 +10,28 @@ const Title = styled.h2`
   margin: 32px 0 0 0;
 `;
 
+const Topics = styled.ul`
+  margin-bottom: 32px;
+`;
+
 const Topic = styled.li`
-  color: white;
   margin: 8px 0;
 `;
 
+const Text = styled.span`
+  color: white;
+  transition: color 250ms;
+
+  &:hover {
+    color: ${(props) => props.theme.hoverColor};
+    cursor: pointer;
+  }
+`;
 
 export { 
   Wrapper,
   Title,
+  Topics,
   Topic,
+  Text
 };

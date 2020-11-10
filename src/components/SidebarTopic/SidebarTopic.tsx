@@ -2,18 +2,22 @@ import React from 'react';
 import {
   Wrapper,
   Title,
-  Topic
+  Topics,
+  Topic,
+  Text
 } from './SidebarTopic.styles';
 
-const SidebarItem = ({ style, title, contents }) => (
+const SidebarTopics = ({ style, title, contents }) => (
   <Wrapper style={style}>
     <Title>{title}</Title>
-    {contents.map((content, index) => (
-      <ul key={index}>
-        <Topic>{content}</Topic>
-      </ul>
-    ))}
+    <Topics>
+      {contents.map((content, index) => (
+        <Topic key={index}>
+          <Text>{content}</Text>
+        </Topic>
+      ))}
+    </Topics>
   </Wrapper>
 );
 
-export default SidebarItem;
+export default SidebarTopics;
