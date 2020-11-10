@@ -11,41 +11,4 @@ const SidebarWrapper = styled(animated.aside)`
   background: ${(props) => props.theme.boxBgColor};
 `;
 
-const SidebarContainer = styled(animated.section)`
-  margin: 0 0 0 24px;
-`;
-
-const SidebarTitle = styled.h2`
-  color: white;
-  margin: 32px 0 0 0;
-`;
-
-const SidebarContent = styled.li`
-  color: white;
-  margin: 8px 0;
-`;
-
-const Exit = styled(animated.div)`
-  position: absolute;
-  top: 8px;
-  right: 0px;
-  font-size: 24px;
-  width: 32px;
-  height: 24px;
-  color: white;
-  transition: color 250ms;
-  font-family: sans-serif;
-
-  &:hover {
-    color: ${(props) => props.theme.hoverColor};
-    cursor: pointer;
-  }
-`;
-
-export { 
-  SidebarWrapper,
-  SidebarContainer,
-  SidebarTitle,
-  SidebarContent,
-  Exit
-};
+export default SidebarWrapper;
