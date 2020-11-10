@@ -25,7 +25,7 @@ const SidebarContent = styled.li`
   margin: 8px 0;
 `;
 
-const SidebarExit = styled.div`
+const SidebarExit = styled(animated.div)`
   position: absolute;
   top: 8px;
   right: 0px;
@@ -40,7 +40,6 @@ const SidebarExit = styled.div`
     color: ${(props) => props.theme.hoverColor};
     cursor: pointer;
   }
-
 `;
 
 export { 

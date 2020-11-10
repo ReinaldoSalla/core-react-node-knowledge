@@ -102,12 +102,12 @@ const Sidebar = ({
   });
 
   const transitions = useTransition(
-    isSidebarVisible ? data : [],
-    item => item.title,
+    isSidebarVisible ? items : [],
+    item => item.key,
     {
       ref: transitionsRef,
       unique: true,
-      trail: 200,
+      trail: isSidebarVisible ? 200 : 100,
       from: { opacity: 0, transform: 'scale(0.9)' },
       enter: { opacity: 1, transform: 'scale(1)' },
       leave: { opacity: 0, transform: 'scale(0.9)' }
@@ -116,22 +116,18 @@ const Sidebar = ({
 
   useChain(
     isSidebarVisible ? [springRef, transitionsRef] : [transitionsRef, springRef],
-    [0, isSidebarVisible ? 0.4 : 0.5]
+    [0, isSidebarVisible ? 0.4 : 0.6]
   );
 
   return (
     <SidebarWrapper style={spring}>
       {transitions.map(({ item, key, props }) => (
-        <SidebarContainer style={props} key={key}>
-          <SidebarTitle>{item.title}</SidebarTitle>
-          {item.contents.map((content, index) => (
-            <ul key={index}>
-              <SidebarContent>{content}</SidebarContent>
-            </ul>
-          ))}
-        </SidebarContainer>
+        <item.component
+          style={props}
+          key={key}
+          toggleSidebar={toggleSidebar}
+        />
       ))}
-      <SidebarExit onClick={toggleSidebar}>X</SidebarExit>
     </SidebarWrapper>
   );
 };
