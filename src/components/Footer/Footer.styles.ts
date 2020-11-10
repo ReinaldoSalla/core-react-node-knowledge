@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { animated } from 'react-spring';
-import { FooterTextProps, FooterContainerProps } from './Footer.types';
+import { FooterTextProps, FooterLinkProps } from './Footer.types';
 
 const FooterWrapper = styled.footer`
   height: calc(100% - var(--topbar-height));
@@ -10,7 +10,7 @@ const FooterWrapper = styled.footer`
   z-index: 2;
 `;
 
-const FooterContainer = styled(animated.div)<FooterContainerProps>`
+const FooterContainer = styled(animated.div)`
   position: relative;
   z-index: 2;
   height: 100%;
@@ -18,14 +18,14 @@ const FooterContainer = styled(animated.div)<FooterContainerProps>`
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
-  /* pointer-events: ${(props) => props.disabled ? 'none' : 'auto'}; */
 `;
 
-const FooterLink = styled(Link)`
+const FooterLink = styled(Link)<FooterLinkProps>`
   font-size: 32px;
   color: white;
   border-bottom: 1px solid white;
   transition: color 250ms, border 250ms;
+  pointer-events: ${(props) => props.$isSidebarVisible ? 'none' : 'auto'};
 
   &:hover {
     color: ${(props) => props.theme.hoverColor};

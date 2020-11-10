@@ -24,9 +24,9 @@ const Footer = ({
   });
   return (
     <FooterWrapper>
-      <FooterContainer style={spring} onClick={closeSidebar} disabled={isSidebarVisible}>
-        <FooterLink to='/contact'> Contact </FooterLink>
-        <FooterLink to='/philosohpy'> Philosophy </FooterLink>
+      <FooterContainer style={spring} onClick={closeSidebar}>
+        <FooterLink to='/contact' $isSidebarVisible={isSidebarVisible}> Contact </FooterLink>
+        <FooterLink to='/philosohpy' $isSidebarVisible={isSidebarVisible}> Philosophy </FooterLink>
         <FooterText>
           Copyright © {new Date().getFullYear()} JavaScriptTemporal
         </FooterText>
