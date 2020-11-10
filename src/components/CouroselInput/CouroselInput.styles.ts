@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 import { animated } from 'react-spring';
+import { CouroselInputWrapperProps } from './CouroselInput.types';
 
-const CouroselInputWrapper = styled.div`
+const CouroselInputWrapper = styled.div<CouroselInputWrapperProps>`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -9,6 +10,7 @@ const CouroselInputWrapper = styled.div`
   position: absolute;
   bottom: 10px;
   z-index: 0;
+  pointer-events: ${({ $isSidebarVisible }) => $isSidebarVisible ? 'none' : 'auto'};
 `;
 
 const CouroselInputArea = styled.div`

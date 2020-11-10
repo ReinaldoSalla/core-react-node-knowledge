@@ -1,8 +1,13 @@
 interface CouroselInputProps {
   index: number;
+  isSidebarVisible: boolean;
   handleFirstClick: () => void;
   handleSecondClick: () => void;
   handleThirdClick: () => void;
 }
 
-export default CouroselInputProps;
+interface CouroselInputWrapperProps {
+  $isSidebarVisible: boolean;
+}
+
+export type {CouroselInputProps, CouroselInputWrapperProps};

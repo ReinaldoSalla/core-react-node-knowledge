@@ -23,6 +23,7 @@ const Home: FunctionComponent<HomeProps> = ({
         scrollToReact={scrollToReact}
         scrollToNode={scrollToNode}
         isSidebarVisible={isSidebarVisible}
+        closeSidebar={closeSidebar}
       />
       <Categories 
         javascriptRef={javascriptRef}

@@ -17,7 +17,8 @@ const Courosel = ({
   scrollToJavascript,
   scrollToReact,
   scrollToNode,
-  isSidebarVisible
+  isSidebarVisible,
+  closeSidebar
 }) => {
   const [state, dispatch] = useReducer(couroselReducer, couroselInitialState);
   const transitions = useTransition(state.index, null, {
@@ -38,18 +39,18 @@ const Courosel = ({
     dispatch({ type: COUROSEL_CONSTANTS.MOVE_TO_THIRD_ITEM });
   };
 
-  // useEffect(() => {
-  //   const handleNextItem = () => {
-  //     dispatch({ type: COUROSEL_CONSTANTS.MOVE_TO_NEXT_ITEM });
-  //   };
+  useEffect(() => {
+    const handleNextItem = () => {
+      dispatch({ type: COUROSEL_CONSTANTS.MOVE_TO_NEXT_ITEM });
+    };
 
-  //   if (isDocumentVisible) {
-  //     const intervalId = setInterval(() => {
-  //       handleNextItem();
-  //     }, COUROSEL_CONSTANTS.DURATION);
-  //     return () => clearInterval(intervalId);
-  //   }
-  // });
+    if (isDocumentVisible) {
+      const intervalId = setInterval(() => {
+        handleNextItem();
+      }, COUROSEL_CONSTANTS.DURATION);
+      return () => clearInterval(intervalId);
+    }
+  });
 
   const couroselSpring = useSpring(getCouroselSpring(isSidebarVisible));
 
@@ -58,7 +59,7 @@ const Courosel = ({
       <CouroselBackground />
       <CouroselWrapper 
         style={couroselSpring}
-        disabled={isSidebarVisible}
+        onClick={closeSidebar}
       >
         {transitions.map(({ item, props, key }) => {
           const Item = couroselItems[item];
@@ -77,6 +78,7 @@ const Courosel = ({
           handleSecondClick={handleSecondClick}
           handleThirdClick={handleThirdClick}
           index={state.index}
+          isSidebarVisible={isSidebarVisible}
         />
       </CouroselWrapper>
     </>

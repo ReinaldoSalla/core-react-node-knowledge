@@ -15,13 +15,14 @@ import {
   getTextProps,
   getInnerProps 
 } from './CouroselInput.animations';
-import CouroselInputProps from './CouroselInput.types';
+import { CouroselInputProps } from './CouroselInput.types';
 
 const CouroselInput: FunctionComponent<CouroselInputProps> = ({
   index,
   handleFirstClick,
   handleSecondClick,
-  handleThirdClick
+  handleThirdClick,
+  isSidebarVisible,
 }): JSX.Element => {
   const { width, opacity }: any = useSpring(couroselTimerAnimation);
 
@@ -38,7 +39,7 @@ const CouroselInput: FunctionComponent<CouroselInputProps> = ({
   const thirdInnerAnimation = useSpring(getInnerProps(index, 2));
 
   return (
-    <CouroselInputWrapper>
+    <CouroselInputWrapper $isSidebarVisible={isSidebarVisible}>
       <CouroselInputArea>
         <CouroselInputButton onClick={handleFirstClick}>
           <CouroselInputText style={firstTextAnimation}>
