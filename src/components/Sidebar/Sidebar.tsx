@@ -41,9 +41,7 @@ const data = [
   },
 ];
 
-const symbol = ['x'];
-
-const partialItems = data.map(({ title, contents }) => (
+const partialComponents = data.map(({ title, contents }) => (
   ({ style }) => (
     <SidebarTopic 
       style={style}
@@ -53,32 +51,11 @@ const partialItems = data.map(({ title, contents }) => (
   )
 ));
 
-const exitItem = symbol.map((item) => (
-  ({ style, toggleSidebar }) => (
-    <SidebarExit 
-      style={style}
-      exitSymbol={item}
-      toggleSidebar={toggleSidebar}
-    />
-  )
-));
+const components = [...partialComponents, SidebarExit];
 
-const test = ({ style, toggleSidebar }) => (
-  <Exit 
-    style={style}
-    onClick={toggleSidebar}
-  >
-    X
-  </Exit>
-  // <SidebarExit style={style} toggleSidebar={toggleSidebar} />
-);
-
-
-const rawItems = [...partialItems, test];
-
-const items = rawItems.map((rawItem, index) => ({
-  component: rawItem,
-  key: index
+const indexedComponents = components.map((component, key) => ({
+  component,
+  key
 }));
 
 const Sidebar = ({
@@ -104,7 +81,7 @@ const Sidebar = ({
   });
 
   const transitions = useTransition(
-    isSidebarVisible ? items : [],
+    isSidebarVisible ? indexedComponents : [],
     item => item.key,
     {
       ref: transitionsRef,

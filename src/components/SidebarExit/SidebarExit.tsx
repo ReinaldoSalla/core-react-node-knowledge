@@ -1,33 +1,20 @@
 import React, { FunctionComponent } from 'react';
-import Exit from './SidebarExit';
+import Exit from './SidebarExit.styles';
 
 interface SidebarExitProps {
   style: any;
   toggleSidebar: () => void;
 }
 
-// const SidebarExit: any = ({ 
-//   style, 
-//   toggleSidebar 
-// }): JSX.Element => (
-//   <Exit 
-//     style={style}
-//     onClick={toggleSidebar}
-//   >
-//     X
-//   </Exit>
-// );
-
-const SidebarExit: any = ({ 
+const SidebarExit = ({ 
   style, 
-  exitSymbol,
   toggleSidebar 
-}) => (
+}): JSX.Element => (
   <Exit 
     style={style}
     onClick={toggleSidebar}
   >
-    {exitSymbol}
+    x
   </Exit>
 );
 
