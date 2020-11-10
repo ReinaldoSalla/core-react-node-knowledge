@@ -1,14 +1,14 @@
 import React, { useState, FunctionComponent } from 'react';
 import { useSpring } from 'react-spring';
 import {
-  CouroselItemWrapper,
-  CouroselItemTitle,
-  CouroselItemDescription,
-  CouroselItemCheckWrapper,
-  CouroselItemCheck
-} from './CouroselItems.styles';
-import getCouroselItemProps from './CouroselItems.animations';
-import { CouroselItemProps } from './CouroselItems.types'; 
+  CarouselItemWrapper,
+  CarouselItemTitle,
+  CarouselItemDescription,
+  CarouselItemCheckWrapper,
+  CarouselItemCheck
+} from './CarouselItems.styles';
+import getCarouselItemProps from './CarouselItems.animations';
+import { CarouselItemProps } from './CarouselItems.types'; 
 
 const getWhichElement = (
   name,
@@ -28,7 +28,7 @@ const getWhichElement = (
   }
 };
 
-const CouroselItem: FunctionComponent<CouroselItemProps> = ({ 
+const CarouselItem: FunctionComponent<CarouselItemProps> = ({ 
   style, 
   name, 
   title, 
@@ -40,7 +40,7 @@ const CouroselItem: FunctionComponent<CouroselItemProps> = ({
 }): JSX.Element  => {
   const [isHovering, setIsHovering] = useState(false);
 
-  const animationProps = useSpring(getCouroselItemProps(isHovering));
+  const animationProps = useSpring(getCarouselItemProps(isHovering));
 
   const handleMouseEnter = () => setIsHovering(true);
 
@@ -54,35 +54,35 @@ const CouroselItem: FunctionComponent<CouroselItemProps> = ({
   );
 
   return (
-    <CouroselItemWrapper style={style}>
-      <CouroselItemTitle
+    <CarouselItemWrapper style={style}>
+      <CarouselItemTitle
         onClick={scrollToElement}
         style={animationProps}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
         {title}
-      </CouroselItemTitle>
-      <CouroselItemDescription
+      </CarouselItemTitle>
+      <CarouselItemDescription
         onClick={scrollToElement}
         style={animationProps}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
         {description}
-      </CouroselItemDescription>
-      <CouroselItemCheckWrapper>
-        <CouroselItemCheck
+      </CarouselItemDescription>
+      <CarouselItemCheckWrapper>
+        <CarouselItemCheck
           onClick={scrollToElement}
           style={animationProps}
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
         >
           {check}
-        </CouroselItemCheck>
-      </CouroselItemCheckWrapper>
-    </CouroselItemWrapper>
+        </CarouselItemCheck>
+      </CarouselItemCheckWrapper>
+    </CarouselItemWrapper>
   );
 };
 
-export default CouroselItem;
+export default CarouselItem;

@@ -1,8 +1,8 @@
-import CONSTANTS from '../Courosel/Courosel.constants';
+import CONSTANTS from '../Carousel/Carousel.constants';
 
-const couroselTimerOffset = 15;
+const CarouselTimerOffset = 15;
 
-const couroselTimerAnimation = {
+const CarouselTimerAnimation = {
   config: { duration: CONSTANTS.DURATION },
   from: { width: 0, opacity: 0 },
   to: { width: 99, opacity: 1 },
@@ -21,8 +21,8 @@ const getInnerProps = (currentIndex: number, targetIndex: number): any => ({
 });
 
 export { 
-  couroselTimerAnimation, 
-  couroselTimerOffset,
+  CarouselTimerAnimation, 
+  CarouselTimerOffset,
   getTextProps,
   getInnerProps 
 };

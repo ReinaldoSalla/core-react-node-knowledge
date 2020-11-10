@@ -1,4 +1,4 @@
-interface CouroselItemProps {
+interface CarouselItemProps {
   style: any;
   name: string;
   title: string;
@@ -9,4 +9,4 @@ interface CouroselItemProps {
   scrollToNode: () => void;
 }
 
-export type { CouroselItemProps };
+export type { CarouselItemProps };

@@ -1,13 +1,13 @@
 import styled from 'styled-components';
 import { animated } from 'react-spring';
 
-const CouroselItemSharedWrapper = styled(animated.div)`
+const CarouselItemSharedWrapper = styled(animated.div)`
   display: flex;
   align-items: center;
 `;
 
 
-const CouroselItemWrapper = styled(CouroselItemSharedWrapper)`
+const CarouselItemWrapper = styled(CarouselItemSharedWrapper)`
   flex-direction: column;
   justify-content: space-evenly;
   height: calc(100% - ${(props) => props.theme.topbarHeight} - 20px);
@@ -16,7 +16,7 @@ const CouroselItemWrapper = styled(CouroselItemSharedWrapper)`
   padding-bottom: 20px;
 `;
 
-const CouroselItemTitle = styled(animated.h1)`
+const CarouselItemTitle = styled(animated.h1)`
   font-size: 46px;
   margin: 0 16px;
   color: white;
@@ -35,7 +35,7 @@ const CouroselItemTitle = styled(animated.h1)`
   }
 `;
 
-const CouroselItemDescription = styled(animated.h2)`
+const CarouselItemDescription = styled(animated.h2)`
   font-size: 32px;
   margin: 0 16px;
   color: white;
@@ -54,7 +54,7 @@ const CouroselItemDescription = styled(animated.h2)`
   }
 `;
 
-const CouroselItemCheckWrapper = styled(CouroselItemSharedWrapper)`
+const CarouselItemCheckWrapper = styled(CarouselItemSharedWrapper)`
   justify-content: center;
   width: 150px;
   height: 130px;
@@ -71,7 +71,7 @@ const CouroselItemCheckWrapper = styled(CouroselItemSharedWrapper)`
   }
 `;
 
-const CouroselItemCheck = styled(animated.span)`
+const CarouselItemCheck = styled(animated.span)`
   padding-bottom: 4px;
   font-size: 28px;
   font-weight: 600;
@@ -89,9 +89,9 @@ const CouroselItemCheck = styled(animated.span)`
 `;
 
 export {
-  CouroselItemWrapper,
-  CouroselItemTitle,
-  CouroselItemDescription,
-  CouroselItemCheckWrapper,
-  CouroselItemCheck
+  CarouselItemWrapper,
+  CarouselItemTitle,
+  CarouselItemDescription,
+  CarouselItemCheckWrapper,
+  CarouselItemCheck
 }

@@ -1,68 +1,68 @@
 import React, { useReducer, useEffect } from 'react';
 import { useSpring, useTransition } from 'react-spring';
-import { CouroselWrapper } from './Courosel.styles';
-import CouroselInput from '../CouroselInput';
-import couroselItems from '../CouroselItems';
-import CouroselBackground from '../CouroselBackground';
-import couroselInitialState from './Courosel.init';
+import { CarouselWrapper } from './Carousel.styles';
+import CarouselInput from '../CarouselInput';
+import CarouselItems from '../CarouselItems';
+import CarouselBackground from '../CarouselBackground';
+import CarouselInitialState from './Carousel.init';
 import { 
-  couroselTransitionProps,
-  getCouroselSpring 
-} from './Courosel.animations';
-import couroselReducer from './Courosel.reducer';
-import COUROSEL_CONSTANTS from './Courosel.constants';
+  CarouselTransitionProps,
+  getCarouselSpring 
+} from './Carousel.animations';
+import CarouselReducer from './Carousel.reducer';
+import Carousel_CONSTANTS from './Carousel.constants';
 import useDocumentVisibility from '../../hooks/useDocumentVisibility';
 
-const Courosel = ({
+const Carousel = ({
   scrollToJavascript,
   scrollToReact,
   scrollToNode,
   isSidebarVisible,
   closeSidebar
 }) => {
-  const [state, dispatch] = useReducer(couroselReducer, couroselInitialState);
+  const [state, dispatch] = useReducer(CarouselReducer, CarouselInitialState);
   const transitions = useTransition(state.index, null, {
-    ...couroselTransitionProps,
+    ...CarouselTransitionProps,
     order: ['leave', 'enter', 'update']
   });
   const isDocumentVisible: boolean = useDocumentVisibility();
 
   const handleFirstClick = () => {
-    dispatch({ type: COUROSEL_CONSTANTS.MOVE_TO_FIRST_ITEM });
+    dispatch({ type: Carousel_CONSTANTS.MOVE_TO_FIRST_ITEM });
   };
 
   const handleSecondClick = () => {
-    dispatch({ type: COUROSEL_CONSTANTS.MOVE_TO_SECOND_ITEM});
+    dispatch({ type: Carousel_CONSTANTS.MOVE_TO_SECOND_ITEM});
   };
 
   const handleThirdClick = () => {
-    dispatch({ type: COUROSEL_CONSTANTS.MOVE_TO_THIRD_ITEM });
+    dispatch({ type: Carousel_CONSTANTS.MOVE_TO_THIRD_ITEM });
   };
 
   useEffect(() => {
     const handleNextItem = () => {
-      dispatch({ type: COUROSEL_CONSTANTS.MOVE_TO_NEXT_ITEM });
+      dispatch({ type: Carousel_CONSTANTS.MOVE_TO_NEXT_ITEM });
     };
 
     if (isDocumentVisible) {
       const intervalId = setInterval(() => {
         handleNextItem();
-      }, COUROSEL_CONSTANTS.DURATION);
+      }, Carousel_CONSTANTS.DURATION);
       return () => clearInterval(intervalId);
     }
   });
 
-  const couroselSpring = useSpring(getCouroselSpring(isSidebarVisible));
+  const CarouselSpring = useSpring(getCarouselSpring(isSidebarVisible));
 
   return (
     <>
-      <CouroselBackground />
-      <CouroselWrapper 
-        style={couroselSpring}
+      <CarouselBackground />
+      <CarouselWrapper 
+        style={CarouselSpring}
         onClick={closeSidebar}
       >
         {transitions.map(({ item, props, key }) => {
-          const Item = couroselItems[item];
+          const Item = CarouselItems[item];
             return (
               <Item 
                 key={key}
@@ -73,16 +73,16 @@ const Courosel = ({
               />
             );
         })}
-        <CouroselInput 
+        <CarouselInput 
           handleFirstClick={handleFirstClick}
           handleSecondClick={handleSecondClick}
           handleThirdClick={handleThirdClick}
           index={state.index}
           isSidebarVisible={isSidebarVisible}
         />
-      </CouroselWrapper>
+      </CarouselWrapper>
     </>
   );
 };
 
-export default Courosel;
+export default Carousel;

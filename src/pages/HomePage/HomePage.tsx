@@ -1,7 +1,7 @@
 import React, { FunctionComponent, useRef } from 'react';
 import { Route } from 'react-router-dom';
 import HomeProps from './Home.types';
-import Courosel from '../../components/Courosel';
+import Carousel from '../../components/Carousel';
 import Categories from '../../components/Categories';
 import useScrollToElement from '../../hooks/useScrollToElement';
 
@@ -18,7 +18,7 @@ const Home: FunctionComponent<HomeProps> = ({
 
   return (
     <Route path='/' exact>
-      <Courosel 
+      <Carousel 
         scrollToJavascript={scrollToJavascript}
         scrollToReact={scrollToReact}
         scrollToNode={scrollToNode}

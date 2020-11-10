@@ -1,5 +1,5 @@
 import React from 'react';
-import CouroselItem from './CouroselItems';
+import CarouselItem from './CarouselItems';
 
 const titleGenerator = (name: string): string => `${name} Guides`;
 
@@ -27,9 +27,9 @@ const texts = [
 	},
 ];
 
-const couroselItems = texts.map(({ name, title, description, check }) => {
+const CarouselItems = texts.map(({ name, title, description, check }) => {
   return ({ style, scrollToJavascript, scrollToReact, scrollToNode }) => (
-    <CouroselItem 
+    <CarouselItem 
       style={style}
       name={name}
       title={title}
@@ -42,4 +42,4 @@ const couroselItems = texts.map(({ name, title, description, check }) => {
   );
 });
 
-export default couroselItems;
+export default CarouselItems;

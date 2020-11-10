@@ -1,8 +1,8 @@
-import couroselItems from '../CouroselItems';
+import CarouselItems from '../CarouselItems';
 
 const moveToNextItem = (state) => {
 	let newIndex = state.index + 1;
-	if (newIndex === couroselItems.length) {
+	if (newIndex === CarouselItems.length) {
 		newIndex = 0;
 	}
 	return {

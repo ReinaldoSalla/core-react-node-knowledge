@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { animated } from 'react-spring';
 
-const CouroselWrapper = styled(animated.section)`
+const CarouselWrapper = styled(animated.section)`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -14,5 +14,5 @@ const CouroselWrapper = styled(animated.section)`
 `;
 
 export {
-  CouroselWrapper
+  CarouselWrapper
 };

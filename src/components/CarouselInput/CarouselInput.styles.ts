@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 import { animated } from 'react-spring';
-import { CouroselInputWrapperProps } from './CouroselInput.types';
+import { CarouselInputWrapperProps } from './CarouselInput.types';
 
-const CouroselInputWrapper = styled.div<CouroselInputWrapperProps>`
+const CarouselInputWrapper = styled.div<CarouselInputWrapperProps>`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -13,7 +13,7 @@ const CouroselInputWrapper = styled.div<CouroselInputWrapperProps>`
   pointer-events: ${({ $isSidebarVisible }) => $isSidebarVisible ? 'none' : 'auto'};
 `;
 
-const CouroselInputArea = styled.div`
+const CarouselInputArea = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -21,7 +21,7 @@ const CouroselInputArea = styled.div`
   height: 50px;
 `;
 
-const CouroselInputButton = styled.div`
+const CarouselInputButton = styled.div`
   height: 30px;
   width: 100px;
   border: 1px solid white;
@@ -39,7 +39,7 @@ const CouroselInputButton = styled.div`
   }
 `;
 
-const CouroselInputText = styled(animated.span)`
+const CarouselInputText = styled(animated.span)`
   position: absolute;
   font-size: 20px;
   width: 100px;
@@ -52,7 +52,7 @@ const CouroselInputText = styled(animated.span)`
   }
 `;
 
-const CouroselInputInner = styled(animated.div)`
+const CarouselInputInner = styled(animated.div)`
   height: 100%;
 
   ${(props) => props.theme.breakpoints.small} {
@@ -60,7 +60,7 @@ const CouroselInputInner = styled(animated.div)`
   }
 `
 
-const CouroselInputTimer = styled.div`
+const CarouselInputTimer = styled.div`
   margin-top: 8px;
   display: flex;
   align-items: center;
@@ -69,17 +69,17 @@ const CouroselInputTimer = styled.div`
   height: 20px;
 `;
 
-const CouroselInputRow = styled(animated.div)`
+const CarouselInputRow = styled(animated.div)`
   height: 10px;
   border-top: 2px solid white;
 `;
 
 export {
-  CouroselInputWrapper,
-  CouroselInputArea,
-  CouroselInputButton,
-  CouroselInputText,
-  CouroselInputInner,
-  CouroselInputTimer,
-  CouroselInputRow
+  CarouselInputWrapper,
+  CarouselInputArea,
+  CarouselInputButton,
+  CarouselInputText,
+  CarouselInputInner,
+  CarouselInputTimer,
+  CarouselInputRow
 };

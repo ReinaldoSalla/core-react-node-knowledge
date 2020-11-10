@@ -1,6 +1,6 @@
 import { config } from 'react-spring';
 
-const couroselTransitionProps: any = {
+const CarouselTransitionProps: any = {
   config: {
     mass: 5,
     tension: 50,
@@ -22,7 +22,7 @@ const couroselTransitionProps: any = {
   }
 };
 
-const getCouroselSpring = (isSidebarVisible) => ({
+const getCarouselSpring = (isSidebarVisible) => ({
   config: config.slow,
   from: { 
     opacity: isSidebarVisible ? 0.5 : 1 
@@ -35,6 +35,6 @@ const getCouroselSpring = (isSidebarVisible) => ({
 });
 
 export { 
-  couroselTransitionProps,
-  getCouroselSpring 
+  CarouselTransitionProps,
+  getCarouselSpring 
 };

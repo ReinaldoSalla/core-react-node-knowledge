@@ -1,4 +1,4 @@
-interface CouroselInputProps {
+interface CarouselInputProps {
   index: number;
   isSidebarVisible: boolean;
   handleFirstClick: () => void;
@@ -6,8 +6,8 @@ interface CouroselInputProps {
   handleThirdClick: () => void;
 }
 
-interface CouroselInputWrapperProps {
+interface CarouselInputWrapperProps {
   $isSidebarVisible: boolean;
 }
 
-export type {CouroselInputProps, CouroselInputWrapperProps};
+export type {CarouselInputProps, CarouselInputWrapperProps};
