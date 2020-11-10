@@ -1,45 +1,9 @@
 import React, { useRef } from 'react';
 import { useSpring, useTransition, useChain, config } from 'react-spring';
-import { 
-  SidebarWrapper,
-  Exit
-} from './Sidebar.styles';
+import { SidebarWrapper } from './Sidebar.styles';
 import SidebarTopic from '../SidebarTopic';
 import SidebarExit from '../SidebarExit';
-
-const data = [
-  {
-    title: 'JavaScript',
-    contents: [
-      'Functions',
-      'Loops',
-      'Generators',
-      'Promises',
-      'Async Await'
-    ]
-  },
-  {
-    title: 'React',
-    contents: [
-      'Rendering',
-      'State',
-      'Side Effects',
-      'Memoization',
-      'Lazy Loading',
-      'React Router',
-      'Styled Components',
-      'React Spring'
-    ]
-  },
-  {
-    title: 'Node',
-    contents: [
-      'GraphQL',
-      'FaunaDB',
-      'Authentication'
-    ]
-  },
-];
+import data from '../../utils/categories-data-arr';
 
 const partialComponents = data.map(({ title, contents }) => (
   ({ style }) => (
