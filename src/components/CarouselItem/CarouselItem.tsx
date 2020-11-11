@@ -36,7 +36,8 @@ const CarouselItem: FunctionComponent<CarouselItemProps> = ({
   check, 
   scrollToJavascript,
   scrollToReact,
-  scrollToNode
+  scrollToNode,
+  isSidebarVisible
 }): JSX.Element  => {
   const [isHovering, setIsHovering] = useState(false);
 
@@ -60,6 +61,7 @@ const CarouselItem: FunctionComponent<CarouselItemProps> = ({
         style={animationProps}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
+        $isSidebarVisible={isSidebarVisible}
       >
         {title}
       </CarouselItemTitle>
@@ -68,6 +70,7 @@ const CarouselItem: FunctionComponent<CarouselItemProps> = ({
         style={animationProps}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
+        $isSidebarVisible={isSidebarVisible}
       >
         {description}
       </CarouselItemDescription>
@@ -77,6 +80,7 @@ const CarouselItem: FunctionComponent<CarouselItemProps> = ({
           style={animationProps}
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
+          $isSidebarVisible={isSidebarVisible}
         >
           {check}
         </CarouselItemCheck>

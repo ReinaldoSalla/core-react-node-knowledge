@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 import { animated } from 'react-spring';
+import { TextProps } from './CarouselItem.types';
 
 const CarouselItemharedWrapper = styled(animated.div)`
   display: flex;
   align-items: center;
 `;
-
 
 const CarouselItemWrapper = styled(CarouselItemharedWrapper)`
   flex-direction: column;
@@ -16,11 +16,12 @@ const CarouselItemWrapper = styled(CarouselItemharedWrapper)`
   padding-bottom: 20px;
 `;
 
-const CarouselItemTitle = styled(animated.h1)`
+const CarouselItemTitle = styled(animated.h1)<TextProps>`
   font-size: 46px;
   margin: 0 16px;
   color: white;
   text-align: center;
+  pointer-events: ${({ $isSidebarVisible }) => $isSidebarVisible ? 'none' : 'auto'};
 
   ${(props) => props.theme.breakpoints.small} {
     font-size: 38px;
@@ -35,11 +36,12 @@ const CarouselItemTitle = styled(animated.h1)`
   }
 `;
 
-const CarouselItemDescription = styled(animated.h2)`
+const CarouselItemDescription = styled(animated.h2)<TextProps>`
   font-size: 32px;
   margin: 0 16px;
   color: white;
   text-align: center;
+  pointer-events: ${({ $isSidebarVisible }) => $isSidebarVisible ? 'none' : 'auto'};
 
   ${(props) => props.theme.breakpoints.small} {
     font-size: 28px;
@@ -71,13 +73,14 @@ const CarouselItemCheckWrapper = styled(CarouselItemharedWrapper)`
   }
 `;
 
-const CarouselItemCheck = styled(animated.span)`
+const CarouselItemCheck = styled(animated.span)<TextProps>`
   padding-bottom: 4px;
   font-size: 28px;
   font-weight: 600;
   margin: 0 16px;
   color: white;
   text-align: center;
+  pointer-events: ${({ $isSidebarVisible }) => $isSidebarVisible ? 'none' : 'auto'};
 
   ${(props) => props.theme.breakpoints.small} {
     font-size: 24px;

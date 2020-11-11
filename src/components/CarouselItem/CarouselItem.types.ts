@@ -7,6 +7,11 @@ interface CarouselItemProps {
   scrollToJavascript: () => void;
   scrollToReact: () => void;
   scrollToNode: () => void;
+  isSidebarVisible: boolean;
 }
 
-export type { CarouselItemProps };
+interface TextProps {
+  $isSidebarVisible: boolean;
+}
+
+export type { CarouselItemProps, TextProps };

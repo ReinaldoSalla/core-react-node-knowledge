@@ -14,11 +14,11 @@ const Footer = ({
   const spring = useSpring({
     config: config.molasses,
     from: { 
-      opacity: isSidebarVisible ? 0.5 : 1
+      opacity: isSidebarVisible ? 0.2 : 1
     },
     to: async (next) => {
       await next({
-        opacity: isSidebarVisible ? 0.5 : 1
+        opacity: isSidebarVisible ? 0.2 : 1
       });
     },
   });

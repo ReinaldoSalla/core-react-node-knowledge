@@ -2,15 +2,15 @@ import React, { useReducer, useEffect } from 'react';
 import { useSpring, useTransition } from 'react-spring';
 import { CarouselWrapper } from './Carousel.styles';
 import components from './Carousel.mapper';
-import CarouselInput from '../CarouselInput';
-import CarouselBackground from '../CarouselBackground';
 import initialState from './Carousel.init';
 import { 
   carouselTransitionProps,
   getCarouselSpring 
 } from './Carousel.animations';
-import CarouselReducer from './Carousel.reducer';
+import reducer from './Carousel.reducer';
 import CONSTANTS from './Carousel.constants';
+import CarouselInput from '../CarouselInput';
+import CarouselBackground from '../CarouselBackground';
 import useDocumentVisibility from '../../hooks/useDocumentVisibility';
 
 const Carousel = ({
@@ -20,7 +20,7 @@ const Carousel = ({
   isSidebarVisible,
   closeSidebar
 }) => {
-  const [state, dispatch] = useReducer(CarouselReducer, initialState);
+  const [state, dispatch] = useReducer(reducer, initialState);
   const transitions = useTransition(state.index, null, {
     ...carouselTransitionProps,
     order: ['leave', 'enter', 'update']
@@ -71,6 +71,7 @@ const Carousel = ({
                 scrollToJavascript={scrollToJavascript}
                 scrollToReact={scrollToReact}
                 scrollToNode={scrollToNode}
+                isSidebarVisible={isSidebarVisible}
               />
             );
         })}

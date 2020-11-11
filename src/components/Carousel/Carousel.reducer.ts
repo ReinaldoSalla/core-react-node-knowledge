@@ -7,7 +7,7 @@ import {
 import CONSTANTS from './Carousel.constants';
 import { CarouselState, CarouselAction } from './Carousel.types';
 
-const CarouselReducer = (
+const reducer = (
 	state: CarouselState,
 	action: CarouselAction
 ): CarouselState => {
@@ -25,4 +25,4 @@ const CarouselReducer = (
 	}
 };
 
-export default CarouselReducer;
+export default reducer;
