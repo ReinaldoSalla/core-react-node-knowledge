@@ -22,7 +22,7 @@ const carouselTransitionProps: any = {
   }
 };
 
-const getCarouselSpring = (isSidebarVisible) => ({
+const getspring = (isSidebarVisible) => ({
   config: config.slow,
   from: { 
     opacity: isSidebarVisible ? 0.5 : 1 
@@ -36,5 +36,5 @@ const getCarouselSpring = (isSidebarVisible) => ({
 
 export { 
   carouselTransitionProps,
-  getCarouselSpring 
+  getspring 
 };

@@ -60,13 +60,14 @@ const CarouselInputInner = styled(animated.div)`
   }
 `
 
-const CarouselInputTimer = styled.div`
+const CarouselInputTimer = styled.div<CarouselInputWrapperProps>`
   margin-top: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
   height: 20px;
+  opacity: ${({ $isSidebarVisible }) => $isSidebarVisible ? 0 : 1};
 `;
 
 const CarouselInputRow = styled(animated.div)`

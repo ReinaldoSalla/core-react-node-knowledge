@@ -60,7 +60,7 @@ const CarouselInput: FunctionComponent<CarouselInputProps> = ({
           <CarouselInputInner style={thirdInnerAnimation} />
         </CarouselInputButton>
       </CarouselInputArea>
-      <CarouselInputTimer>
+      <CarouselInputTimer $isSidebarVisible={isSidebarVisible}>
         <CarouselInputRow 
           style={{
             width: width.interpolate((width) => (

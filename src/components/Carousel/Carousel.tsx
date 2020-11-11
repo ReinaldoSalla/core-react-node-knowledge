@@ -5,7 +5,7 @@ import components from './Carousel.mapper';
 import initialState from './Carousel.init';
 import { 
   carouselTransitionProps,
-  getCarouselSpring 
+  getspring 
 } from './Carousel.animations';
 import reducer from './Carousel.reducer';
 import CONSTANTS from './Carousel.constants';
@@ -53,13 +53,13 @@ const Carousel = ({
     }
   });
 
-  const CarouselSpring = useSpring(getCarouselSpring(isSidebarVisible));
+  const spring = useSpring(getspring(isSidebarVisible));
 
   return (
     <>
       <CarouselBackground />
       <CarouselWrapper 
-        style={CarouselSpring}
+        style={spring}
         onClick={closeSidebar}
       >
         {transitions.map(({ item, props, key }) => {
