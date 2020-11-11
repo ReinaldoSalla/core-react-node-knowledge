@@ -5,7 +5,7 @@ import { ContentWrapperProps } from './Content.types';
 const ContentWrapper = styled(animated.div)<ContentWrapperProps>`
   padding: ${(props) => `${props.theme.topbarHeight} 48px 36px 48px`};
   background: ${(props) => props.theme.pageBgColor};
-  
+
   ${(props) => props.theme.breakpoints.medium} {
     padding: ${(props) => `${props.theme.topbarHeight} 36px 36px 36px`}
   }
@@ -15,7 +15,7 @@ const ContentWrapper = styled(animated.div)<ContentWrapperProps>`
   }
 `;
 
-const ContentSection = styled.section<ContentWrapperProps>`
+const ContentDivisible = styled.div<ContentWrapperProps>`
   @media only screen and (min-width: 769px) {
     margin-right: ${(props) => props.$isSidebarVisible ? '190px' : '0px'};
   }
@@ -43,7 +43,7 @@ const ContentContainer = styled.div`
 
 export {
   ContentWrapper,
-  ContentSection,
+  ContentDivisible,
   ContentTitle,
   ContentContainer
 };

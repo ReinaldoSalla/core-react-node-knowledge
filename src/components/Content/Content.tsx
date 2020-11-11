@@ -7,7 +7,7 @@ import React, {
 import { useSpring } from 'react-spring';
 import {
   ContentWrapper,
-  ContentSection,
+  ContentDivisible,
   ContentTitle,
   ContentContainer
 } from './Content.styles';
@@ -82,7 +82,7 @@ const Content = ({ isSidebarVisible, topRef, closeSidebar }) => {
         onClick={closeSidebar}  
       >
         <ContentContainer>
-          <ContentSection $isSidebarVisible={isSidebarVisible}>
+          <ContentDivisible $isSidebarVisible={isSidebarVisible}>
             <ContentCore 
               introDomNode={introDomNode}
               setupDomNode={setupDomNode}
@@ -93,7 +93,7 @@ const Content = ({ isSidebarVisible, topRef, closeSidebar }) => {
               finalCodeDomNode={finalCodeDomNode}
               isSidebarVisible={isSidebarVisible}
             />
-          </ContentSection>
+          </ContentDivisible>
           <ContentNavigation 
             isIntroIntersecting={isIntroIntersecting}
             isSetupIntersecting={isSetupIntersecting}

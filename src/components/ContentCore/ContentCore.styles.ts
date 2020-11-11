@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { LinkProps } from './ContentCore.types';
 
-const ContentCoreWrapper = styled.div`
+const ContentCoreWrapper = styled.article`
   border: 1px solid transparent;
 `;
 
