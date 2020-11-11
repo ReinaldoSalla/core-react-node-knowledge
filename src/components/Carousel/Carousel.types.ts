@@ -1,4 +1,4 @@
-import Carousel_CONSTANTS from './Carousel.constants';
+import CONSTANTS from './Carousel.constants';
 
 interface CarouselState {
 	index: number;
@@ -6,19 +6,19 @@ interface CarouselState {
 }
 
 interface MoveToNextItem {
-	type: typeof Carousel_CONSTANTS.MOVE_TO_NEXT_ITEM;
+	type: typeof CONSTANTS.MOVE_TO_NEXT_ITEM;
 }
 
 interface MoveToFirstItem {
-	type: typeof Carousel_CONSTANTS.MOVE_TO_FIRST_ITEM;
+	type: typeof CONSTANTS.MOVE_TO_FIRST_ITEM;
 }
 
 interface MoveToSecondItem {
-	type: typeof Carousel_CONSTANTS.MOVE_TO_SECOND_ITEM;
+	type: typeof CONSTANTS.MOVE_TO_SECOND_ITEM;
 }
 
 interface MoveToThirdItem {
-	type: typeof Carousel_CONSTANTS.MOVE_TO_THIRD_ITEM;
+	type: typeof CONSTANTS.MOVE_TO_THIRD_ITEM;
 }
 
 type CarouselAction =

@@ -1,16 +1,16 @@
 import React, { useReducer, useEffect } from 'react';
 import { useSpring, useTransition } from 'react-spring';
 import { CarouselWrapper } from './Carousel.styles';
+import components from './Carousel.mapper';
 import CarouselInput from '../CarouselInput';
-import CarouselItems from '../CarouselItems';
 import CarouselBackground from '../CarouselBackground';
-import CarouselInitialState from './Carousel.init';
+import initialState from './Carousel.init';
 import { 
-  CarouselTransitionProps,
+  carouselTransitionProps,
   getCarouselSpring 
 } from './Carousel.animations';
 import CarouselReducer from './Carousel.reducer';
-import Carousel_CONSTANTS from './Carousel.constants';
+import CONSTANTS from './Carousel.constants';
 import useDocumentVisibility from '../../hooks/useDocumentVisibility';
 
 const Carousel = ({
@@ -20,34 +20,35 @@ const Carousel = ({
   isSidebarVisible,
   closeSidebar
 }) => {
-  const [state, dispatch] = useReducer(CarouselReducer, CarouselInitialState);
+  const [state, dispatch] = useReducer(CarouselReducer, initialState);
   const transitions = useTransition(state.index, null, {
-    ...CarouselTransitionProps,
+    ...carouselTransitionProps,
     order: ['leave', 'enter', 'update']
   });
   const isDocumentVisible: boolean = useDocumentVisibility();
 
   const handleFirstClick = () => {
-    dispatch({ type: Carousel_CONSTANTS.MOVE_TO_FIRST_ITEM });
+    dispatch({ type: CONSTANTS.MOVE_TO_FIRST_ITEM });
   };
 
   const handleSecondClick = () => {
-    dispatch({ type: Carousel_CONSTANTS.MOVE_TO_SECOND_ITEM});
+    dispatch({ type: CONSTANTS.MOVE_TO_SECOND_ITEM});
   };
 
   const handleThirdClick = () => {
-    dispatch({ type: Carousel_CONSTANTS.MOVE_TO_THIRD_ITEM });
+    dispatch({ type: CONSTANTS.MOVE_TO_THIRD_ITEM });
   };
 
   useEffect(() => {
     const handleNextItem = () => {
-      dispatch({ type: Carousel_CONSTANTS.MOVE_TO_NEXT_ITEM });
+      console.log('should dispatch action');
+      dispatch({ type: CONSTANTS.MOVE_TO_NEXT_ITEM });
     };
 
     if (isDocumentVisible) {
       const intervalId = setInterval(() => {
         handleNextItem();
-      }, Carousel_CONSTANTS.DURATION);
+      }, CONSTANTS.DURATION);
       return () => clearInterval(intervalId);
     }
   });
@@ -62,9 +63,9 @@ const Carousel = ({
         onClick={closeSidebar}
       >
         {transitions.map(({ item, props, key }) => {
-          const Item = CarouselItems[item];
+          const Component = components[item];
             return (
-              <Item 
+              <Component 
                 key={key}
                 style={props}
                 scrollToJavascript={scrollToJavascript}

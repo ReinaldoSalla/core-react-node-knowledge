@@ -1,6 +1,6 @@
-const CarouselInitialState = {
+const initialState = {
   index: 0,
-  isTimerEnabled: false
+  isTimerEnabled: true
 };
 
-export default CarouselInitialState;
+export default initialState;

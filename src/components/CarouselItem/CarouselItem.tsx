@@ -6,9 +6,9 @@ import {
   CarouselItemDescription,
   CarouselItemCheckWrapper,
   CarouselItemCheck
-} from './CarouselItems.styles';
-import getCarouselItemProps from './CarouselItems.animations';
-import { CarouselItemProps } from './CarouselItems.types'; 
+} from './CarouselItem.styles';
+import getCarouselItemProps from './CarouselItem.animations';
+import { CarouselItemProps } from './CarouselItem.types'; 
 
 const getWhichElement = (
   name,

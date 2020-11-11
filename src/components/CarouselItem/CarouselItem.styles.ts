@@ -1,13 +1,13 @@
 import styled from 'styled-components';
 import { animated } from 'react-spring';
 
-const CarouselItemSharedWrapper = styled(animated.div)`
+const CarouselItemharedWrapper = styled(animated.div)`
   display: flex;
   align-items: center;
 `;
 
 
-const CarouselItemWrapper = styled(CarouselItemSharedWrapper)`
+const CarouselItemWrapper = styled(CarouselItemharedWrapper)`
   flex-direction: column;
   justify-content: space-evenly;
   height: calc(100% - ${(props) => props.theme.topbarHeight} - 20px);
@@ -54,7 +54,7 @@ const CarouselItemDescription = styled(animated.h2)`
   }
 `;
 
-const CarouselItemCheckWrapper = styled(CarouselItemSharedWrapper)`
+const CarouselItemCheckWrapper = styled(CarouselItemharedWrapper)`
   justify-content: center;
   width: 150px;
   height: 130px;
