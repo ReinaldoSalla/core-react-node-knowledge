@@ -13,38 +13,14 @@ import Footer from '../../components/Footer';
 
 const Universal = () => {
   const [isSidebarVisible, setIsSidebarVisible] = useState(false);
-  const [isSearchVisible, setisSearchVisible] = useState(false);
+  const [isSearchVisible, setIsSearchVisible] = useState(false);
   const topRef: any = useRef();
 
-  const toggleSidebar = () => {
-    if (!isSidebarVisible) {
-      topRef.current = document.documentElement.scrollTop;
-      setIsSidebarVisible(true);
-      document.body.style.overflowY = 'scroll';
-      document.body.style.position = 'fixed';
-      document.body.style.top = `-${topRef.current}px`;
-    } else {
-      setIsSidebarVisible(false);
-      document.body.style.overflowY = 'auto';
-      document.body.style.position = 'static';
-      document.body.style.top = '';
-      window.scrollTo({ top: topRef.current, left: 0 });
-    }
-  };
+  const toggleSidebar = () => setIsSidebarVisible(!isSidebarVisible);
 
-  const closeSidebar = () => {
-    if (!isSidebarVisible) {
-      topRef.current = document.documentElement.scrollTop;
-    } else {
-      setIsSidebarVisible(false);
-      document.body.style.overflowY = 'auto';
-      document.body.style.position = 'static';
-      document.body.style.top = '';
-      window.scrollTo({ top: topRef.current, left: 0 });      
-    }
-  };
+  const closeSidebar = () => setIsSidebarVisible(false);
 
-  const toggleSearch = () => setisSearchVisible(!isSearchVisible);  
+  const toggleSearch = () => setIsSearchVisible(!isSearchVisible);  
 
   return (
     <>

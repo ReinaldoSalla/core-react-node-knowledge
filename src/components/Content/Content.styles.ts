@@ -16,13 +16,13 @@ const ContentWrapper = styled(animated.div)<ContentWrapperProps>`
 `;
 
 const ContentDivisible = styled.div<ContentWrapperProps>`
-  @media only screen and (min-width: 769px) {
+  /* @media only screen and (min-width: 769px) {
     margin-right: ${(props) => props.$isSidebarVisible ? '190px' : '0px'};
   }
 
   ${(props) => props.theme.breakpoints.medium} {
     margin-right: '0px';
-  }
+  } */
 `;
 
 const ContentTitle = styled.h1`
@@ -34,7 +34,6 @@ const ContentTitle = styled.h1`
 const ContentContainer = styled.div`
   display: flex;
   position: relative;
-  border: 1px solid transparent;
 
   ${(props) => props.theme.breakpoints.medium} {
     flex-direction: column-reverse;

@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { LinkProps } from './ContentCore.types';
 
 const ContentCoreWrapper = styled.article`
-  border: 1px solid transparent;
+  /* border: 1px solid red; */
 `;
 
 const ContentCoreHeading = styled.h1`

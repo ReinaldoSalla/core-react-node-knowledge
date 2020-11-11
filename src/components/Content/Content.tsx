@@ -7,8 +7,6 @@ import React, {
 import { useSpring } from 'react-spring';
 import {
   ContentWrapper,
-  ContentDivisible,
-  ContentTitle,
   ContentContainer
 } from './Content.styles';
 import { getSpring } from './Content.animations';
@@ -82,18 +80,16 @@ const Content = ({ isSidebarVisible, topRef, closeSidebar }) => {
         onClick={closeSidebar}  
       >
         <ContentContainer>
-          <ContentDivisible $isSidebarVisible={isSidebarVisible}>
-            <ContentCore 
-              introDomNode={introDomNode}
-              setupDomNode={setupDomNode}
-              jsxDomNode={jsxDomNode}
-              stylingDomNode={stylingDomNode}
-              useStateDomNode={useStateDomNode}
-              useReducerDomNode={useReducerDomNode}
-              finalCodeDomNode={finalCodeDomNode}
-              isSidebarVisible={isSidebarVisible}
-            />
-          </ContentDivisible>
+          <ContentCore 
+            introDomNode={introDomNode}
+            setupDomNode={setupDomNode}
+            jsxDomNode={jsxDomNode}
+            stylingDomNode={stylingDomNode}
+            useStateDomNode={useStateDomNode}
+            useReducerDomNode={useReducerDomNode}
+            finalCodeDomNode={finalCodeDomNode}
+            isSidebarVisible={isSidebarVisible}
+          />
           <ContentNavigation 
             isIntroIntersecting={isIntroIntersecting}
             isSetupIntersecting={isSetupIntersecting}
