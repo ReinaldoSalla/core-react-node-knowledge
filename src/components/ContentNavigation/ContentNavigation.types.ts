@@ -23,4 +23,8 @@ interface ContentNavigationWrapperProps {
   top: number;
 }
 
-export type { ContentNavigationProps, ContentNavigationWrapperProps };
+interface LinkProps {
+  $isSidebarVisible: boolean;
+}
+
+export type { ContentNavigationProps, ContentNavigationWrapperProps, LinkProps };

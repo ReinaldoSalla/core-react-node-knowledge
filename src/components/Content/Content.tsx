@@ -47,7 +47,7 @@ const useIntersectionObserver = (
   return isIntersecting;
 };
 
-const Content = ({ isSidebarVisible, topRef }) => {
+const Content = ({ isSidebarVisible, topRef, closeSidebar }) => {
   const introDomNode = useRef<HTMLElement>(null!);
   const setupDomNode = useRef<HTMLElement>(null!);
   const jsxDomNode = useRef<HTMLElement>(null!);
@@ -76,7 +76,11 @@ const Content = ({ isSidebarVisible, topRef }) => {
   
   return (
     <main>
-      <ContentWrapper $isSidebarVisible={isSidebarVisible}>
+      <ContentWrapper 
+        style={spring} 
+        $isSidebarVisible={isSidebarVisible}
+        onClick={closeSidebar}  
+      >
         <ContentContainer>
           <ContentSection $isSidebarVisible={isSidebarVisible}>
             <ContentCore 
@@ -87,6 +91,7 @@ const Content = ({ isSidebarVisible, topRef }) => {
               useStateDomNode={useStateDomNode}
               useReducerDomNode={useReducerDomNode}
               finalCodeDomNode={finalCodeDomNode}
+              isSidebarVisible={isSidebarVisible}
             />
           </ContentSection>
           <ContentNavigation 

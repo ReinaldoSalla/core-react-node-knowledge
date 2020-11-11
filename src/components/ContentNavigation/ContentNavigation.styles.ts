@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { animated } from 'react-spring';
+import { LinkProps } from './ContentNavigation.types';
 
 interface Unknown {
   [key: string]: any;
@@ -49,11 +50,12 @@ const ContentNavigationWrapper = styled.aside.attrs<Unknown>(props => {
   }
 `;
 
-const ContentNavigationItem = styled(Link)`
+const ContentNavigationItem = styled(Link)<LinkProps>`
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 32px;
+  pointer-events: ${({ $isSidebarVisible }) => $isSidebarVisible ? 'none' : 'auto'};
 
   &:hover {
     cursor: pointer;
@@ -74,6 +76,11 @@ const ContentNavigationText = styled(animated.span)`
   display: inline-block;
   width: 100px;
   line-height: 0.7;
+  transition: transform 250ms;
+
+  &:hover {
+    transform: translate3d(8px, 0, 0);
+  }
 `;
 
 export {

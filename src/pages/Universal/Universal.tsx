@@ -70,7 +70,11 @@ const Universal = () => {
           />
         </Route>
         <Route path='/rendering'>
-          <ContentPage isSidebarVisible={isSidebarVisible} topRef={topRef} />
+          <ContentPage 
+            isSidebarVisible={isSidebarVisible} 
+            closeSidebar={closeSidebar}
+            topRef={topRef}   
+          />
         </Route>
       </Switch>      
       <Footer 

@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { LinkProps } from './ContentCore.types';
 
 const ContentCoreWrapper = styled.div`
   border: 1px solid transparent;
@@ -19,10 +20,11 @@ const ContentCoreText = styled.p`
   color: ${(props) => props.theme.textColor};
 `;
 
-const ContentCoreLink = styled.a`
+const ContentCoreLink = styled.a<LinkProps>`
   font-weight: 600;
   color: red;
   transition: color 250ms;
+  pointer-events: ${({ $isSidebarVisible }) => $isSidebarVisible ? 'none' : 'auto'};
 
   &:hover {
     color: orange;

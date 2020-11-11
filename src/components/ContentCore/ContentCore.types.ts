@@ -8,6 +8,11 @@ interface ContentCoreProps {
   useStateDomNode: MutableRefObject<HTMLElement>;
   useReducerDomNode: MutableRefObject<HTMLElement>;
   finalCodeDomNode: MutableRefObject<HTMLElement>;
+  isSidebarVisible: boolean;
 }
 
-export type { ContentCoreProps };
+interface LinkProps {
+  $isSidebarVisible: boolean
+}
+
+export type { ContentCoreProps, LinkProps };
