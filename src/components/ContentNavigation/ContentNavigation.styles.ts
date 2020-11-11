@@ -46,7 +46,8 @@ const ContentNavigationWrapper = styled.aside.attrs<Unknown>(props => {
   border: 1px solid transparent;
 
   ${(props) => props.theme.breakpoints.medium} {
-    display: none;
+    display: ${(props) => props.isSidebarVisible ? 'block' : 'none'};
+    opacity: ${(props) => props.isSidebarVisible ? 0 : 1};
   }
 `;
 
