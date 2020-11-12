@@ -22,7 +22,6 @@ const TopbarHomeNormalizer = styled.div`
   height: 32px;
   width: 32px;
   color: white;
-  /* border: 1px solid red; */
 `;
 
 const TopbarHomeSvg = styled(animated(HomeSvg))`

@@ -30,7 +30,6 @@ const TopbarSidebarNormalizer = styled.div`
   width: 32px;
   height: 32px;
   margin-bottom: 8px;
-  /* border: 1px solid red; */
 `;
 
 const TopbarSidebarSvg = styled(animated(SidebarSvg))`

@@ -31,14 +31,13 @@ const TopbarSearchNormalizer = styled(animated.div)`
   width: 32px;
   height: 32px;
   margin-bottom: 8px;
-  /* border: 1px solid red; */
 `;
 
 const TopbarSearchSvg = styled(SearchSvg)`
-  width: 112%;
-  height: 112%;
+  width: 120%;
+  height: 120%;
   color: white;
-  transform: translate3d(-5%, -5%, 0);
+  transform: translate3d(-8%, -8%, 0);
 `;
 
 const TopbarSearchText = styled.span`
