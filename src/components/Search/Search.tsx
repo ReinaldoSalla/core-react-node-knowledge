@@ -5,6 +5,7 @@ import {
   useChain
 } from 'react-spring';
 import { SearchProps } from './Search.types';
+import { getSpring, getTransitions } from './Search.animations';
 import SearchWrapper from './Search.styles';
 import SearchTitle from '../SearchTitle';
 import SearchInput from '../SearchInput';
@@ -24,29 +25,12 @@ const Search: FunctionComponent<SearchProps> = ({
   const springRef: any = useRef();
   const transitionsRef: any = useRef();
 
-  const spring = useSpring({
-    ref: springRef,
-    from: {
-      height: isSearchVisible ? '800px' : '0px'
-    },
-    to: async (next) => {
-      await next({
-        height: isSearchVisible ? '800px' : '0px',
-      });
-    },
-  });
+  const spring = useSpring(getSpring(isSearchVisible, springRef));
 
   const transitions = useTransition(
     isSearchVisible ? indexedComponents : [], 
     item => item.key,
-    {
-      ref: transitionsRef,
-      unique: true,
-      trail: 500 / indexedComponents.length,
-      from: { opacity: 0, transform: 'scale(0.5)', },
-      enter: { opacity: 1, transform: 'scale(1)', },
-      leave: { opacity: 0, transform: 'scale(0.9)', },
-    }
+    getTransitions(isSearchVisible, transitionsRef, indexedComponents.length),
   );
 
   useChain(
