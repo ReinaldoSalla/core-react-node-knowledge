@@ -20,14 +20,27 @@ const TopbarHomeNormalizer = styled.div`
   z-index: 2;
   margin-bottom: 8px;
   height: 32px;
+  /* width: 32px; */
+  /* border: 1px solid red; */
+  font-size: 32px;
+  color: white;
 `;
 
-const TopbarHomeSvg = styled(animated(JavascriptSvg))`
-  width: 40px;
-  height: 40px;
+// const TopbarHomeText = styled(animated(JavascriptSvg))`
+//   width: 40px;
+//   height: 40px;
+//   color: white;
+//   transform: translate(0%, -10%);
+// `;
+
+const TopbarHomeSymbol = styled.div`
+  font-size: 42px;
+  font-weight: 400;
   color: white;
-  transform: translate(0%, -10%);
-`;
+  transform: translate(0, -22%);
+  /* font-family: sans-serif; */
+  /* font-style: italic; */
+`
 
 const TopbarHomeText = styled.span`
   z-index: 2;
@@ -50,7 +63,7 @@ const TopbarHomeFiller = styled(animated.div)`
 export {
   TopbarHomeWrapper,
   TopbarHomeNormalizer,
-  TopbarHomeSvg,
+  TopbarHomeSymbol,
   TopbarHomeText,
   TopbarHomeFiller
 };

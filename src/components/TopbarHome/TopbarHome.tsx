@@ -5,7 +5,7 @@ import { getHoverAnimation } from './TopbarHome.animations';
 import {
   TopbarHomeWrapper,
   TopbarHomeNormalizer,
-  TopbarHomeSvg,
+  TopbarHomeSymbol,
   TopbarHomeText,
   TopbarHomeFiller
 } from './TopbarHome.styles';
@@ -19,9 +19,13 @@ const TopbarHome = () => {
   const handleLeave = () => setIsHovering(false);
   
   const handleClick = () => {
-    pathname === '/'
-      ? window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
-      : window.scrollTo({ top: 0, left: 0 });
+    if (pathname === '/' && window.pageYOffset === 0) {
+      window.location.reload();
+    } else if (pathname === '/') {
+      window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+    } else {
+      window.scrollTo({ top: 0, left: 0 });
+    }
   };
   
   const hoverAnimation = useSpring(getHoverAnimation(isHovering));
@@ -35,10 +39,12 @@ const TopbarHome = () => {
       to='/'
     >
       <TopbarHomeNormalizer>
-        <TopbarHomeSvg />
+        <TopbarHomeSymbol>
+          PR
+        </TopbarHomeSymbol>
       </TopbarHomeNormalizer>
       <TopbarHomeText>
-        Home
+        ProgrTmp
       </TopbarHomeText>
       <TopbarHomeFiller style={hoverAnimation} />
     </TopbarHomeWrapper>

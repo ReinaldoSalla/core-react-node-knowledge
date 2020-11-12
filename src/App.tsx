@@ -3,7 +3,10 @@ import { BrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import { GlobalStyle, globalTheme } from './App.styles';
 import Universal from './pages/Universal';
-import 'fontsource-source-sans-pro';
+import 'fontsource-source-sans-pro/400-normal.css';
+import 'fontsource-source-sans-pro/400-italic.css';
+import 'fontsource-source-sans-pro/600-normal.css';
+
 import './App.css';
 
 const App = () => {
@@ -22,28 +25,25 @@ export default App;
 // import React from 'react';
 // import styled from 'styled-components';
 
-// interface WrapperProps {
-//   isSidebarVisible: boolean;
-// }
-
-// const Wrapper = styled.div<WrapperProps>`
-//   width: 250px;
-//   height: 250px;
-//   background: ${(props) => props.isSidebarVisible ? 'red' : 'black'};
+// const Wrapper = styled.div`
+//   border: 1px solid black;
+//   width: 200px;
+//   height: 200px;
 // `;
 
-// const ComponentLevel2 = ({ isSidebarVisible }) => {
-//   return (
-//     <Wrapper isSidebarVisible={isSidebarVisible} />
-//   );
-// };
+// const Text = styled.span`
+//   /* width: 64px; */
+//   /* height: 64px; */
+//   font-size: 64px;
+//   border: 1px solid black;
+// `;
 
-// const ComponentLevel1 = ({ isSidebarVisible }) => (
-//   <ComponentLevel2 isSidebarVisible={isSidebarVisible}/>
+// export default () => (
+//   <>
+//     <Wrapper>
+//       <svg viewBox="0 0 56 18">
+//         <text x="0" y="15">Fit Me</text>
+//       </svg>
+//     </Wrapper>
+//   </>
 // );
-
-// const App = () => (
-//   <ComponentLevel1 isSidebarVisible={true} />
-// );
-
-// export default App;
