@@ -1,51 +1,18 @@
-import React, { useState, useRef, FunctionComponent } from 'react';
+import React, { useRef, FunctionComponent } from 'react';
 import { 
   useSpring, 
   useTransition, 
-  useChain, 
-  config, 
-  animated
+  useChain
 } from 'react-spring';
 import { SearchProps } from './Search.types';
-import { 
-  SearchWrapper,
-  SearchTitle,
-  SearchInput,
-  SearchInputContainer,
-  SearchExit
-} from './Search.styles';
+import { SearchWrapper } from './Search.styles';
+import SearchTitle from '../SearchTitle';
+import SearchInput from '../SearchInput';
+import SearchExit from '../SearchExit';
 
-const Title = ({ style }) => (
-  <SearchTitle style={style}>Search anything</SearchTitle>
-);
+const components = [SearchTitle, SearchInput, SearchExit];
 
-const Input = ({ style }) => {
-  const [text, setText] = useState('');
-
-  const handleChange = (event) => {
-    setText(event.target.value);
-  };
-
-  return (
-    <SearchInputContainer> 
-      <SearchInput 
-        style={style} 
-        type='text' 
-        placeholder='e.g. GraphQL' 
-        value={text}
-        onChange={handleChange}
-      /> 
-    </SearchInputContainer>
-  );
-};
-
-const Exit = ({ style, toggleSearch }) => (
-  <SearchExit onClick={toggleSearch} style={style}>x</SearchExit>
-);
-
-const rawComponents = [Title, Input, Exit];
-
-const components = rawComponents.map((component, key) => ({
+const indexedComponents = components.map((component, key) => ({
   component,
   key
 }));
@@ -70,12 +37,12 @@ const Search: FunctionComponent<SearchProps> = ({
   });
 
   const transitions = useTransition(
-    isSearchVisible ? components : [], 
+    isSearchVisible ? indexedComponents : [], 
     item => item.key,
     {
       ref: transitionsRef,
       unique: true,
-      trail: 500 / components.length,
+      trail: 500 / indexedComponents.length,
       from: { opacity: 0, transform: 'scale(0.5)', },
       enter: { opacity: 1, transform: 'scale(1)', },
       leave: { opacity: 0, transform: 'scale(0.9)', },
