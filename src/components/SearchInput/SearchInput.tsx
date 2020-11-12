@@ -1,5 +1,11 @@
 import React, { useState } from 'react';
-import { Wrapper, Input } from './SearchInput.styles';
+import { Wrapper, Input, Element, Text } from './SearchInput.styles';
+
+const data = [
+  'React - JSX',
+  'JavaScript - Functions',
+  'Node - Authentication'
+];
 
 const SearchInput = ({ style }) => {
   const [text, setText] = useState('');
@@ -9,15 +15,22 @@ const SearchInput = ({ style }) => {
   };
 
   return (
-    <Wrapper> 
-      <Input 
-        style={style} 
-        type='text' 
-        placeholder='e.g. GraphQL' 
-        value={text}
-        onChange={handleChange}
-      /> 
-    </Wrapper>
+    <>    
+      <Wrapper> 
+        <Input 
+          style={style} 
+          type='text' 
+          placeholder='e.g. GraphQL' 
+          value={text}
+          onChange={handleChange}
+        /> 
+      </Wrapper>
+      <Element>
+        <Text>
+          React - JSX 
+        </Text>
+      </Element>
+    </>
   );
 };
 

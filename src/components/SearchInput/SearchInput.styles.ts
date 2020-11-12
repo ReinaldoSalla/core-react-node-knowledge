@@ -16,4 +16,16 @@ const Input = styled(animated.input)`
   padding: 0 16px;
 `;
 
-export { Wrapper, Input };
+const Element = styled.div`
+  margin: 48px 0;
+  text-align: center;
+`;
+
+const Text = styled.span`
+  font-size: 32px;
+  color: white;
+  text-align: center;
+  border-bottom: 1px solid white;
+`;
+
+export { Wrapper, Input, Element, Text };
