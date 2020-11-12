@@ -35,14 +35,14 @@ const TopbarHome = () => {
       onMouseEnter={handleEnter} 
       onMouseLeave={handleLeave}
       onClick={handleClick}  
-      title='Navigate to the home page'
+      title='Access the home page'
       to='/'
     >
       <TopbarHomeNormalizer>
         <TopbarHomeSvg />
       </TopbarHomeNormalizer>
       <TopbarHomeText>
-        AAA
+        ProgrTmp
       </TopbarHomeText>
       <TopbarHomeFiller style={hoverAnimation} />
     </TopbarHomeWrapper>

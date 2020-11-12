@@ -28,12 +28,13 @@ const TopbarSearch = ({ isSearchVisible, toggleSearch }) => {
       onMouseEnter={handleEnter} 
       onMouseLeave={handleLeave}
       onClick={toggleSearch}  
+      title='Search for contents'
     >
       <TopbarSearchNormalizer style={svgSpring}>
         <TopbarSearchSvg />
       </TopbarSearchNormalizer>
       <TopbarSearchText>
-        AAA
+        Search
       </TopbarSearchText>
       <TopbarSearchFiller style={hoverSpring} />
     </TopbarSearchWrapper>

@@ -35,12 +35,10 @@ const TopbarSearchNormalizer = styled(animated.div)`
 `;
 
 const TopbarSearchSvg = styled(SearchSvg)`
-  /* width: 40px; */
-  /* height: 40px; */
-  /* transform: translate(0, -10%); */
-  width: 100%;
-  height: 100%;
+  width: 112%;
+  height: 112%;
   color: white;
+  transform: translate3d(-5%, -5%, 0);
 `;
 
 const TopbarSearchText = styled.span`

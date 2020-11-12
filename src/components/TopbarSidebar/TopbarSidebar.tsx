@@ -28,12 +28,13 @@ const TopbarSidebar = ({ isSidebarVisible, toggleSidebar }) => {
       onMouseEnter={handleEnter} 
       onMouseLeave={handleLeave}
       onClick={toggleSidebar}  
+      title='Access all contents'
     >
       <TopbarSidebarNormalizer>
         <TopbarSidebarSvg style={svgAnimation} />
       </TopbarSidebarNormalizer>
       <TopbarSidebarText>
-        AAA
+        Contents
       </TopbarSidebarText>
       <TopbarSidebarFiller style={hoverAnimation} />
     </TopbarSidebarWrapper>
