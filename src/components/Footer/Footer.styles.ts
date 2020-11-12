@@ -18,6 +18,10 @@ const FooterContainer = styled(animated.div)`
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
+
+  @media only screen and (max-height: 400px) {
+    display: none;
+  }
 `;
 
 const FooterLink = styled(Link)<FooterLinkProps>`
@@ -30,6 +34,10 @@ const FooterLink = styled(Link)<FooterLinkProps>`
   &:hover {
     color: ${(props) => props.theme.hoverColor};
     border-bottom: 1px solid ${(props) => props.theme.hoverColor};
+  }
+
+  ${(props) => props.theme.breakpoints.small} {
+    font-size: 24px
   }
 `;
 
