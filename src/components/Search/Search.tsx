@@ -5,7 +5,7 @@ import {
   useChain
 } from 'react-spring';
 import { SearchProps } from './Search.types';
-import { SearchWrapper } from './Search.styles';
+import SearchWrapper from './Search.styles';
 import SearchTitle from '../SearchTitle';
 import SearchInput from '../SearchInput';
 import SearchExit from '../SearchExit';
