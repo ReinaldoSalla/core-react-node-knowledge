@@ -5,7 +5,7 @@ import { getHoverAnimation } from './TopbarHome.animations';
 import {
   TopbarHomeWrapper,
   TopbarHomeNormalizer,
-  TopbarHomeSymbol,
+  TopbarHomeSvg,
   TopbarHomeText,
   TopbarHomeFiller
 } from './TopbarHome.styles';
@@ -39,12 +39,10 @@ const TopbarHome = () => {
       to='/'
     >
       <TopbarHomeNormalizer>
-        <TopbarHomeSymbol>
-          PR
-        </TopbarHomeSymbol>
+        <TopbarHomeSvg />
       </TopbarHomeNormalizer>
       <TopbarHomeText>
-        ProgrTmp
+        AAA
       </TopbarHomeText>
       <TopbarHomeFiller style={hoverAnimation} />
     </TopbarHomeWrapper>

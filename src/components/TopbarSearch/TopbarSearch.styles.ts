@@ -27,14 +27,19 @@ const TopbarSearchWrapper = styled.button`
 
 const TopbarSearchNormalizer = styled(animated.div)`
   z-index: 2;
-  margin-bottom: 8px;
   height: 32px;
+  width: 32px;
+  height: 32px;
+  margin-bottom: 8px;
+  /* border: 1px solid red; */
 `;
 
-const TopbarSearchSvg = styled(animated(SearchSvg))`
-  width: 40px;
-  height: 40px;
-  transform: translate(0, -10%);
+const TopbarSearchSvg = styled(SearchSvg)`
+  /* width: 40px; */
+  /* height: 40px; */
+  /* transform: translate(0, -10%); */
+  width: 100%;
+  height: 100%;
   color: white;
 `;
 

@@ -33,7 +33,7 @@ const TopbarSidebar = ({ isSidebarVisible, toggleSidebar }) => {
         <TopbarSidebarSvg style={svgAnimation} />
       </TopbarSidebarNormalizer>
       <TopbarSidebarText>
-        Contents
+        AAA
       </TopbarSidebarText>
       <TopbarSidebarFiller style={hoverAnimation} />
     </TopbarSidebarWrapper>

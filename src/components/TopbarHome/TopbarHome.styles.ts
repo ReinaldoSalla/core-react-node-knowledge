@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { animated } from 'react-spring';
 import { Link } from 'react-router-dom';
-import { ReactComponent as JavascriptSvg } from '../../assets/icons/javascript.svg';
+import { ReactComponent as HomeSvg } from '../../assets/icons/home.svg';
 
 const TopbarHomeWrapper = styled(Link)`
   display: flex;
@@ -20,27 +20,17 @@ const TopbarHomeNormalizer = styled.div`
   z-index: 2;
   margin-bottom: 8px;
   height: 32px;
-  /* width: 32px; */
+  width: 32px;
+  color: white;
   /* border: 1px solid red; */
-  font-size: 32px;
+`;
+
+const TopbarHomeSvg = styled(animated(HomeSvg))`
+  width: 100%;
+  height: 100%;
   color: white;
 `;
 
-// const TopbarHomeText = styled(animated(JavascriptSvg))`
-//   width: 40px;
-//   height: 40px;
-//   color: white;
-//   transform: translate(0%, -10%);
-// `;
-
-const TopbarHomeSymbol = styled.div`
-  font-size: 42px;
-  font-weight: 400;
-  color: white;
-  transform: translate(0, -22%);
-  /* font-family: sans-serif; */
-  /* font-style: italic; */
-`
 
 const TopbarHomeText = styled.span`
   z-index: 2;
@@ -63,7 +53,7 @@ const TopbarHomeFiller = styled(animated.div)`
 export {
   TopbarHomeWrapper,
   TopbarHomeNormalizer,
-  TopbarHomeSymbol,
+  TopbarHomeSvg,
   TopbarHomeText,
   TopbarHomeFiller
 };

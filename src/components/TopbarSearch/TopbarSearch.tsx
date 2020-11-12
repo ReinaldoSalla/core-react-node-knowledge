@@ -33,7 +33,7 @@ const TopbarSearch = ({ isSearchVisible, toggleSearch }) => {
         <TopbarSearchSvg />
       </TopbarSearchNormalizer>
       <TopbarSearchText>
-        Search
+        AAA
       </TopbarSearchText>
       <TopbarSearchFiller style={hoverSpring} />
     </TopbarSearchWrapper>

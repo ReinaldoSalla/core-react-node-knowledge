@@ -23,27 +23,8 @@ const App = () => {
 export default App;
 
 // import React from 'react';
-// import styled from 'styled-components';
-
-// const Wrapper = styled.div`
-//   border: 1px solid black;
-//   width: 200px;
-//   height: 200px;
-// `;
-
-// const Text = styled.span`
-//   /* width: 64px; */
-//   /* height: 64px; */
-//   font-size: 64px;
-//   border: 1px solid black;
-// `;
+// import { ImHome } from 'react-icons/im';
 
 // export default () => (
-//   <>
-//     <Wrapper>
-//       <svg viewBox="0 0 56 18">
-//         <text x="0" y="15">Fit Me</text>
-//       </svg>
-//     </Wrapper>
-//   </>
+//   <ImHome />
 // );
