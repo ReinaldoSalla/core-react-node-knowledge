@@ -1,4 +1,4 @@
-import React, { useRef, FunctionComponent } from 'react';
+import React, { useState, useRef, FunctionComponent } from 'react';
 import { 
   useSpring, 
   useTransition, 
@@ -16,18 +16,28 @@ import {
 } from './Search.styles';
 
 const Title = ({ style }) => (
-  <SearchTitle style={style}>Searh anything</SearchTitle>
+  <SearchTitle style={style}>Search anything</SearchTitle>
 );
 
-const Input = ({ style }) => (
-  <SearchInputContainer> 
-    <SearchInput 
-      style={style} 
-      type='text' 
-      placeholder='e.g. GraphQL' 
-    /> 
-  </SearchInputContainer>
-);
+const Input = ({ style }) => {
+  const [text, setText] = useState('');
+
+  const handleChange = (event) => {
+    setText(event.target.value);
+  };
+
+  return (
+    <SearchInputContainer> 
+      <SearchInput 
+        style={style} 
+        type='text' 
+        placeholder='e.g. GraphQL' 
+        value={text}
+        onChange={handleChange}
+      /> 
+    </SearchInputContainer>
+  );
+};
 
 const Exit = ({ style, toggleSearch }) => (
   <SearchExit onClick={toggleSearch} style={style}>x</SearchExit>
