@@ -1,18 +1,19 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { Link } from 'react-router-dom';
 
-const Text = styled.span`
+const textCSS = css`
   font-size: 32px;
   color: white;
   text-align: center;
 `;
 
+const Text = styled.span`
+  ${textCSS}
+`;
 
 const MatchLink = styled(Link)`
-  font-size: 32px;
-  text-align: center;
+  ${textCSS}
   border-bottom: 1px solid white;
-  color: white;
   transition: color 250ms, border-bottom 250ms;
 
   &:hover {
