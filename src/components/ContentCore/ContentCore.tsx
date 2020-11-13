@@ -206,7 +206,50 @@ setInterval(tick, 1000);
         </ContentCoreText>
       </section>
 
+
+
+
+
+      {/* React - JSX */}
+      <ContentCoreHeading>React - JSX</ContentCoreHeading>
+
+      <section>
+        <ContentCoreTitle>1. Intrwo</ContentCoreTitle>
+        <ContentCoreText>
+          The idea of this guide is to explore JSX by bulding commmon components found on most web aplications, like Navbars, Banners, Lists, Galeries, Footers and more
+        </ContentCoreText>
+      </section>
+
+      <section ref={setupDomNode}>
+        <ContentCoreTitle>2. Setup</ContentCoreTitle>
+        <ContentCoreText>
+          Install the latest recommended version of <ContentCoreLink $isSidebarVisible={isSidebarVisible} href='https://nodejs.org/en/' target='_blank'  rel="noopener noreferrer"> Node.js </ContentCoreLink>
+        </ContentCoreText>
+        <ContentCoreText>
+          To start the project, type in your terminal
+        </ContentCoreText>
+        <ContentCoreContainer>
+          <ContentCoreCommand>
+            $ npx create-react-app reacthub-jsx
+          </ContentCoreCommand>
+          <ContentCoreCommand>
+            $ cd reacthub-jsx
+          </ContentCoreCommand>
+          <ContentCoreCommand>
+            $ npm run start
+          </ContentCoreCommand>
+        </ContentCoreContainer>
+        <ContentCoreText>
+          When <ContentCoreHighlight> npm run start </ContentCoreHighlight>finishes, React will lauch the app in <ContentCoreLink $isSidebarVisible={isSidebarVisible} href='http://localhost:3000' target='_blank' rel="noopener noreferrer">localhost:3000</ContentCoreLink>
+        </ContentCoreText>
+        <ContentCoreText>
+          Inside the src folder ;/
+        </ContentCoreText>
+      </section>
+
+
     </ContentCoreWrapper>
+
   );
 };
 
