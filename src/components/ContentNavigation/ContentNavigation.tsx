@@ -75,7 +75,7 @@ const ContentNavigation: FunctionComponent<ContentNavigationProps> = ({
       }
     }
     goToBlock();
-  }, []);
+  }, [hash, scrollToIntro, scrollToSetup, scrollToJsx, scrollToStyling, scrollToUseState, scrollToUseReducer]);
 
   return (
     <ContentNavigationWrapper>
