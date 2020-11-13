@@ -41,7 +41,6 @@ const Carousel = ({
 
   useEffect(() => {
     const handleNextItem = () => {
-      console.log('should dispatch action');
       dispatch({ type: CONSTANTS.MOVE_TO_NEXT_ITEM });
     };
 
