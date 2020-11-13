@@ -32,8 +32,10 @@ const Home: FunctionComponent<HomeProps> = ({
           return window.scroll(0, 0);      
       }
     }
-    goToBlock();
-  }, [hash, scrollToJavascript, scrollToReact, scrollToNode]);
+    if (hash) {
+      goToBlock();
+    }
+  }, []);
 
   return (
     <Route path='/' exact>
