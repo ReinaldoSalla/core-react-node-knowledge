@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { animated } from 'react-spring';
 
-const Title = styled(animated.span)`
+const Title = styled(animated.label)`
   display: inline-block;
   font-size: 32px;
   text-align: center;

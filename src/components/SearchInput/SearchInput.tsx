@@ -19,6 +19,7 @@ const SearchInput = ({ style, toggleSearch }) => {
           placeholder='e.g. GraphQL' 
           value={text}
           onChange={handleChange}
+          id='search'
         /> 
       </Wrapper>
       <Element style={style}>
