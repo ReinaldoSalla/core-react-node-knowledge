@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Wrapper, Input, Element, Text } from './SearchInput.styles';
 
 const specificTargets = [
@@ -13,22 +14,25 @@ const broadTargets = [
   'Node - 3 tutorials'
 ];
 
-const renderMatch = (text: string): string => {
+const Match = ({ text, toggleSearch }) => {
   const firstMatch = specificTargets.find((target) => {
     const isolatedTarget = target.split(' - ')[0];
     return isolatedTarget.slice(0, text.length).toLowerCase() === text.toLowerCase();
   });
   if (firstMatch) {
-    return firstMatch;
+    return <Link onClick={toggleSearch} to='/rendering'>{firstMatch}</Link>
   }
   const secondMatch = broadTargets.find((target) => {
-    const isolatedTarget = target.split(' - ')[0];
+    const isolatedTarget = target.split('-')[0];
     return isolatedTarget.slice(0, text.length).toLowerCase() === text.toLowerCase();
-  });
-  return secondMatch ? secondMatch : `"${text}" not found`;
-};
+  })
+  if (secondMatch) {
+    return <Link onClick={toggleSearch} to='/'>{secondMatch}</Link>
+  }
+  return <span>"{text}" not found</span>
+}
 
-const SearchInput = ({ style }) => {
+const SearchInput = ({ style, toggleSearch }) => {
   const [text, setText] = useState('');
 
   const handleChange = (event) => {
@@ -46,9 +50,9 @@ const SearchInput = ({ style }) => {
           onChange={handleChange}
         /> 
       </Wrapper>
-      <Element>
+      <Element style={style}>
         <Text>
-          {text ? renderMatch(text) : null}
+          {text ? <Match text={text} toggleSearch={toggleSearch} /> : null}
         </Text>
       </Element>
     </>

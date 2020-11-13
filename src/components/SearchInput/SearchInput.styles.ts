@@ -16,7 +16,7 @@ const Input = styled(animated.input)`
   padding: 0 16px;
 `;
 
-const Element = styled.div`
+const Element = styled(animated.div)`
   margin: 48px 0;
   text-align: center;
 `;
