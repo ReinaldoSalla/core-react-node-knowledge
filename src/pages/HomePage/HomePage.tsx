@@ -29,7 +29,7 @@ const Home: FunctionComponent<HomeProps> = ({
         case '#node':
           return scrollToNode();
         default:
-          return window.scroll(0, 0);      
+          return window.scrollTo(0, 0);      
       }
     }
     if (hash) {

@@ -54,6 +54,14 @@ const ContentNavigation: FunctionComponent<ContentNavigationProps> = ({
   const finalCodeTextAnimation = useSpring(getTextAnimation(isFinalCodeIntersecting, isUseReducerIntersecting));
 
   useEffect(() => {
+    window.onbeforeunload = () => {
+      if (!hash) {
+        window.scroll(0, 0);
+      }
+    }
+  }, [hash]);
+
+  useEffect(() => {
     const goToBlock = () => {
       switch (hash) {
         case '#intro':
@@ -76,7 +84,6 @@ const ContentNavigation: FunctionComponent<ContentNavigationProps> = ({
     }
     goToBlock();
   }, []);
-
 
   return (
     <ContentNavigationWrapper>
