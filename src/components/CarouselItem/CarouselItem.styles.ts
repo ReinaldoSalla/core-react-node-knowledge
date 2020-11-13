@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { animated } from 'react-spring';
+import { Link } from 'react-router-dom';
 import { TextProps } from './CarouselItem.types';
 
 const CarouselItemharedWrapper = styled(animated.div)`
@@ -16,8 +17,9 @@ const CarouselItemWrapper = styled(CarouselItemharedWrapper)`
   padding-bottom: 20px;
 `;
 
-const CarouselItemTitle = styled(animated.h1)<TextProps>`
+const CarouselItemTitle = styled(animated(Link))<TextProps>`
   font-size: 46px;
+  font-weight: 600;
   margin: 0 16px;
   color: white;
   text-align: center;
@@ -36,8 +38,9 @@ const CarouselItemTitle = styled(animated.h1)<TextProps>`
   }
 `;
 
-const CarouselItemDescription = styled(animated.h2)<TextProps>`
+const CarouselItemDescription = styled(animated(Link))<TextProps>`
   font-size: 32px;
+  font-weight: 600;
   margin: 0 16px;
   color: white;
   text-align: center;
@@ -73,7 +76,7 @@ const CarouselItemCheckWrapper = styled(CarouselItemharedWrapper)`
   }
 `;
 
-const CarouselItemCheck = styled(animated.span)<TextProps>`
+const CarouselItemCheck = styled(animated(Link))<TextProps>`
   padding-bottom: 4px;
   font-size: 28px;
   font-weight: 600;

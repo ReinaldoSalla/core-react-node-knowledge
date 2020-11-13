@@ -1,5 +1,6 @@
 import React, { useState, FunctionComponent } from 'react';
 import { useSpring } from 'react-spring';
+import { useLocation } from 'react-router';
 import {
   CarouselItemWrapper,
   CarouselItemTitle,
@@ -41,6 +42,8 @@ const CarouselItem: FunctionComponent<CarouselItemProps> = ({
 }): JSX.Element  => {
   const [isHovering, setIsHovering] = useState(false);
 
+  const { pathname } = useLocation();
+
   const animationProps = useSpring(getCarouselItemProps(isHovering));
 
   const handleMouseEnter = () => setIsHovering(true);
@@ -53,7 +56,7 @@ const CarouselItem: FunctionComponent<CarouselItemProps> = ({
     scrollToReact,
     scrollToNode
   );
-
+  
   return (
     <CarouselItemWrapper style={style}>
       <CarouselItemTitle
@@ -62,6 +65,7 @@ const CarouselItem: FunctionComponent<CarouselItemProps> = ({
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
         $isSidebarVisible={isSidebarVisible}
+        to={`${pathname}#${name}`}
       >
         {title}
       </CarouselItemTitle>
@@ -71,6 +75,7 @@ const CarouselItem: FunctionComponent<CarouselItemProps> = ({
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
         $isSidebarVisible={isSidebarVisible}
+        to={`${pathname}#${name}`}
       >
         {description}
       </CarouselItemDescription>
@@ -81,6 +86,7 @@ const CarouselItem: FunctionComponent<CarouselItemProps> = ({
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
           $isSidebarVisible={isSidebarVisible}
+          to={`${pathname}#${name}`}
         >
           {check}
         </CarouselItemCheck>

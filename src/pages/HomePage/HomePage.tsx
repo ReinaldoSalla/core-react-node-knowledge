@@ -1,5 +1,5 @@
-import React, { FunctionComponent, useRef } from 'react';
-import { Route } from 'react-router-dom';
+import React, { useEffect, useRef, FunctionComponent } from 'react';
+import { Route, useLocation } from 'react-router-dom';
 import HomeProps from './Home.types';
 import Carousel from '../../components/Carousel';
 import Categories from '../../components/Categories';
@@ -12,9 +12,28 @@ const Home: FunctionComponent<HomeProps> = ({
   const javascriptRef = useRef<HTMLElement>(null!);
   const reactRef = useRef<HTMLElement>(null!);
   const nodeRef = useRef<HTMLElement>(null!);
+
   const scrollToJavascript = useScrollToElement(javascriptRef, -100);
   const scrollToReact = useScrollToElement(reactRef, -100);
   const scrollToNode = useScrollToElement(nodeRef, -100);
+
+  const { hash } = useLocation();
+
+  useEffect(() => {
+    const goToBlock = () => {
+      switch (hash) {
+        case '#javascript':
+          return scrollToJavascript();
+        case '#react':
+          return scrollToReact();
+        case '#node':
+          return scrollToNode();
+        default:
+          return window.scroll(0, 0);      
+      }
+    }
+    goToBlock();
+  }, [hash, scrollToJavascript, scrollToReact, scrollToNode]);
 
   return (
     <Route path='/' exact>
