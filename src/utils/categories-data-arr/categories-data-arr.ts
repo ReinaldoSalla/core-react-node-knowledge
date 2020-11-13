@@ -3,8 +3,10 @@ const data = [
     title: 'JavaScript',
     contents: [
       'Functions',
+      'Objects',
       'Loops',
       'Generators',
+      'Closures',
       'Promises',
       'Async Await'
     ]
@@ -12,7 +14,7 @@ const data = [
   {
     title: 'React',
     contents: [
-      'Rendering',
+      'JSX',
       'State',
       'Side Effects',
       'Memoization',
@@ -23,9 +25,9 @@ const data = [
     ]
   },
   {
-    title: 'Node',
+    title: 'Full Stack',
     contents: [
-      'GraphQL',
+      'Relay/GraphQL',
       'FaunaDB',
       'Authentication'
     ]
