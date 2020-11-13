@@ -45,7 +45,7 @@ const useIntersectionObserver = (
   return isIntersecting;
 };
 
-const Content = ({ isSidebarVisible, topRef, closeSidebar }) => {
+const Content = ({ isSidebarVisible, closeSidebar }) => {
   const introDomNode = useRef<HTMLElement>(null!);
   const setupDomNode = useRef<HTMLElement>(null!);
   const jsxDomNode = useRef<HTMLElement>(null!);
@@ -106,7 +106,6 @@ const Content = ({ isSidebarVisible, topRef, closeSidebar }) => {
             scrollToUseReducer={scrollToUseReducer}
             scrollToFinalCode={scrollToFinalCode}
             isSidebarVisible={isSidebarVisible}
-            topRef={topRef}
           />
         </ContentContainer>
       </ContentWrapper>

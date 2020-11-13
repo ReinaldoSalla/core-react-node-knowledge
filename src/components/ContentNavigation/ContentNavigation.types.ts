@@ -14,17 +14,10 @@ interface ContentNavigationProps {
   scrollToUseReducer: () => void;
   scrollToFinalCode: () => void;
   isSidebarVisible: boolean;
-  topRef: any;
 } 
-
-interface ContentNavigationWrapperProps {
-  isSidebarVisible: boolean;
-  isIntersecting: boolean;
-  top: number;
-}
 
 interface LinkProps {
   $isSidebarVisible: boolean;
 }
 
-export type { ContentNavigationProps, ContentNavigationWrapperProps, LinkProps };
+export type { ContentNavigationProps, LinkProps };

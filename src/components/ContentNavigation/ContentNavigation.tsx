@@ -31,8 +31,7 @@ const ContentNavigation: FunctionComponent<ContentNavigationProps> = ({
   scrollToUseState,
   scrollToUseReducer,
   scrollToFinalCode,
-  isSidebarVisible,
-  topRef,
+  isSidebarVisible
 }): JSX.Element => {
 
   const { pathname, hash } = useLocation();
