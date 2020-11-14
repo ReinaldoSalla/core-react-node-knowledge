@@ -220,7 +220,7 @@ setInterval(tick, 1000);
         </ContentCoreText>
       </section>
 
-      <section ref={setupDomNode}>
+      <section>
         <ContentCoreTitle>2. Setup</ContentCoreTitle>
         <ContentCoreText>
           Install the latest recommended version of <ContentCoreLink $isSidebarVisible={isSidebarVisible} href='https://nodejs.org/en/' target='_blank'  rel="noopener noreferrer"> Node.js </ContentCoreLink>
@@ -230,7 +230,7 @@ setInterval(tick, 1000);
         </ContentCoreText>
         <ContentCoreContainer>
           <ContentCoreCommand>
-            $ npx create-react-app reacthub-jsx
+            $ npx create-react-app reacthub-jsx --template typescript
           </ContentCoreCommand>
           <ContentCoreCommand>
             $ cd reacthub-jsx
@@ -244,6 +244,21 @@ setInterval(tick, 1000);
         </ContentCoreText>
         <ContentCoreText>
           Inside the src folder ;/
+        </ContentCoreText>
+      </section>
+
+      <section>
+        <ContentCoreTitle>3. Navbar</ContentCoreTitle>
+        <ContentCoreText>
+          Again inside the src folder, create a folder called components. And inside
+          the components folder, create another folder called Navbar. Finally, inside 
+          the Navbar folder, create 3 files: Navbar.tsx, Navbar.styles.ts and index.ts. 
+          If you are a experienced React developer and rather use another structure for
+          your files, fell free to use it, since React does't put any restraits on how we
+          structure our apps. 
+        </ContentCoreText>
+        <ContentCoreText>
+          
         </ContentCoreText>
       </section>
 

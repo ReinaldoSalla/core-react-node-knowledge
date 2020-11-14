@@ -19,6 +19,7 @@ const data = [
       'Side Effects',
       'Memoization',
       'Lazy Loading',
+      'Intersection Observer',
       'React Router',
       'Styled Components',
       'React Spring'
