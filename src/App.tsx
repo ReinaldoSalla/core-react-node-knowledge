@@ -20,3 +20,21 @@ const App = () => {
 };
 
 export default App;
+
+// import React, { useState, useEffect } from 'react';
+
+// let x;
+
+// const App = () => {
+//   const [state, setState] = useState(null);
+
+//   useEffect(() => {
+//     console.log(state)
+//   }, []);
+
+//   return (
+//     <div onClick={() => {}}>div</div>
+//   );
+// };
+
+// export default App;
