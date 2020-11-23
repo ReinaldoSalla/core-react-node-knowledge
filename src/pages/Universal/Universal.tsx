@@ -2,7 +2,7 @@
 Universal component rendered throughout the whole app.
 */
 
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import Topbar from '../../components/Topbar';
 import Sidebar from '../../components/Sidebar';
@@ -20,16 +20,20 @@ const Universal = () => {
       setIsSearchVisible(false);
     }
     if (!isSidebarVisible) {
-      document.body.style.overflow = 'hidden';
-      document.body.style.paddingRight = '17px';
+      document.body.style.overflowY = 'hidden';
+      document.body.style.width = 'calc(100% - 17px)';
     } else {
-      document.body.style.overflow = 'auto';
-      document.body.style.paddingRight = '0';
+      document.body.style.overflowY = 'auto';
+      document.body.style.width = '100%';
     }
     setIsSidebarVisible(!isSidebarVisible);
   };
 
-  const closeSidebar = () => setIsSidebarVisible(false);
+  const closeSidebar = () => {
+    document.body.style.overflowY = 'auto';
+    document.body.style.width = '100%';
+    setIsSidebarVisible(false);
+  }
 
   const toggleSearch = () => {
     if (isSidebarVisible) {

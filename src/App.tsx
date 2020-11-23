@@ -20,3 +20,15 @@ const App = () => {
 };
 
 export default App;
+
+// import React from 'react';
+
+// export default () => {
+//   document.body.style.paddingRight = '500px';
+//   return (
+//     <div style={{
+//       height: '100px',
+//       border: '1px solid black'
+//     }}/>
+//   );
+// };
