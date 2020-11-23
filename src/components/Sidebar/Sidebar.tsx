@@ -4,14 +4,14 @@ import SidebarWrapper from './Sidebar.styles';
 import { getSpring, getTransitions } from './Sidebar.animations';
 import SidebarTopic from '../SidebarTopic';
 import SidebarExit from '../SidebarExit';
-import data from '../../utils/categories-data-arr';
+import contents from '../../constants/contents';
 
-const partialComponents = data.map(({ title, contents }) => (
+const partialComponents = contents.map(({ title, subcontents }) => (
   ({ style }) => (
     <SidebarTopic 
       style={style}
       title={title}
-      contents={contents}
+      subcontents={subcontents}
     />
   )
 ));

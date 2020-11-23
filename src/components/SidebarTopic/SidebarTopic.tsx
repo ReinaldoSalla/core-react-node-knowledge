@@ -7,13 +7,13 @@ import {
   Text
 } from './SidebarTopic.styles';
 
-const SidebarTopics = ({ style, title, contents }) => (
+const SidebarTopics = ({ style, title, subcontents }) => (
   <Wrapper style={style}>
     <Title>{title}</Title>
     <Topics>
-      {contents.map((content, index) => (
+      {subcontents.map((subcontent, index) => (
         <Topic key={index}>
-          <Text>{content}</Text>
+          <Text>{subcontent}</Text>
         </Topic>
       ))}
     </Topics>
