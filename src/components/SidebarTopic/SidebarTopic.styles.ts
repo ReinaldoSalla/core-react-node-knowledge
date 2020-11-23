@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { animated } from 'react-spring';
 
 const Wrapper = styled(animated.section)`
-  margin: 0 0 0 24px;
+  margin: 0 0 0 2rem;
 `;
 
 const Title = styled.h2`
