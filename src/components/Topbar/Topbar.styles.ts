@@ -1,11 +1,12 @@
 import styled from 'styled-components';
 import { animated } from 'react-spring';
+import { TopbarHeaderProps } from './Topbar.types';
 
-const TopbarHeader = styled.header`
+const TopbarHeader = styled.header<TopbarHeaderProps>`
   position: fixed;
   top: 0;
   z-index: 2;
-  width: 100%;
+  width: ${({ $isSidebarVisible }) => $isSidebarVisible ? 'calc(100% - 17px)' : '100%'};
   height: ${(props) => props.theme.topbarHeight};
 `;
 

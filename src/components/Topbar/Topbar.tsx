@@ -26,7 +26,7 @@ const Topbar: FunctionComponent<TopbarProps> = ({
   ));
 
   return (
-    <TopbarHeader>
+    <TopbarHeader $isSidebarVisible={isSidebarVisible}>
       <TopbarNav>
         <TopbarHome />
         <TopbarSidebar 

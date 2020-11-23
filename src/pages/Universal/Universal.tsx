@@ -14,11 +14,17 @@ import Footer from '../../components/Footer';
 const Universal = () => {
   const [isSidebarVisible, setIsSidebarVisible] = useState(false);
   const [isSearchVisible, setIsSearchVisible] = useState(false);
-  const topRef: any = useRef();
 
   const toggleSidebar = () => {
     if (isSearchVisible) {
       setIsSearchVisible(false);
+    }
+    if (!isSidebarVisible) {
+      document.body.style.overflow = 'hidden';
+      document.body.style.paddingRight = '17px';
+    } else {
+      document.body.style.overflow = 'auto';
+      document.body.style.paddingRight = '0';
     }
     setIsSidebarVisible(!isSidebarVisible);
   };

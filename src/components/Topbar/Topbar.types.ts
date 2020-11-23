@@ -5,4 +5,8 @@ interface TopbarProps {
   toggleSearch: () => void;
 }
 
-export type { TopbarProps };
+interface TopbarHeaderProps {
+  $isSidebarVisible: boolean;
+}
+
+export type { TopbarProps, TopbarHeaderProps };
