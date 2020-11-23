@@ -6,7 +6,11 @@ const TopbarHeader = styled.header<TopbarHeaderProps>`
   position: fixed;
   top: 0;
   z-index: 2;
-  width: ${({ $isSidebarVisible }) => $isSidebarVisible ? 'calc(100% - 17px)' : '100%'};
+  width: ${({ $isSidebarVisible, $isDeviceMobileOrTablet }) => (
+    $isSidebarVisible && !$isDeviceMobileOrTablet 
+      ? 'calc(100% - 17px)' 
+      : '100%'
+  )};
   height: ${(props) => props.theme.topbarHeight};
 `;
 

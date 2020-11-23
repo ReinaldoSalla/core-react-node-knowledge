@@ -16,7 +16,8 @@ const Topbar: FunctionComponent<TopbarProps> = ({
   isSidebarVisible,
   isSearchVisible,
   toggleSidebar,
-  toggleSearch
+  toggleSearch,
+  isDeviceMobileOrTablet
 }): JSX.Element => {
   const isInTop = useIsInTop(50);
 
@@ -26,7 +27,10 @@ const Topbar: FunctionComponent<TopbarProps> = ({
   ));
 
   return (
-    <TopbarHeader $isSidebarVisible={isSidebarVisible}>
+    <TopbarHeader 
+      $isSidebarVisible={isSidebarVisible}
+      $isDeviceMobileOrTablet={isDeviceMobileOrTablet}  
+    >
       <TopbarNav>
         <TopbarHome />
         <TopbarSidebar 

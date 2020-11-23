@@ -1,6 +1,4 @@
-/*
-Universal component rendered throughout the whole app.
-*/
+// Universal component rendered throughout the whole app.
 
 import React, { useState } from 'react';
 import { Switch, Route } from 'react-router-dom';
@@ -10,6 +8,9 @@ import Search from '../../components/Search';
 import HomePage from '../../pages/HomePage';
 import ContentPage from '../../pages/ContentPage';
 import Footer from '../../components/Footer';
+import isMobileOrTablet from '../../utils/isMobileOrTablet';
+
+const isDeviceMobileOrTablet = isMobileOrTablet(navigator.userAgent);
 
 const Universal = () => {
   const [isSidebarVisible, setIsSidebarVisible] = useState(false);
@@ -21,7 +22,9 @@ const Universal = () => {
     }
     if (!isSidebarVisible) {
       document.body.style.overflowY = 'hidden';
-      document.body.style.width = 'calc(100% - 17px)';
+      if (!isDeviceMobileOrTablet) {
+        document.body.style.width = 'calc(100% - 17px)';
+      }
     } else {
       document.body.style.overflowY = 'auto';
       document.body.style.width = '100%';
@@ -49,6 +52,7 @@ const Universal = () => {
         isSearchVisible={isSearchVisible}
         toggleSidebar={toggleSidebar}
         toggleSearch={toggleSearch}
+        isDeviceMobileOrTablet={isDeviceMobileOrTablet}
       />
       <Sidebar 
         isSidebarVisible={isSidebarVisible}
