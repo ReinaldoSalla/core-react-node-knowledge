@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { Wrapper, Input, Element, Text } from './SearchInput.styles';
+import { Wrapper, Input, Element } from './SearchInput.styles';
 import SearchInputMatch from '../SearchInputMatch';
 
 const SearchInput = ({ style, toggleSearch }) => {
@@ -23,6 +22,7 @@ const SearchInput = ({ style, toggleSearch }) => {
         /> 
       </Wrapper>
       <Element style={style}>
+        {/* {text ? <SearchInputMatch text={text} toggleSearch={toggleSearch} /> : <div style={{height: 'calc(59vh - 80px)'}}></div>} */}
         {text ? <SearchInputMatch text={text} toggleSearch={toggleSearch} /> : null}
       </Element>
     </>

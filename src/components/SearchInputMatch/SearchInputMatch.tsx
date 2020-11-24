@@ -17,7 +17,16 @@ const SearchInputMatch = ({ text, toggleSearch }) => {
   if (secondMatch) {
     return <MatchLink onClick={toggleSearch} to='/'>{secondMatch}</MatchLink>
   }
-  return <Text>"{text}" not found</Text>
+  // return <Text>"{text}" not found</Text>
+  return (
+    <div style={{
+      height: '1000px',
+      border: '1px solid yellow'
+    }}>
+
+    </div>
+  )
 }
 
 export default SearchInputMatch;
+
