@@ -3,4 +3,8 @@ interface SearchProps {
   toggleSearch: () => void;
 }
 
-export type { SearchProps };
+interface SearchWrapperProps {
+  $scroll: boolean;
+}
+
+export type { SearchProps, SearchWrapperProps };

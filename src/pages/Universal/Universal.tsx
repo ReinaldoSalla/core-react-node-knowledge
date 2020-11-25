@@ -42,6 +42,15 @@ const Universal = () => {
     if (isSidebarVisible) {
       setIsSidebarVisible(false);
     }
+    if (!isSearchVisible) {
+      document.body.style.overflowY = 'hidden';
+      if (!isDeviceMobileOrTablet) {
+        document.body.style.width = 'calc(100% - 17x)';
+      }
+    } else {
+      document.body.style.overflowY = 'auto';
+      document.body.style.width = '100%';
+    }
     setIsSearchVisible(!isSearchVisible);  
   }
 

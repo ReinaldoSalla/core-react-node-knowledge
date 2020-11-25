@@ -1,4 +1,4 @@
-import React, { useRef, FunctionComponent } from 'react';
+import React, { useState, useRef, FunctionComponent } from 'react';
 import { 
   useSpring, 
   useTransition, 
@@ -22,6 +22,7 @@ const Search: FunctionComponent<SearchProps> = ({
   isSearchVisible,
   toggleSearch
 }): JSX.Element => {
+  const [text, setText] = useState('');
   const springRef: any = useRef();
   const transitionsRef: any = useRef();
 
@@ -39,12 +40,17 @@ const Search: FunctionComponent<SearchProps> = ({
   );
 
   return (
-    <SearchWrapper style={spring}>
+    <SearchWrapper 
+      style={spring} 
+      $scroll={text.length > 0}
+    >
       {transitions.map(({ item, key, props }) => (
         <item.component 
           style={props} 
           key={key} 
           toggleSearch={toggleSearch}
+          text={text}
+          setText={setText}
         />
       ))}
     </SearchWrapper>

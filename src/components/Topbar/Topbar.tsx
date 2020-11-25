@@ -29,7 +29,8 @@ const Topbar: FunctionComponent<TopbarProps> = ({
   return (
     <TopbarHeader 
       $isSidebarVisible={isSidebarVisible}
-      $isDeviceMobileOrTablet={isDeviceMobileOrTablet}  
+      $isSearchVisible={isSearchVisible}
+      $isDeviceMobileOrTablet={isDeviceMobileOrTablet} 
     >
       <TopbarNav>
         <TopbarHome />

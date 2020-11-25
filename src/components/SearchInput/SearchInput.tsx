@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Wrapper, Input, Element } from './SearchInput.styles';
 import SearchInputMatch from '../SearchInputMatch';
 
-const SearchInput = ({ style, toggleSearch }) => {
-  const [text, setText] = useState('');
+const SearchInput = ({ style, toggleSearch, text, setText }) => {
+  // const [text, setText] = useState('');
 
   const handleChange = (event) => {
     setText(event.target.value);

@@ -8,6 +8,7 @@ interface TopbarProps {
 
 interface TopbarHeaderProps {
   $isSidebarVisible: boolean;
+  $isSearchVisible: boolean;
   $isDeviceMobileOrTablet;
 }
 

@@ -1,17 +1,13 @@
 import styled from 'styled-components';
 import { animated } from 'react-spring';
+import { SearchWrapperProps } from './Search.types';
 
-const SearchWrapper = styled(animated.aside)`
+const SearchWrapper = styled(animated.aside)<SearchWrapperProps>`
   position: fixed;
   z-index: 1;
   width: 100%;
-  /* height: 500px; */
-  /* min-height: 500px; */
-  /* height: 250px; */
   background: ${(props) => props.theme.topbarBgColor};
-  /* overflow-y: scroll; */
-  /* overflow-y: hidden; */
-  overflow-y: auto;
+  overflow-y: ${({ $scroll }) => $scroll ? 'scroll' : 'hidden'};
   border: 1px solid green;
 `;
 
