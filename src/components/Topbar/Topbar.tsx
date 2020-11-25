@@ -23,7 +23,8 @@ const Topbar: FunctionComponent<TopbarProps> = ({
 
   const topbarFillerAnimation = useSpring(getTopbarAnimation(
     isInTop,
-    isSidebarVisible
+    isSidebarVisible,
+    isSearchVisible
   ));
 
   return (

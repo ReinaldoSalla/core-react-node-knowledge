@@ -45,7 +45,7 @@ const Universal = () => {
     if (!isSearchVisible) {
       document.body.style.overflowY = 'hidden';
       if (!isDeviceMobileOrTablet) {
-        document.body.style.width = 'calc(100% - 17x)';
+        document.body.style.width = 'calc(100% - 17px)';
       }
     } else {
       document.body.style.overflowY = 'auto';
