@@ -16,10 +16,6 @@ const ContentNavigationWrapper = styled.aside`
   }
 `;
 
-const ContentNavigationItemWrapper = styled.div`
-  /* border: 1px solid yellow; */
-`;
-
 const ContentNavigationItem = styled(Link)<LinkProps>`
   position: relative;
   bottom: 1px;
@@ -66,7 +62,6 @@ const ContentNavigationLine = styled.div`
 
 export {
   ContentNavigationWrapper,
-  ContentNavigationItemWrapper,
   ContentNavigationItem,
   ContentNavigationCircle,
   ContentNavigationText,
