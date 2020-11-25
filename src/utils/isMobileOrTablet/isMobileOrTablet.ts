@@ -8,7 +8,7 @@ const isMobileOrTablet = (userAgent: string): boolean => {
     /BlackBerry/i,
     /Windows Phone/i    
   ];
-  return elements.some((element) => userAgent.match(element))
+  return elements.some((element) => userAgent.match(element));
 };
 
 export default isMobileOrTablet;

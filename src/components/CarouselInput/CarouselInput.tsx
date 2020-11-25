@@ -22,7 +22,7 @@ const CarouselInput: FunctionComponent<CarouselInputProps> = ({
   handleFirstClick,
   handleSecondClick,
   handleThirdClick,
-  isSidebarVisible,
+  isSidebarVisible
 }): JSX.Element => {
   const { width, opacity }: any = useSpring(CarouselTimerAnimation);
 

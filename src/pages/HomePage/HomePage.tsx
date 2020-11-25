@@ -22,20 +22,20 @@ const Home: FunctionComponent<HomeProps> = ({
   useEffect(() => {
     const goToBlock = () => {
       switch (hash) {
-        case '#javascript':
-          return scrollToJavascript();
-        case '#react':
-          return scrollToReact();
-        case '#node':
-          return scrollToNode();
-        default:
-          return window.scrollTo(0, 0);      
+      case '#javascript':
+        return scrollToJavascript();
+      case '#react':
+        return scrollToReact();
+      case '#node':
+        return scrollToNode();
+      default:
+        return window.scrollTo(0, 0);      
       }
-    }
+    };
     if (hash) {
       goToBlock();
     }
-  }, []);
+  }, [hash, scrollToJavascript, scrollToNode, scrollToReact]);
 
   return (
     <Route path='/' exact>

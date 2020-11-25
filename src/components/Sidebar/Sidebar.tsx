@@ -34,8 +34,8 @@ const Sidebar = ({
 
   const transitions = useTransition(
     isSidebarVisible ? indexedComponents : [],
-    item => item.key,
-    getTransitions(isSidebarVisible, transitionsRef),
+    (item) => item.key,
+    getTransitions(isSidebarVisible, transitionsRef)
   );
 
   useChain(

@@ -1,6 +1,6 @@
 import React, { 
   useEffect,
-  FunctionComponent,
+  FunctionComponent
 } from 'react';
 import { useSpring } from 'react-spring';
 import { useLocation } from 'react-router-dom';
@@ -57,32 +57,32 @@ const ContentNavigation: FunctionComponent<ContentNavigationProps> = ({
       if (!hash) {
         window.scroll(0, 0);
       }
-    }
+    };
   }, [hash]);
 
   useEffect(() => {
     const goToBlock = () => {
       switch (hash) {
-        case '#intro':
-          return scrollToIntro();
-        case '#setup':
-          return scrollToSetup();
-        case '#jsx':
-          return scrollToJsx();
-        case '#styling':
-          return scrollToStyling();
-        case '#useState':
-          return scrollToUseState();
-        case '#useReducer':
-          return scrollToUseReducer();
-        case '#final-code':
-          return scrollToFinalCode();
-        default:
-          return window.scroll(0, 0);      
+      case '#intro':
+        return scrollToIntro();
+      case '#setup':
+        return scrollToSetup();
+      case '#jsx':
+        return scrollToJsx();
+      case '#styling':
+        return scrollToStyling();
+      case '#useState':
+        return scrollToUseState();
+      case '#useReducer':
+        return scrollToUseReducer();
+      case '#final-code':
+        return scrollToFinalCode();
+      default:
+        return window.scroll(0, 0);      
       }
-    }
+    };
     goToBlock();
-  }, []);
+  }, [hash, scrollToFinalCode, scrollToIntro, scrollToJsx, scrollToSetup, scrollToStyling, scrollToUseReducer, scrollToUseState]);
 
   return (
     <ContentNavigationWrapper>

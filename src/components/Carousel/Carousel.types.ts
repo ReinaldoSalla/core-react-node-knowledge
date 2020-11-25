@@ -28,11 +28,11 @@ type CarouselAction =
 	| MoveToThirdItem
 
 interface CarouselWrapperProps {
-	disabled: boolean
+	disabled: boolean;
 }
 
 export type {
-	CarouselState,
-	CarouselAction,
-	CarouselWrapperProps
+  CarouselState,
+  CarouselAction,
+  CarouselWrapperProps
 };

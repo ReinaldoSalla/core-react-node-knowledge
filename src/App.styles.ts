@@ -71,7 +71,7 @@ const globalTheme = {
   textColor: 'rgba(255, 255, 255, 0.85)',
   weakerTextColor: 'rgba(255, 255, 255, 0.7)',
   pageBgColor: '#0b0b0b',
-  boxBgColor: '#272727',
+  boxBgColor: '#272727'
 };
 
 export { GlobalStyle, globalTheme };

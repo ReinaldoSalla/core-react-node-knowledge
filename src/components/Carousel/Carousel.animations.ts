@@ -31,7 +31,7 @@ const getspring = (isSidebarVisible) => ({
     await next({ 
       opacity: isSidebarVisible ? 0.5 : 1
     });  
-  },
+  }
 });
 
 export { 

@@ -8,25 +8,26 @@ const SearchInputMatch = ({ text, toggleSearch }) => {
     return isolatedTarget.slice(0, text.length).toLowerCase() === text.toLowerCase();
   });
   if (firstMatch) {
-    return <MatchLink onClick={toggleSearch} to='/rendering'>{firstMatch}</MatchLink>
+    return <MatchLink onClick={toggleSearch} to='/rendering'>{firstMatch}</MatchLink>;
   }
   const secondMatch = CONSTANTS.BROAD_TARGETS.find((target) => {
     const isolatedTarget = target.split('-')[0];
     return isolatedTarget.slice(0, text.length).toLowerCase() === text.toLowerCase();
-  })
+  });
   if (secondMatch) {
-    return <MatchLink onClick={toggleSearch} to='/'>{secondMatch}</MatchLink>
+    return <MatchLink onClick={toggleSearch} to='/'>{secondMatch}</MatchLink>;
   }
   // return <Text>"{text}" not found</Text>
   return (
     <div style={{
       height: '1000px',
       border: '1px solid yellow'
-    }}>
+    }}
+    >
 
     </div>
-  )
-}
+  );
+};
 
 export default SearchInputMatch;
 

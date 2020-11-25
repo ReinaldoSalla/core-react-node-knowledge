@@ -9,7 +9,7 @@ const getSpring = (isSidebarVisible) => ({
     await next({
       opacity: isSidebarVisible ? 0.5 : 1
     });
-  },
+  }
 });
 
 export { getSpring };

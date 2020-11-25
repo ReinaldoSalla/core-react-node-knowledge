@@ -16,7 +16,7 @@ import useScrollToElement from '../../hooks/useScrollToElement';
 
 const useIntersectionObserver = (
   domNode: MutableRefObject<HTMLElement>, 
-  rootMargin: string = '-200px'
+  rootMargin = '-200px'
 ) => {
   const [isIntersecting, setIntersecting] = useState(false);
   const observerRef = useRef<IntersectionObserver | null>(null);
@@ -40,7 +40,7 @@ const useIntersectionObserver = (
       observer.observe(localDomNode);
       return () => observer.unobserve(localDomNode);
     }
-  }, [domNode]);
+  }, [domNode, rootMargin]);
 
   return isIntersecting;
 };

@@ -18,14 +18,14 @@ const getWhichElement = (
   scrollToNode
 ) => {
   switch (name) {
-    case 'javascript':
-      return scrollToJavascript;
-    case 'react':
-      return scrollToReact;
-    case 'node':
-      return scrollToNode;
-    default:
-      throw new Error(`Name ${name} is undefined`);
+  case 'javascript':
+    return scrollToJavascript;
+  case 'react':
+    return scrollToReact;
+  case 'node':
+    return scrollToNode;
+  default:
+    throw new Error(`Name ${name} is undefined`);
   }
 };
 

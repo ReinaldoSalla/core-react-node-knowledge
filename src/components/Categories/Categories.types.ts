@@ -1,5 +1,5 @@
 interface CategoriesWrapperProps {
-  disabled: boolean
+  disabled: boolean;
 }
 
 export type { CategoriesWrapperProps };

@@ -13,9 +13,9 @@ const getSvgAnimation = (isSidebarVisible) => ({
   from: { transform: 'rotate(0deg)' },
   to: async (next) => {
     await next({
-      transform: isSidebarVisible ? 'rotate(180deg)' : 'rotate(0deg)',
+      transform: isSidebarVisible ? 'rotate(180deg)' : 'rotate(0deg)'
     });
-  },
+  }
 });
 
 export { getHoverAnimation, getSvgAnimation };

@@ -8,7 +8,7 @@ const getCircleAnimation = (
 
 const getTextAnimation = (
   currFlag: boolean, 
-  prevFlag: boolean | null = null,
+  prevFlag: boolean | null = null
 ) => ({
   color: currFlag && !prevFlag ? 'red' : 'white'
 });

@@ -9,9 +9,9 @@ const components = markup.map(({ name, title, description, check }) => (
       name={name}
       title={title}
       description={description}
-			check={check}
-			scrollToJavascript={scrollToJavascript}
-			scrollToReact={scrollToReact}
+      check={check}
+      scrollToJavascript={scrollToJavascript}
+      scrollToReact={scrollToReact}
       scrollToNode={scrollToNode}
       isSidebarVisible={isSidebarVisible}
     />

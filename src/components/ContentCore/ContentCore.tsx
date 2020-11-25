@@ -79,8 +79,8 @@ const ContentCore: FunctionComponent<ContentCoreProps> = ({
           For each IntersectionObserverEntry in the list entries, we look to see if the entry's intersectionRatio is going up; if it is, we set the target's background-color to the string in increasingColor (remember, it's "rgba(40, 40, 190, ratio)"), replaces the word "ratio" with the entry's intersectionRatio. The result: not only does the color get changed, but the transparency of the target element changes, too; as the intersection ratio goes down, the background color's alpha value goes down with it, resulting in an element that's more transparent.
         </ContentCoreText>
         <pre className="language-javascript">
-        <code className="language-javascript" style={{ whiteSpace: 'pre-wrap'}}>
-{`
+          <code className="language-javascript" style={{ whiteSpace: 'pre-wrap' }}>
+            {`
 onSubmit(e) {
   e.preventDefault();
   const job = {
@@ -89,11 +89,11 @@ onSubmit(e) {
   };
 }
 `}
-        </code>
-      </pre>
-      <pre className="language-jsx">
-        <code className="language-jsx"style={{ whiteSpace: 'pre-wrap'}}>
-{`
+          </code>
+        </pre>
+        <pre className="language-jsx">
+          <code className="language-jsx"style={{ whiteSpace: 'pre-wrap' }}>
+            {`
 function tick() {
   const element = (
     <div>
@@ -108,8 +108,8 @@ function tick() {
 }
 setInterval(tick, 1000);
 `}
-        </code>
-      </pre>
+          </code>
+        </pre>
       </section>
       <section ref={jsxDomNode}>
         <ContentCoreTitle>3. JSX</ContentCoreTitle>

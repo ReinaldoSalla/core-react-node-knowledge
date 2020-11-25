@@ -12,11 +12,11 @@ import isMobileOrTablet from '../../utils/isMobileOrTablet';
 
 const isDeviceMobileOrTablet = isMobileOrTablet(navigator.userAgent);
 
-const Universal = () => {
+const Universal = (): JSX.Element => {
   const [isSidebarVisible, setIsSidebarVisible] = useState(false);
   const [isSearchVisible, setIsSearchVisible] = useState(false);
 
-  const toggleSidebar = () => {
+  const toggleSidebar = (): void => {
     if (isSearchVisible) {
       setIsSearchVisible(false);
     }
@@ -32,13 +32,13 @@ const Universal = () => {
     setIsSidebarVisible(!isSidebarVisible);
   };
 
-  const closeSidebar = () => {
+  const closeSidebar = (): void => {
     document.body.style.overflowY = 'auto';
     document.body.style.width = '100%';
     setIsSidebarVisible(false);
-  }
+  };
 
-  const toggleSearch = () => {
+  const toggleSearch = (): void => {
     if (isSidebarVisible) {
       setIsSidebarVisible(false);
     }
@@ -52,7 +52,7 @@ const Universal = () => {
       document.body.style.width = '100%';
     }
     setIsSearchVisible(!isSearchVisible);  
-  }
+  };
 
   return (
     <>

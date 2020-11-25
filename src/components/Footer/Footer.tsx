@@ -20,7 +20,7 @@ const Footer = ({
       await next({
         opacity: isSidebarVisible ? 0.2 : 1
       });
-    },
+    }
   });
   return (
     <FooterWrapper>

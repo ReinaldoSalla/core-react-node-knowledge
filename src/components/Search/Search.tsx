@@ -30,8 +30,8 @@ const Search: FunctionComponent<SearchProps> = ({
 
   const transitions = useTransition(
     isSearchVisible ? indexedComponents : [], 
-    item => item.key,
-    getTransitions(isSearchVisible, transitionsRef, indexedComponents.length),
+    (item) => item.key,
+    getTransitions(isSearchVisible, transitionsRef, indexedComponents.length)
   );
 
   useChain(

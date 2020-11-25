@@ -53,5 +53,5 @@ export {
   ContentNavigationWrapper,
   ContentNavigationItem,
   ContentNavigationCircle,
-  ContentNavigationText,
+  ContentNavigationText
 };

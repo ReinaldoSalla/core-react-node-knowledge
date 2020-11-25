@@ -100,4 +100,4 @@ export {
   CarouselItemDescription,
   CarouselItemCheckWrapper,
   CarouselItemCheck
-}
+};

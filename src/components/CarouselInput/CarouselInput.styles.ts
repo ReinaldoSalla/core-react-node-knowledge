@@ -58,7 +58,7 @@ const CarouselInputInner = styled(animated.div)`
   ${(props) => props.theme.breakpoints.small} {
     height: 24px;
   }
-`
+`;
 
 const CarouselInputTimer = styled.div<CarouselInputWrapperProps>`
   margin-top: 8px;

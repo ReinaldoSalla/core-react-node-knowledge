@@ -1,5 +1,5 @@
 interface FooterTextProps {
-  italic?: boolean
+  italic?: boolean;
 }
 
 interface FooterLinkProps {

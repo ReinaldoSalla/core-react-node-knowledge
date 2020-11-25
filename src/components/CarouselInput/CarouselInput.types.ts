@@ -10,4 +10,4 @@ interface CarouselInputWrapperProps {
   $isSidebarVisible: boolean;
 }
 
-export type {CarouselInputProps, CarouselInputWrapperProps};
+export type { CarouselInputProps, CarouselInputWrapperProps };

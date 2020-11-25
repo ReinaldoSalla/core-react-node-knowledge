@@ -10,14 +10,14 @@ const CarouselTimerAnimation = {
 };
 
 const getTextProps = (currentIndex: number, targetIndex: number): any => ({
-	config: { duration: 2000 },
-	color: currentIndex === targetIndex ? 'black' : 'white',
+  config: { duration: 2000 },
+  color: currentIndex === targetIndex ? 'black' : 'white'
 });
 
 const getInnerProps = (currentIndex: number, targetIndex: number): any => ({
-	config: { duration: 2000 },
-	background: currentIndex === targetIndex ? 'white' : 'rgba(0, 0, 0, 0)',
-	width: currentIndex === targetIndex ? '100%' : '0%',
+  config: { duration: 2000 },
+  background: currentIndex === targetIndex ? 'white' : 'rgba(0, 0, 0, 0)',
+  width: currentIndex === targetIndex ? '100%' : '0%'
 });
 
 export { 

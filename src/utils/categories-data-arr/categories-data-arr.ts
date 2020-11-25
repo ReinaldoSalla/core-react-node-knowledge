@@ -32,7 +32,7 @@ const data = [
       'FaunaDB',
       'Authentication'
     ]
-  },
+  }
 ];
 
 export default data;

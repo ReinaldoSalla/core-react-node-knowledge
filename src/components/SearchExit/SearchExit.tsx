@@ -10,7 +10,7 @@ const SearchExit = ({ style, toggleSearch, setText }) => {
 
   return (
     <Exit onClick={handleClick} style={style}>x</Exit>
-  )
+  );
 };
 
 export default SearchExit;

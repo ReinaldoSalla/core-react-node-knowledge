@@ -25,7 +25,7 @@ const TopbarNav = styled.nav`
 `;
 
 interface TopbarFillerProps {
-  isInTop?: boolean
+  isInTop?: boolean;
 }
 
 const TopbarFiller = styled(animated.div)<TopbarFillerProps>`

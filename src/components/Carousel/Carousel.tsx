@@ -32,7 +32,7 @@ const Carousel = ({
   };
 
   const handleSecondClick = () => {
-    dispatch({ type: CONSTANTS.MOVE_TO_SECOND_ITEM});
+    dispatch({ type: CONSTANTS.MOVE_TO_SECOND_ITEM });
   };
 
   const handleThirdClick = () => {
@@ -63,16 +63,16 @@ const Carousel = ({
       >
         {transitions.map(({ item, props, key }) => {
           const Component = components[item];
-            return (
-              <Component 
-                key={key}
-                style={props}
-                scrollToJavascript={scrollToJavascript}
-                scrollToReact={scrollToReact}
-                scrollToNode={scrollToNode}
-                isSidebarVisible={isSidebarVisible}
-              />
-            );
+          return (
+            <Component 
+              key={key}
+              style={props}
+              scrollToJavascript={scrollToJavascript}
+              scrollToReact={scrollToReact}
+              scrollToNode={scrollToNode}
+              isSidebarVisible={isSidebarVisible}
+            />
+          );
         })}
         <CarouselInput 
           handleFirstClick={handleFirstClick}
