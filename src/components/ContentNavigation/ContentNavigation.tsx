@@ -8,7 +8,8 @@ import {
   ContentNavigationWrapper,
   ContentNavigationItem,
   ContentNavigationCircle,
-  ContentNavigationText
+  ContentNavigationText,
+  ContentNavigationLine
 } from './ContentNavigation.styles';
 import { ContentNavigationProps } from './ContentNavigation.types';
 import { 
@@ -82,80 +83,100 @@ const ContentNavigation: FunctionComponent<ContentNavigationProps> = ({
       }
     };
     goToBlock();
-  }, [hash, scrollToFinalCode, scrollToIntro, scrollToJsx, scrollToSetup, scrollToStyling, scrollToUseReducer, scrollToUseState]);
+  }, []);
 
   return (
     <ContentNavigationWrapper>
-      <ContentNavigationItem
-        to={`${pathname}#intro`}
-        onClick={scrollToIntro}
-        $isSidebarVisible={isSidebarVisible}
-      >
-        <ContentNavigationCircle style={introCircleAnimation} />
-        <ContentNavigationText style={introTextAnimation}>
-          1. Intro
-        </ContentNavigationText>
-      </ContentNavigationItem>
-      <ContentNavigationItem
-        to={`${pathname}#setup`}
-        onClick={scrollToSetup}
-        $isSidebarVisible={isSidebarVisible}
-      >
-        <ContentNavigationCircle style={setupCircleAnimation}/>
-        <ContentNavigationText style={setupTextAnimation}>
-          2. Setup
-        </ContentNavigationText>
-      </ContentNavigationItem>
-      <ContentNavigationItem
-        to={`${pathname}#jsx`}
-        onClick={scrollToJsx}
-        $isSidebarVisible={isSidebarVisible}
-      >
-        <ContentNavigationCircle style={jsxCircleAnimation}/>
-        <ContentNavigationText style={jsxTextAnimation}>
-          3. JSX
-        </ContentNavigationText>
-      </ContentNavigationItem>
-      <ContentNavigationItem
-        to={`${pathname}#styling`}
-        onClick={scrollToStyling}
-        $isSidebarVisible={isSidebarVisible}
-      >
-        <ContentNavigationCircle style={stylingCircleAnimation}/>
-        <ContentNavigationText style={stylingTextAnimation}>
-          4. Styling
-        </ContentNavigationText>
-      </ContentNavigationItem>
-      <ContentNavigationItem
-        to={`${pathname}#useState`}
-        onClick={scrollToUseState}
-        $isSidebarVisible={isSidebarVisible}
-      >
-        <ContentNavigationCircle  style={useStateCircleAnimation}/>
-        <ContentNavigationText style={useStateTextAnimation}>
-          5. useState
-        </ContentNavigationText>
-      </ContentNavigationItem>
-      <ContentNavigationItem
-        to={`${pathname}#useReducer`}
-        onClick={scrollToUseReducer}
-        $isSidebarVisible={isSidebarVisible}
-      >
-        <ContentNavigationCircle style={useReducerCircleAnimation}/>
-        <ContentNavigationText style={useReducerTextAnimation}>
-          6. useReducer
-        </ContentNavigationText>
-      </ContentNavigationItem>
-      <ContentNavigationItem 
-        to={`${pathname}#final-code`} 
-        onClick={scrollToFinalCode}
-        $isSidebarVisible={isSidebarVisible}
-      >
-        <ContentNavigationCircle style={finalCodeCircleAnimation}/>
-        <ContentNavigationText style={finalCodeTextAnimation}>
-          7. Final Code
-        </ContentNavigationText>
-      </ContentNavigationItem>
+      <div>
+        <ContentNavigationItem
+          to={`${pathname}#intro`}
+          onClick={scrollToIntro}
+          $isSidebarVisible={isSidebarVisible}
+        >
+          <ContentNavigationCircle style={introCircleAnimation} />
+          <ContentNavigationText style={introTextAnimation}>
+            1. Intro
+          </ContentNavigationText>
+        </ContentNavigationItem>
+        <ContentNavigationLine />
+      </div>
+      <div>
+        <ContentNavigationItem
+          to={`${pathname}#setup`}
+          onClick={scrollToSetup}
+          $isSidebarVisible={isSidebarVisible}
+        >
+          <ContentNavigationCircle style={setupCircleAnimation}/>
+          <ContentNavigationText style={setupTextAnimation}>
+            2. Setup
+          </ContentNavigationText>
+        </ContentNavigationItem>
+        <ContentNavigationLine />
+      </div>
+      <div>
+        <ContentNavigationItem
+          to={`${pathname}#jsx`}
+          onClick={scrollToJsx}
+          $isSidebarVisible={isSidebarVisible}
+        >
+          <ContentNavigationCircle style={jsxCircleAnimation}/>
+          <ContentNavigationText style={jsxTextAnimation}>
+            3. JSX
+          </ContentNavigationText>
+        </ContentNavigationItem>
+        <ContentNavigationLine />
+      </div>
+      <div>
+        <ContentNavigationItem
+          to={`${pathname}#styling`}
+          onClick={scrollToStyling}
+          $isSidebarVisible={isSidebarVisible}
+        >
+          <ContentNavigationCircle style={stylingCircleAnimation}/>
+          <ContentNavigationText style={stylingTextAnimation}>
+            4. Styling
+          </ContentNavigationText>
+        </ContentNavigationItem>
+        <ContentNavigationLine />
+      </div>
+      <div>
+        <ContentNavigationItem
+          to={`${pathname}#useState`}
+          onClick={scrollToUseState}
+          $isSidebarVisible={isSidebarVisible}
+        >
+          <ContentNavigationCircle  style={useStateCircleAnimation}/>
+          <ContentNavigationText style={useStateTextAnimation}>
+            5. useState
+          </ContentNavigationText>
+        </ContentNavigationItem>
+        <ContentNavigationLine />        
+      </div>
+      <div>
+        <ContentNavigationItem
+          to={`${pathname}#useReducer`}
+          onClick={scrollToUseReducer}
+          $isSidebarVisible={isSidebarVisible}
+        >
+          <ContentNavigationCircle style={useReducerCircleAnimation}/>
+          <ContentNavigationText style={useReducerTextAnimation}>
+            6. useReducer
+          </ContentNavigationText>
+        </ContentNavigationItem>
+        <ContentNavigationLine />
+      </div>
+      <div>
+        <ContentNavigationItem 
+          to={`${pathname}#final-code`} 
+          onClick={scrollToFinalCode}
+          $isSidebarVisible={isSidebarVisible}
+        >
+          <ContentNavigationCircle style={finalCodeCircleAnimation}/>
+          <ContentNavigationText style={finalCodeTextAnimation}>
+            7. Final Code
+          </ContentNavigationText>
+        </ContentNavigationItem>
+      </div>
     </ContentNavigationWrapper>
   );
 };

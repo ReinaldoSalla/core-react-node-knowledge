@@ -16,11 +16,17 @@ const ContentNavigationWrapper = styled.aside`
   }
 `;
 
+const ContentNavigationItemWrapper = styled.div`
+  /* border: 1px solid yellow; */
+`;
+
 const ContentNavigationItem = styled(Link)<LinkProps>`
+  position: relative;
+  bottom: 1px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 32px;
+  /* margin-bottom: 32px; */
   pointer-events: ${({ $isSidebarVisible }) => $isSidebarVisible ? 'none' : 'auto'};
 
   &:hover {
@@ -49,9 +55,20 @@ const ContentNavigationText = styled(animated.span)`
   }
 `;
 
+const ContentNavigationLine = styled.div`
+  position: relative;
+  left: 3.811%;
+  height: 32px;
+  width: 1px;
+  background: rgba(255, 255, 255, 0.8);
+  color: blue;
+`;
+
 export {
   ContentNavigationWrapper,
+  ContentNavigationItemWrapper,
   ContentNavigationItem,
   ContentNavigationCircle,
-  ContentNavigationText
+  ContentNavigationText,
+  ContentNavigationLine
 };

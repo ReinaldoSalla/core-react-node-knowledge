@@ -8,7 +8,6 @@ const SearchWrapper = styled(animated.aside)<SearchWrapperProps>`
   width: 100%;
   background: ${(props) => props.theme.topbarBgColor};
   overflow-y: ${({ $scroll }) => $scroll ? 'scroll' : 'hidden'};
-  border: 1px solid green;
 `;
 
 export default SearchWrapper;
