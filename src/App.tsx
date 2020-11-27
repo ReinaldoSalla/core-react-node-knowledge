@@ -1,21 +1,31 @@
-import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
-import { ThemeProvider } from 'styled-components';
-import 'fontsource-source-sans-pro/400-normal.css';
-import 'fontsource-source-sans-pro/400-italic.css';
-import 'fontsource-source-sans-pro/600-normal.css';
-import { GlobalStyle, globalTheme } from './App.styles';
-import Universal from './pages/Universal';
+import React, { useState } from 'react';
 import './App.css';
 
+let nCalls = 0;
+
 const App = () => {
+  nCalls++;
+  console.log(`call #${nCalls}`);
+  const [isHovering, setIsHovering] = useState(false);
+  const [isTransitionFinished, setIsTransitionFinished] = useState(false);
+  
+  const handleMouseEnter = () => setIsHovering(true);
+
+  const handleMouseLeave = () => setIsHovering(false);
+
   return (
-    <BrowserRouter>
-      <ThemeProvider theme={globalTheme}>
-        <GlobalStyle />
-        <Universal />
-      </ThemeProvider>
-    </BrowserRouter>
+    <div className='app'>
+      <div 
+        className='app__box'
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}  
+      >
+        <div 
+          className={isHovering ? `app__box-filler app__box-filler--activated` : `app__box-filler`}         
+        
+        />
+      </div>
+    </div>
   );
 };
 
