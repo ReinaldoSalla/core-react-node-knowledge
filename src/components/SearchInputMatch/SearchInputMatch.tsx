@@ -31,3 +31,28 @@ const SearchInputMatch = ({ text, toggleSearch }) => {
 
 export default SearchInputMatch;
 
+
+const targets = [
+  'JavaScript - Loops',
+  'JavaScript - Promises',
+  'JavaScript - Async Await',
+  'React - Rendering',
+  'React - State Management',
+  'React - Side Effects',
+  'Full Stack - GraphQL/Relay',
+  'Full Stack - MongoDB',
+  'Full Stack - Authentication Management'
+];
+
+const getMatch = (currentText) => {  
+  return targets.filter(target => {
+    const lowerCaseTarget = target.toLowerCase();
+    const lowerCaseCurrentText = currentText.toLowerCase();
+    const [broadTarget, specificTarget] = lowerCaseTarget.split(' - ');
+    const found = broadTarget.includes(lowerCaseCurrentText);
+    return found ? found : specificTarget.includes(lowerCaseCurrentText);
+  });
+};
+
+// const result = getMatch('manag');
+// console.log(result);
