@@ -5,6 +5,25 @@
     <title>JavaScript</title>
   </head>
   <body>
+    <script type="text/javascript">
+      window.onerror = function(message, source, lineno, colno, error) {
+        document.getElementById("unsupported-fallback").style.display = "block";
+      };
+    </script>      
+    <div
+      id="unsupported-fallback"
+      style="
+        background-color: #02203c;
+        color: white;
+        font-size: 30px;
+        padding: 0 20px;
+        height: 100vh;
+        line-height: 100vh;
+        text-align: center;
+        display: none;
+      ">
+      Unsupported browser. Please try updating your browser.
+    </div>
     <div id="root"></div>
   </body>
 </html>
