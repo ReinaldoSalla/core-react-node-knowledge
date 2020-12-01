@@ -1,4 +1,4 @@
-// Universal component rendered throughout the whole app.
+// Universal component rendered for any url
 
 import React, { useState } from 'react';
 import { Switch, Route } from 'react-router-dom';
