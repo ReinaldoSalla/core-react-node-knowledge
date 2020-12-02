@@ -94,4 +94,3 @@ const Universal = (): JSX.Element => {
 };
 
 export default Universal;
-
