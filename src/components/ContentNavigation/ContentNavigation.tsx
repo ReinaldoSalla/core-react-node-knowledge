@@ -35,7 +35,7 @@ const ContentNavigation: FunctionComponent<ContentNavigationProps> = ({
   isSidebarVisible
 }): JSX.Element => {
 
-  const { pathname, hash } = useLocation();
+  const { pathname } = useLocation();
 
   const introCircleAnimation = useSpring(getCircleAnimation(isIntroIntersecting));
   const setupCircleAnimation = useSpring(getCircleAnimation(isSetupIntersecting, isIntroIntersecting));
@@ -52,38 +52,6 @@ const ContentNavigation: FunctionComponent<ContentNavigationProps> = ({
   const useStateTextAnimation = useSpring(getTextAnimation(isUseStateIntersecting, isStylingIntersecting));
   const useReducerTextAnimation = useSpring(getTextAnimation(isUseReducerIntersecting, isUseStateIntersecting));
   const finalCodeTextAnimation = useSpring(getTextAnimation(isFinalCodeIntersecting, isUseReducerIntersecting));
-
-  useEffect(() => {
-    window.onbeforeunload = () => {
-      if (!hash) {
-        window.scroll(0, 0);
-      }
-    };
-  }, [hash]);
-
-  useEffect(() => {
-    const goToBlock = () => {
-      switch (hash) {
-      case '#intro':
-        return scrollToIntro();
-      case '#setup':
-        return scrollToSetup();
-      case '#jsx':
-        return scrollToJsx();
-      case '#styling':
-        return scrollToStyling();
-      case '#useState':
-        return scrollToUseState();
-      case '#useReducer':
-        return scrollToUseReducer();
-      case '#final-code':
-        return scrollToFinalCode();
-      default:
-        return window.scroll(0, 0);      
-      }
-    };
-    goToBlock();
-  }, []);
 
   return (
     <ContentNavigationWrapper>

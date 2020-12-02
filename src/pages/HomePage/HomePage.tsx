@@ -3,7 +3,7 @@ import { Route, useLocation } from 'react-router-dom';
 import HomeProps from './Home.types';
 import Carousel from '../../components/Carousel';
 import Categories from '../../components/Categories';
-import useScrollToElement from '../../hooks/useScrollToElement';
+import scrollToElement from '../../utils/scrollToElement';
 
 const Home: FunctionComponent<HomeProps> = ({ 
   isSidebarVisible,
@@ -13,29 +13,23 @@ const Home: FunctionComponent<HomeProps> = ({
   const reactRef = useRef<HTMLElement>(null!);
   const nodeRef = useRef<HTMLElement>(null!);
 
-  const scrollToJavascript = useScrollToElement(javascriptRef, -100);
-  const scrollToReact = useScrollToElement(reactRef, -100);
-  const scrollToNode = useScrollToElement(nodeRef, -100);
+  const scrollToJavascript = () => scrollToElement(javascriptRef, -100);
+  const scrollToReact = () => scrollToElement(reactRef, -100);
+  const scrollToNode = () => scrollToElement(nodeRef, -100);
 
   const { hash } = useLocation();
 
   useEffect(() => {
-    const goToBlock = () => {
-      switch (hash) {
-      case '#javascript':
-        return scrollToJavascript();
-      case '#react':
-        return scrollToReact();
-      case '#node':
-        return scrollToNode();
-      default:
-        return window.scrollTo(0, 0);      
-      }
-    };
-    if (hash) {
-      goToBlock();
+    if (hash === '#javascript') {
+      scrollToJavascript();
+    } else if (hash === '#react') {
+      scrollToReact();
+    } else if (hash === '#node') {
+      scrollToNode();
+    } else {
+      window.scrollTo(0, 0);
     }
-  }, [hash, scrollToJavascript, scrollToNode, scrollToReact]);
+  }, [hash]);
 
   return (
     <Route path='/' exact>

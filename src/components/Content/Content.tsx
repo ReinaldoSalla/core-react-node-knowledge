@@ -5,6 +5,7 @@ import React, {
   MutableRefObject 
 } from 'react';
 import { useSpring } from 'react-spring';
+import { useLocation } from 'react-router-dom';
 import {
   ContentWrapper,
   ContentContainer
@@ -12,7 +13,7 @@ import {
 import { getSpring } from './Content.animations';
 import ContentCore from '../ContentCore';
 import ContentNavigation from '../ContentNavigation';
-import useScrollToElement from '../../hooks/useScrollToElement';
+import scrollToElement from '../../utils/scrollToElement';
 
 const useIntersectionObserver = (
   domNode: MutableRefObject<HTMLElement>, 
@@ -53,14 +54,14 @@ const Content = ({ isSidebarVisible, closeSidebar }) => {
   const useStateDomNode = useRef<HTMLElement>(null!);
   const useReducerDomNode = useRef<HTMLElement>(null!);
   const finalCodeDomNode = useRef<HTMLElement>(null!);
-
-  const scrollToIntro = useScrollToElement(introDomNode, -10);
-  const scrollToSetup = useScrollToElement(setupDomNode, -10);
-  const scrollToJsx = useScrollToElement(jsxDomNode, -10);
-  const scrollToStyling = useScrollToElement(stylingDomNode, -10);
-  const scrollToUseState = useScrollToElement(useStateDomNode, -10);
-  const scrollToUseReducer = useScrollToElement(useReducerDomNode, -10);
-  const scrollToFinalCode = useScrollToElement(finalCodeDomNode, -10);
+  
+  const scrollToIntro = () => scrollToElement(introDomNode, -10);
+  const scrollToSetup = () => scrollToElement(setupDomNode, -10);
+  const scrollToJsx = () => scrollToElement(jsxDomNode, -10);
+  const scrollToStyling = () => scrollToElement(stylingDomNode, -10);
+  const scrollToUseState = () => scrollToElement(useStateDomNode, -10);
+  const scrollToUseReducer = () => scrollToElement(useReducerDomNode, -10);
+  const scrollToFinalCode = () => scrollToElement(finalCodeDomNode, -10);
 
   const isIntroIntersecting = useIntersectionObserver(introDomNode, '-100px');
   const isSetupIntersecting = useIntersectionObserver(setupDomNode);
@@ -71,7 +72,37 @@ const Content = ({ isSidebarVisible, closeSidebar }) => {
   const isFinalCodeIntersecting = useIntersectionObserver(finalCodeDomNode);
 
   const spring = useSpring(getSpring(isSidebarVisible));
-  
+
+  const { hash } = useLocation();
+
+  useEffect(() => {
+    window.onbeforeunload = () => {
+      if (!hash) {
+        window.scroll(0, 0);
+      }
+    };
+  }, [hash]);
+
+  useEffect(() => {
+    if (hash === '#intro') {
+      scrollToIntro();
+    } else if (hash === '#setup') {
+      scrollToSetup();
+    } else if (hash === '#jsx') {
+      scrollToJsx();
+    } else if (hash === '#styling') {
+      scrollToStyling();
+    } else if (hash === '#useState') {
+      scrollToUseState();
+    } else if (hash === '#useReducer') {
+      scrollToUseReducer();
+    } else if (hash === '#final-code') {
+      scrollToFinalCode();
+    } else {
+      window.scrollTo(0, 0);
+    }
+  }, [hash]);  
+
   return (
     <main>
       <ContentWrapper 
