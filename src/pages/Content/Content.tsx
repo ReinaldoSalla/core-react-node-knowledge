@@ -11,8 +11,8 @@ import {
   ContentContainer
 } from './Content.styles';
 import { getSpring } from './Content.animations';
-import ContentCore from '../ContentCore';
-import ContentNavigation from '../ContentNavigation';
+import ContentCore from '../../components/ContentCore';
+import ContentNavigation from '../../components/ContentNavigation';
 import scrollToElement from '../../utils/scrollToElement';
 
 const useIntersectionObserver = (

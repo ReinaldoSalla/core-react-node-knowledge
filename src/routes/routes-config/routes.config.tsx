@@ -1,6 +1,6 @@
 import React from 'react';
-import Home from '../../pages/HomePage';
-import Content from '../../pages/ContentPage';
+import Home from '../../pages/Home';
+import Content from '../../pages/Content';
 
 const routesConfig = [
   {

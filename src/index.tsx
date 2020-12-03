@@ -1,7 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
 import 'react-app-polyfill/ie11';
+import 'fontsource-source-sans-pro/400-normal.css';
+import 'fontsource-source-sans-pro/400-italic.css';
+import 'fontsource-source-sans-pro/600-normal.css';
+import App from './App';
+
 
 ReactDOM.render(
   <React.StrictMode>
