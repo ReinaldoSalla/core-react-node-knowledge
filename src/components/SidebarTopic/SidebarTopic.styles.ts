@@ -18,7 +18,7 @@ const Topic = styled.li`
   margin: 8px 0;
 `;
 
-const Text = styled.span`
+const Text = styled.a`
   color: white;
   transition: color 250ms;
 

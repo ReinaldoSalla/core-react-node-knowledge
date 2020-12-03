@@ -23,6 +23,14 @@ const TopbarSidebar = ({ isSidebarVisible, toggleSidebar }) => {
 
   const svgAnimation = useSpring(getSvgAnimation(isSidebarVisible));
 
+  // const onFocus = () => {
+  //   document.title = 'topbarsidebar onFocus detected'
+  // };
+
+  // const onBlur = () => {
+  //   document.title = 'topbarsidebar onblur detected';
+  // };
+
   return (
     <TopbarSidebarWrapper 
       onMouseEnter={handleEnter} 

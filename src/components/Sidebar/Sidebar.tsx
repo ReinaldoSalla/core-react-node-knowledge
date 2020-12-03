@@ -43,8 +43,16 @@ const Sidebar = ({
     [0, isSidebarVisible ? 0.4 : 0.6]
   );
 
+  const onBlur = () => {
+    console.log('Sidebar onBlur');
+  };
+
+  const onFocus = () => {
+    console.log('Sidebar onFocus');
+  };
+
   return (
-    <SidebarWrapper style={spring}>
+    <SidebarWrapper style={spring} onBlur={onBlur} onFocus={onFocus}>
       {transitions.map(({ item, key, props }) => (
         <item.component
           style={props}

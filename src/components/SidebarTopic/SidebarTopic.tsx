@@ -13,7 +13,7 @@ const SidebarTopics = ({ style, title, subcontents }) => (
     <Topics>
       {subcontents.map((subcontent, index) => (
         <Topic key={index}>
-          <Text>{subcontent}</Text>
+          <Text href='/#'>{subcontent}</Text>
         </Topic>
       ))}
     </Topics>

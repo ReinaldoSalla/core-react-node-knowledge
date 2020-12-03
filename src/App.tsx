@@ -59,16 +59,16 @@ const App = (): JSX.Element => {
       <ThemeProvider theme={globalTheme}>
         <GlobalStyle />
           <Topbar 
-          isSidebarVisible={isSidebarVisible}
-          isSearchVisible={isSearchVisible}
-          toggleSidebar={toggleSidebar}
-          toggleSearch={toggleSearch}
-          isDeviceMobileOrTablet={isDeviceMobileOrTablet}
+            isSidebarVisible={isSidebarVisible}
+            isSearchVisible={isSearchVisible}
+            toggleSidebar={toggleSidebar}
+            toggleSearch={toggleSearch}
+            isDeviceMobileOrTablet={isDeviceMobileOrTablet}
         />
-        <Sidebar 
+        {/* <Sidebar 
           isSidebarVisible={isSidebarVisible}
           toggleSidebar={toggleSidebar}
-        />
+        /> */}
         <Search
           isSearchVisible={isSearchVisible}
           toggleSearch={toggleSearch}
@@ -97,3 +97,10 @@ const App = (): JSX.Element => {
 };
 
 export default App;
+
+// import React from 'react';
+
+// export default () => (
+//   <a>link</a>
+//   <a href='/#'
+// )

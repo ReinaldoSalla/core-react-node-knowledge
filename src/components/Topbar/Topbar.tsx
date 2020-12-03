@@ -11,6 +11,7 @@ import {
   TopbarNav,
   TopbarFiller
 } from './Topbar.styles';
+import Sidebar from '../Sidebar';
 
 const Topbar: FunctionComponent<TopbarProps> = ({
   isSidebarVisible,
@@ -36,6 +37,10 @@ const Topbar: FunctionComponent<TopbarProps> = ({
       <TopbarNav>
         <TopbarHome />
         <TopbarSidebar 
+          isSidebarVisible={isSidebarVisible}
+          toggleSidebar={toggleSidebar}
+        />
+        <Sidebar 
           isSidebarVisible={isSidebarVisible}
           toggleSidebar={toggleSidebar}
         />

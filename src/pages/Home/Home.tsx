@@ -20,6 +20,14 @@ const Home: FunctionComponent<HomeProps> = ({
   const { hash } = useLocation();
 
   useEffect(() => {
+    window.onbeforeunload = () => {
+      if (!hash) {
+        window.scroll(0, 0);
+      }
+    };
+  }, [hash]);
+
+  useEffect(() => {
     if (hash === '#javascript') {
       scrollToJavascript();
     } else if (hash === '#react') {

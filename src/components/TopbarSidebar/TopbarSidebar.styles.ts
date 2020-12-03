@@ -15,8 +15,7 @@ const TopbarSidebarWrapper = styled.button`
   }
 
   &:focus {
-    /* outline: 1px solid red;     */
-    outline: none;
+    outline: 1px solid red;     
   }
 
   &:active {

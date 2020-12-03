@@ -11,6 +11,10 @@ const TopbarHomeWrapper = styled(Link)`
   z-index: 2;
   width: 100%;
 
+  &:focus {
+    outline: 1px solid red;    
+  }
+
   &:hover {
     cursor: pointer;
   }
