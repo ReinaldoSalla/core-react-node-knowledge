@@ -57,12 +57,12 @@ const App = (): JSX.Element => {
     <BrowserRouter>
       <ThemeProvider theme={globalTheme}>
         <GlobalStyle />
-          <Topbar 
-            isSidebarVisible={isSidebarVisible}
-            isSearchVisible={isSearchVisible}
-            toggleSidebar={toggleSidebar}
-            toggleSearch={toggleSearch}
-            isDeviceMobileOrTablet={isDeviceMobileOrTablet}
+        <Topbar 
+          isSidebarVisible={isSidebarVisible}
+          isSearchVisible={isSearchVisible}
+          toggleSidebar={toggleSidebar}
+          toggleSearch={toggleSearch}
+          isDeviceMobileOrTablet={isDeviceMobileOrTablet}
         />
         <Search
           isSearchVisible={isSearchVisible}

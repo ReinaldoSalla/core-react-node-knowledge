@@ -29,6 +29,7 @@ const Sidebar = ({
 }) => {
   const springRef: any = useRef();
   const transitionsRef: any = useRef();
+  const timeoutId = useRef<any>(null);
 
   const spring = useSpring(getSpring(isSidebarVisible, springRef));
 
@@ -42,13 +43,15 @@ const Sidebar = ({
     isSidebarVisible ? [springRef, transitionsRef] : [transitionsRef, springRef],
     [0, isSidebarVisible ? 0.4 : 0.6]
   );
-
-  const onBlur = () => {
-    console.log('Sidebar onBlur');
-  };
-
+  
   const onFocus = () => {
-    console.log('Sidebar onFocus');
+    clearTimeout(timeoutId.current);  
+  };
+  
+  const onBlur = () => {
+    timeoutId.current = setTimeout(() => {
+      toggleSidebar();
+    });
   };
 
   return (
