@@ -40,7 +40,7 @@ const Home: FunctionComponent<HomeProps> = ({
   }, [hash]);
 
   return (
-    <Route path='/' exact>
+    <>
       <Carousel 
         scrollToJavascript={scrollToJavascript}
         scrollToReact={scrollToReact}
@@ -55,7 +55,7 @@ const Home: FunctionComponent<HomeProps> = ({
         isSidebarVisible={isSidebarVisible}
         closeSidebar={closeSidebar}
       />
-    </Route>    
+    </>
   );
 };
 
