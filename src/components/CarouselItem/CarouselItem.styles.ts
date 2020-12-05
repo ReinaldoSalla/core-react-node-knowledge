@@ -23,7 +23,6 @@ const CarouselItemTitle = styled(animated(Link))<TextProps>`
   margin: 0 16px;
   color: white;
   text-align: center;
-  pointer-events: ${({ $isSidebarVisible }) => $isSidebarVisible ? 'none' : 'auto'};
 
   ${(props) => props.theme.breakpoints.small} {
     font-size: 38px;
@@ -38,13 +37,12 @@ const CarouselItemTitle = styled(animated(Link))<TextProps>`
   }
 `;
 
-const CarouselItemDescription = styled(animated(Link))<TextProps>`
+const CarouselItemDescription = styled(animated(Link))`
   font-size: 32px;
   font-weight: 600;
   margin: 0 16px;
   color: white;
   text-align: center;
-  pointer-events: ${({ $isSidebarVisible }) => $isSidebarVisible ? 'none' : 'auto'};
 
   ${(props) => props.theme.breakpoints.small} {
     font-size: 28px;

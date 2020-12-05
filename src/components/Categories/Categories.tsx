@@ -13,7 +13,6 @@ const Categories = ({
   reactRef,
   nodeRef,
   isSidebarVisible,
-  closeSidebar
 }) => {
   const spring = useSpring(getSpring(isSidebarVisible));
 
@@ -21,7 +20,6 @@ const Categories = ({
     <main>
       <CategoriesWrapper 
         style={spring} 
-        onClick={closeSidebar}
       >
         <CategoriesBoard
           title={categories.javascript.title}

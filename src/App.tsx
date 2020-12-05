@@ -72,19 +72,16 @@ const App = (): JSX.Element => {
           <Route exact path='/'>
             <Home
               isSidebarVisible={isSidebarVisible} 
-              closeSidebar={closeSidebar}
             />
           </Route>
           <Route path='/rendering'>
             <Content 
               isSidebarVisible={isSidebarVisible} 
-              closeSidebar={closeSidebar}  
             />
           </Route>
         </Switch>      
         <Footer 
           isSidebarVisible={isSidebarVisible} 
-          closeSidebar={closeSidebar}
         />
       </ThemeProvider>
     </BrowserRouter>

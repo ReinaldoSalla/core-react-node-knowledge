@@ -27,12 +27,12 @@ type CarouselAction =
 	| MoveToSecondItem
 	| MoveToThirdItem
 
-interface CarouselWrapperProps {
-	disabled: boolean;
+interface WrapperProps {
+	$isSidebarVisible: boolean;
 }
 
 export type {
   CarouselState,
   CarouselAction,
-  CarouselWrapperProps
+	WrapperProps
 };

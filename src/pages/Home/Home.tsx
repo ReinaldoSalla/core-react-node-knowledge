@@ -7,7 +7,6 @@ import scrollToElement from '../../utils/scrollToElement';
 
 const Home: FunctionComponent<HomeProps> = ({ 
   isSidebarVisible,
-  closeSidebar 
 }): JSX.Element => { 
   const javascriptRef = useRef<HTMLElement>(null!);
   const reactRef = useRef<HTMLElement>(null!);
@@ -46,14 +45,12 @@ const Home: FunctionComponent<HomeProps> = ({
         scrollToReact={scrollToReact}
         scrollToNode={scrollToNode}
         isSidebarVisible={isSidebarVisible}
-        closeSidebar={closeSidebar}
       />
       <Categories 
         javascriptRef={javascriptRef}
         reactRef={reactRef}
         nodeRef={nodeRef}
         isSidebarVisible={isSidebarVisible}
-        closeSidebar={closeSidebar}
       />
     </>
   );

@@ -8,13 +8,14 @@ const FooterWrapper = styled.footer`
   background: var(--bg-color);
 `;
 
-const FooterContainer = styled(animated.div)`
+const FooterContainer = styled(animated.div)<FooterLinkProps>`
   position: relative;
   height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
+  pointer-events: ${({ $isSidebarVisible }) => $isSidebarVisible ? 'none' : 'auto'};
 
   @media only screen and (max-height: 400px) {
     display: none;
@@ -26,7 +27,6 @@ const FooterLink = styled(Link)<FooterLinkProps>`
   color: white;
   border-bottom: 1px solid white;
   transition: color 250ms, border 250ms;
-  pointer-events: ${(props) => props.$isSidebarVisible ? 'none' : 'auto'};
 
   &:hover {
     color: ${(props) => props.theme.hoverColor};

@@ -3,7 +3,7 @@ import markup from './Carousel.markup';
 import CarouselItem from '../CarouselItem';
 
 const components = markup.map(({ name, title, description, check }) => (
-  ({ style, scrollToJavascript, scrollToReact, scrollToNode, isSidebarVisible }) => (
+  ({ style, scrollToJavascript, scrollToReact, scrollToNode }) => (
     <CarouselItem 
       style={style}
       name={name}
@@ -13,7 +13,6 @@ const components = markup.map(({ name, title, description, check }) => (
       scrollToJavascript={scrollToJavascript}
       scrollToReact={scrollToReact}
       scrollToNode={scrollToNode}
-      isSidebarVisible={isSidebarVisible}
     />
   )
 ));

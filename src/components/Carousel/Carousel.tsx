@@ -18,7 +18,6 @@ const Carousel = ({
   scrollToReact,
   scrollToNode,
   isSidebarVisible,
-  closeSidebar
 }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
   const transitions = useTransition(state.index, null, {
@@ -59,7 +58,7 @@ const Carousel = ({
       <CarouselBackground />
       <CarouselWrapper 
         style={spring}
-        onClick={closeSidebar}
+        $isSidebarVisible={isSidebarVisible}
       >
         {transitions.map(({ item, props, key }) => {
           const Component = components[item];
@@ -70,7 +69,6 @@ const Carousel = ({
               scrollToJavascript={scrollToJavascript}
               scrollToReact={scrollToReact}
               scrollToNode={scrollToNode}
-              isSidebarVisible={isSidebarVisible}
             />
           );
         })}
