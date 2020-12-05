@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { animated } from 'react-spring';
 
-const Exit = styled(animated.div)`
+const Exit = styled(animated.button)`
   position: absolute;
   top: calc(100px);
   right: 32px;

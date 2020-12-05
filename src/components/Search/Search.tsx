@@ -25,6 +25,7 @@ const Search: FunctionComponent<SearchProps> = ({
   const [text, setText] = useState('');
   const springRef: any = useRef();
   const transitionsRef: any = useRef();
+  const timeoutId = useRef<any>(null);
 
   const spring = useSpring(getSpring(isSearchVisible, springRef));
 
@@ -39,10 +40,22 @@ const Search: FunctionComponent<SearchProps> = ({
     [0, isSearchVisible ? 0.3 : 0.5]
   );
 
+  const onFocus = () => {
+    clearTimeout(timeoutId.current);
+  };
+
+  const onBlur = () => {
+    timeoutId.current = setTimeout(() => {
+      toggleSearch();
+    });
+  }; 
+
   return (
     <SearchWrapper 
       style={spring} 
       $scroll={text.length > 0}
+      onFocus={onFocus}
+      onBlur={onBlur}
     >
       {transitions.map(({ item, key, props }) => (
         <item.component 

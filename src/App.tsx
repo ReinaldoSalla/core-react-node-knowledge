@@ -32,12 +32,6 @@ const App = (): JSX.Element => {
     setIsSidebarVisible(!isSidebarVisible);
   };
 
-  const closeSidebar = (): void => {
-    document.body.style.overflowY = 'auto';
-    document.body.style.width = '100%';
-    setIsSidebarVisible(false);
-  };
-
   const toggleSearch = (): void => {
     if (isSidebarVisible) {
       setIsSidebarVisible(false);
