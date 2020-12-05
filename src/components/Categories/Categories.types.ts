@@ -1,5 +1,5 @@
-interface CategoriesWrapperProps {
-  disabled: boolean;
+interface WrapperProps {
+  $isSidebarVisible: boolean
 }
 
-export type { CategoriesWrapperProps };
+export type { WrapperProps };

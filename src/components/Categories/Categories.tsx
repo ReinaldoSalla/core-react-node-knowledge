@@ -20,6 +20,7 @@ const Categories = ({
     <main>
       <CategoriesWrapper 
         style={spring} 
+        $isSidebarVisible={isSidebarVisible}
       >
         <CategoriesBoard
           title={categories.javascript.title}

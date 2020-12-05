@@ -74,14 +74,13 @@ const CarouselItemCheckWrapper = styled(CarouselItemharedWrapper)`
   }
 `;
 
-const CarouselItemCheck = styled(animated(Link))<TextProps>`
+const CarouselItemCheck = styled(animated(Link))`
   padding-bottom: 4px;
   font-size: 28px;
   font-weight: 600;
   margin: 0 16px;
   color: white;
   text-align: center;
-  pointer-events: ${({ $isSidebarVisible }) => $isSidebarVisible ? 'none' : 'auto'};
 
   ${(props) => props.theme.breakpoints.small} {
     font-size: 24px;

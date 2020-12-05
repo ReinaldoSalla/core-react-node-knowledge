@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { animated } from 'react-spring';
 import { CarouselInputWrapperProps } from './CarouselInput.types';
 
-const CarouselInputWrapper = styled.div<CarouselInputWrapperProps>`
+const CarouselInputWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -10,7 +10,6 @@ const CarouselInputWrapper = styled.div<CarouselInputWrapperProps>`
   position: absolute;
   bottom: 10px;
   z-index: 0;
-  pointer-events: ${({ $isSidebarVisible }) => $isSidebarVisible ? 'none' : 'auto'};
 `;
 
 const CarouselInputArea = styled.div`
@@ -60,14 +59,13 @@ const CarouselInputInner = styled(animated.div)`
   }
 `;
 
-const CarouselInputTimer = styled.div<CarouselInputWrapperProps>`
+const CarouselInputTimer = styled.div`
   margin-top: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
   height: 20px;
-  opacity: ${({ $isSidebarVisible }) => $isSidebarVisible ? 0 : 1};
 `;
 
 const CarouselInputRow = styled(animated.div)`

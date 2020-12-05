@@ -12,7 +12,6 @@ const CarouselWrapper = styled(animated.section)<WrapperProps>`
   height: 100%;
   overflow: hidden;
   pointer-events: ${({ $isSidebarVisible }) => $isSidebarVisible ? 'none' : 'auto'};
-  /* background: black; */
 `;
 
 export {

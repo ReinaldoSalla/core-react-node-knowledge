@@ -77,7 +77,6 @@ const Carousel = ({
           handleSecondClick={handleSecondClick}
           handleThirdClick={handleThirdClick}
           index={state.index}
-          isSidebarVisible={isSidebarVisible}
         />
       </CarouselWrapper>
     </>

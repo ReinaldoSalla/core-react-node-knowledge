@@ -22,7 +22,6 @@ const CarouselInput: FunctionComponent<CarouselInputProps> = ({
   handleFirstClick,
   handleSecondClick,
   handleThirdClick,
-  isSidebarVisible
 }): JSX.Element => {
   const { width, opacity }: any = useSpring(CarouselTimerAnimation);
 
@@ -39,7 +38,7 @@ const CarouselInput: FunctionComponent<CarouselInputProps> = ({
   const thirdInnerAnimation = useSpring(getInnerProps(index, 2));
 
   return (
-    <CarouselInputWrapper $isSidebarVisible={isSidebarVisible}>
+    <CarouselInputWrapper>
       <CarouselInputArea>
         <CarouselInputButton onClick={handleFirstClick}>
           <CarouselInputText style={firstTextAnimation}>
@@ -60,7 +59,7 @@ const CarouselInput: FunctionComponent<CarouselInputProps> = ({
           <CarouselInputInner style={thirdInnerAnimation} />
         </CarouselInputButton>
       </CarouselInputArea>
-      <CarouselInputTimer $isSidebarVisible={isSidebarVisible}>
+      <CarouselInputTimer>
         <CarouselInputRow 
           style={{
             width: width.interpolate((width) => (
