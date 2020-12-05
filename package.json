@@ -17,6 +17,7 @@
     "react-router-dom": "5.2.0",
     "react-scripts": "3.4.3",
     "react-spring": "8.0.27",
+    "serve": "11.3.2",
     "styled-components": "5.2.0"
   },
   "scripts": {
@@ -24,7 +25,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test --coverage",
     "eject": "react-scripts eject",
-    "lint": "eslint src/**/*.{ts,tsx} --fix"
+    "lint": "eslint src/**/*.{ts,tsx} --fix",
+    "serve": "serve -s build"
   },
   "eslintConfig": {
     "extends": "react-app"
