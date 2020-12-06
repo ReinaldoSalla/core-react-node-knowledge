@@ -12,6 +12,7 @@ import {
   TopbarFiller
 } from './Topbar.styles';
 import Sidebar from '../Sidebar';
+import Search from '../Search';
 
 const Topbar: FunctionComponent<TopbarProps> = ({
   isSidebarVisible,
@@ -45,6 +46,10 @@ const Topbar: FunctionComponent<TopbarProps> = ({
           toggleSidebar={toggleSidebar}
         />
         <TopbarSearch 
+          isSearchVisible={isSearchVisible}
+          toggleSearch={toggleSearch}
+        />
+        <Search
           isSearchVisible={isSearchVisible}
           toggleSearch={toggleSearch}
         />

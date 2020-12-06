@@ -3,7 +3,6 @@ import { ThemeProvider } from 'styled-components';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { GlobalStyle, globalTheme } from './App.styles';
 import Topbar from './components/Topbar';
-import Search from './components/Search';
 import Home from './pages/Home';
 import Content from './pages/Content';
 import Footer from './components/Footer';
@@ -57,10 +56,6 @@ const App = (): JSX.Element => {
           toggleSidebar={toggleSidebar}
           toggleSearch={toggleSearch}
           isDeviceMobileOrTablet={isDeviceMobileOrTablet}
-        />
-        <Search
-          isSearchVisible={isSearchVisible}
-          toggleSearch={toggleSearch}
         />
         <Switch>
           <Route exact path='/'>

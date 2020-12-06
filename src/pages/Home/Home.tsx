@@ -38,6 +38,13 @@ const Home: FunctionComponent<HomeProps> = ({
     }
   }, [hash]);
 
+  const nCalls = useRef<number>(0);
+  
+  useEffect(() => {
+    nCalls.current++;
+    console.log(`Home re-render #${nCalls.current}`);
+  });
+
   return (
     <>
       <Carousel 

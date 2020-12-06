@@ -1,3 +1,4 @@
+import 'core-js';
 import 'react-app-polyfill/ie11';
 import 'fontsource-source-sans-pro/400-normal.css';
 import 'fontsource-source-sans-pro/400-italic.css';
