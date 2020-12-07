@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, FunctionComponent } from 'react';
+import React, { useEffect, useContext, useRef, FunctionComponent } from 'react';
 import { useLocation } from 'react-router-dom';
 import { animated, useSpring } from 'react-spring';
 import { HomeProps } from './Home.types';
@@ -8,13 +8,14 @@ import Categories from '../../components/Categories';
 import scrollToElement from '../../utils/scrollToElement';
 import CarouselBackground from '../../components/CarouselBackground';
 import { getOpacitySpring } from '../../shared/animations';
+import { ModalsState } from '../../shared/context';
 
-const Home: FunctionComponent<HomeProps> = ({ 
-  isSidebarVisible,
-}): JSX.Element => { 
+const Home: FunctionComponent = (): JSX.Element => { 
   const javascriptRef = useRef<HTMLElement>(null!);
   const reactRef = useRef<HTMLElement>(null!);
   const nodeRef = useRef<HTMLElement>(null!);
+
+  const { isSidebarVisible } = useContext(ModalsState);
 
   const scrollToJavascript = () => scrollToElement(javascriptRef, -100);
   const scrollToReact = () => scrollToElement(reactRef, -100);
@@ -41,14 +42,7 @@ const Home: FunctionComponent<HomeProps> = ({
       window.scrollTo(0, 0);
     }
   }, [hash]);
-
-  const nCalls = useRef<number>(0);
   
-  useEffect(() => {
-    nCalls.current++;
-    console.log(`Home re-render #${nCalls.current}`);
-  });
-
   const spring = useSpring(getOpacitySpring(isSidebarVisible));
 
   return (

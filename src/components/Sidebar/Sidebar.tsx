@@ -5,6 +5,7 @@ import { getSpring, getTransitions } from './Sidebar.animations';
 import SidebarTopic from '../SidebarTopic';
 import SidebarExit from '../SidebarExit';
 import contents from '../../constants/contents';
+import { ModalsState } from '../../shared/context';
 import { ModalsDispatch } from '../../shared/context';
 
 const partialComponents = contents.map(({ title, subcontents }) => (
@@ -24,14 +25,23 @@ const indexedComponents = components.map((component, key) => ({
   key
 }));
 
-const Sidebar = ({
-  isSidebarVisible,
-  toggleSidebar
-}) => {
+let nCallsSidebar = 0;
+
+const Sidebar = () => {
   const springRef: any = useRef();
   const transitionsRef: any = useRef();
   const timeoutId = useRef<any>(null);
   const sidebarDomNode = useRef<any>(null);
+
+  const { isSidebarVisible } = useContext(ModalsState);
+
+  const dispatch = useContext(ModalsDispatch);
+
+  const toggleSidebar = () => {
+    nCallsSidebar++;
+    console.log(`nCallsSidebar ${nCallsSidebar}`);
+    dispatch({ type: 'TOGGLE_SIDEBAR' });
+  }
 
   const spring = useSpring(getSpring(isSidebarVisible, springRef));
 
@@ -47,6 +57,7 @@ const Sidebar = ({
   );
 
   const onClickOutside = (event): void => {
+    console.log('onClick outside');
     if (isSidebarVisible && !sidebarDomNode.current.contains(event.target)) {        
       toggleSidebar();
     }

@@ -2,7 +2,8 @@ import React, {
   useState, 
   useEffect, 
   useRef,
-  MutableRefObject 
+  MutableRefObject,
+  useContext
 } from 'react';
 import { useSpring } from 'react-spring';
 import { useLocation } from 'react-router-dom';
@@ -10,11 +11,11 @@ import {
   ContentWrapper,
   ContentContainer
 } from './Content.styles';
-import { getSpring } from './Content.animations';
 import ContentCore from '../../components/ContentCore';
 import ContentNavigation from '../../components/ContentNavigation';
 import scrollToElement from '../../utils/scrollToElement';
 import { getOpacitySpring } from '../../shared/animations';
+import { ModalsState } from '../../shared/context';
 
 const useIntersectionObserver = (
   domNode: MutableRefObject<HTMLElement>, 
@@ -22,6 +23,7 @@ const useIntersectionObserver = (
 ) => {
   const [isIntersecting, setIntersecting] = useState(false);
   const observerRef = useRef<IntersectionObserver | null>(null);
+
   
   useEffect(() => {
     // IntersectionObserver is created lazily once
@@ -47,7 +49,7 @@ const useIntersectionObserver = (
   return isIntersecting;
 };
 
-const Content = ({ isSidebarVisible  }) => {
+const Content = () => {
   const introDomNode = useRef<HTMLElement>(null!);
   const setupDomNode = useRef<HTMLElement>(null!);
   const jsxDomNode = useRef<HTMLElement>(null!);
@@ -63,7 +65,7 @@ const Content = ({ isSidebarVisible  }) => {
   const scrollToUseState = () => scrollToElement(useStateDomNode, -10);
   const scrollToUseReducer = () => scrollToElement(useReducerDomNode, -10);
   const scrollToFinalCode = () => scrollToElement(finalCodeDomNode, -10);
-
+  
   const isIntroIntersecting = useIntersectionObserver(introDomNode, '-100px');
   const isSetupIntersecting = useIntersectionObserver(setupDomNode);
   const isJsxIntersecting = useIntersectionObserver(jsxDomNode);
@@ -71,7 +73,8 @@ const Content = ({ isSidebarVisible  }) => {
   const isUseStateIntersecting = useIntersectionObserver(useStateDomNode);
   const isUseReducerIntersecting = useIntersectionObserver(useReducerDomNode);
   const isFinalCodeIntersecting = useIntersectionObserver(finalCodeDomNode);
-
+  
+  const { isSidebarVisible } = useContext(ModalsState);
   const spring = useSpring(getOpacitySpring(isSidebarVisible));
 
   const { hash } = useLocation();
@@ -103,6 +106,7 @@ const Content = ({ isSidebarVisible  }) => {
       window.scrollTo(0, 0);
     }
   }, [hash]);  
+
 
   return (
     <main>

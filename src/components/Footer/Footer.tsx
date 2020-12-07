@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useSpring, config } from 'react-spring';
 import {
   FooterWrapper,
@@ -6,10 +6,10 @@ import {
   FooterLink,
   FooterText
 } from './Footer.styles';
+import { ModalsState } from '../../shared/context';
 
-const Footer = ({
-  isSidebarVisible,
-}) => {
+const Footer = () => {
+  const { isSidebarVisible } = useContext(ModalsState);
   const spring = useSpring({
     config: config.molasses,
     from: { 

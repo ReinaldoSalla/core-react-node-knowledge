@@ -6,10 +6,10 @@ interface TopbarProps {
   isDeviceMobileOrTablet: boolean;
 }
 
-interface TopbarHeaderProps {
+interface HeaderProps {
   $isSidebarVisible: boolean;
   $isSearchVisible: boolean;
   $isDeviceMobileOrTablet;
 }
 
-export type { TopbarProps, TopbarHeaderProps };
+export type { TopbarProps, HeaderProps };

@@ -1,9 +1,9 @@
 
 import styled from 'styled-components';
 import { animated } from 'react-spring';
-import { TopbarHeaderProps } from './Topbar.types';
+import { HeaderProps } from './Topbar.types';
 
-const TopbarHeader = styled.header<TopbarHeaderProps>`
+const Header = styled.header<HeaderProps>`
   position: fixed;
   top: 0;
   z-index: 2;
@@ -16,7 +16,7 @@ const TopbarHeader = styled.header<TopbarHeaderProps>`
   height: ${(props) => props.theme.topbarHeight};
 `;
 
-const TopbarNav = styled.nav`
+const Nav = styled.nav`
   width: 100%;
   height: ${(props) => props.theme.topbarHeight};
   display: flex;
@@ -35,7 +35,7 @@ const Filler = styled(animated.div)<FillerProps>`
 `;
 
 export {
-  TopbarHeader,
-  TopbarNav,
+  Header,
+  Nav,
   Filler
 };

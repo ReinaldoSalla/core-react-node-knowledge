@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { useSpring } from 'react-spring';
 import { 
   getHoverAnimation,
@@ -11,8 +11,18 @@ import {
   TopbarSearchText,
   TopbarSearchFiller
 } from './TopbarSearch.styles';
+import { ModalsState } from '../../shared/context';
+import { ModalsDispatch } from '../../shared/context';
 
-const TopbarSearch = ({ isSearchVisible, toggleSearch }) => {
+const TopbarSearch = () => {
+  const { isSearchVisible } = useContext(ModalsState);
+
+  const dispatch = useContext(ModalsDispatch);
+
+  const toggleSearch = () => {
+    dispatch({ type: 'TOGGLE_SEARCH' });
+  };
+
   const [isHovering, setIsHovering] = useState(false);
 
   const handleEnter = () => setIsHovering(true);

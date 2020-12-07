@@ -1,15 +1,16 @@
-import React, { useState, useRef, FunctionComponent } from 'react';
+import React, { useState, useRef, useContext, FunctionComponent } from 'react';
 import { 
   useSpring, 
   useTransition, 
   useChain
 } from 'react-spring';
-import { SearchProps } from './Search.types';
 import { getSpring, getTransitions } from './Search.animations';
 import SearchWrapper from './Search.styles';
 import SearchTitle from '../SearchTitle';
 import SearchInput from '../SearchInput';
 import SearchExit from '../SearchExit';
+import { ModalsState } from '../../shared/context';
+import { ModalsDispatch } from '../../shared/context';
 
 const components = [SearchTitle, SearchInput, SearchExit];
 
@@ -18,14 +19,19 @@ const indexedComponents = components.map((component, key) => ({
   key
 }));
 
-const Search: FunctionComponent<SearchProps> = ({
-  isSearchVisible,
-  toggleSearch
-}): JSX.Element => {
+const Search: FunctionComponent = (): JSX.Element => {
   const [text, setText] = useState('');
   const springRef: any = useRef();
   const transitionsRef: any = useRef();
   const timeoutId = useRef<any>(null);
+
+  const { isSearchVisible } = useContext(ModalsState);
+
+  const dispatch = useContext(ModalsDispatch);
+
+  const toggleSearch = () => {
+    dispatch({ type: 'TOGGLE_SEARCH' });
+  };
 
   const spring = useSpring(getSpring(isSearchVisible, springRef));
 

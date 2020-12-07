@@ -6,7 +6,11 @@ const ModalsDispatch = createContext<any>(null);
 
 const isDeviceMobileOrTablet = isMobileOrTablet(navigator.userAgent);
 
-const toggleSidebar = (state, hasScrollbar): any => {
+let nCallsContext = 0;
+
+const toggleSidebar = (state): any => {
+  nCallsContext++;
+  console.log(`nCalls inside context = ${nCallsContext}`)
   if (!state.isSidebarVisible) {
     document.body.style.overflowY = 'hidden';
     if (!isDeviceMobileOrTablet) {
@@ -17,14 +21,13 @@ const toggleSidebar = (state, hasScrollbar): any => {
     document.body.style.width = '100%';
   }
   return {
-    ...state, 
     isSidebarVisible: !state.isSidebarVisible,
     isSearchVisible: state.isSearchVisible ? false : false,
   };
 };
 
-const toggleSearch = (state, hasScrollbar): any => {
-  if (!state.isSidebarVisible) {
+const toggleSearch = (state): any => {
+  if (!state.isSearchVisible) {
     document.body.style.overflowY = 'hidden';
     if (!isDeviceMobileOrTablet) {
       document.body.style.width = 'calc(100% - 17px)'
@@ -34,7 +37,6 @@ const toggleSearch = (state, hasScrollbar): any => {
     document.body.style.width = '100%';
   }
   return {
-    ...state, 
     isSidebarVisible: state.isSidebarVisible ? false : false,
     isSearchVisible: !state.isSearchVisible 
   };
@@ -43,15 +45,14 @@ const toggleSearch = (state, hasScrollbar): any => {
 const initialState = {
   isSidebarVisible: false,
   isSearchVisible: false,
-  
 };
 
 const reducer = (state, action) => {
   switch (action.type) {
     case 'TOGGLE_SIDEBAR':
-      return toggleSidebar(state, action.payload);
+      return toggleSidebar(state);
     case 'TOGGLE_SEARCH':
-      return toggleSearch(state, action.payload);
+      return toggleSearch(state);
     default:
       throw new Error(`Action type ${action.type} is undefined`);
   }  
