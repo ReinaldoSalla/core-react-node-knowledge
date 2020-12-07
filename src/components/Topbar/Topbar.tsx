@@ -1,4 +1,4 @@
-import React, { useContext, FunctionComponent } from 'react';
+import React, { useContext, useRef } from 'react';
 import { useSpring } from 'react-spring';
 import { getTopbarAnimation } from './Topbar.animations';
 import TopbarSidebar from '../TopbarSidebar';
@@ -17,6 +17,7 @@ import { ModalsState } from '../../shared/context';
 const Topbar = ({ isDeviceMobileOrTablet }): JSX.Element => {
   const isInTop = useIsInTop(50);
   const { isSidebarVisible, isSearchVisible } = useContext(ModalsState); 
+  const navDomNode = useRef<any>(null);
 
   const fillerSpring = useSpring(getTopbarAnimation(
     isInTop,
@@ -30,10 +31,10 @@ const Topbar = ({ isDeviceMobileOrTablet }): JSX.Element => {
       $isSearchVisible={isSearchVisible}
       $isDeviceMobileOrTablet={isDeviceMobileOrTablet} 
     >
-      <Nav>
+      <Nav ref={navDomNode}>
         <TopbarHome />
         <TopbarSidebar/>
-        <Sidebar/>
+        <Sidebar navDomNode={navDomNode}/>
         <TopbarSearch/>
         <Search/>
         <Filler style={fillerSpring}/>

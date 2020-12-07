@@ -27,7 +27,7 @@ const indexedComponents = components.map((component, key) => ({
 
 let nCallsSidebar = 0;
 
-const Sidebar = () => {
+const Sidebar = ({ navDomNode }) => {
   const springRef: any = useRef();
   const transitionsRef: any = useRef();
   const timeoutId = useRef<any>(null);
@@ -58,7 +58,11 @@ const Sidebar = () => {
 
   const onClickOutside = (event): void => {
     console.log('onClick outside');
-    if (isSidebarVisible && !sidebarDomNode.current.contains(event.target)) {        
+    if (
+      isSidebarVisible 
+      && !sidebarDomNode.current.contains(event.target)
+      && !navDomNode.current.contains(event.target)  
+     ) {        
       toggleSidebar();
     }
   }
