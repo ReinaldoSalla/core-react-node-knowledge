@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import WrapperProps from './CategoriesBox.types';
 
-const Wrapper = styled(Link)<WrapperProps>`
+const Wrapper = styled(Link)`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -16,7 +16,6 @@ const Wrapper = styled(Link)<WrapperProps>`
   margin: 0 32px 48px 32px;
   background: ${(props) => props.theme.boxBgColor};
   transition: border-color;
-  pointer-events: ${({ $isSidebarVisible }) => $isSidebarVisible ? 'none' : 'auto'};
   
   &:hover {
     cursor: pointer;

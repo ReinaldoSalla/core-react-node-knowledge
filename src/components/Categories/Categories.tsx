@@ -12,21 +12,17 @@ const Categories = ({
   javascriptRef,
   reactRef,
   nodeRef,
-  isSidebarVisible,
 }) => {
 
   return (
     <main>
-      <CategoriesWrapper 
-        $isSidebarVisible={isSidebarVisible}
-      >
+      <CategoriesWrapper>
         <CategoriesBoard
           title={categories.javascript.title}
           description={categories.javascript.description}
           contents={categories.javascript.contents}
           Svg={JavaScriptSvg}
           elementRef={javascriptRef}
-          isSidebarVisible={isSidebarVisible}
         />
         <CategoriesBoard
           title={categories.react.title}
@@ -34,7 +30,6 @@ const Categories = ({
           contents={categories.react.contents}
           Svg={ReactSvg}
           elementRef={reactRef}
-          isSidebarVisible={isSidebarVisible}
         />
         <CategoriesBoard 
           title={categories.node.title}
@@ -42,7 +37,6 @@ const Categories = ({
           contents={categories.node.contents}
           Svg={ServerSvg}
           elementRef={nodeRef}
-          isSidebarVisible={isSidebarVisible}
         />
       </CategoriesWrapper>
     </main>

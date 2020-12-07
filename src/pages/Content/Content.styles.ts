@@ -5,6 +5,7 @@ import { ContentWrapperProps } from './Content.types';
 const ContentWrapper = styled(animated.div)<ContentWrapperProps>`
   padding: ${(props) => `${props.theme.topbarHeight} 48px 36px 48px`};
   background: ${(props) => props.theme.pageBgColor};
+  pointer-events: ${({ $isSidebarVisible }) => $isSidebarVisible ? 'none' : 'auto'};
 
   ${(props) => props.theme.breakpoints.medium} {
     padding: ${(props) => `${props.theme.topbarHeight} 36px 36px 36px`}
@@ -13,16 +14,6 @@ const ContentWrapper = styled(animated.div)<ContentWrapperProps>`
   ${(props) => props.theme.breakpoints.small} {
     padding: ${(props) => `${props.theme.topbarHeight} 24px 36px 24px`}
   }
-`;
-
-const ContentDivisible = styled.div<ContentWrapperProps>`
-  /* @media only screen and (min-width: 769px) {
-    margin-right: ${(props) => props.$isSidebarVisible ? '190px' : '0px'};
-  }
-
-  ${(props) => props.theme.breakpoints.medium} {
-    margin-right: '0px';
-  } */
 `;
 
 const ContentTitle = styled.h1`
@@ -42,7 +33,6 @@ const ContentContainer = styled.div`
 
 export {
   ContentWrapper,
-  ContentDivisible,
   ContentTitle,
   ContentContainer
 };

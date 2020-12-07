@@ -21,8 +21,7 @@ const ContentCore: FunctionComponent<ContentCoreProps> = ({
   stylingDomNode,
   useStateDomNode,
   useReducerDomNode,
-  finalCodeDomNode ,
-  isSidebarVisible
+  finalCodeDomNode
 }): JSX.Element => {
 
   useEffect(() => {
@@ -41,7 +40,7 @@ const ContentCore: FunctionComponent<ContentCoreProps> = ({
       <section ref={setupDomNode}>
         <ContentCoreTitle>2. Setup</ContentCoreTitle>
         <ContentCoreText>
-          Install the latest recommended version of <ContentCoreLink $isSidebarVisible={isSidebarVisible} href='https://nodejs.org/en/' target='_blank'  rel="noopener noreferrer"> Node.js </ContentCoreLink>
+          Install the latest recommended version of <ContentCoreLink  href='https://nodejs.org/en/' target='_blank'  rel="noopener noreferrer"> Node.js </ContentCoreLink>
         </ContentCoreText>
         <ContentCoreText>
           To start the project, type in your terminal
@@ -58,7 +57,7 @@ const ContentCore: FunctionComponent<ContentCoreProps> = ({
           </ContentCoreCommand>
         </ContentCoreContainer>
         <ContentCoreText>
-          When <ContentCoreHighlight> npm run start </ContentCoreHighlight>finishes, React will lauch the app in <ContentCoreLink $isSidebarVisible={isSidebarVisible} href='http://localhost:3000' target='_blank' rel="noopener noreferrer">localhost:3000</ContentCoreLink>. There are some files which are unnecessary for this guide. You can leave them if you want, but if you're interested in cleaning up, you may do the following.
+          When <ContentCoreHighlight> npm run start </ContentCoreHighlight>finishes, React will lauch the app in <ContentCoreLink  href='http://localhost:3000' target='_blank' rel="noopener noreferrer">localhost:3000</ContentCoreLink>. There are some files which are unnecessary for this guide. You can leave them if you want, but if you're interested in cleaning up, you may do the following.
         </ContentCoreText>
         <ContentCoreText>
           Inside the src folder, delete App.test.js, index.css, logo.svg, serviceWorker.js and setupTests.js
@@ -223,7 +222,7 @@ setInterval(tick, 1000);
       <section>
         <ContentCoreTitle>2. Setup</ContentCoreTitle>
         <ContentCoreText>
-          Install the latest recommended version of <ContentCoreLink $isSidebarVisible={isSidebarVisible} href='https://nodejs.org/en/' target='_blank'  rel="noopener noreferrer"> Node.js </ContentCoreLink>
+          Install the latest recommended version of <ContentCoreLink  href='https://nodejs.org/en/' target='_blank'  rel="noopener noreferrer"> Node.js </ContentCoreLink>
         </ContentCoreText>
         <ContentCoreText>
           To start the project, type in your terminal
@@ -240,7 +239,7 @@ setInterval(tick, 1000);
           </ContentCoreCommand>
         </ContentCoreContainer>
         <ContentCoreText>
-          When <ContentCoreHighlight> npm run start </ContentCoreHighlight>finishes, React will lauch the app in <ContentCoreLink $isSidebarVisible={isSidebarVisible} href='http://localhost:3000' target='_blank' rel="noopener noreferrer">localhost:3000</ContentCoreLink>
+          When <ContentCoreHighlight> npm run start </ContentCoreHighlight>finishes, React will lauch the app in <ContentCoreLink  href='http://localhost:3000' target='_blank' rel="noopener noreferrer">localhost:3000</ContentCoreLink>
         </ContentCoreText>
         <ContentCoreText>
           Inside the src folder ;/

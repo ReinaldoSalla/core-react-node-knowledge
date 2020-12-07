@@ -32,7 +32,6 @@ const ContentNavigation: FunctionComponent<ContentNavigationProps> = ({
   scrollToUseState,
   scrollToUseReducer,
   scrollToFinalCode,
-  isSidebarVisible
 }): JSX.Element => {
 
   const { pathname } = useLocation();
@@ -59,7 +58,6 @@ const ContentNavigation: FunctionComponent<ContentNavigationProps> = ({
         <ContentNavigationItem
           to={`${pathname}#intro`}
           onClick={scrollToIntro}
-          $isSidebarVisible={isSidebarVisible}
         >
           <ContentNavigationCircle style={introCircleAnimation} />
           <ContentNavigationText style={introTextAnimation}>
@@ -72,7 +70,6 @@ const ContentNavigation: FunctionComponent<ContentNavigationProps> = ({
         <ContentNavigationItem
           to={`${pathname}#setup`}
           onClick={scrollToSetup}
-          $isSidebarVisible={isSidebarVisible}
         >
           <ContentNavigationCircle style={setupCircleAnimation}/>
           <ContentNavigationText style={setupTextAnimation}>
@@ -85,7 +82,6 @@ const ContentNavigation: FunctionComponent<ContentNavigationProps> = ({
         <ContentNavigationItem
           to={`${pathname}#jsx`}
           onClick={scrollToJsx}
-          $isSidebarVisible={isSidebarVisible}
         >
           <ContentNavigationCircle style={jsxCircleAnimation}/>
           <ContentNavigationText style={jsxTextAnimation}>
@@ -98,7 +94,6 @@ const ContentNavigation: FunctionComponent<ContentNavigationProps> = ({
         <ContentNavigationItem
           to={`${pathname}#styling`}
           onClick={scrollToStyling}
-          $isSidebarVisible={isSidebarVisible}
         >
           <ContentNavigationCircle style={stylingCircleAnimation}/>
           <ContentNavigationText style={stylingTextAnimation}>
@@ -111,7 +106,6 @@ const ContentNavigation: FunctionComponent<ContentNavigationProps> = ({
         <ContentNavigationItem
           to={`${pathname}#useState`}
           onClick={scrollToUseState}
-          $isSidebarVisible={isSidebarVisible}
         >
           <ContentNavigationCircle  style={useStateCircleAnimation}/>
           <ContentNavigationText style={useStateTextAnimation}>
@@ -124,7 +118,6 @@ const ContentNavigation: FunctionComponent<ContentNavigationProps> = ({
         <ContentNavigationItem
           to={`${pathname}#useReducer`}
           onClick={scrollToUseReducer}
-          $isSidebarVisible={isSidebarVisible}
         >
           <ContentNavigationCircle style={useReducerCircleAnimation}/>
           <ContentNavigationText style={useReducerTextAnimation}>
@@ -137,7 +130,6 @@ const ContentNavigation: FunctionComponent<ContentNavigationProps> = ({
         <ContentNavigationItem 
           to={`${pathname}#final-code`} 
           onClick={scrollToFinalCode}
-          $isSidebarVisible={isSidebarVisible}
         >
           <ContentNavigationCircle style={finalCodeCircleAnimation}/>
           <ContentNavigationText style={finalCodeTextAnimation}>

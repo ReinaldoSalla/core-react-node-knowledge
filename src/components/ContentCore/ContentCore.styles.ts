@@ -20,11 +20,10 @@ const ContentCoreText = styled.p`
   color: ${(props) => props.theme.textColor};
 `;
 
-const ContentCoreLink = styled.a<LinkProps>`
+const ContentCoreLink = styled.a`
   font-weight: 600;
   color: red;
   transition: color 250ms;
-  pointer-events: ${({ $isSidebarVisible }) => $isSidebarVisible ? 'none' : 'auto'};
 
   &:hover {
     color: orange;

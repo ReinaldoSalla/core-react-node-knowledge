@@ -16,14 +16,12 @@ const ContentNavigationWrapper = styled.aside`
   }
 `;
 
-const ContentNavigationItem = styled(Link)<LinkProps>`
+const ContentNavigationItem = styled(Link)`
   position: relative;
   bottom: 1px;
   display: flex;
   align-items: center;
   justify-content: center;
-  /* margin-bottom: 32px; */
-  pointer-events: ${({ $isSidebarVisible }) => $isSidebarVisible ? 'none' : 'auto'};
 
   &:hover {
     cursor: pointer;

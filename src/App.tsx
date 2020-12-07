@@ -46,6 +46,7 @@ const App = (): JSX.Element => {
     }
     setIsSearchVisible(!isSearchVisible);  
   };
+  
   return (
     <BrowserRouter>
       <ThemeProvider theme={globalTheme}>

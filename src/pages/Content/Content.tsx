@@ -14,6 +14,7 @@ import { getSpring } from './Content.animations';
 import ContentCore from '../../components/ContentCore';
 import ContentNavigation from '../../components/ContentNavigation';
 import scrollToElement from '../../utils/scrollToElement';
+import { getOpacitySpring } from '../../shared/animations';
 
 const useIntersectionObserver = (
   domNode: MutableRefObject<HTMLElement>, 
@@ -71,7 +72,7 @@ const Content = ({ isSidebarVisible  }) => {
   const isUseReducerIntersecting = useIntersectionObserver(useReducerDomNode);
   const isFinalCodeIntersecting = useIntersectionObserver(finalCodeDomNode);
 
-  const spring = useSpring(getSpring(isSidebarVisible));
+  const spring = useSpring(getOpacitySpring(isSidebarVisible));
 
   const { hash } = useLocation();
 
@@ -106,7 +107,7 @@ const Content = ({ isSidebarVisible  }) => {
   return (
     <main>
       <ContentWrapper 
-        style={spring} 
+        style={spring}
         $isSidebarVisible={isSidebarVisible}
       >
         <ContentContainer>
@@ -118,7 +119,6 @@ const Content = ({ isSidebarVisible  }) => {
             useStateDomNode={useStateDomNode}
             useReducerDomNode={useReducerDomNode}
             finalCodeDomNode={finalCodeDomNode}
-            isSidebarVisible={isSidebarVisible}
           />
           <ContentNavigation 
             isIntroIntersecting={isIntroIntersecting}
@@ -135,7 +135,6 @@ const Content = ({ isSidebarVisible  }) => {
             scrollToUseState={scrollToUseState}
             scrollToUseReducer={scrollToUseReducer}
             scrollToFinalCode={scrollToFinalCode}
-            isSidebarVisible={isSidebarVisible}
           />
         </ContentContainer>
       </ContentWrapper>

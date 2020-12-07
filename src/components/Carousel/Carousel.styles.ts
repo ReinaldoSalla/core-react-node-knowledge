@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { animated } from 'react-spring';
 import { WrapperProps } from './Carousel.types';
 
-const CarouselWrapper = styled(animated.section)<WrapperProps>`
+const CarouselWrapper = styled(animated.section)`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -11,7 +11,6 @@ const CarouselWrapper = styled(animated.section)<WrapperProps>`
   width: 100%;
   height: 100%;
   overflow: hidden;
-  pointer-events: ${({ $isSidebarVisible }) => $isSidebarVisible ? 'none' : 'auto'};
 `;
 
 export {

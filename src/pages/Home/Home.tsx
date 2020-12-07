@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, FunctionComponent } from 'react';
 import { useLocation } from 'react-router-dom';
 import { animated, useSpring } from 'react-spring';
-import HomeProps from './Home.types';
+import { HomeProps } from './Home.types';
 import Container from './Home.styles';
 import Carousel from '../../components/Carousel';
 import Categories from '../../components/Categories';
@@ -53,23 +53,21 @@ const Home: FunctionComponent<HomeProps> = ({
 
   return (
     <>
-      <Container style={spring}>
+      <Container style={spring} $isSidebarVisible={isSidebarVisible} $fixedHeight>
         <CarouselBackground />
         <Carousel 
           scrollToJavascript={scrollToJavascript}
           scrollToReact={scrollToReact}
           scrollToNode={scrollToNode}
-          isSidebarVisible={isSidebarVisible}
         />
       </Container>
-      <animated.div style={spring}>
+      <Container style={spring} $isSidebarVisible={isSidebarVisible}>
         <Categories 
           javascriptRef={javascriptRef}
           reactRef={reactRef}
           nodeRef={nodeRef}
-          isSidebarVisible={isSidebarVisible}
         />
-      </animated.div>
+      </Container>
     </>
   );
 };

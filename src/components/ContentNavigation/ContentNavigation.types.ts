@@ -13,7 +13,6 @@ interface ContentNavigationProps {
   scrollToUseState: () => void;
   scrollToUseReducer: () => void;
   scrollToFinalCode: () => void;
-  isSidebarVisible: boolean;
 } 
 
 interface LinkProps {
