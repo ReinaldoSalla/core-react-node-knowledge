@@ -24,11 +24,11 @@ const TopbarNav = styled.nav`
   justify-content: center;
 `;
 
-interface TopbarFillerProps {
+interface FillerProps {
   isInTop?: boolean;
 }
 
-const TopbarFiller = styled(animated.div)<TopbarFillerProps>`
+const Filler = styled(animated.div)<FillerProps>`
   position: absolute;
   background: ${(props) => props.theme.topbarBgColor};
   width: 100%;
@@ -37,5 +37,5 @@ const TopbarFiller = styled(animated.div)<TopbarFillerProps>`
 export {
   TopbarHeader,
   TopbarNav,
-  TopbarFiller
+  Filler
 };

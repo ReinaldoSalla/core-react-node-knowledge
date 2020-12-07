@@ -7,6 +7,7 @@ import Home from './pages/Home';
 import Content from './pages/Content';
 import Footer from './components/Footer';
 import isMobileOrTablet from './utils/isMobileOrTablet';
+import { ModalsProvider } from './shared/context';
 import './App.css';
 
 const isDeviceMobileOrTablet = isMobileOrTablet(navigator.userAgent);
@@ -46,34 +47,32 @@ const App = (): JSX.Element => {
     }
     setIsSearchVisible(!isSearchVisible);  
   };
-  
+
   return (
     <BrowserRouter>
-      <ThemeProvider theme={globalTheme}>
-        <GlobalStyle />
-        <Topbar 
-          isSidebarVisible={isSidebarVisible}
-          isSearchVisible={isSearchVisible}
-          toggleSidebar={toggleSidebar}
-          toggleSearch={toggleSearch}
-          isDeviceMobileOrTablet={isDeviceMobileOrTablet}
-        />
-        <Switch>
-          <Route exact path='/'>
-            <Home
-              isSidebarVisible={isSidebarVisible} 
-            />
-          </Route>
-          <Route path='/rendering'>
-            <Content 
-              isSidebarVisible={isSidebarVisible} 
-            />
-          </Route>
-        </Switch>      
-        <Footer 
-          isSidebarVisible={isSidebarVisible} 
-        />
-      </ThemeProvider>
+      <ModalsProvider>
+        <ThemeProvider theme={globalTheme}>
+          <GlobalStyle />
+          <Topbar 
+            isDeviceMobileOrTablet={isDeviceMobileOrTablet}
+          />
+          <Switch>
+            <Route exact path='/'>
+              <Home
+                isSidebarVisible={isSidebarVisible} 
+              />
+            </Route>
+            <Route path='/rendering'>
+              <Content 
+                isSidebarVisible={isSidebarVisible} 
+              />
+            </Route>
+          </Switch>      
+          <Footer 
+            isSidebarVisible={isSidebarVisible} 
+          />
+        </ThemeProvider>
+      </ModalsProvider>
     </BrowserRouter>
   );
 };

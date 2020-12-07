@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import React, { useContext, FunctionComponent } from 'react';
 import { useSpring } from 'react-spring';
 import { TopbarProps } from './Topbar.types';
 import { getTopbarAnimation } from './Topbar.animations';
@@ -9,21 +9,27 @@ import useIsInTop from '../../hooks/useIsInTop';
 import {
   TopbarHeader,
   TopbarNav,
-  TopbarFiller
+  Filler
 } from './Topbar.styles';
 import Sidebar from '../Sidebar';
 import Search from '../Search';
+import { ModalsState } from '../../shared/context';
+import { ModalsDispatch } from '../../shared/context';
 
-const Topbar: FunctionComponent<TopbarProps> = ({
-  isSidebarVisible,
-  isSearchVisible,
-  toggleSidebar,
-  toggleSearch,
-  isDeviceMobileOrTablet
-}): JSX.Element => {
+const Topbar = ({ isDeviceMobileOrTablet }): JSX.Element => {
   const isInTop = useIsInTop(50);
+  const { isSidebarVisible, isSearchVisible } = useContext(ModalsState); 
+  const dispatch = useContext(ModalsDispatch);
 
-  const topbarFillerAnimation = useSpring(getTopbarAnimation(
+  const toggleSidebar = () => {
+    dispatch({ type: 'TOGGLE_SIDEBAR' });
+  };
+
+  const toggleSearch = () => {
+    dispatch({ type: 'TOGGLE_SEARCH' });
+  };
+
+  const FillerAnimation = useSpring(getTopbarAnimation(
     isInTop,
     isSidebarVisible,
     isSearchVisible
@@ -53,7 +59,7 @@ const Topbar: FunctionComponent<TopbarProps> = ({
           isSearchVisible={isSearchVisible}
           toggleSearch={toggleSearch}
         />
-        <TopbarFiller style={topbarFillerAnimation}/>
+        <Filler style={FillerAnimation}/>
       </TopbarNav>
     </TopbarHeader>
   );

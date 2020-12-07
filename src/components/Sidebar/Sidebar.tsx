@@ -1,10 +1,11 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useContext, useEffect, useRef } from 'react';
 import { useSpring, useTransition, useChain } from 'react-spring';
 import SidebarWrapper from './Sidebar.styles';
 import { getSpring, getTransitions } from './Sidebar.animations';
 import SidebarTopic from '../SidebarTopic';
 import SidebarExit from '../SidebarExit';
 import contents from '../../constants/contents';
+import { ModalsDispatch } from '../../shared/context';
 
 const partialComponents = contents.map(({ title, subcontents }) => (
   ({ style }) => (
