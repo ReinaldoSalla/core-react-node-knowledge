@@ -14,12 +14,10 @@ const Categories = ({
   nodeRef,
   isSidebarVisible,
 }) => {
-  const spring = useSpring(getSpring(isSidebarVisible));
 
   return (
     <main>
       <CategoriesWrapper 
-        style={spring} 
         $isSidebarVisible={isSidebarVisible}
       >
         <CategoriesBoard

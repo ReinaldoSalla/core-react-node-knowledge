@@ -51,13 +51,9 @@ const Carousel = ({
     }
   });
 
-  const spring = useSpring(getspring(isSidebarVisible));
-
   return (
     <>
-      <CarouselBackground />
       <CarouselWrapper 
-        style={spring}
         $isSidebarVisible={isSidebarVisible}
       >
         {transitions.map(({ item, props, key }) => {

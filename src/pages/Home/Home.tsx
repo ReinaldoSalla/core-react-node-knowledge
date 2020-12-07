@@ -1,9 +1,13 @@
 import React, { useEffect, useRef, FunctionComponent } from 'react';
-import { Route, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
+import { animated, useSpring } from 'react-spring';
 import HomeProps from './Home.types';
+import Container from './Home.styles';
 import Carousel from '../../components/Carousel';
 import Categories from '../../components/Categories';
 import scrollToElement from '../../utils/scrollToElement';
+import CarouselBackground from '../../components/CarouselBackground';
+import { getOpacitySpring } from '../../shared/animations';
 
 const Home: FunctionComponent<HomeProps> = ({ 
   isSidebarVisible,
@@ -45,20 +49,27 @@ const Home: FunctionComponent<HomeProps> = ({
     console.log(`Home re-render #${nCalls.current}`);
   });
 
+  const spring = useSpring(getOpacitySpring(isSidebarVisible));
+
   return (
     <>
-      <Carousel 
-        scrollToJavascript={scrollToJavascript}
-        scrollToReact={scrollToReact}
-        scrollToNode={scrollToNode}
-        isSidebarVisible={isSidebarVisible}
-      />
-      <Categories 
-        javascriptRef={javascriptRef}
-        reactRef={reactRef}
-        nodeRef={nodeRef}
-        isSidebarVisible={isSidebarVisible}
-      />
+      <Container style={spring}>
+        <CarouselBackground />
+        <Carousel 
+          scrollToJavascript={scrollToJavascript}
+          scrollToReact={scrollToReact}
+          scrollToNode={scrollToNode}
+          isSidebarVisible={isSidebarVisible}
+        />
+      </Container>
+      <animated.div style={spring}>
+        <Categories 
+          javascriptRef={javascriptRef}
+          reactRef={reactRef}
+          nodeRef={nodeRef}
+          isSidebarVisible={isSidebarVisible}
+        />
+      </animated.div>
     </>
   );
 };
