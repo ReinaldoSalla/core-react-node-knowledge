@@ -48,3 +48,10 @@ const Topbar = (): JSX.Element => {
 };
 
 export default Topbar;
+
+// Topbar
+// TopbarHome
+// TopbarContents
+// TopbarSidebar -> TopbarSidebarTopic, TopbarSidebarExit
+// TopbarMagnifier
+// TopbarSearch -> TopbarSearchExit, TopbarSearchInput -> TopbarSearchInputMatch
