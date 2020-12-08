@@ -2,7 +2,7 @@ import React, { useContext, useRef } from 'react';
 import { useSpring } from 'react-spring';
 import { getTopbarAnimation } from './Topbar.animations';
 import TopbarSidebar from '../TopbarSidebar';
-import TopbarHome from '../TopbarHome';
+import TopbarButtonHome from '../TopbarButtonHome';
 import TopbarSearch from '../TopbarSearch';
 import useIsInTop from '../../hooks/useIsInTop';
 import {
@@ -36,7 +36,7 @@ const Topbar = (): JSX.Element => {
       $isScrollbarVisible={isScrollbarVisible}
     >
       <Nav ref={navDomNode}>
-        <TopbarHome />
+        <TopbarButtonHome />
         <TopbarSidebar/>
         <Sidebar navDomNode={navDomNode}/>
         <TopbarSearch/>

@@ -3,7 +3,7 @@ import { animated } from 'react-spring';
 import { Link } from 'react-router-dom';
 import { ReactComponent as HomeSvg } from '../../assets/icons/home.svg';
 
-const TopbarHomeWrapper = styled(Link)`
+const TopbarButtonHomeWrapper = styled(Link)`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -20,7 +20,7 @@ const TopbarHomeWrapper = styled(Link)`
   }
 `;
 
-const TopbarHomeNormalizer = styled.div`
+const TopbarButtonHomeNormalizer = styled.div`
   z-index: 2;
   margin-bottom: 8px;
   height: 32px;
@@ -28,7 +28,7 @@ const TopbarHomeNormalizer = styled.div`
   color: white;
 `;
 
-const TopbarHomeSvg = styled(animated(HomeSvg))`
+const TopbarButtonHomeSvg = styled(animated(HomeSvg))`
   width: 112%;
   height: 112%;
   color: white;
@@ -37,7 +37,7 @@ const TopbarHomeSvg = styled(animated(HomeSvg))`
 `;
 
 
-const TopbarHomeText = styled.span`
+const TopbarButtonHomeText = styled.span`
   z-index: 2;
   font-size: 20px;
   line-height: 0.7em;
@@ -48,7 +48,7 @@ const TopbarHomeText = styled.span`
   }
 `;
 
-const TopbarHomeFiller = styled(animated.div)`
+const TopbarButtonHomeFiller = styled(animated.div)`
   position: absolute;
   z-index: 1;
   height: 80px;
@@ -56,10 +56,10 @@ const TopbarHomeFiller = styled(animated.div)`
 `;
 
 export {
-  TopbarHomeWrapper,
-  TopbarHomeNormalizer,
-  TopbarHomeSvg,
-  TopbarHomeText,
-  TopbarHomeFiller
+  TopbarButtonHomeWrapper,
+  TopbarButtonHomeNormalizer,
+  TopbarButtonHomeSvg,
+  TopbarButtonHomeText,
+  TopbarButtonHomeFiller
 };
 
