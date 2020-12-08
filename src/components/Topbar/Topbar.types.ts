@@ -9,7 +9,7 @@ interface TopbarProps {
 interface HeaderProps {
   $isSidebarVisible: boolean;
   $isSearchVisible: boolean;
-  $isDeviceMobileOrTablet;
+  $isScrollbarVisible: boolean;
 }
 
 export type { TopbarProps, HeaderProps };

@@ -53,6 +53,3 @@ const getMatch = (currentText) => {
     return found ? found : specificTarget.includes(lowerCaseCurrentText);
   });
 };
-
-// const result = getMatch('manag');
-// console.log(result);

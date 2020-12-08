@@ -14,9 +14,13 @@ import Sidebar from '../Sidebar';
 import Search from '../Search';
 import { ModalsState } from '../../shared/context';
 
-const Topbar = ({ isDeviceMobileOrTablet }): JSX.Element => {
+const Topbar = (): JSX.Element => {
   const isInTop = useIsInTop(50);
-  const { isSidebarVisible, isSearchVisible } = useContext(ModalsState); 
+  const { 
+    isSidebarVisible, 
+    isSearchVisible, 
+    isScrollbarVisible 
+  } = useContext(ModalsState); 
   const navDomNode = useRef<any>(null);
 
   const fillerSpring = useSpring(getTopbarAnimation(
@@ -29,7 +33,7 @@ const Topbar = ({ isDeviceMobileOrTablet }): JSX.Element => {
     <Header 
       $isSidebarVisible={isSidebarVisible}
       $isSearchVisible={isSearchVisible}
-      $isDeviceMobileOrTablet={isDeviceMobileOrTablet} 
+      $isScrollbarVisible={isScrollbarVisible}
     >
       <Nav ref={navDomNode}>
         <TopbarHome />

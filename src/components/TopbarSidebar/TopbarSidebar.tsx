@@ -14,17 +14,12 @@ import {
 import { ModalsState } from '../../shared/context';
 import { ModalsDispatch } from '../../shared/context';
 
-let nCallsTopbarSidebar = 0;
-
 const TopbarSidebar = () => {
   const { isSidebarVisible } = useContext(ModalsState);
 
   const dispatch = useContext(ModalsDispatch);
 
   const toggleSidebar = () => {
-    console.log('onClick TopbarSidebar');
-    nCallsTopbarSidebar++;
-    console.log(`nCallsTopbarSidebar = ${nCallsTopbarSidebar}`);
     dispatch({ type: 'TOGGLE_SIDEBAR' });
   };
   

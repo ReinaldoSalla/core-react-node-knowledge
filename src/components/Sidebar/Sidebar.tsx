@@ -25,7 +25,6 @@ const indexedComponents = components.map((component, key) => ({
   key
 }));
 
-let nCallsSidebar = 0;
 
 const Sidebar = ({ navDomNode }) => {
   const springRef: any = useRef();
@@ -38,8 +37,6 @@ const Sidebar = ({ navDomNode }) => {
   const dispatch = useContext(ModalsDispatch);
 
   const toggleSidebar = () => {
-    nCallsSidebar++;
-    console.log(`nCallsSidebar ${nCallsSidebar}`);
     dispatch({ type: 'TOGGLE_SIDEBAR' });
   }
 
@@ -57,7 +54,6 @@ const Sidebar = ({ navDomNode }) => {
   );
 
   const onClickOutside = (event): void => {
-    console.log('onClick outside');
     if (
       isSidebarVisible 
       && !sidebarDomNode.current.contains(event.target)

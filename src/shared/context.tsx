@@ -1,19 +1,37 @@
-import React, { useReducer, createContext } from 'react';
-import isMobileOrTablet from '../utils/isMobileOrTablet';
+import React, { useReducer, useEffect, createContext } from 'react';
 
 const ModalsState = createContext<any>(null);
 const ModalsDispatch = createContext<any>(null);
 
-const isDeviceMobileOrTablet = isMobileOrTablet(navigator.userAgent);
+function getScrollbarWidth() {
 
-let nCallsContext = 0;
+  // Creating invisible container
+  const outer: any = document.createElement('div');
+  outer.style.visibility = 'hidden';
+  outer.style.overflow = 'scroll'; // forcing scrollbar to appear
+  outer.style.msOverflowStyle = 'scrollbar'; // needed for WinJS apps
+  document.body.appendChild(outer);
+
+  // Creating inner element and placing it in the container
+  const inner = document.createElement('div');
+  outer.appendChild(inner);
+  
+  // Calculating difference between container's full width and the child width
+  const scrollbarWidth = (outer.offsetWidth - inner.offsetWidth);
+
+  // Removing temporary elements from the DOM
+  outer.parentNode.removeChild(outer);
+
+  return scrollbarWidth;
+    
+}
+
+const isScrollbarVisible = getScrollbarWidth() > 0;
 
 const toggleSidebar = (state): any => {
-  nCallsContext++;
-  console.log(`nCalls inside context = ${nCallsContext}`)
   if (!state.isSidebarVisible) {
     document.body.style.overflowY = 'hidden';
-    if (!isDeviceMobileOrTablet) {
+    if (isScrollbarVisible) {
       document.body.style.width = 'calc(100% - 17px)'
     }
   } else {
@@ -21,6 +39,7 @@ const toggleSidebar = (state): any => {
     document.body.style.width = '100%';
   }
   return {
+    ...state,
     isSidebarVisible: !state.isSidebarVisible,
     isSearchVisible: state.isSearchVisible ? false : false,
   };
@@ -29,7 +48,7 @@ const toggleSidebar = (state): any => {
 const toggleSearch = (state): any => {
   if (!state.isSearchVisible) {
     document.body.style.overflowY = 'hidden';
-    if (!isDeviceMobileOrTablet) {
+    if (isScrollbarVisible) {
       document.body.style.width = 'calc(100% - 17px)'
     }
   } else {
@@ -37,14 +56,16 @@ const toggleSearch = (state): any => {
     document.body.style.width = '100%';
   }
   return {
+    ...state,
     isSidebarVisible: state.isSidebarVisible ? false : false,
     isSearchVisible: !state.isSearchVisible 
   };
 };
 
 const initialState = {
+  isScrollbarVisible,
   isSidebarVisible: false,
-  isSearchVisible: false,
+  isSearchVisible: false
 };
 
 const reducer = (state, action) => {
@@ -57,6 +78,7 @@ const reducer = (state, action) => {
       throw new Error(`Action type ${action.type} is undefined`);
   }  
 };
+
 
 const ModalsProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
