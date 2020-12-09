@@ -1,67 +1,15 @@
 import styled from 'styled-components';
 import { animated } from 'react-spring';
-import { ReactComponent as SearchSvg } from '../../assets/icons/search.svg';
+import { SearchWrapperProps } from './TopbarSearch.types';
 
-const TopbarSearchWrapper = styled.button`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  /* position: relative; */
-  z-index: 4;
-  width: 100%;
-
-  &:hover {
-    cursor: pointer;
-  }
-
-  &:focus {
-    outline: 1px solid red;    
-  }
-
-  &:active {
-    outline: none;
-  }
-`;
-
-const TopbarSearchNormalizer = styled(animated.div)`
-  z-index: 2;
-  height: 32px;
-  width: 32px;
-  height: 32px;
-  margin-bottom: 8px;
-`;
-
-const TopbarSearchSvg = styled(SearchSvg)`
-  width: 120%;
-  height: 120%;
-  color: white;
-  transform: translate3d(-8%, -8%, 0);
-`;
-
-const TopbarSearchText = styled.span`
-  z-index: 2;
-  font-size: 20px;
-  line-height: 0.7em;
-  color: white;
-
-  ${(props) => props.theme.breakpoints.small} {
-    font-size: 16px;
-  }
-`;
-
-const TopbarSearchFiller = styled(animated.div)`
-  position: absolute;
+const SearchWrapper = styled(animated.aside)<SearchWrapperProps>`
+  position: fixed;
+  top: 0;
+  left: 0;
   z-index: 1;
-  height: 80px;
-  background: var(--hover-color);
+  width: 100%;
+  background: ${(props) => props.theme.topbarBgColor};
+  overflow-y: ${({ $scroll }) => $scroll ? 'scroll' : 'hidden'};
 `;
 
-export {
-  TopbarSearchWrapper,
-  TopbarSearchNormalizer,
-  TopbarSearchSvg,
-  TopbarSearchText,
-  TopbarSearchFiller
-};
-
+export default SearchWrapper;

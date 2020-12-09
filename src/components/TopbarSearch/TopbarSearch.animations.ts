@@ -1,26 +1,22 @@
-import { config } from 'react-spring';
-
-const getHoverAnimation = (isHovering) => ({
-  config: isHovering
-    ? { mass: 1, tension: 140, friction: 26 }
-    : { mass: 2, tension: 140, friction: 26 , clamp: true },
-  from: { width: '0%' },
-  to: async (next) => {
-    await next({ width: isHovering ?  '25%' : '0%' });
-  }
-});
-
-const getSvgAnimation = (isSidebarVisible) => ({
-  config: config.slow,
-  from: { transform: 'rotate(0deg)' },
+const getSpring = (isSearchVisible, springRef) => ({
+  ref: springRef,
+  from: {
+    height: isSearchVisible ? '800px' : '0px'
+  },
   to: async (next) => {
     await next({
-      transform: isSidebarVisible ? 'rotate(180deg)' : 'rotate(0deg)'
+      height: isSearchVisible ? '800px' : '0px'
     });
   }
 });
 
-export { 
-  getHoverAnimation,
-  getSvgAnimation 
-};
+const getTransitions = (isSearchVisible, transitionsRef, length) => ({
+  ref: transitionsRef,
+  unique: true,
+  trail: 500 / length,
+  from: { opacity: 0, transform: 'scale(0.5)' },
+  enter: { opacity: 1, transform: 'scale(1)' },
+  leave: { opacity: 0, transform: 'scale(0.9)' }
+});
+
+export { getSpring, getTransitions };
