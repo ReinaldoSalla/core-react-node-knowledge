@@ -25,25 +25,25 @@ const TopbarSearch: FunctionComponent = (): JSX.Element => {
   const transitionsRef: any = useRef();
   const timeoutId = useRef<any>(null);
 
-  const { isSearchVisible } = useContext(ModalsState);
+  const { isTopbarSearchVisible } = useContext(ModalsState);
 
   const dispatch = useContext(ModalsDispatch);
 
-  const toggleSearch = () => {
-    dispatch({ type: 'TOGGLE_SEARCH' });
+  const toggleTopbarSearch = () => {
+    dispatch({ type: 'TOGGLE_TOPBAR_SEARCH' });
   };
 
-  const spring = useSpring(getSpring(isSearchVisible, springRef));
+  const spring = useSpring(getSpring(isTopbarSearchVisible, springRef));
 
   const transitions = useTransition(
-    isSearchVisible ? indexedComponents : [], 
+    isTopbarSearchVisible ? indexedComponents : [], 
     (item) => item.key,
-    getTransitions(isSearchVisible, transitionsRef, indexedComponents.length)
+    getTransitions(isTopbarSearchVisible, transitionsRef, indexedComponents.length)
   );
 
   useChain(
-    isSearchVisible ? [springRef, transitionsRef] : [transitionsRef, springRef],
-    [0, isSearchVisible ? 0.3 : 0.5]
+    isTopbarSearchVisible ? [springRef, transitionsRef] : [transitionsRef, springRef],
+    [0, isTopbarSearchVisible ? 0.3 : 0.5]
   );
 
   const onFocus = () => {
@@ -52,7 +52,7 @@ const TopbarSearch: FunctionComponent = (): JSX.Element => {
 
   const onBlur = () => {
     timeoutId.current = setTimeout(() => {
-      toggleSearch();
+      toggleTopbarSearch();
     });
   }; 
 
@@ -67,7 +67,7 @@ const TopbarSearch: FunctionComponent = (): JSX.Element => {
         <item.component 
           style={props} 
           key={key} 
-          toggleSearch={toggleSearch}
+          toggleTopbarSearch={toggleTopbarSearch}
           text={text}
           setText={setText}
         />

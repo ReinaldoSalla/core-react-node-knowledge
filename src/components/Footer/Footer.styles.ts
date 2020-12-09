@@ -15,7 +15,7 @@ const FooterContainer = styled(animated.div)<FooterLinkProps>`
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
-  pointer-events: ${({ $isSidebarVisible }) => $isSidebarVisible ? 'none' : 'auto'};
+  pointer-events: ${({ $isTopbarSidebarVisible }) => $isTopbarSidebarVisible ? 'none' : 'auto'};
 
   @media only screen and (max-height: 400px) {
     display: none;

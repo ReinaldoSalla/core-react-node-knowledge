@@ -3,7 +3,7 @@ interface FooterTextProps {
 }
 
 interface FooterLinkProps {
-  $isSidebarVisible: boolean;
+  $isTopbarSidebarVisible: boolean;
 }
 
 export type { FooterTextProps, FooterLinkProps };

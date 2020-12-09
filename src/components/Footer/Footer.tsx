@@ -9,23 +9,23 @@ import {
 import { ModalsState } from '../../shared/context';
 
 const Footer = () => {
-  const { isSidebarVisible } = useContext(ModalsState);
+  const { isTopbarSidebarVisible } = useContext(ModalsState);
   const spring = useSpring({
     config: config.molasses,
     from: { 
-      opacity: isSidebarVisible ? 0.2 : 1
+      opacity: isTopbarSidebarVisible ? 0.2 : 1
     },
     to: async (next) => {
       await next({
-        opacity: isSidebarVisible ? 0.2 : 1
+        opacity: isTopbarSidebarVisible ? 0.2 : 1
       });
     }
   });
   return (
     <FooterWrapper>
-      <FooterContainer style={spring} $isSidebarVisible={isSidebarVisible}>
-        <FooterLink to='/contact' $isSidebarVisible={isSidebarVisible}> Contact </FooterLink>
-        <FooterLink to='/philosohpy' $isSidebarVisible={isSidebarVisible}> Philosophy </FooterLink>
+      <FooterContainer style={spring} $isTopbarSidebarVisible={isTopbarSidebarVisible}>
+        <FooterLink to='/contact' $isTopbarSidebarVisible={isTopbarSidebarVisible}> Contact </FooterLink>
+        <FooterLink to='/philosohpy' $isTopbarSidebarVisible={isTopbarSidebarVisible}> Philosophy </FooterLink>
         <FooterText>
           Copyright © {new Date().getFullYear()} JavaScriptTemporal
         </FooterText>

@@ -1,10 +1,10 @@
 import React from 'react';
 import Exit from './TopbarSearchExit.styles';
 
-const TopbarSearchExit = ({ style, toggleSearch, setText }) => {
+const TopbarSearchExit = ({ style, toggleTopbarSearch, setText }) => {
 
   const handleClick = () => {
-    toggleSearch();
+    toggleTopbarSearch();
     setText('');
   };
 

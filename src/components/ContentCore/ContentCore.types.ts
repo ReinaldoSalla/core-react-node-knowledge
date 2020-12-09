@@ -11,7 +11,7 @@ interface ContentCoreProps {
 }
 
 interface LinkProps {
-  $isSidebarVisible: boolean;
+  $isTopbarSidebarVisible: boolean;
 }
 
 export type { ContentCoreProps, LinkProps };

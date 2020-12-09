@@ -10,7 +10,7 @@ interface CarouselItemProps {
 }
 
 interface TextProps {
-  $isSidebarVisible: boolean;
+  $isTopbarSidebarVisible: boolean;
 }
 
 export type { CarouselItemProps, TextProps };

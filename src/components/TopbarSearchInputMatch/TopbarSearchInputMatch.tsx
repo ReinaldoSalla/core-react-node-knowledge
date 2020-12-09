@@ -2,20 +2,20 @@ import React from 'react';
 import { Text, MatchLink } from './TopbarSearchInputMatch.styles';
 import CONSTANTS from './TopbarSearchInputMatch.constants';
 
-const TopbarSearchInputMatch = ({ text, toggleSearch }) => {
+const TopbarSearchInputMatch = ({ text, toggleTopbarSearch }) => {
   const firstMatch = CONSTANTS.SPECIFIC_TARGETS.find((target) => {
     const isolatedTarget = target.split(' - ')[0];
     return isolatedTarget.slice(0, text.length).toLowerCase() === text.toLowerCase();
   });
   if (firstMatch) {
-    return <MatchLink onClick={toggleSearch} to='/rendering'>{firstMatch}</MatchLink>;
+    return <MatchLink onClick={toggleTopbarSearch} to='/rendering'>{firstMatch}</MatchLink>;
   }
   const secondMatch = CONSTANTS.BROAD_TARGETS.find((target) => {
     const isolatedTarget = target.split('-')[0];
     return isolatedTarget.slice(0, text.length).toLowerCase() === text.toLowerCase();
   });
   if (secondMatch) {
-    return <MatchLink onClick={toggleSearch} to='/'>{secondMatch}</MatchLink>;
+    return <MatchLink onClick={toggleTopbarSearch} to='/'>{secondMatch}</MatchLink>;
   }
   // return <Text>"{text}" not found</Text>
   return (

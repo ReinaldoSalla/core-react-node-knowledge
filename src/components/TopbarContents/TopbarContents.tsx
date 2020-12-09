@@ -15,12 +15,12 @@ import { ModalsState } from '../../shared/context';
 import { ModalsDispatch } from '../../shared/context';
 
 const TopbarContents = () => {
-  const { isSidebarVisible } = useContext(ModalsState);
+  const { isTopbarSidebarVisible } = useContext(ModalsState);
 
   const dispatch = useContext(ModalsDispatch);
 
-  const toggleSidebar = () => {
-    dispatch({ type: 'TOGGLE_SIDEBAR' });
+  const toggleTopbarSidebar = () => {
+    dispatch({ type: 'TOGGLE_TOPBAR_SIDEBAR' });
   };
   
   const [isHovering, setIsHovering] = useState(false);
@@ -31,13 +31,13 @@ const TopbarContents = () => {
 
   const hoverAnimation = useSpring(getHoverAnimation(isHovering));
 
-  const svgAnimation = useSpring(getSvgAnimation(isSidebarVisible));
+  const svgAnimation = useSpring(getSvgAnimation(isTopbarSidebarVisible));
 
   return (
     <TopbarContentsWrapper 
       onMouseEnter={handleEnter} 
       onMouseLeave={handleLeave}
-      onClick={toggleSidebar}  
+      onClick={toggleTopbarSidebar}  
       title='Access all contents'
     >
       <TopbarContentsNormalizer>

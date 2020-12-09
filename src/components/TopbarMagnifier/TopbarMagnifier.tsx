@@ -15,12 +15,12 @@ import { ModalsState } from '../../shared/context';
 import { ModalsDispatch } from '../../shared/context';
 
 const TopbarMagnifier = () => {
-  const { isSearchVisible } = useContext(ModalsState);
+  const { isTopbarSearchVisible } = useContext(ModalsState);
 
   const dispatch = useContext(ModalsDispatch);
 
-  const toggleSearch = () => {
-    dispatch({ type: 'TOGGLE_SEARCH' });
+  const toggleTopbarSearch = () => {
+    dispatch({ type: 'TOGGLE_TOPBAR_SEARCH' });
   };
 
   const [isHovering, setIsHovering] = useState(false);
@@ -31,13 +31,13 @@ const TopbarMagnifier = () => {
 
   const hoverSpring = useSpring(getHoverAnimation(isHovering));
 
-  const svgSpring = useSpring(getSvgAnimation(isSearchVisible));
+  const svgSpring = useSpring(getSvgAnimation(isTopbarSearchVisible));
 
   return (
     <TopbarMagnifierWrapper 
       onMouseEnter={handleEnter} 
       onMouseLeave={handleLeave}
-      onClick={toggleSearch}  
+      onClick={toggleTopbarSearch}  
       title='TopbarSearch for contents'
     >
       <TopbarMagnifierNormalizer style={svgSpring}>

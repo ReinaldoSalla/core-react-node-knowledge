@@ -32,34 +32,34 @@ const TopbarSidebar = ({ navDomNode }) => {
   const timeoutId = useRef<any>(null);
   const topbarSidebarDomNode = useRef<any>(null);
 
-  const { isSidebarVisible } = useContext(ModalsState);
+  const { isTopbarSidebarVisible } = useContext(ModalsState);
 
   const dispatch = useContext(ModalsDispatch);
 
-  const toggleSidebar = () => {
-    dispatch({ type: 'TOGGLE_SIDEBAR' });
+  const toggleTopbarSidebar = () => {
+    dispatch({ type: 'TOGGLE_TOPBAR_SIDEBAR' });
   }
 
-  const spring = useSpring(getSpring(isSidebarVisible, springRef));
+  const spring = useSpring(getSpring(isTopbarSidebarVisible, springRef));
 
   const transitions = useTransition(
-    isSidebarVisible ? indexedComponents : [],
+    isTopbarSidebarVisible ? indexedComponents : [],
     (item) => item.key,
-    getTransitions(isSidebarVisible, transitionsRef)
+    getTransitions(isTopbarSidebarVisible, transitionsRef)
   );
 
   useChain(
-    isSidebarVisible ? [springRef, transitionsRef] : [transitionsRef, springRef],
-    [0, isSidebarVisible ? 0.4 : 0.6]
+    isTopbarSidebarVisible ? [springRef, transitionsRef] : [transitionsRef, springRef],
+    [0, isTopbarSidebarVisible ? 0.4 : 0.6]
   );
 
   const onClickOutside = (event): void => {
     if (
-      isSidebarVisible 
+      isTopbarSidebarVisible 
       && !topbarSidebarDomNode.current.contains(event.target)
       && !navDomNode.current.contains(event.target)  
      ) {        
-      toggleSidebar();
+      toggleTopbarSidebar();
     }
   }
 
@@ -74,7 +74,7 @@ const TopbarSidebar = ({ navDomNode }) => {
   
   const onBlur = () => {
     timeoutId.current = setTimeout(() => {
-      toggleSidebar();
+      toggleTopbarSidebar();
     });
   };
 
@@ -84,7 +84,7 @@ const TopbarSidebar = ({ navDomNode }) => {
         <item.component
           style={props}
           key={key}
-          toggleSidebar={toggleSidebar}
+          toggleTopbarSidebar={toggleTopbarSidebar}
         />
       ))}
     </TopbarSidebarWrapper>

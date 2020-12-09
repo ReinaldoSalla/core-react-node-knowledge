@@ -1,9 +1,9 @@
 interface HomeProps {
-  isSidebarVisible: boolean;
+  isTopbarSidebarVisible: boolean;
 }
 
 interface ContainerProps {
-  $isSidebarVisible: boolean;
+  $isTopbarSidebarVisible: boolean;
   $fixedHeight?: boolean; 
 }
 

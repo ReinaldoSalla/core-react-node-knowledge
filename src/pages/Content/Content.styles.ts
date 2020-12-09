@@ -5,7 +5,7 @@ import { ContentWrapperProps } from './Content.types';
 const ContentWrapper = styled(animated.div)<ContentWrapperProps>`
   padding: ${(props) => `${props.theme.topbarHeight} 48px 36px 48px`};
   background: ${(props) => props.theme.pageBgColor};
-  pointer-events: ${({ $isSidebarVisible }) => $isSidebarVisible ? 'none' : 'auto'};
+  pointer-events: ${({ $isTopbarSidebarVisible }) => $isTopbarSidebarVisible ? 'none' : 'auto'};
 
   ${(props) => props.theme.breakpoints.medium} {
     padding: ${(props) => `${props.theme.topbarHeight} 36px 36px 36px`}

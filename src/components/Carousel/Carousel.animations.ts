@@ -22,14 +22,14 @@ const carouselTransitionProps: any = {
   }
 };
 
-const getspring = (isSidebarVisible) => ({
+const getspring = (isTopbarSidebarVisible) => ({
   config: config.slow,
   from: { 
-    opacity: isSidebarVisible ? 0.5 : 1 
+    opacity: isTopbarSidebarVisible ? 0.5 : 1 
   },
   to: async (next) => {
     await next({ 
-      opacity: isSidebarVisible ? 0.5 : 1
+      opacity: isTopbarSidebarVisible ? 0.5 : 1
     });  
   }
 });

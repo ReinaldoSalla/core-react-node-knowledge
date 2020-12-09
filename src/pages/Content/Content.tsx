@@ -74,8 +74,8 @@ const Content = () => {
   const isUseReducerIntersecting = useIntersectionObserver(useReducerDomNode);
   const isFinalCodeIntersecting = useIntersectionObserver(finalCodeDomNode);
   
-  const { isSidebarVisible } = useContext(ModalsState);
-  const spring = useSpring(getOpacitySpring(isSidebarVisible));
+  const { isTopbarSidebarVisible } = useContext(ModalsState);
+  const spring = useSpring(getOpacitySpring(isTopbarSidebarVisible));
 
   const { hash } = useLocation();
 
@@ -112,7 +112,7 @@ const Content = () => {
     <main>
       <ContentWrapper 
         style={spring}
-        $isSidebarVisible={isSidebarVisible}
+        $isTopbarSidebarVisible={isTopbarSidebarVisible}
       >
         <ContentContainer>
           <ContentCore 

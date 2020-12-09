@@ -7,9 +7,9 @@ const Header = styled.header<HeaderProps>`
   position: fixed;
   top: 0;
   z-index: 2;
-  width: ${({ $isSidebarVisible, $isSearchVisible, $isScrollbarVisible }) => (
-    ($isSidebarVisible && $isScrollbarVisible)
-    || ($isSearchVisible && $isScrollbarVisible)
+  width: ${({ $isTopbarSidebarVisible, $isTopbarSearchVisible, $isScrollbarVisible }) => (
+    ($isTopbarSidebarVisible && $isScrollbarVisible)
+    || ($isTopbarSearchVisible && $isScrollbarVisible)
       ? 'calc(100% - 17px)' 
       : '100%'
   )};

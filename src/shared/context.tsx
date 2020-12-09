@@ -28,8 +28,8 @@ function getScrollbarWidth() {
 
 const isScrollbarVisible = getScrollbarWidth() > 0;
 
-const toggleSidebar = (state): any => {
-  if (!state.isSidebarVisible) {
+const toggleTopbarSidebar = (state): any => {
+  if (!state.isTopbarSidebarVisible) {
     document.body.style.overflowY = 'hidden';
     if (isScrollbarVisible) {
       document.body.style.width = 'calc(100% - 17px)'
@@ -40,13 +40,13 @@ const toggleSidebar = (state): any => {
   }
   return {
     ...state,
-    isSidebarVisible: !state.isSidebarVisible,
-    isSearchVisible: state.isSearchVisible ? false : false,
+    isTopbarSidebarVisible: !state.isTopbarSidebarVisible,
+    isTopbarSearchVisible: state.isTopbarSearchVisible ? false : false,
   };
 };
 
-const toggleSearch = (state): any => {
-  if (!state.isSearchVisible) {
+const toggleTopbarSearch = (state): any => {
+  if (!state.isTopbarSearchVisible) {
     document.body.style.overflowY = 'hidden';
     if (isScrollbarVisible) {
       document.body.style.width = 'calc(100% - 17px)'
@@ -57,23 +57,23 @@ const toggleSearch = (state): any => {
   }
   return {
     ...state,
-    isSidebarVisible: state.isSidebarVisible ? false : false,
-    isSearchVisible: !state.isSearchVisible 
+    isTopbarSidebarVisible: state.isTopbarSidebarVisible ? false : false,
+    isTopbarSearchVisible: !state.isTopbarSearchVisible 
   };
 };
 
 const initialState = {
   isScrollbarVisible,
-  isSidebarVisible: false,
-  isSearchVisible: false
+  isTopbarSidebarVisible: false,
+  isTopbarSearchVisible: false
 };
 
 const reducer = (state, action) => {
   switch (action.type) {
-    case 'TOGGLE_SIDEBAR':
-      return toggleSidebar(state);
-    case 'TOGGLE_SEARCH':
-      return toggleSearch(state);
+    case 'TOGGLE_TOPBAR_SIDEBAR':
+      return toggleTopbarSidebar(state);
+    case 'TOGGLE_TOPBAR_SEARCH':
+      return toggleTopbarSearch(state);
     default:
       throw new Error(`Action type ${action.type} is undefined`);
   }  

@@ -2,7 +2,7 @@ import React from 'react';
 import { Wrapper, Input, Element } from './TopbarSearchInput.styles';
 import TopbarSearchInputMatch from '../TopbarSearchInputMatch';
 
-const TopbarSearchInput = ({ style, toggleSearch, text, setText }) => {
+const TopbarSearchInput = ({ style, toggleTopbarSearch, text, setText }) => {
   // const [text, setText] = useState('');
 
   const handleChange = (event) => {
@@ -22,8 +22,8 @@ const TopbarSearchInput = ({ style, toggleSearch, text, setText }) => {
         /> 
       </Wrapper>
       <Element style={style}>
-        {/* {text ? <TopbarSearchInputMatch text={text} toggleSearch={toggleSearch} /> : <div style={{height: 'calc(59vh - 80px)'}}></div>} */}
-        {text ? <TopbarSearchInputMatch text={text} toggleSearch={toggleSearch} /> : null}
+        {/* {text ? <TopbarSearchInputMatch text={text} toggleTopbarSearch={toggleTopbarSearch} /> : <div style={{height: 'calc(59vh - 80px)'}}></div>} */}
+        {text ? <TopbarSearchInputMatch text={text} toggleTopbarSearch={toggleTopbarSearch} /> : null}
       </Element>
     </>
   );

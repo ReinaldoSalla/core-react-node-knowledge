@@ -3,11 +3,11 @@ import Exit from './TopbarSidebarExit.styles';
 
 const TopbarSidebarExit = ({ 
   style, 
-  toggleSidebar 
+  toggleTopbarSidebar 
 }): JSX.Element => (
   <Exit 
     style={style}
-    onClick={toggleSidebar}
+    onClick={toggleTopbarSidebar}
   >
     x
   </Exit>

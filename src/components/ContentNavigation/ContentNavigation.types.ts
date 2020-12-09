@@ -16,7 +16,7 @@ interface ContentNavigationProps {
 } 
 
 interface LinkProps {
-  $isSidebarVisible: boolean;
+  $isTopbarSidebarVisible: boolean;
 }
 
 export type { ContentNavigationProps, LinkProps };

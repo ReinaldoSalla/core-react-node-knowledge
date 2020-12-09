@@ -15,7 +15,7 @@ const Home: FunctionComponent = (): JSX.Element => {
   const reactRef = useRef<HTMLElement>(null!);
   const nodeRef = useRef<HTMLElement>(null!);
 
-  const { isSidebarVisible } = useContext(ModalsState);
+  const { isTopbarSidebarVisible } = useContext(ModalsState);
 
   const scrollToJavascript = () => scrollToElement(javascriptRef, -100);
   const scrollToReact = () => scrollToElement(reactRef, -100);
@@ -43,11 +43,11 @@ const Home: FunctionComponent = (): JSX.Element => {
     }
   }, [hash]);
   
-  const spring = useSpring(getOpacitySpring(isSidebarVisible));
+  const spring = useSpring(getOpacitySpring(isTopbarSidebarVisible));
 
   return (
     <>
-      <Container style={spring} $isSidebarVisible={isSidebarVisible} $fixedHeight>
+      <Container style={spring} $isTopbarSidebarVisible={isTopbarSidebarVisible} $fixedHeight>
         <CarouselBackground />
         <Carousel 
           scrollToJavascript={scrollToJavascript}
@@ -55,7 +55,7 @@ const Home: FunctionComponent = (): JSX.Element => {
           scrollToNode={scrollToNode}
         />
       </Container>
-      <Container style={spring} $isSidebarVisible={isSidebarVisible}>
+      <Container style={spring} $isTopbarSidebarVisible={isTopbarSidebarVisible}>
         <Categories 
           javascriptRef={javascriptRef}
           reactRef={reactRef}

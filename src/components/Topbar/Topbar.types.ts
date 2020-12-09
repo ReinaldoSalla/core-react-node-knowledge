@@ -1,14 +1,14 @@
 interface TopbarProps {
-  isSidebarVisible: boolean;
-  isSearchVisible: boolean;
-  toggleSidebar: () => void;
-  toggleSearch: () => void;
+  isTopbarSidebarVisible: boolean;
+  isTopbarSearchVisible: boolean;
+  toggleTopbarSidebar: () => void;
+  toggleTopbarSearch: () => void;
   isDeviceMobileOrTablet: boolean;
 }
 
 interface HeaderProps {
-  $isSidebarVisible: boolean;
-  $isSearchVisible: boolean;
+  $isTopbarSidebarVisible: boolean;
+  $isTopbarSearchVisible: boolean;
   $isScrollbarVisible: boolean;
 }
 

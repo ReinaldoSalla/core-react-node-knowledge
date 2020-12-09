@@ -6,7 +6,7 @@ interface CarouselInputProps {
 }
 
 interface CarouselInputWrapperProps {
-  $isSidebarVisible: boolean;
+  $isTopbarSidebarVisible: boolean;
 }
 
 export type { CarouselInputProps, CarouselInputWrapperProps };

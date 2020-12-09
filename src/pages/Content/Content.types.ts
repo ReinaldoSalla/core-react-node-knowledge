@@ -1,5 +1,5 @@
 interface ContentWrapperProps {
-  $isSidebarVisible: boolean;
+  $isTopbarSidebarVisible: boolean;
 }
 
 export type { ContentWrapperProps };

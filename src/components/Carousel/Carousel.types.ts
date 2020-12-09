@@ -28,7 +28,7 @@ type CarouselAction =
 	| MoveToThirdItem
 
 interface WrapperProps {
-	$isSidebarVisible: boolean;
+	$isTopbarSidebarVisible: boolean;
 }
 
 export type {

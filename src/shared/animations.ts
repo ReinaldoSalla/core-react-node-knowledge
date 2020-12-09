@@ -1,13 +1,13 @@
 import { config } from 'react-spring';
 
-const getOpacitySpring = (isSidebarVisible: boolean): any => ({
+const getOpacitySpring = (isTopbarSidebarVisible: boolean): any => ({
   config: config.slow,
   from: { 
-    opacity: isSidebarVisible ? 0.5 : 1 
+    opacity: isTopbarSidebarVisible ? 0.5 : 1 
   },
   to: async (next) => {
     await next({ 
-      opacity: isSidebarVisible ? 0.5 : 1
+      opacity: isTopbarSidebarVisible ? 0.5 : 1
     });  
   }
 });

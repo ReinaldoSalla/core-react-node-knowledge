@@ -1,16 +1,16 @@
-const getSpring = (isSearchVisible, springRef) => ({
+const getSpring = (isTopbarSearchVisible, springRef) => ({
   ref: springRef,
   from: {
-    height: isSearchVisible ? '800px' : '0px'
+    height: isTopbarSearchVisible ? '800px' : '0px'
   },
   to: async (next) => {
     await next({
-      height: isSearchVisible ? '800px' : '0px'
+      height: isTopbarSearchVisible ? '800px' : '0px'
     });
   }
 });
 
-const getTransitions = (isSearchVisible, transitionsRef, length) => ({
+const getTransitions = (isTopbarSearchVisible, transitionsRef, length) => ({
   ref: transitionsRef,
   unique: true,
   trail: 500 / length,

@@ -1,6 +1,6 @@
 interface SearchProps {
-  isSearchVisible: boolean;
-  toggleSearch: () => void;
+  isTopbarSearchVisible: boolean;
+  toggleTopbarSearch: () => void;
 }
 
 interface SearchWrapperProps {
