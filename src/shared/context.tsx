@@ -1,32 +1,16 @@
-import React, { useReducer, useEffect, createContext } from 'react';
+import React, { useReducer, createContext } from 'react';
+import getScrollbarWidth from '../utils/getScrollbarWidth';
+
+const isScrollbarVisible = getScrollbarWidth() > 0;
+
+const initialState = {
+  isScrollbarVisible,
+  isTopbarSidebarVisible: false,
+  isTopbarSearchVisible: false
+};
 
 const ModalsState = createContext<any>(null);
 const ModalsDispatch = createContext<any>(null);
-
-function getScrollbarWidth() {
-
-  // Creating invisible container
-  const outer: any = document.createElement('div');
-  outer.style.visibility = 'hidden';
-  outer.style.overflow = 'scroll'; // forcing scrollbar to appear
-  outer.style.msOverflowStyle = 'scrollbar'; // needed for WinJS apps
-  document.body.appendChild(outer);
-
-  // Creating inner element and placing it in the container
-  const inner = document.createElement('div');
-  outer.appendChild(inner);
-  
-  // Calculating difference between container's full width and the child width
-  const scrollbarWidth = (outer.offsetWidth - inner.offsetWidth);
-
-  // Removing temporary elements from the DOM
-  outer.parentNode.removeChild(outer);
-
-  return scrollbarWidth;
-    
-}
-
-const isScrollbarVisible = getScrollbarWidth() > 0;
 
 const toggleTopbarSidebar = (state): any => {
   if (!state.isTopbarSidebarVisible) {
@@ -62,13 +46,8 @@ const toggleTopbarSearch = (state): any => {
   };
 };
 
-const initialState = {
-  isScrollbarVisible,
-  isTopbarSidebarVisible: false,
-  isTopbarSearchVisible: false
-};
 
-const reducer = (state, action) => {
+const reducer = (state: typeof initialState, action) => {
   switch (action.type) {
     case 'TOGGLE_TOPBAR_SIDEBAR':
       return toggleTopbarSidebar(state);
@@ -78,7 +57,6 @@ const reducer = (state, action) => {
       throw new Error(`Action type ${action.type} is undefined`);
   }  
 };
-
 
 const ModalsProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
