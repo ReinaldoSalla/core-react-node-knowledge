@@ -25,7 +25,6 @@ const indexedComponents = components.map((component, key) => ({
   key
 }));
 
-
 const TopbarSidebar = ({ navDomNode }) => {
   const springRef: any = useRef();
   const transitionsRef: any = useRef();
