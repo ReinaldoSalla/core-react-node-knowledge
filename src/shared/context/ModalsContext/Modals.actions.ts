@@ -1,5 +1,18 @@
 import { State } from './Modals.types';
 
+const goToHome = (state: State, pathname: any): State => {
+  if (pathname === '/' && window.pageYOffset === 0) {
+    window.location.reload();
+  } else if (pathname === '/') {
+    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+  } else {
+    window.scrollTo({ top: 0, left: 0 });
+  }
+  return {
+    ...state,
+  }
+};
+
 const toggleTopbarSidebar = (state: State): State => {
   if (!state.isTopbarSidebarVisible) {
     document.body.style.overflowY = 'hidden';

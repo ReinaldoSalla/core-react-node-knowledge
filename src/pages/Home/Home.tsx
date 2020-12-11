@@ -45,6 +45,12 @@ const Home: FunctionComponent = (): JSX.Element => {
   
   const spring = useSpring(getOpacitySpring(isTopbarSidebarVisible));
 
+  const numRenders =useRef<number>(0);
+
+  useEffect(() => {
+    console.log(`Home re-render #${numRenders.current++}`)
+  })
+
   return (
     <>
       <Container style={spring} $isTopbarSidebarVisible={isTopbarSidebarVisible} $fixedHeight>
