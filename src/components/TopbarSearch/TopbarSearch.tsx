@@ -9,8 +9,8 @@ import SearchWrapper from './TopbarSearch.styles';
 import SearchTitle from '../SearchTitle';
 import TopbarSearchInput from '../TopbarSearchInput';
 import TopbarSearchExit from '../TopbarSearchExit';
-import { ModalsState } from '../../shared/context';
-import { ModalsDispatch } from '../../shared/context';
+import { ModalsState } from '../../shared/context/ModalsContext';
+import { ModalsDispatch } from '../../shared/context/ModalsContext';
 
 const components = [SearchTitle, TopbarSearchInput, TopbarSearchExit];
 

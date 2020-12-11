@@ -12,7 +12,7 @@ import {
 } from './Topbar.styles';
 import TopbarSidebar from '../TopbarSidebar';
 import TopbarSearch from '../TopbarSearch';
-import { ModalsState } from '../../shared/context';
+import { ModalsState } from '../../shared/context/ModalsContext';
 
 const Topbar = (): JSX.Element => {
   const isInTop = useIsInTop(50);

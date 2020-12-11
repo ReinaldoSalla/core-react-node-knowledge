@@ -6,7 +6,7 @@ import React, {
   useContext
 } from 'react';
 import { useSpring } from 'react-spring';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 import {
   ContentWrapper,
   ContentContainer
@@ -15,7 +15,7 @@ import ContentCore from '../../components/ContentCore';
 import ContentNavigation from '../../components/ContentNavigation';
 import scrollToElement from '../../utils/scrollToElement';
 import { getOpacitySpring } from '../../shared/animations';
-import { ModalsState } from '../../shared/context';
+import { ModalsState } from '../../shared/context/ModalsContext';
 
 const useIntersectionObserver = (
   domNode: MutableRefObject<HTMLElement>, 
@@ -24,7 +24,6 @@ const useIntersectionObserver = (
   const [isIntersecting, setIntersecting] = useState(false);
   const observerRef = useRef<IntersectionObserver | null>(null);
 
-  
   useEffect(() => {
     // IntersectionObserver is created lazily once
     // https://reactjs.org/docs/hooks-faq.html
@@ -50,6 +49,12 @@ const useIntersectionObserver = (
 };
 
 const Content = () => {
+  const { hash } = useLocation();
+  const { id } = useParams();
+  // const data = getContent(id);
+  // data needs to have the title, subtitles, text and code
+  // maybe a markdown file
+
   const introDomNode = useRef<HTMLElement>(null!);
   const setupDomNode = useRef<HTMLElement>(null!);
   const jsxDomNode = useRef<HTMLElement>(null!);
@@ -77,7 +82,6 @@ const Content = () => {
   const { isTopbarSidebarVisible } = useContext(ModalsState);
   const spring = useSpring(getOpacitySpring(isTopbarSidebarVisible));
 
-  const { hash } = useLocation();
 
   useEffect(() => {
     window.onbeforeunload = () => {

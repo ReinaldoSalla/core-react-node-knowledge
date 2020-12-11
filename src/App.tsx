@@ -6,7 +6,7 @@ import Topbar from './components/Topbar';
 import Home from './pages/Home';
 import Content from './pages/Content';
 import Footer from './components/Footer';
-import { ModalsProvider } from './shared/context';
+import { ModalsProvider } from './shared/context/ModalsContext';
 import './App.css';
 
 const App = (): JSX.Element => {
@@ -20,7 +20,7 @@ const App = (): JSX.Element => {
             <Route exact path='/'>
               <Home/>
             </Route>
-            <Route path='/rendering'>
+            <Route path='/:id'>
               <Content/>
             </Route>
           </Switch>      

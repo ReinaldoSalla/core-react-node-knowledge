@@ -8,7 +8,7 @@ import Categories from '../../components/Categories';
 import scrollToElement from '../../utils/scrollToElement';
 import CarouselBackground from '../../components/CarouselBackground';
 import { getOpacitySpring } from '../../shared/animations';
-import { ModalsState } from '../../shared/context';
+import { ModalsState } from '../../shared/context/ModalsContext';
 
 const Home: FunctionComponent = (): JSX.Element => { 
   const javascriptRef = useRef<HTMLElement>(null!);

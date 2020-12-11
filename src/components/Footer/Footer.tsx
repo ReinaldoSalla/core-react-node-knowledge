@@ -6,7 +6,7 @@ import {
   FooterLink,
   FooterText
 } from './Footer.styles';
-import { ModalsState } from '../../shared/context';
+import { ModalsState } from '../../shared/context/ModalsContext';
 
 const Footer = () => {
   const { isTopbarSidebarVisible } = useContext(ModalsState);

@@ -5,8 +5,8 @@ import { getSpring, getTransitions } from './TopbarSidebar.animations';
 import TopbarSidebarTopics from '../TopbarSidebarTopics';
 import TopbarSidebarExit from '../TopbarSidebarExit';
 import contents from '../../constants/contents';
-import { ModalsState } from '../../shared/context';
-import { ModalsDispatch } from '../../shared/context';
+import { ModalsState } from '../../shared/context/ModalsContext';
+import { ModalsDispatch } from '../../shared/context/ModalsContext';
 
 const partialComponents = contents.map(({ title, subcontents }) => (
   ({ style }) => (
