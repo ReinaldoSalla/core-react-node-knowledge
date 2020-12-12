@@ -8,7 +8,8 @@ export interface State {
 
 export type Action =
   | { type: 'TOGGLE_TOPBAR_SIDEBAR' }
-  | { type: 'TOGGLE_TOPBAR_SEARCH' };
+  | { type: 'TOGGLE_TOPBAR_SEARCH' }
+  | { type: 'NAVIGATE_TO_HOME', payload: string };
 
 export interface ModalsProviderProps {
   children: ReactNode;

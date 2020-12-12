@@ -1,6 +1,10 @@
 import { State } from './Modals.types';
 
-const goToHome = (state: State, pathname: any): State => {
+const navigateToHome = (state: State, pathname: string): State => {
+  if (state.isTopbarSidebarVisible || state.isTopbarSearchVisible) {
+    document.body.style.overflowY = 'auto';
+    document.body.style.width = '100%';
+  }
   if (pathname === '/' && window.pageYOffset === 0) {
     window.location.reload();
   } else if (pathname === '/') {
@@ -10,7 +14,9 @@ const goToHome = (state: State, pathname: any): State => {
   }
   return {
     ...state,
-  }
+    isTopbarSidebarVisible: false,
+    isTopbarSearchVisible: false
+  };
 };
 
 const toggleTopbarSidebar = (state: State): State => {
@@ -47,4 +53,4 @@ const toggleTopbarSearch = (state: State): State => {
   };
 };
 
-export { toggleTopbarSidebar, toggleTopbarSearch};
+export { toggleTopbarSidebar, toggleTopbarSearch, navigateToHome };

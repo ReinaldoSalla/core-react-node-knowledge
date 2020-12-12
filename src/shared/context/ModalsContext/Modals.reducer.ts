@@ -1,4 +1,8 @@
-import { toggleTopbarSidebar, toggleTopbarSearch } from './Modals.actions'; 
+import { 
+  toggleTopbarSidebar,
+  toggleTopbarSearch,
+  navigateToHome
+} from './Modals.actions'; 
 import { State, Action } from './Modals.types'; 
 
 const reducer = (state: State, action: Action): State => {
@@ -7,6 +11,8 @@ const reducer = (state: State, action: Action): State => {
       return toggleTopbarSidebar(state);
     case 'TOGGLE_TOPBAR_SEARCH':
       return toggleTopbarSearch(state);
+    case 'NAVIGATE_TO_HOME':
+      return navigateToHome(state, action.payload);  
     default:
       return state
   }  
