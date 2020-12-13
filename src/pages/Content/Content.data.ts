@@ -3,7 +3,7 @@ onSubmit(e) {
   e.preventDefault();
   const job = {
     title: 'Developer',
-    company: 'Facebook' 
+    company: 'xyz' 
   };
 }`;
 

@@ -115,11 +115,10 @@ const Content = () => {
   return (
     <main>
       <h1>{data.simpleStateManagement.title}</h1>
-      {data.simpleStateManagement.text.map((element, index) => (
-        <React.Fragment key={index}>
+      {data.simpleStateManagement.text.map((element) => (
+        <React.Fragment key={element.subtitle}>
           <h2 style={{ color: 'white' }}>{element.subtitle}</h2>
           {element.paragraphsLinksCommandsCode.map((innerElement, innerIndex) => {
-            // {console.log(innerElement)}
             if (innerElement.hasOwnProperty('paragraph')) {
               return <p key={innerIndex} style={{color:'white'}}>{innerElement.paragraph}</p>
             } else if (innerElement.hasOwnProperty('code')) {
