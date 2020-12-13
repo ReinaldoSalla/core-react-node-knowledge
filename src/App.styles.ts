@@ -29,6 +29,14 @@ const GlobalStyle = createGlobalStyle`
     background: gray;
   }
 
+  body:not(.tab) button:focus,
+  body:not(.tab) input:focus,
+  body:not(.tab) select:focus,
+  body:not(.tab) textarea:focus,
+  body:not(.tab) a:focus {
+    outline: 1px solid transparent;
+  }
+
   ul, ol {
     list-style-type: none;
     padding: 0;

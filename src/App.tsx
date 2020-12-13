@@ -7,9 +7,12 @@ import Home from './pages/Home';
 import Content from './pages/Content';
 import Footer from './components/Footer';
 import { ModalsProvider } from './shared/context/ModalsContext';
+import useTabOutline from './hooks/useTabOutline';
 import './App.css';
 
 const App = (): JSX.Element => {
+  useTabOutline();
+
   return (
     <BrowserRouter>
       <ModalsProvider>
