@@ -16,6 +16,7 @@ import ContentNavigation from '../../components/ContentNavigation';
 import scrollToElement from '../../utils/scrollToElement';
 import { getOpacitySpring } from '../../shared/animations';
 import { ModalsState } from '../../shared/context/ModalsContext';
+import data from './Content.data';
 
 const useIntersectionObserver = (
   domNode: MutableRefObject<HTMLElement>, 
@@ -55,66 +56,79 @@ const Content = () => {
   // data needs to have the title, subtitles, text and code
   // maybe a markdown file
 
-  const introDomNode = useRef<HTMLElement>(null!);
-  const setupDomNode = useRef<HTMLElement>(null!);
-  const jsxDomNode = useRef<HTMLElement>(null!);
-  const stylingDomNode = useRef<HTMLElement>(null!);
-  const useStateDomNode = useRef<HTMLElement>(null!);
-  const useReducerDomNode = useRef<HTMLElement>(null!);
-  const finalCodeDomNode = useRef<HTMLElement>(null!);
+  // const introDomNode = useRef<HTMLElement>(null!);
+  // const setupDomNode = useRef<HTMLElement>(null!);
+  // const jsxDomNode = useRef<HTMLElement>(null!);
+  // const stylingDomNode = useRef<HTMLElement>(null!);
+  // const useStateDomNode = useRef<HTMLElement>(null!);
+  // const useReducerDomNode = useRef<HTMLElement>(null!);
+  // const finalCodeDomNode = useRef<HTMLElement>(null!);
   
-  const scrollToIntro = () => scrollToElement(introDomNode, -10);
-  const scrollToSetup = () => scrollToElement(setupDomNode, -10);
-  const scrollToJsx = () => scrollToElement(jsxDomNode, -10);
-  const scrollToStyling = () => scrollToElement(stylingDomNode, -10);
-  const scrollToUseState = () => scrollToElement(useStateDomNode, -10);
-  const scrollToUseReducer = () => scrollToElement(useReducerDomNode, -10);
-  const scrollToFinalCode = () => scrollToElement(finalCodeDomNode, -10);
+  // const scrollToIntro = () => scrollToElement(introDomNode, -10);
+  // const scrollToSetup = () => scrollToElement(setupDomNode, -10);
+  // const scrollToJsx = () => scrollToElement(jsxDomNode, -10);
+  // const scrollToStyling = () => scrollToElement(stylingDomNode, -10);
+  // const scrollToUseState = () => scrollToElement(useStateDomNode, -10);
+  // const scrollToUseReducer = () => scrollToElement(useReducerDomNode, -10);
+  // const scrollToFinalCode = () => scrollToElement(finalCodeDomNode, -10);
   
-  const isIntroIntersecting = useIntersectionObserver(introDomNode, '-100px');
-  const isSetupIntersecting = useIntersectionObserver(setupDomNode);
-  const isJsxIntersecting = useIntersectionObserver(jsxDomNode);
-  const isStylingIntersecting = useIntersectionObserver(stylingDomNode);
-  const isUseStateIntersecting = useIntersectionObserver(useStateDomNode);
-  const isUseReducerIntersecting = useIntersectionObserver(useReducerDomNode);
-  const isFinalCodeIntersecting = useIntersectionObserver(finalCodeDomNode);
+  // const isIntroIntersecting = useIntersectionObserver(introDomNode, '-100px');
+  // const isSetupIntersecting = useIntersectionObserver(setupDomNode);
+  // const isJsxIntersecting = useIntersectionObserver(jsxDomNode);
+  // const isStylingIntersecting = useIntersectionObserver(stylingDomNode);
+  // const isUseStateIntersecting = useIntersectionObserver(useStateDomNode);
+  // const isUseReducerIntersecting = useIntersectionObserver(useReducerDomNode);
+  // const isFinalCodeIntersecting = useIntersectionObserver(finalCodeDomNode);
   
-  const { isTopbarSidebarVisible } = useContext(ModalsState);
-  const spring = useSpring(getOpacitySpring(isTopbarSidebarVisible));
+  // const { isTopbarSidebarVisible } = useContext(ModalsState);
+  // const spring = useSpring(getOpacitySpring(isTopbarSidebarVisible));
 
 
-  useEffect(() => {
-    window.onbeforeunload = () => {
-      if (!hash) {
-        window.scroll(0, 0);
-      }
-    };
-  }, [hash]);
+  // useEffect(() => {
+  //   window.onbeforeunload = () => {
+  //     if (!hash) {
+  //       window.scroll(0, 0);
+  //     }
+  //   };
+  // }, [hash]);
 
-  useEffect(() => {
-    if (hash === '#intro') {
-      scrollToIntro();
-    } else if (hash === '#setup') {
-      scrollToSetup();
-    } else if (hash === '#jsx') {
-      scrollToJsx();
-    } else if (hash === '#styling') {
-      scrollToStyling();
-    } else if (hash === '#useState') {
-      scrollToUseState();
-    } else if (hash === '#useReducer') {
-      scrollToUseReducer();
-    } else if (hash === '#final-code') {
-      scrollToFinalCode();
-    } else {
-      window.scrollTo(0, 0);
-    }
-  }, [hash]);  
-
+  // useEffect(() => {
+  //   if (hash === '#intro') {
+  //     scrollToIntro();
+  //   } else if (hash === '#setup') {
+  //     scrollToSetup();
+  //   } else if (hash === '#jsx') {
+  //     scrollToJsx();
+  //   } else if (hash === '#styling') {
+  //     scrollToStyling();
+  //   } else if (hash === '#useState') {
+  //     scrollToUseState();
+  //   } else if (hash === '#useReducer') {
+  //     scrollToUseReducer();
+  //   } else if (hash === '#final-code') {
+  //     scrollToFinalCode();
+  //   } else {
+  //     window.scrollTo(0, 0);
+  //   }
+  // }, [hash]);  
 
   return (
     <main>
-      <ContentWrapper 
+      <h1>{data.simpleStateManagement.title}</h1>
+      {data.simpleStateManagement.text.map((element, index) => (
+        <React.Fragment key={index}>
+          <h2 style={{ color: 'white' }}>{element.subtitle}</h2>
+          {element.paragraphsLinksCommandsCode.map((innerElement, innerIndex) => {
+            // {console.log(innerElement)}
+            if (innerElement.hasOwnProperty('paragraph')) {
+              return <p key={innerIndex} style={{color:'white'}}>{innerElement.paragraph}</p>
+            } else if (innerElement.hasOwnProperty('code')) {
+              return <p key={innerIndex} style={{color:'white',border:'1px solid red'}}>{innerElement.code}</p>
+            }
+          })}          
+        </React.Fragment>     
+      ))}
+      {/* <ContentWrapper 
         style={spring}
         $isTopbarSidebarVisible={isTopbarSidebarVisible}
       >
@@ -145,7 +159,7 @@ const Content = () => {
             scrollToFinalCode={scrollToFinalCode}
           />
         </ContentContainer>
-      </ContentWrapper>
+      </ContentWrapper> */}
     </main>
   );
 };
