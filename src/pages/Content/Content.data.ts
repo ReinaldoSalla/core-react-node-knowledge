@@ -12,7 +12,7 @@ const data: any = {
     title: 'React - Simple State Management',
     text: [
       {
-        subtitle: '1. Intro',
+        subtitle: 'Intro',
         paragraphsLinksCommandsCode: [ 
           {
             paragraph: 'The guide aims to explore the useState hook from react. We\'l build a Navbar that re-renders a list of items when hovered over. We\'l also create a form and a table, wich will share data by lifting the state up.'
@@ -20,7 +20,7 @@ const data: any = {
         ] 
       },
       {
-        subtitle: '2. Setup',
+        subtitle: 'Setup',
         paragraphsLinksCommandsCode: [ 
           {
             paragraph: 'Install the latest recommended version of'
@@ -41,7 +41,7 @@ const data: any = {
         ] 
       },
       {
-        subtitle: '3. Navbar',
+        subtitle: 'Navbar',
         paragraphsLinksCommandsCode: [
           {
             paragraph: 'The code bellow blablalba'

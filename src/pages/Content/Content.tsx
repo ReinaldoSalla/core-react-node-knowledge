@@ -80,17 +80,17 @@ const Content = () => {
   // const isUseReducerIntersecting = useIntersectionObserver(useReducerDomNode);
   // const isFinalCodeIntersecting = useIntersectionObserver(finalCodeDomNode);
   
-  // const { isTopbarSidebarVisible } = useContext(ModalsState);
-  // const spring = useSpring(getOpacitySpring(isTopbarSidebarVisible));
+  const { isTopbarSidebarVisible } = useContext(ModalsState);
+  const spring = useSpring(getOpacitySpring(isTopbarSidebarVisible));
 
 
-  // useEffect(() => {
-  //   window.onbeforeunload = () => {
-  //     if (!hash) {
-  //       window.scroll(0, 0);
-  //     }
-  //   };
-  // }, [hash]);
+  useEffect(() => {
+    window.onbeforeunload = () => {
+      if (!hash) {
+        window.scroll(0, 0);
+      }
+    };
+  }, [hash]);
 
   // useEffect(() => {
   //   if (hash === '#intro') {
@@ -113,35 +113,37 @@ const Content = () => {
   // }, [hash]);  
 
   return (
+    // <main>
+    //   <h1>{data.simpleStateManagement.title}</h1>
+    //   {data.simpleStateManagement.text.map((element) => (
+    //     <React.Fragment key={element.subtitle}>
+    //       <h2 style={{ color: 'white' }}>{element.subtitle}</h2>
+    //       {element.paragraphsLinksCommandsCode.map((innerElement, innerIndex) => {
+    //         if (innerElement.hasOwnProperty('paragraph')) {
+    //           return <p key={innerIndex} style={{color:'white'}}>{innerElement.paragraph}</p>
+    //         } else if (innerElement.hasOwnProperty('code')) {
+    //           return <p key={innerIndex} style={{color:'white',border:'1px solid red'}}>{innerElement.code}</p>
+    //         }
+    //       })}          
+    //     </React.Fragment>     
+    //   ))}
     <main>
-      <h1>{data.simpleStateManagement.title}</h1>
-      {data.simpleStateManagement.text.map((element) => (
-        <React.Fragment key={element.subtitle}>
-          <h2 style={{ color: 'white' }}>{element.subtitle}</h2>
-          {element.paragraphsLinksCommandsCode.map((innerElement, innerIndex) => {
-            if (innerElement.hasOwnProperty('paragraph')) {
-              return <p key={innerIndex} style={{color:'white'}}>{innerElement.paragraph}</p>
-            } else if (innerElement.hasOwnProperty('code')) {
-              return <p key={innerIndex} style={{color:'white',border:'1px solid red'}}>{innerElement.code}</p>
-            }
-          })}          
-        </React.Fragment>     
-      ))}
-      {/* <ContentWrapper 
+      <ContentWrapper 
         style={spring}
         $isTopbarSidebarVisible={isTopbarSidebarVisible}
       >
         <ContentContainer>
           <ContentCore 
-            introDomNode={introDomNode}
-            setupDomNode={setupDomNode}
-            jsxDomNode={jsxDomNode}
-            stylingDomNode={stylingDomNode}
-            useStateDomNode={useStateDomNode}
-            useReducerDomNode={useReducerDomNode}
-            finalCodeDomNode={finalCodeDomNode}
+            // introDomNode={introDomNode}
+            // setupDomNode={setupDomNode}
+            // jsxDomNode={jsxDomNode}
+            // stylingDomNode={stylingDomNode}
+            // useStateDomNode={useStateDomNode}
+            // useReducerDomNode={useReducerDomNode}
+            // finalCodeDomNode={finalCodeDomNode}
+            data={data}
           />
-          <ContentNavigation 
+          {/* <ContentNavigation 
             isIntroIntersecting={isIntroIntersecting}
             isSetupIntersecting={isSetupIntersecting}
             isJsxIntersecting={isJsxIntersecting}
@@ -156,9 +158,9 @@ const Content = () => {
             scrollToUseState={scrollToUseState}
             scrollToUseReducer={scrollToUseReducer}
             scrollToFinalCode={scrollToFinalCode}
-          />
+          /> */}
         </ContentContainer>
-      </ContentWrapper> */}
+      </ContentWrapper>
     </main>
   );
 };
