@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { animated } from 'react-spring';
-import { CarouselInputWrapperProps } from './CarouselInput.types';
 
 const CarouselInputWrapper = styled.div`
   display: flex;
@@ -20,7 +19,10 @@ const CarouselInputArea = styled.div`
   height: 50px;
 `;
 
-const CarouselInputButton = styled.div`
+const CarouselInputButton = styled.button`
+  display: flex;
+  justify-content: center;
+  position: relative;
   height: 30px;
   width: 100px;
   border: 1px solid white;
@@ -38,10 +40,8 @@ const CarouselInputButton = styled.div`
   }
 `;
 
-const CarouselInputText = styled(animated.span)`
-  position: absolute;
+const CarouselInputText = styled(animated.span)` 
   font-size: 20px;
-  width: 100px;
   text-align: center;
   z-index: 1;
 
@@ -53,6 +53,8 @@ const CarouselInputText = styled(animated.span)`
 
 const CarouselInputInner = styled(animated.div)`
   height: 100%;
+  position: absolute;
+  left: 0;
 
   ${(props) => props.theme.breakpoints.small} {
     height: 24px;
