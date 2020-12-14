@@ -9,4 +9,6 @@ Warning: Can't perform a React state update on an unmounted component. This is a
     in Route (at HomePage.tsx:16)
     in Home (at Universal.tsx:67)
 
-https://dev.to/elecweb/remove-outline-when-click-but-keep-it-when-tab-in-react-3fe5
+html5 video best practices
+https://www.viget.com/articles/best-practices-for-background-videos/
+https://davidwalsh.name/html5-video
