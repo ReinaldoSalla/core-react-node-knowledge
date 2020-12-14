@@ -26,7 +26,10 @@ const data: any = {
             paragraph: 'Install the latest recommended version of'
           },
           {
-            link: 'Node.Js'
+            paragraphWithEndLink: 'Install the latest recommended version of *Node.js'
+          },
+          {
+            paragraphWithMiddleLink: 'Install the latest recommended version of *Node.js* and in the future deno'
           },
           {
             command: [

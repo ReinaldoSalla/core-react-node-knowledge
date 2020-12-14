@@ -58,6 +58,35 @@ const ContentCore: FunctionComponent<ContentCoreProps> = ({
                   </code>
                 </pre>
               );
+            } else if (innerElement.hasOwnProperty('paragraphWithMiddleLink')) {
+              const blocks = innerElement.paragraphWithMiddleLink.split('*');
+              return (
+                <ContentCoreText>
+                  {blocks[0]} 
+                  <ContentCoreLink 
+                    href='https://nodejs.org/en/' 
+                    target='_blank'  
+                    rel="noopener noreferrer"
+                  >
+                    {blocks[1]} 
+                  </ContentCoreLink>
+                  {blocks[2]}
+                </ContentCoreText>
+              );
+            } else if (innerElement.hasOwnProperty('paragraphWithEndLink')) {
+              const blocks = innerElement.paragraphWithEndLink.split('*');
+              return (
+                <ContentCoreText>
+                  {blocks[0]}
+                  <ContentCoreLink 
+                    href='https://nodejs.org/en/' 
+                    target='_blank'  
+                    rel="noopener noreferrer"
+                  >
+                    {blocks[1]}  
+                  </ContentCoreLink>  
+                </ContentCoreText>
+              )
             }
           })} 
         </section>
