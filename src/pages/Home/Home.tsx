@@ -54,7 +54,7 @@ const Home: FunctionComponent = (): JSX.Element => {
   return (
     <>
       <Container style={spring} $isTopbarSidebarVisible={isTopbarSidebarVisible} $fixedHeight>
-        {/* <CarouselBackground /> */}
+        <CarouselBackground />
         <Carousel 
           scrollToJavascript={scrollToJavascript}
           scrollToReact={scrollToReact}
