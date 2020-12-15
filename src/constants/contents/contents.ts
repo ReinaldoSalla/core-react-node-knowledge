@@ -10,8 +10,8 @@ const contents = [
   {
     title: 'React',
     subcontents: [
-      'Rendering',
-      'State management',
+      'Simple State Management',
+      'Complex State Management ',
       'Side Effects',
       'Intersection Observer',
       'Optimizing images'

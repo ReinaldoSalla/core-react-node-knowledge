@@ -17,6 +17,7 @@ import scrollToElement from '../../utils/scrollToElement';
 import { getOpacitySpring } from '../../shared/animations';
 import { ModalsState } from '../../shared/context/ModalsContext';
 import { data, delimiters } from './Content.data';
+import texts from '../../constants/texts';
 
 const useIntersectionObserver = (
   domNode: MutableRefObject<HTMLElement>, 
@@ -52,6 +53,7 @@ const useIntersectionObserver = (
 const Content = () => {
   const { hash } = useLocation();
   const { id } = useParams();
+    
 
   const domNodes = [
     useRef<HTMLElement>(null!),

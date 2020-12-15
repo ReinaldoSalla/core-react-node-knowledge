@@ -30,7 +30,7 @@ const getProcessedSubcontents = (subcontents) => {
     counter++;
     return {
       title: subcontent,
-      path: subcontent.toLowerCase().replace(' ', ''),
+      path: subcontent.toLowerCase().replaceAll(' ', ''),
       description: metaSubcontents[counter]
     }
   });
