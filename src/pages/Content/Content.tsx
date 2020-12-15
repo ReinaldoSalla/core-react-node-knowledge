@@ -53,8 +53,8 @@ const useIntersectionObserver = (
 const Content = () => {
   const { hash } = useLocation();
   const { id } = useParams();
-    
-
+  const target = texts[id];
+  
   const domNodes = [
     useRef<HTMLElement>(null!),
     useRef<HTMLElement>(null!),

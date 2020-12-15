@@ -2,8 +2,8 @@ import simpleStateManagement from './simpleStateManagement';
 import complexStateManagement from './complexStateManagement';
 
 const texts = {
-  simpleStateManagement,
-  complexStateManagement
+  simplestatemanagement: simpleStateManagement,
+  complexstatemanagement: complexStateManagement 
 };
 
 export default texts;
