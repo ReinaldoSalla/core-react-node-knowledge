@@ -52,45 +52,6 @@ const useIntersectionObserver = (
 const Content = () => {
   const { hash } = useLocation();
   const { id } = useParams();
-  // const data = getContent(id);
-  // data needs to have the title, subtitles, text and code
-  // maybe a markdown file
-
-  // const introDomNode = useRef<HTMLElement>(null!);
-  // const setupDomNode = useRef<HTMLElement>(null!);
-  // const jsxDomNode = useRef<HTMLElement>(null!);
-  // const stylingDomNode = useRef<HTMLElement>(null!);
-  // const useStateDomNode = useRef<HTMLElement>(null!);
-  // const useReducerDomNode = useRef<HTMLElement>(null!);
-  // const finalCodeDomNode = useRef<HTMLElement>(null!);
-  
-  // const scrollToIntro = () => scrollToElement(introDomNode, -10);
-  // const scrollToSetup = () => scrollToElement(setupDomNode, -10);
-  // const scrollToJsx = () => scrollToElement(jsxDomNode, -10);
-  // const scrollToStyling = () => scrollToElement(stylingDomNode, -10);
-  // const scrollToUseState = () => scrollToElement(useStateDomNode, -10);
-  // const scrollToUseReducer = () => scrollToElement(useReducerDomNode, -10);
-  // const scrollToFinalCode = () => scrollToElement(finalCodeDomNode, -10);
-  
-  // const isIntroIntersecting = useIntersectionObserver(introDomNode, '-100px');
-  // const isSetupIntersecting = useIntersectionObserver(setupDomNode);
-  // const isJsxIntersecting = useIntersectionObserver(jsxDomNode);
-  // const isStylingIntersecting = useIntersectionObserver(stylingDomNode);
-  // const isUseStateIntersecting = useIntersectionObserver(useStateDomNode);
-  // const isUseReducerIntersecting = useIntersectionObserver(useReducerDomNode);
-  // const isFinalCodeIntersecting = useIntersectionObserver(finalCodeDomNode);
-
-  // const domNodes = new Array(delimiters.length).fill(0).map((_) => {
-  //   return useRef<HTMLElement>(null!);
-  // });
-
-  // const scrolls = new Array(delimiters.length).fill(0).map((_, index) => {
-  //   return () => scrollToElement(domNodes[index], -10);
-  // });
-
-  // const isIntersecting = new Array(delimiters.length).fill(0).map((_, index) => {
-  //   return useIntersectionObserver(domNodes[index]);
-  // });
 
   const domNodes = [
     useRef<HTMLElement>(null!),
@@ -130,8 +91,6 @@ const Content = () => {
     };
   }, [hash]);
 
-  console.log(hash);
-
   useEffect(() => {
     if (hash) {
       for (const [index, delimiter] of delimiters.entries()) {
@@ -140,44 +99,12 @@ const Content = () => {
           break;
         }
       }
+    } else {
+      window.scrollTo(0, 0);
     }
   }, [hash]);
 
-  // useEffect(() => {
-  //   if (hash === '#intro') {
-  //     scrollToIntro();
-  //   } else if (hash === '#setup') {
-  //     scrollToSetup();
-  //   } else if (hash === '#jsx') {
-  //     scrollToJsx();
-  //   } else if (hash === '#styling') {
-  //     scrollToStyling();
-  //   } else if (hash === '#useState') {
-  //     scrollToUseState();
-  //   } else if (hash === '#useReducer') {
-  //     scrollToUseReducer();
-  //   } else if (hash === '#final-code') {
-  //     scrollToFinalCode();
-  //   } else {
-  //     window.scrollTo(0, 0);
-  //   }
-  // }, [hash]);  
-
   return (
-    // <main>
-    //   <h1>{data.simpleStateManagement.title}</h1>
-    //   {data.simpleStateManagement.text.map((element) => (
-    //     <React.Fragment key={element.subtitle}>
-    //       <h2 style={{ color: 'white' }}>{element.subtitle}</h2>
-    //       {element.paragraphsCommandsCode.map((innerElement, innerIndex) => {
-    //         if (innerElement.hasOwnProperty('paragraph')) {
-    //           return <p key={innerIndex} style={{color:'white'}}>{innerElement.paragraph}</p>
-    //         } else if (innerElement.hasOwnProperty('code')) {
-    //           return <p key={innerIndex} style={{color:'white',border:'1px solid red'}}>{innerElement.code}</p>
-    //         }
-    //       })}          
-    //     </React.Fragment>     
-    //   ))}
     <main>
       <ContentWrapper 
         style={spring}
@@ -185,31 +112,10 @@ const Content = () => {
       >
         <ContentContainer>
           <ContentCore 
-            // introDomNode={introDomNode}
-            // setupDomNode={setupDomNode}
-            // jsxDomNode={jsxDomNode}
-            // stylingDomNode={stylingDomNode}
-            // useStateDomNode={useStateDomNode}
-            // useReducerDomNode={useReducerDomNode}
-            // finalCodeDomNode={finalCodeDomNode}
             domNodes={domNodes}
             data={data}
           />
           <ContentNavigation 
-            // isIntroIntersecting={isIntroIntersecting}
-            // isSetupIntersecting={isSetupIntersecting}
-            // isJsxIntersecting={isJsxIntersecting}
-            // isStylingIntersecting={isStylingIntersecting}
-            // isUseStateIntersecting={isUseStateIntersecting}
-            // isUseReducerIntersecting={isUseReducerIntersecting}
-            // isFinalCodeIntersecting={isFinalCodeIntersecting}
-            // scrollToIntro={scrollToIntro}
-            // scrollToSetup={scrollToSetup}
-            // scrollToJsx={scrollToJsx}
-            // scrollToStyling={scrollToStyling}
-            // scrollToUseState={scrollToUseState}
-            // scrollToUseReducer={scrollToUseReducer}
-            // scrollToFinalCode={scrollToFinalCode}
             isIntersecting={isIntersecting}
             scrolls={scrolls}
             delimiters={delimiters}
