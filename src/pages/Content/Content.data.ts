@@ -1,37 +1,27 @@
-const block1 = `
-onSubmit(e) {
-  e.preventDefault();
-  const job = {
-    title: 'Developer',
-    company: 'xyz' 
-  };
-}
-`;
-
 const title = `
 React - Simple State Management
 `;
 
-const subtitle1 = `
+const introSubtitle = `
 Intro
 `;
 
-const paragraph1 = `
+const introParagraph1 = `
 The guide aims to explore the useState hook from
 react. We\'l build a Navbar that re-renders a list of items 
-when hovered over. We\'l also create a form and a table,
-wich will share data by lifting the state up.
+when hovered over. And we\'l also create a form that manipulates
+state in the form of text and displays submitted items in a table.
 `;
 
-const subtitle2 = `
+const setupSubtitle = `
 Setup
 `;
 
-const paragraph2 = `
+const setupParagraph1 = `
 Install the latest recommended version of *Node.js
 `;
 
-const paragraph3 = `
+const setupParagraph2 = `
 Install the lastest recommended version of *Node.js* and later deno
 `;
 
@@ -42,17 +32,68 @@ const commands = [
 '$ npm run start'
 ];
 
-const paragraph4 = `
-When running npm run start, React will lauch the app in 
+const setupParagraph3 = `
+After running npm run start, React will lauch the app in 
 http://localhost:3000
+React makes it painless to create interactive UIs. Design simple views for each state in your application, and React will efficiently update and render just the right components when your data changes.
+React makes it painless to create interactive UIs. Design simple views for each state in your application, and React will efficiently update and render just the right components when your data changes.
+React makes it painless to create interactive UIs. Design simple views for each state in your application, and React will efficiently update and render just the right components when your data changes.
 `;
 
-const subtitle3 = `
+const navbarSubtitle = `
 Nabvar
 `;
 
-const paragraph5 = `
-The code bellow blablabla
+const navbarParagraph1 = `
+React makes it painless to create interactive UIs. Design simple views for each state in your application, and React will efficiently update and render just the right components when your data changes.:
+React makes it painless to create interactive UIs. Design simple views for each state in your application, and React will efficiently update and render just the right components when your data changes.
+React makes it painless to create interactive UIs. Design simple views for each state in your application, and React will efficiently update and render just the right components when your data changes.
+React makes it painless to create interactive UIs. Design simple views for each state in your application, and React will efficiently update and render just the right components when your data changes.
+`;
+
+const navbarCode1 = `
+onSubmit(e) {
+  e.preventDefault();
+  const job = {
+    title: 'Developer',
+    company: 'xyz' 
+  };
+}
+`;
+
+const formSubtitle = `
+Form
+`;
+
+const formParagraph1 = `
+React makes it painless to create interactive UIs. Design simple views for each state in your application, and React will efficiently update and render just the right components when your data changes.
+React makes it painless to create interactive UIs. Design simple views for each state in your application, and React will efficiently update and render just the right components when your data changes.
+React makes it painless to create interactive UIs. Design simple views for each state in your application, and React will efficiently update and render just the right components when your data changes.
+React makes it painless to create interactive UIs. Design simple views for each state in your application, and React will efficiently update and render just the right components when your data changes.
+`;
+
+const tableSubtitle = `
+Table
+`;
+
+const tableParagraph1 = `
+React makes it painless to create interactive UIs. Design simple views for each state in your application, and React will efficiently update and render just the right components when your data changes.
+React makes it painless to create interactive UIs. Design simple views for each state in your application, and React will efficiently update and render just the right components when your data changes.
+React makes it painless to create interactive UIs. Design simple views for each state in your application, and React will efficiently update and render just the right components when your data changes.
+React makes it painless to create interactive UIs. Design simple views for each state in your application, and React will efficiently update and render just the right components when your data changes.
+React makes it painless to create interactive UIs. Design simple views for each state in your application, and React will efficiently update and render just the right components when your data changes.
+`;
+
+const finalSubtitle = `
+Final Code
+`;
+
+const finalParagraph1 = `
+You can check the final code by acessing the github repository
+`;
+
+const finalParagraph2 = `
+And you can also check the application running on codesandbox
 `;
 
 const data: any = {
@@ -60,27 +101,46 @@ const data: any = {
     title,
     text: [
       {
-        subtitle: subtitle1,
-        paragraphsLinksCommandsCode: [ 
-          { paragraph: paragraph1 },
+        subtitle: introSubtitle,
+        paragraphsCommandsCode: [ 
+          { paragraph: introParagraph1 },
         ] 
       },
       {
-        subtitle: subtitle2,
-        paragraphsLinksCommandsCode: [ 
-          { paragraphWithEndLink: paragraph2 },
-          { paragraphWithMiddleLink: paragraph3 },
+        subtitle: setupSubtitle,
+        paragraphsCommandsCode: [ 
+          { paragraphWithEndLink: setupParagraph1 },
+          { paragraphWithMiddleLink: setupParagraph2 },
           { command: commands },
-          { paragraph: paragraph4 },
+          { paragraph: setupParagraph3 },
         ] 
       },
       {
-        subtitle: subtitle3,
-        paragraphsLinksCommandsCode: [
-          { paragraph: paragraph5 },
-          { code: block1 }
+        subtitle: navbarSubtitle,
+        paragraphsCommandsCode: [
+          { paragraph: navbarParagraph1 },
+          { code: navbarCode1 }
         ]
       },
+      {
+        subtitle: formSubtitle,
+        paragraphsCommandsCode: [
+          { paragraph: formParagraph1 }
+        ]
+      },
+      {
+        subtitle: tableSubtitle,
+        paragraphsCommandsCode: [
+          { paragraph: tableParagraph1 }
+        ]
+      },
+      {
+        subtitle: finalSubtitle,
+        paragraphsCommandsCode: [
+          { paragraph: finalParagraph1 },
+          { paragraph: finalParagraph2 }
+        ]
+      }
     ],
   },
 };

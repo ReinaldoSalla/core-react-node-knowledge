@@ -118,7 +118,7 @@ const Content = () => {
     //   {data.simpleStateManagement.text.map((element) => (
     //     <React.Fragment key={element.subtitle}>
     //       <h2 style={{ color: 'white' }}>{element.subtitle}</h2>
-    //       {element.paragraphsLinksCommandsCode.map((innerElement, innerIndex) => {
+    //       {element.paragraphsCommandsCode.map((innerElement, innerIndex) => {
     //         if (innerElement.hasOwnProperty('paragraph')) {
     //           return <p key={innerIndex} style={{color:'white'}}>{innerElement.paragraph}</p>
     //         } else if (innerElement.hasOwnProperty('code')) {

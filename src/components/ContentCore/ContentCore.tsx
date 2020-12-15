@@ -35,7 +35,7 @@ const ContentCore: FunctionComponent<ContentCoreProps> = ({
       {data.simpleStateManagement.text.map((element, index) => (
         <section key={element.subtitle}>
           <ContentCoreTitle>{index + 1}. {element.subtitle}</ContentCoreTitle>
-          {element.paragraphsLinksCommandsCode.map((innerElement, innerIndex) => {
+          {element.paragraphsCommandsCode.map((innerElement, innerIndex) => {
             if (innerElement.hasOwnProperty('paragraph')) {
               return <ContentCoreText key={innerIndex}>{innerElement.paragraph}</ContentCoreText>
             } else if (innerElement.hasOwnProperty('command')) {
