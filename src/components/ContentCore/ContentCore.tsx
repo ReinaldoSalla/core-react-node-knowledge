@@ -22,6 +22,7 @@ const ContentCore: FunctionComponent<ContentCoreProps> = ({
   // useStateDomNode,
   // useReducerDomNode,
   // finalCodeDomNode,
+  domNodes,
   data
 }): JSX.Element => {
 
@@ -33,14 +34,14 @@ const ContentCore: FunctionComponent<ContentCoreProps> = ({
     <ContentCoreWrapper>
       <ContentCoreHeading>{data.simpleStateManagement.title}</ContentCoreHeading>
       {data.simpleStateManagement.text.map((element, index) => (
-        <section key={element.subtitle}>
+        <section key={element.subtitle} ref={domNodes[index]}>
           <ContentCoreTitle>{index + 1}. {element.subtitle}</ContentCoreTitle>
           {element.paragraphsCommandsCode.map((innerElement, innerIndex) => {
             if (innerElement.hasOwnProperty('paragraph')) {
               return <ContentCoreText key={innerIndex}>{innerElement.paragraph}</ContentCoreText>
             } else if (innerElement.hasOwnProperty('command')) {
               return (
-                <ContentCoreContainer>
+                <ContentCoreContainer key={innerElement}>
                   {innerElement.command.map((innerInnerElement, innerInnerIndex) => (
                     <ContentCoreCommand key={innerInnerIndex}>
                       {innerInnerElement}
@@ -50,7 +51,7 @@ const ContentCore: FunctionComponent<ContentCoreProps> = ({
               );
             } else if (innerElement.hasOwnProperty('code')) {
               return (
-                <pre className='language-jsx'>
+                <pre key={index} className='language-jsx'>
                   <code className='language-jsx' 
                     style={{ whiteSpace: 'pre-wrap' }}
                   >
@@ -61,7 +62,7 @@ const ContentCore: FunctionComponent<ContentCoreProps> = ({
             } else if (innerElement.hasOwnProperty('paragraphWithMiddleLink')) {
               const blocks = innerElement.paragraphWithMiddleLink.split('*');
               return (
-                <ContentCoreText>
+                <ContentCoreText key={blocks[0]}>
                   {blocks[0]} 
                   <ContentCoreLink 
                     href='https://nodejs.org/en/' 
@@ -76,7 +77,7 @@ const ContentCore: FunctionComponent<ContentCoreProps> = ({
             } else if (innerElement.hasOwnProperty('paragraphWithEndLink')) {
               const blocks = innerElement.paragraphWithEndLink.split('*');
               return (
-                <ContentCoreText>
+                <ContentCoreText key={blocks[0]}>
                   {blocks[0]}
                   <ContentCoreLink 
                     href='https://nodejs.org/en/' 

@@ -16,7 +16,7 @@ import ContentNavigation from '../../components/ContentNavigation';
 import scrollToElement from '../../utils/scrollToElement';
 import { getOpacitySpring } from '../../shared/animations';
 import { ModalsState } from '../../shared/context/ModalsContext';
-import data from './Content.data';
+import { data, delimiters } from './Content.data';
 
 const useIntersectionObserver = (
   domNode: MutableRefObject<HTMLElement>, 
@@ -79,10 +79,48 @@ const Content = () => {
   // const isUseStateIntersecting = useIntersectionObserver(useStateDomNode);
   // const isUseReducerIntersecting = useIntersectionObserver(useReducerDomNode);
   // const isFinalCodeIntersecting = useIntersectionObserver(finalCodeDomNode);
+
+  // const domNodes = new Array(delimiters.length).fill(0).map((_) => {
+  //   return useRef<HTMLElement>(null!);
+  // });
+
+  // const scrolls = new Array(delimiters.length).fill(0).map((_, index) => {
+  //   return () => scrollToElement(domNodes[index], -10);
+  // });
+
+  // const isIntersecting = new Array(delimiters.length).fill(0).map((_, index) => {
+  //   return useIntersectionObserver(domNodes[index]);
+  // });
+
+  const domNodes = [
+    useRef<HTMLElement>(null!),
+    useRef<HTMLElement>(null!),
+    useRef<HTMLElement>(null!),
+    useRef<HTMLElement>(null!),
+    useRef<HTMLElement>(null!),
+    useRef<HTMLElement>(null!),
+  ];
+
+  const scrolls = [
+    () => scrollToElement(domNodes[0], -10),
+    () => scrollToElement(domNodes[1], -10),
+    () => scrollToElement(domNodes[2], -10),
+    () => scrollToElement(domNodes[3], -10),
+    () => scrollToElement(domNodes[4], -10),
+    () => scrollToElement(domNodes[5], -10),
+  ];
+
+  const isIntersecting = [
+    useIntersectionObserver(domNodes[0], '-100px'),
+    useIntersectionObserver(domNodes[1]),
+    useIntersectionObserver(domNodes[2]),
+    useIntersectionObserver(domNodes[3]),
+    useIntersectionObserver(domNodes[4]),
+    useIntersectionObserver(domNodes[5]),
+  ];
   
   const { isTopbarSidebarVisible } = useContext(ModalsState);
   const spring = useSpring(getOpacitySpring(isTopbarSidebarVisible));
-
 
   useEffect(() => {
     window.onbeforeunload = () => {
@@ -141,24 +179,28 @@ const Content = () => {
             // useStateDomNode={useStateDomNode}
             // useReducerDomNode={useReducerDomNode}
             // finalCodeDomNode={finalCodeDomNode}
+            domNodes={domNodes}
             data={data}
           />
-          {/* <ContentNavigation 
-            isIntroIntersecting={isIntroIntersecting}
-            isSetupIntersecting={isSetupIntersecting}
-            isJsxIntersecting={isJsxIntersecting}
-            isStylingIntersecting={isStylingIntersecting}
-            isUseStateIntersecting={isUseStateIntersecting}
-            isUseReducerIntersecting={isUseReducerIntersecting}
-            isFinalCodeIntersecting={isFinalCodeIntersecting}
-            scrollToIntro={scrollToIntro}
-            scrollToSetup={scrollToSetup}
-            scrollToJsx={scrollToJsx}
-            scrollToStyling={scrollToStyling}
-            scrollToUseState={scrollToUseState}
-            scrollToUseReducer={scrollToUseReducer}
-            scrollToFinalCode={scrollToFinalCode}
-          /> */}
+          <ContentNavigation 
+            // isIntroIntersecting={isIntroIntersecting}
+            // isSetupIntersecting={isSetupIntersecting}
+            // isJsxIntersecting={isJsxIntersecting}
+            // isStylingIntersecting={isStylingIntersecting}
+            // isUseStateIntersecting={isUseStateIntersecting}
+            // isUseReducerIntersecting={isUseReducerIntersecting}
+            // isFinalCodeIntersecting={isFinalCodeIntersecting}
+            // scrollToIntro={scrollToIntro}
+            // scrollToSetup={scrollToSetup}
+            // scrollToJsx={scrollToJsx}
+            // scrollToStyling={scrollToStyling}
+            // scrollToUseState={scrollToUseState}
+            // scrollToUseReducer={scrollToUseReducer}
+            // scrollToFinalCode={scrollToFinalCode}
+            isIntersecting={isIntersecting}
+            scrolls={scrolls}
+            delimiters={delimiters}
+          />
         </ContentContainer>
       </ContentWrapper>
     </main>

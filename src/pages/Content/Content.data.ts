@@ -85,7 +85,7 @@ React makes it painless to create interactive UIs. Design simple views for each 
 `;
 
 const finalSubtitle = `
-Final Code
+FinalCode
 `;
 
 const finalParagraph1 = `
@@ -145,4 +145,17 @@ const data: any = {
   },
 };
 
-export default data;
+// const delimiters = [
+//   'intro',
+//   'setup',
+//   'navbar',
+//   'form',
+//   'table',
+//   'final-code'
+// ];
+
+const delimiters = data.simpleStateManagement.text.map((item) => {
+  return item.subtitle;
+});
+
+export { data, delimiters };
