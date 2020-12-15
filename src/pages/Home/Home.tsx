@@ -11,15 +11,20 @@ import { getOpacitySpring } from '../../shared/animations';
 import { ModalsState } from '../../shared/context/ModalsContext';
 
 const Home: FunctionComponent = (): JSX.Element => { 
-  const javascriptRef = useRef<HTMLElement>(null!);
-  const reactRef = useRef<HTMLElement>(null!);
-  const nodeRef = useRef<HTMLElement>(null!);
+  // const javascriptRef = useRef<HTMLElement>(null!);
+  // const reactRef = useRef<HTMLElement>(null!);
+  // const nodeRef = useRef<HTMLElement>(null!);
+  const domNodes = [
+    useRef<HTMLElement>(null!),
+    useRef<HTMLElement>(null!),
+    useRef<HTMLElement>(null!),
+  ];
 
   const { isTopbarSidebarVisible } = useContext(ModalsState);
 
-  const scrollToJavascript = () => scrollToElement(javascriptRef, -100);
-  const scrollToReact = () => scrollToElement(reactRef, -100);
-  const scrollToNode = () => scrollToElement(nodeRef, -100);
+  const scrollToJavascript = () => scrollToElement(domNodes[0], -100);
+  const scrollToReact = () => scrollToElement(domNodes[1], -100);
+  const scrollToNode = () => scrollToElement(domNodes[2], -100)
 
   const { hash } = useLocation();
 
@@ -49,7 +54,7 @@ const Home: FunctionComponent = (): JSX.Element => {
 
   useEffect(() => {
     console.log(`Home re-render #${numRenders.current++}`)
-  })
+  });
 
   return (
     <>
@@ -62,11 +67,7 @@ const Home: FunctionComponent = (): JSX.Element => {
         />
       </Container>
       <Container style={spring} $isTopbarSidebarVisible={isTopbarSidebarVisible}>
-        <Categories 
-          javascriptRef={javascriptRef}
-          reactRef={reactRef}
-          nodeRef={nodeRef}
-        />
+        <Categories domNodes={domNodes}/>
       </Container>
     </>
   );
