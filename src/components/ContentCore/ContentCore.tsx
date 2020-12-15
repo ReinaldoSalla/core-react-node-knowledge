@@ -24,8 +24,8 @@ const ContentCore: FunctionComponent<ContentCoreProps> = ({
 
   return (
     <ContentCoreWrapper>
-      <ContentCoreHeading>{data.simpleStateManagement.title}</ContentCoreHeading>
-      {data.simpleStateManagement.text.map((element, index) => (
+      <ContentCoreHeading>{data.title}</ContentCoreHeading>
+      {data.text.map((element, index) => (
         <section key={element.subtitle} ref={domNodes[index]}>
           <ContentCoreTitle>{index + 1}. {element.subtitle}</ContentCoreTitle>
           {element.paragraphsCommandsCode.map((innerElement, innerIndex) => {
