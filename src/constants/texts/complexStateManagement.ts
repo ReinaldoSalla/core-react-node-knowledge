@@ -18,7 +18,7 @@ React makes it painless to create interactive UIs. Design simple views for each 
 `;
 
 const title = `
-React - Simple State Management
+React - Complex State Management
 `;
 
 const introSubtitle = `
@@ -119,57 +119,51 @@ const finalParagraph2 = `
 And you can also check the application running on codesandbox
 `;
 
-const data: any = {
-  simpleStateManagement: {
-    title,
-    text: [
-      {
-        subtitle: introSubtitle,
-        paragraphsCommandsCode: [ 
-          { paragraph: introParagraph1 },
-        ] 
-      },
-      {
-        subtitle: setupSubtitle,
-        paragraphsCommandsCode: [ 
-          { paragraphWithEndLink: setupParagraph1 },
-          { paragraphWithMiddleLink: setupParagraph2 },
-          { command: commands },
-          { paragraph: setupParagraph3 },
-        ] 
-      },
-      {
-        subtitle: navbarSubtitle,
-        paragraphsCommandsCode: [
-          { paragraph: navbarParagraph1 },
-          { code: navbarCode1 }
-        ]
-      },
-      {
-        subtitle: formSubtitle,
-        paragraphsCommandsCode: [
-          { paragraph: formParagraph1 }
-        ]
-      },
-      {
-        subtitle: tableSubtitle,
-        paragraphsCommandsCode: [
-          { paragraph: tableParagraph1 }
-        ]
-      },
-      {
-        subtitle: finalSubtitle,
-        paragraphsCommandsCode: [
-          { paragraph: finalParagraph1 },
-          { paragraph: finalParagraph2 }
-        ]
-      }
-    ],
-  },
+const complexStateManagement = {
+  title,
+  text: [
+    {
+      subtitle: introSubtitle,
+      paragraphsCommandsCode: [ 
+        { paragraph: introParagraph1 },
+      ] 
+    },
+    {
+      subtitle: setupSubtitle,
+      paragraphsCommandsCode: [ 
+        { paragraphWithEndLink: setupParagraph1 },
+        { paragraphWithMiddleLink: setupParagraph2 },
+        { command: commands },
+        { paragraph: setupParagraph3 },
+      ] 
+    },
+    {
+      subtitle: navbarSubtitle,
+      paragraphsCommandsCode: [
+        { paragraph: navbarParagraph1 },
+        { code: navbarCode1 }
+      ]
+    },
+    {
+      subtitle: formSubtitle,
+      paragraphsCommandsCode: [
+        { paragraph: formParagraph1 }
+      ]
+    },
+    {
+      subtitle: tableSubtitle,
+      paragraphsCommandsCode: [
+        { paragraph: tableParagraph1 }
+      ]
+    },
+    {
+      subtitle: finalSubtitle,
+      paragraphsCommandsCode: [
+        { paragraph: finalParagraph1 },
+        { paragraph: finalParagraph2 }
+      ]
+    }
+  ],
 };
 
-const delimiters = data.simpleStateManagement.text.map((item) => {
-  return item.subtitle;
-});
-
-export { data, delimiters };
+export default complexStateManagement; 
