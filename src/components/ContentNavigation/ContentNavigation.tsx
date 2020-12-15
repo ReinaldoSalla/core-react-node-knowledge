@@ -166,6 +166,7 @@ const ContentNavigation: FunctionComponent<ContentNavigationProps> = ({
         <div key={item}>
           <ContentNavigationItem 
             to={`${pathname}#${item}`}
+            onClick={scrolls[index]}
            >
             <ContentNavigationCircle style={circleAnimations[index]} />
             <ContentNavigationText style={textAnimations[index]}>
@@ -176,7 +177,7 @@ const ContentNavigation: FunctionComponent<ContentNavigationProps> = ({
         </div>
       ))}
     </ContentNavigationWrapper>
-  )
+  );
 };
 
 export default ContentNavigation;

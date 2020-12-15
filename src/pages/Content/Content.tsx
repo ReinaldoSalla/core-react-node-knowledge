@@ -130,6 +130,19 @@ const Content = () => {
     };
   }, [hash]);
 
+  console.log(hash);
+
+  useEffect(() => {
+    if (hash) {
+      for (const [index, delimiter] of delimiters.entries()) {
+        if (hash === `#${delimiter.trim()}`) {
+          scrolls[index]();
+          break;
+        }
+      }
+    }
+  }, [hash]);
+
   // useEffect(() => {
   //   if (hash === '#intro') {
   //     scrollToIntro();
