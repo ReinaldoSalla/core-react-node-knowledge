@@ -6,13 +6,13 @@ import {
 } from 'react-spring';
 import { getSpring, getTransitions } from './TopbarSearch.animations';
 import SearchWrapper from './TopbarSearch.styles';
-import SearchTitle from '../SearchTitle';
+import TopbarSearchTitle from '../TopbarSearchTitle';
 import TopbarSearchInput from '../TopbarSearchInput';
 import TopbarSearchExit from '../TopbarSearchExit';
 import { ModalsState } from '../../shared/context/ModalsContext';
 import { ModalsDispatch } from '../../shared/context/ModalsContext';
 
-const components = [SearchTitle, TopbarSearchInput, TopbarSearchExit];
+const components = [TopbarSearchTitle, TopbarSearchInput, TopbarSearchExit];
 
 const indexedComponents = components.map((component, key) => ({
   component,
