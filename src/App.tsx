@@ -8,6 +8,7 @@ import { ModalsProvider } from './shared/context/ModalsContext';
 import useTabOutline from './hooks/useTabOutline';
 import './App.css';
 import Home from './pages/Home';
+import ContentSuspense from './components/ContentSuspense';
 
 const Content = lazy(() => import('./pages/Content'));
 
@@ -19,8 +20,8 @@ const App = (): JSX.Element => {
       <ModalsProvider>
         <ThemeProvider theme={globalTheme}>
           <GlobalStyle />
+          <Suspense fallback={<ContentSuspense />}>
           <Topbar/>
-          <Suspense fallback={<div style={{color: 'white', fontSize: '10rem'}}>LOADING</div>}>
             <Switch>
               <Route exact path='/'>
                 <Home/>
