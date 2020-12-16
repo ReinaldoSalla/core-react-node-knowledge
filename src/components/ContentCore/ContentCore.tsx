@@ -15,7 +15,7 @@ import './prism.css';
 
 const ContentCore: FunctionComponent<ContentCoreProps> = ({ 
   domNodes,
-  data
+  target 
 }): JSX.Element => {
 
   useEffect(() => {
@@ -24,8 +24,8 @@ const ContentCore: FunctionComponent<ContentCoreProps> = ({
 
   return (
     <ContentCoreWrapper>
-      <ContentCoreHeading>{data.title}</ContentCoreHeading>
-      {data.text.map((element, index) => (
+      <ContentCoreHeading>{target.title}</ContentCoreHeading>
+      {target.text.map((element, index) => (
         <section key={element.subtitle} ref={domNodes[index]}>
           <ContentCoreTitle>{index + 1}. {element.subtitle}</ContentCoreTitle>
           {element.paragraphsCommandsCode.map((innerElement, innerIndex) => {

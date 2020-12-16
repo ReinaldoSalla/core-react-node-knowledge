@@ -9,7 +9,7 @@ interface ContentCoreProps {
   // useReducerDomNode: MutableRefObject<HTMLElement>;
   // finalCodeDomNode: MutableRefObject<HTMLElement>;
   domNodes: any; 
-  data: any;
+  target: any;
 }
 
 interface LinkProps {

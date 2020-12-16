@@ -16,7 +16,6 @@ import ContentNavigation from '../../components/ContentNavigation';
 import scrollToElement from '../../utils/scrollToElement';
 import { getOpacitySpring } from '../../shared/animations';
 import { ModalsState } from '../../shared/context/ModalsContext';
-import { data, delimiters } from './Content.data';
 import texts from '../../constants/texts';
 import getDelimiters from './Content.utils';
 
@@ -55,7 +54,7 @@ const Content = () => {
   const { hash } = useLocation();
   const { id } = useParams();
   const target = texts[id];
-  const tmpDelimiters = getDelimiters(target);
+  const delimiters = getDelimiters(target);
 
   const domNodes = [
     useRef<HTMLElement>(null!),
@@ -117,12 +116,12 @@ const Content = () => {
         <ContentContainer>
           <ContentCore 
             domNodes={domNodes}
-            data={target}
+            target={target}
           />
           <ContentNavigation 
             isIntersecting={isIntersecting}
             scrolls={scrolls}
-            delimiters={tmpDelimiters}
+            delimiters={delimiters}
           />
         </ContentContainer>
       </ContentWrapper>
