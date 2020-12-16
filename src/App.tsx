@@ -8,9 +8,7 @@ import { ModalsProvider } from './shared/context/ModalsContext';
 import useTabOutline from './hooks/useTabOutline';
 import './App.css';
 import Home from './pages/Home';
-// import Content from './pages/Content';
 
-// const Home = lazy(() => import('./pages/Home'));
 const Content = lazy(() => import('./pages/Content'));
 
 const App = (): JSX.Element => {
