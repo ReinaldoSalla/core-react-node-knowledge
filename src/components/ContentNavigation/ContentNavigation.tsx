@@ -1,4 +1,4 @@
-import React, { 
+import React, {
   FunctionComponent
 } from 'react';
 import { useSpring } from 'react-spring';
@@ -11,7 +11,7 @@ import {
   ContentNavigationLine
 } from './ContentNavigation.styles';
 import { ContentNavigationProps } from './ContentNavigation.types';
-import { 
+import {
   getTextAnimation,
   getCircleAnimation
 } from './ContentNavigation.animations';
@@ -21,7 +21,6 @@ const ContentNavigation: FunctionComponent<ContentNavigationProps> = ({
   scrolls,
   delimiters
 }): JSX.Element => {
-
   const { pathname } = useLocation();
 
   const circleAnimations = [
@@ -30,7 +29,7 @@ const ContentNavigation: FunctionComponent<ContentNavigationProps> = ({
     useSpring(getCircleAnimation(isIntersecting[2], isIntersecting[1])),
     useSpring(getCircleAnimation(isIntersecting[3], isIntersecting[2])),
     useSpring(getCircleAnimation(isIntersecting[4], isIntersecting[3])),
-    useSpring(getCircleAnimation(isIntersecting[5], isIntersecting[4])),
+    useSpring(getCircleAnimation(isIntersecting[5], isIntersecting[4]))
   ];
 
   const textAnimations = [
@@ -39,20 +38,22 @@ const ContentNavigation: FunctionComponent<ContentNavigationProps> = ({
     useSpring(getTextAnimation(isIntersecting[2], isIntersecting[1])),
     useSpring(getTextAnimation(isIntersecting[3], isIntersecting[2])),
     useSpring(getTextAnimation(isIntersecting[4], isIntersecting[3])),
-    useSpring(getTextAnimation(isIntersecting[5], isIntersecting[4])),
+    useSpring(getTextAnimation(isIntersecting[5], isIntersecting[4]))
   ];
 
   return (
     <ContentNavigationWrapper>
       {delimiters.map((item, index) => (
         <div key={item}>
-          <ContentNavigationItem 
+          <ContentNavigationItem
             to={`${pathname}#${item}`}
             onClick={scrolls[index]}
-           >
+          >
             <ContentNavigationCircle style={circleAnimations[index]} />
             <ContentNavigationText style={textAnimations[index]}>
-              {index + 1}. {item}
+              {index + 1}
+              .
+              {item}
             </ContentNavigationText>
           </ContentNavigationItem>
           {index < delimiters.length - 1 && <ContentNavigationLine />}

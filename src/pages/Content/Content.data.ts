@@ -44,11 +44,10 @@ const setupParagraph2 = `
 Install the lastest recommended version of *Node.js* and later deno
 `;
 
-
 const commands = [
-'$ npx create-react-app progrtmp-simple-state-management',
-'$ cd progrtmp-simple-state-management',
-'$ npm run start'
+  '$ npx create-react-app progrtmp-simple-state-management',
+  '$ cd progrtmp-simple-state-management',
+  '$ npm run start'
 ];
 
 const setupParagraph3 = `
@@ -125,18 +124,18 @@ const data: any = {
     text: [
       {
         subtitle: introSubtitle,
-        paragraphsCommandsCode: [ 
-          { paragraph: introParagraph1 },
-        ] 
+        paragraphsCommandsCode: [
+          { paragraph: introParagraph1 }
+        ]
       },
       {
         subtitle: setupSubtitle,
-        paragraphsCommandsCode: [ 
+        paragraphsCommandsCode: [
           { paragraphWithEndLink: setupParagraph1 },
           { paragraphWithMiddleLink: setupParagraph2 },
           { command: commands },
-          { paragraph: setupParagraph3 },
-        ] 
+          { paragraph: setupParagraph3 }
+        ]
       },
       {
         subtitle: navbarSubtitle,
@@ -164,12 +163,10 @@ const data: any = {
           { paragraph: finalParagraph2 }
         ]
       }
-    ],
-  },
+    ]
+  }
 };
 
-const delimiters = data.simpleStateManagement.text.map((item) => {
-  return item.subtitle;
-});
+const delimiters = data.simpleStateManagement.text.map((item) => item.subtitle);
 
 export { data, delimiters };

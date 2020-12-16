@@ -1,11 +1,11 @@
 import React, { FunctionComponent } from 'react';
 import Exit from './TopbarSidebarExit.styles';
 
-const TopbarSidebarExit = ({ 
-  style, 
-  toggleTopbarSidebar 
+const TopbarSidebarExit = ({
+  style,
+  toggleTopbarSidebar
 }): JSX.Element => (
-  <Exit 
+  <Exit
     style={style}
     onClick={toggleTopbarSidebar}
   >

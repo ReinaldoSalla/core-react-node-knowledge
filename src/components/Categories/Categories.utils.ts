@@ -1,15 +1,15 @@
 import contents from '../../constants/contents';
-import { ReactComponent as JavaScriptSvg } from  '../../assets/icons/javascript.svg';
+import { ReactComponent as JavaScriptSvg } from '../../assets/icons/javascript.svg';
 import { ReactComponent as ReactSvg } from '../../assets/icons/react.svg';
 import { ReactComponent as ServerSvg } from '../../assets/icons/server.svg';
 
 const metaContents = [
   'Curated tutorials, emphasizing on ES6+ features',
   'Concepts from React, focusing on function components and React Hooks',
-  'Extending applications with Node.js and GraphQL',
+  'Extending applications with Node.js and GraphQL'
 ];
 
-const  metaSubcontents = [
+const metaSubcontents = [
   'Iterating over sequences by repetition or by traversing an iterable',
   'Making async calls and avoiding callback hell',
   'Syntatic sugar for Generator plus Promises',
@@ -32,18 +32,16 @@ const getProcessedSubcontents = (subcontents) => {
       title: subcontent,
       path: subcontent.toLowerCase().replaceAll(' ', ''),
       description: metaSubcontents[counter]
-    }
+    };
   });
   return processedSubcontents;
 };
 
-const processedContents = contents.map((content, index) => {
-  return {
-    ...content,
-    description: metaContents[index],
-    subcontents: getProcessedSubcontents(content.subcontents)
-  };
-});
+const processedContents = contents.map((content, index) => ({
+  ...content,
+  description: metaContents[index],
+  subcontents: getProcessedSubcontents(content.subcontents)
+}));
 
 const icons = [
   JavaScriptSvg,

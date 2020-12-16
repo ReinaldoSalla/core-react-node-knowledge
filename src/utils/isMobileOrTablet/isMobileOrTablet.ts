@@ -6,7 +6,7 @@ const isMobileOrTablet = (userAgent: string): boolean => {
     /iPad/i,
     /iPod/i,
     /BlackBerry/i,
-    /Windows Phone/i    
+    /Windows Phone/i
   ];
   return elements.some((element) => userAgent.match(element));
 };

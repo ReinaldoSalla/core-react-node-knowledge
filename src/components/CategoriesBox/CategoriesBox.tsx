@@ -9,26 +9,30 @@ import {
   Check
 } from './CategoriesBox.styles';
 
-const CategoriesBox = ({ 
-  title, 
-  description, 
+const CategoriesBox = ({
+  title,
+  description,
   path,
-  Svg,
+  Svg
 }) => (
   <Wrapper to={path}>
-    <IconWrapper >
+    <IconWrapper>
       <Icon as={Svg} />
     </IconWrapper>
-    <Title >
+    <Title>
       {title}
     </Title>
-    <DescriptionWrapper >
-      <Description >
+    <DescriptionWrapper>
+      <Description>
         {description}
       </Description>
     </DescriptionWrapper>
-    <Check >
-      Check {title} →
+    <Check>
+      Check
+      {' '}
+      {title}
+      {' '}
+      →
     </Check>
   </Wrapper>
 );

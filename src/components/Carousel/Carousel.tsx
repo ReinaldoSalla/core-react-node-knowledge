@@ -1,22 +1,18 @@
 import React, { useReducer, useEffect } from 'react';
-import { useSpring, useTransition } from 'react-spring';
-import { CarouselWrapper } from './Carousel.styles';
+import { useTransition } from 'react-spring';
+import CarouselWrapper from './Carousel.styles';
 import components from './Carousel.mapper';
 import initialState from './Carousel.init';
-import { 
-  carouselTransitionProps,
-  getspring 
-} from './Carousel.animations';
+import { carouselTransitionProps } from './Carousel.animations';
 import reducer from './Carousel.reducer';
 import CONSTANTS from './Carousel.constants';
 import CarouselInput from '../CarouselInput';
-import CarouselBackground from '../CarouselBackground';
 import useDocumentVisibility from '../../hooks/useDocumentVisibility';
 
 const Carousel = ({
   scrollToJavascript,
   scrollToReact,
-  scrollToNode,
+  scrollToNode
 }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
   const transitions = useTransition(state.index, null, {
@@ -25,20 +21,20 @@ const Carousel = ({
   });
   const isDocumentVisible: boolean = useDocumentVisibility();
 
-  const handleFirstClick = () => {
+  const handleFirstClick = (): void => {
     dispatch({ type: CONSTANTS.MOVE_TO_FIRST_ITEM });
   };
 
-  const handleSecondClick = () => {
+  const handleSecondClick = (): void => {
     dispatch({ type: CONSTANTS.MOVE_TO_SECOND_ITEM });
   };
 
-  const handleThirdClick = () => {
+  const handleThirdClick = (): void => {
     dispatch({ type: CONSTANTS.MOVE_TO_THIRD_ITEM });
   };
 
   useEffect(() => {
-    const handleNextItem = () => {
+    const handleNextItem = (): void => {
       dispatch({ type: CONSTANTS.MOVE_TO_NEXT_ITEM });
     };
 
@@ -46,7 +42,9 @@ const Carousel = ({
       const intervalId = setInterval(() => {
         handleNextItem();
       }, CONSTANTS.DURATION);
-      return () => clearInterval(intervalId);
+      return (): void => {
+        clearInterval(intervalId);
+      };
     }
   });
 
@@ -56,7 +54,7 @@ const Carousel = ({
         {transitions.map(({ item, props, key }) => {
           const Component = components[item];
           return (
-            <Component 
+            <Component
               key={key}
               style={props}
               scrollToJavascript={scrollToJavascript}
@@ -65,7 +63,7 @@ const Carousel = ({
             />
           );
         })}
-        <CarouselInput 
+        <CarouselInput
           handleFirstClick={handleFirstClick}
           handleSecondClick={handleSecondClick}
           handleThirdClick={handleThirdClick}

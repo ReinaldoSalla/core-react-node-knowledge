@@ -13,7 +13,7 @@ const TopbarSidebarTopicss = ({ style, title, subcontents }) => (
     <Topics>
       {subcontents.map((subcontent, index) => (
         <Topic key={index}>
-          <Text href='/#'>{subcontent}</Text>
+          <Text href="/#">{subcontent}</Text>
         </Topic>
       ))}
     </Topics>

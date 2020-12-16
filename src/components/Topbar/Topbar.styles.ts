@@ -1,4 +1,3 @@
-
 import styled from 'styled-components';
 import { animated } from 'react-spring';
 import { HeaderProps } from './Topbar.types';
@@ -10,7 +9,7 @@ const Header = styled.header<HeaderProps>`
   width: ${({ $isTopbarSidebarVisible, $isTopbarSearchVisible, $isScrollbarVisible }) => (
     ($isTopbarSidebarVisible && $isScrollbarVisible)
     || ($isTopbarSearchVisible && $isScrollbarVisible)
-      ? 'calc(100% - 17px)' 
+      ? 'calc(100% - 17px)'
       : '100%'
   )};
   height: ${(props) => props.theme.topbarHeight};

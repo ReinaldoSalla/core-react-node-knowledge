@@ -9,7 +9,7 @@ import {
   CarouselItemCheck
 } from './CarouselItem.styles';
 import getCarouselItemProps from './CarouselItem.animations';
-import { CarouselItemProps } from './CarouselItem.types'; 
+import { CarouselItemProps } from './CarouselItem.types';
 
 const getWhichElement = (
   name,
@@ -29,16 +29,16 @@ const getWhichElement = (
   }
 };
 
-const CarouselItem: FunctionComponent<CarouselItemProps> = ({ 
-  style, 
-  name, 
-  title, 
-  description, 
-  check, 
+const CarouselItem: FunctionComponent<CarouselItemProps> = ({
+  style,
+  name,
+  title,
+  description,
+  check,
   scrollToJavascript,
   scrollToReact,
-  scrollToNode,
-}): JSX.Element  => {
+  scrollToNode
+}): JSX.Element => {
   const [isHovering, setIsHovering] = useState(false);
 
   const { pathname } = useLocation();
@@ -55,7 +55,7 @@ const CarouselItem: FunctionComponent<CarouselItemProps> = ({
     scrollToReact,
     scrollToNode
   );
-  
+
   return (
     <CarouselItemWrapper style={style}>
       <CarouselItemTitle

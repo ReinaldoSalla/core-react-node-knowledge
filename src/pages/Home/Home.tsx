@@ -1,7 +1,12 @@
-import React, { useEffect, useContext, useRef, FunctionComponent } from 'react';
+import React, {
+  useEffect,
+  useContext,
+  useRef,
+  useCallback,
+  FunctionComponent
+} from 'react';
 import { useLocation } from 'react-router-dom';
-import { animated, useSpring } from 'react-spring';
-import { HomeProps } from './Home.types';
+import { useSpring } from 'react-spring';
 import Container from './Home.styles';
 import Carousel from '../../components/Carousel';
 import Categories from '../../components/Categories';
@@ -10,26 +15,34 @@ import CarouselBackground from '../../components/CarouselBackground';
 import { getOpacitySpring } from '../../shared/animations';
 import { ModalsState } from '../../shared/context/ModalsContext';
 
-const Home: FunctionComponent = (): JSX.Element => { 
+const Home: FunctionComponent = (): JSX.Element => {
   // const javascriptRef = useRef<HTMLElement>(null!);
   // const reactRef = useRef<HTMLElement>(null!);
   // const nodeRef = useRef<HTMLElement>(null!);
   const domNodes = [
     useRef<HTMLElement>(null!),
     useRef<HTMLElement>(null!),
-    useRef<HTMLElement>(null!),
+    useRef<HTMLElement>(null!)
   ];
 
   const { isTopbarSidebarVisible } = useContext(ModalsState);
 
-  const scrollToJavascript = () => scrollToElement(domNodes[0], -100);
-  const scrollToReact = () => scrollToElement(domNodes[1], -100);
-  const scrollToNode = () => scrollToElement(domNodes[2], -100)
+  const scrollToJavascript = useCallback(() => {
+    scrollToElement(domNodes[0], -100);
+  }, [domNodes]);
+
+  const scrollToReact = useCallback(() => {
+    scrollToElement(domNodes[1], -100);
+  }, [domNodes]);
+
+  const scrollToNode = useCallback(() => {
+    scrollToElement(domNodes[2], -100);
+  }, [domNodes]);
 
   const { hash } = useLocation();
 
   useEffect(() => {
-    window.onbeforeunload = () => {
+    window.onbeforeunload = (): void => {
       if (!hash) {
         window.scroll(0, 0);
       }
@@ -46,28 +59,22 @@ const Home: FunctionComponent = (): JSX.Element => {
     } else {
       window.scrollTo(0, 0);
     }
-  }, [hash]);
-  
+  }, [hash, scrollToJavascript, scrollToNode, scrollToReact]);
+
   const spring = useSpring(getOpacitySpring(isTopbarSidebarVisible));
-
-  const numRenders =useRef<number>(0);
-
-  useEffect(() => {
-    console.log(`Home re-render #${numRenders.current++}`)
-  });
 
   return (
     <>
       <Container style={spring} $isTopbarSidebarVisible={isTopbarSidebarVisible} $fixedHeight>
         <CarouselBackground />
-        <Carousel 
+        <Carousel
           scrollToJavascript={scrollToJavascript}
           scrollToReact={scrollToReact}
           scrollToNode={scrollToNode}
         />
       </Container>
       <Container style={spring} $isTopbarSidebarVisible={isTopbarSidebarVisible}>
-        <Categories domNodes={domNodes}/>
+        <Categories domNodes={domNodes} />
       </Container>
     </>
   );

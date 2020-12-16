@@ -4,10 +4,10 @@ interface HomeProps {
 
 interface ContainerProps {
   $isTopbarSidebarVisible: boolean;
-  $fixedHeight?: boolean; 
+  $fixedHeight?: boolean;
 }
 
 export type {
-  HomeProps, 
-  ContainerProps,
-}; 
+  HomeProps,
+  ContainerProps
+};

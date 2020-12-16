@@ -41,16 +41,14 @@ const processNonPrimitive = (
 };
 
 const inspect = (
-  obj: object, 
+  obj: object,
   convertDot = true,
   convertIndex = true
 ): void => {
   console.log('\n'.repeat(5));
   Object.entries(obj).forEach(([varName, varValue]) => {
-    if (varName.includes('Dot') && convertDot) 
-    {varName = convertVarNameDot(varName);}
-    if (varName.includes('Index') && convertIndex)
-    {varName = convertVarNameIndex(varName);}
+    if (varName.includes('Dot') && convertDot) { varName = convertVarNameDot(varName); }
+    if (varName.includes('Index') && convertIndex) { varName = convertVarNameIndex(varName); }
     if (Array.isArray(varValue)) {
       processNonPrimitive({ varName, varValue }, 'array');
     } else if (typeof varValue === 'object') {
@@ -63,9 +61,9 @@ const inspect = (
 };
 
 const addZeros = (number: number): string => {
-  if (number < 10) {return `00${number}`;}
-  else if (number < 100) {return `0${number}`;}
-  else {return `${number}`;}
+  if (number < 10) { return `00${number}`; }
+  if (number < 100) { return `0${number}`; }
+  return `${number}`;
 };
 
 const inspectError = (err: UnknownObject): void => {
@@ -76,9 +74,7 @@ const inspectError = (err: UnknownObject): void => {
   const regex = /\(([^)]+)\)/g;
   const stacks = [...err.stack.matchAll(regex)];
   const stackMsgs = stacks.map((item) => item[0]);
-  stackMsgs.forEach((item, index) => 
-    console.error(`File n° ${addZeros(index + 1)}: ${item}`)
-  );
+  stackMsgs.forEach((item, index) => console.error(`File n° ${addZeros(index + 1)}: ${item}`));
   console.log('\n'.repeat(5));
 };
 

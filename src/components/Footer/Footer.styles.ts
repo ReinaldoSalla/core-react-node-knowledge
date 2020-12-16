@@ -15,7 +15,7 @@ const FooterContainer = styled(animated.div)<FooterLinkProps>`
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
-  pointer-events: ${({ $isTopbarSidebarVisible }) => $isTopbarSidebarVisible ? 'none' : 'auto'};
+  pointer-events: ${({ $isTopbarSidebarVisible }) => ($isTopbarSidebarVisible ? 'none' : 'auto')};
 
   @media only screen and (max-height: 400px) {
     display: none;
@@ -38,13 +38,12 @@ const FooterLink = styled(Link)<FooterLinkProps>`
   }
 `;
 
-
 const FooterText = styled.span<FooterTextProps>`
   margin: 0 1rem;
   font-size: 32px;
   text-align: center;
   color: white;
-  font-style: ${(props) => props.italic ? 'italic' : 'normal'};
+  font-style: ${(props) => (props.italic ? 'italic' : 'normal')};
 
   ${(props) => props.theme.breakpoints.small} {
     font-size: 24px

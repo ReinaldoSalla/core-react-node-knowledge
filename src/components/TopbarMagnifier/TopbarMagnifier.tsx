@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 import { useSpring } from 'react-spring';
-import { 
+import {
   getHoverAnimation,
   getSvgAnimation
 } from './TopbarMagnifier.animations';
@@ -11,8 +11,7 @@ import {
   TopbarMagnifierText,
   TopbarMagnifierFiller
 } from './TopbarMagnifier.styles';
-import { ModalsState } from '../../shared/context/ModalsContext';
-import { ModalsDispatch } from '../../shared/context/ModalsContext';
+import { ModalsState, ModalsDispatch } from '../../shared/context/ModalsContext';
 
 const TopbarMagnifier = () => {
   const { isTopbarSearchVisible } = useContext(ModalsState);
@@ -34,17 +33,17 @@ const TopbarMagnifier = () => {
   const svgSpring = useSpring(getSvgAnimation(isTopbarSearchVisible));
 
   return (
-    <TopbarMagnifierWrapper 
-      onMouseEnter={handleEnter} 
+    <TopbarMagnifierWrapper
+      onMouseEnter={handleEnter}
       onMouseLeave={handleLeave}
-      onClick={toggleTopbarSearch}  
-      title='TopbarSearch for contents'
+      onClick={toggleTopbarSearch}
+      title="TopbarSearch for contents"
     >
       <TopbarMagnifierNormalizer style={svgSpring}>
         <TopbarMagnifierSvg />
       </TopbarMagnifierNormalizer>
       <TopbarMagnifierText>
-       Search 
+        Search
       </TopbarMagnifierText>
       <TopbarMagnifierFiller style={hoverSpring} />
     </TopbarMagnifierWrapper>

@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { animated } from 'react-spring';
-import { WrapperProps } from './Carousel.types';
 
 const CarouselWrapper = styled(animated.section)`
   display: flex;
@@ -13,6 +12,4 @@ const CarouselWrapper = styled(animated.section)`
   overflow: hidden;
 `;
 
-export {
-  CarouselWrapper
-};
+export default CarouselWrapper;

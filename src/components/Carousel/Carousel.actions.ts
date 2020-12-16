@@ -1,6 +1,7 @@
 import CONSTANTS from './Carousel.constants';
+import { CarouselState } from './Carousel.types';
 
-const moveToNextItem = (state) => {
+const moveToNextItem = (state): CarouselState => {
   let newIndex = state.index + 1;
   if (newIndex === CONSTANTS.LENGTH) {
     newIndex = 0;
@@ -11,17 +12,17 @@ const moveToNextItem = (state) => {
   };
 };
 
-const moveToFirstItem = () => ({
+const moveToFirstItem = (): CarouselState => ({
   index: 0,
   isTimerEnabled: false
 });
 
-const moveToSecondItem = () => ({
+const moveToSecondItem = (): CarouselState => ({
   index: 1,
   isTimerEnabled: false
 });
 
-const moveToThirdItem = () => ({
+const moveToThirdItem = (): CarouselState => ({
   index: 2,
   isTimerEnabled: false
 });

@@ -1,7 +1,9 @@
-import React, { useState, useRef, useContext, FunctionComponent } from 'react';
-import { 
-  useSpring, 
-  useTransition, 
+import React, {
+  useState, useRef, useContext, FunctionComponent
+} from 'react';
+import {
+  useSpring,
+  useTransition,
   useChain
 } from 'react-spring';
 import { getSpring, getTransitions } from './TopbarSearch.animations';
@@ -9,8 +11,7 @@ import SearchWrapper from './TopbarSearch.styles';
 import TopbarSearchTitle from '../TopbarSearchTitle';
 import TopbarSearchInput from '../TopbarSearchInput';
 import TopbarSearchExit from '../TopbarSearchExit';
-import { ModalsState } from '../../shared/context/ModalsContext';
-import { ModalsDispatch } from '../../shared/context/ModalsContext';
+import { ModalsState, ModalsDispatch } from '../../shared/context/ModalsContext';
 
 const components = [TopbarSearchTitle, TopbarSearchInput, TopbarSearchExit];
 
@@ -36,7 +37,7 @@ const TopbarSearch: FunctionComponent = (): JSX.Element => {
   const spring = useSpring(getSpring(isTopbarSearchVisible, springRef));
 
   const transitions = useTransition(
-    isTopbarSearchVisible ? indexedComponents : [], 
+    isTopbarSearchVisible ? indexedComponents : [],
     (item) => item.key,
     getTransitions(isTopbarSearchVisible, transitionsRef, indexedComponents.length)
   );
@@ -54,19 +55,19 @@ const TopbarSearch: FunctionComponent = (): JSX.Element => {
     timeoutId.current = setTimeout(() => {
       toggleTopbarSearch();
     });
-  }; 
+  };
 
   return (
-    <SearchWrapper 
-      style={spring} 
+    <SearchWrapper
+      style={spring}
       $scroll={text.length > 0}
       onFocus={onFocus}
       onBlur={onBlur}
     >
       {transitions.map(({ item, key, props }) => (
-        <item.component 
-          style={props} 
-          key={key} 
+        <item.component
+          style={props}
+          key={key}
           toggleTopbarSearch={toggleTopbarSearch}
           text={text}
           setText={setText}

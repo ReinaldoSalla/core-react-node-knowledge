@@ -28,4 +28,6 @@ const Text = styled.span`
   border-bottom: 1px solid white;
 `;
 
-export { Wrapper, Input, Element, Text };
+export {
+  Wrapper, Input, Element, Text
+};

@@ -16,7 +16,7 @@ interface ContentNavigationProps {
   isIntersecting: any;
   scrolls: any;
   delimiters: any;
-} 
+}
 
 interface LinkProps {
   $isTopbarSidebarVisible: boolean;

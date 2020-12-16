@@ -5,12 +5,11 @@ import { getSpring, getTransitions } from './TopbarSidebar.animations';
 import TopbarSidebarTopics from '../TopbarSidebarTopics';
 import TopbarSidebarExit from '../TopbarSidebarExit';
 import contents from '../../constants/contents';
-import { ModalsState } from '../../shared/context/ModalsContext';
-import { ModalsDispatch } from '../../shared/context/ModalsContext';
+import { ModalsState, ModalsDispatch } from '../../shared/context/ModalsContext';
 
 const partialComponents = contents.map(({ title, subcontents }) => (
   ({ style }) => (
-    <TopbarSidebarTopics 
+    <TopbarSidebarTopics
       style={style}
       title={title}
       subcontents={subcontents}
@@ -37,7 +36,7 @@ const TopbarSidebar = ({ navDomNode }) => {
 
   const toggleTopbarSidebar = () => {
     dispatch({ type: 'TOGGLE_TOPBAR_SIDEBAR' });
-  }
+  };
 
   const spring = useSpring(getSpring(isTopbarSidebarVisible, springRef));
 
@@ -54,13 +53,13 @@ const TopbarSidebar = ({ navDomNode }) => {
 
   const onClickOutside = (event): void => {
     if (
-      isTopbarSidebarVisible 
+      isTopbarSidebarVisible
       && !topbarSidebarDomNode.current.contains(event.target)
-      && !navDomNode.current.contains(event.target)  
-     ) {        
+      && !navDomNode.current.contains(event.target)
+    ) {
       toggleTopbarSidebar();
     }
-  }
+  };
 
   useEffect(() => {
     window.addEventListener('click', onClickOutside);
@@ -68,9 +67,9 @@ const TopbarSidebar = ({ navDomNode }) => {
   });
 
   const onFocus = () => {
-    clearTimeout(timeoutId.current);  
+    clearTimeout(timeoutId.current);
   };
-  
+
   const onBlur = () => {
     timeoutId.current = setTimeout(() => {
       toggleTopbarSidebar();

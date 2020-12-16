@@ -3,7 +3,7 @@ import complexStateManagement from './complexStateManagement';
 
 const texts = {
   simplestatemanagement: simpleStateManagement,
-  complexstatemanagement: complexStateManagement 
+  complexstatemanagement: complexStateManagement
 };
 
 export default texts;

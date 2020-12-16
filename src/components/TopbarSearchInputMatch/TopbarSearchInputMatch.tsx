@@ -8,14 +8,14 @@ const TopbarSearchInputMatch = ({ text, toggleTopbarSearch }) => {
     return isolatedTarget.slice(0, text.length).toLowerCase() === text.toLowerCase();
   });
   if (firstMatch) {
-    return <MatchLink onClick={toggleTopbarSearch} to='/rendering'>{firstMatch}</MatchLink>;
+    return <MatchLink onClick={toggleTopbarSearch} to="/rendering">{firstMatch}</MatchLink>;
   }
   const secondMatch = CONSTANTS.BROAD_TARGETS.find((target) => {
     const isolatedTarget = target.split('-')[0];
     return isolatedTarget.slice(0, text.length).toLowerCase() === text.toLowerCase();
   });
   if (secondMatch) {
-    return <MatchLink onClick={toggleTopbarSearch} to='/'>{secondMatch}</MatchLink>;
+    return <MatchLink onClick={toggleTopbarSearch} to="/">{secondMatch}</MatchLink>;
   }
   // return <Text>"{text}" not found</Text>
   return (
@@ -23,14 +23,11 @@ const TopbarSearchInputMatch = ({ text, toggleTopbarSearch }) => {
       height: '1000px',
       border: '1px solid yellow'
     }}
-    >
-
-    </div>
+    />
   );
 };
 
 export default TopbarSearchInputMatch;
-
 
 const targets = [
   'JavaScript - Loops',
@@ -44,12 +41,10 @@ const targets = [
   'Full Stack - Authentication Management'
 ];
 
-const getMatch = (currentText) => {  
-  return targets.filter(target => {
-    const lowerCaseTarget = target.toLowerCase();
-    const lowerCaseCurrentText = currentText.toLowerCase();
-    const [broadTarget, specificTarget] = lowerCaseTarget.split(' - ');
-    const found = broadTarget.includes(lowerCaseCurrentText);
-    return found ? found : specificTarget.includes(lowerCaseCurrentText);
-  });
-};
+const getMatch = (currentText) => targets.filter((target) => {
+  const lowerCaseTarget = target.toLowerCase();
+  const lowerCaseCurrentText = currentText.toLowerCase();
+  const [broadTarget, specificTarget] = lowerCaseTarget.split(' - ');
+  const found = broadTarget.includes(lowerCaseCurrentText);
+  return found || specificTarget.includes(lowerCaseCurrentText);
+});

@@ -8,9 +8,9 @@ const carouselTransitionProps: any = {
     clamp: true
   },
   trail: 1000,
-  from: { 
-    transform: 'scale(0.1)', 
-    opacity: 0 
+  from: {
+    transform: 'scale(0.1)',
+    opacity: 0
   },
   enter: {
     opacity: 1,
@@ -24,17 +24,17 @@ const carouselTransitionProps: any = {
 
 const getspring = (isTopbarSidebarVisible) => ({
   config: config.slow,
-  from: { 
-    opacity: isTopbarSidebarVisible ? 0.5 : 1 
+  from: {
+    opacity: isTopbarSidebarVisible ? 0.5 : 1
   },
   to: async (next) => {
-    await next({ 
+    await next({
       opacity: isTopbarSidebarVisible ? 0.5 : 1
-    });  
+    });
   }
 });
 
-export { 
+export {
   carouselTransitionProps,
-  getspring 
+  getspring
 };

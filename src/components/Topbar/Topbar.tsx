@@ -16,11 +16,11 @@ import { ModalsState } from '../../shared/context/ModalsContext';
 
 const Topbar = (): JSX.Element => {
   const isInTop = useIsInTop(50);
-  const { 
-    isTopbarSidebarVisible, 
-    isTopbarSearchVisible, 
-    isScrollbarVisible 
-  } = useContext(ModalsState); 
+  const {
+    isTopbarSidebarVisible,
+    isTopbarSearchVisible,
+    isScrollbarVisible
+  } = useContext(ModalsState);
   const navDomNode = useRef<any>(null);
 
   const fillerSpring = useSpring(getTopbarAnimation(
@@ -30,18 +30,18 @@ const Topbar = (): JSX.Element => {
   ));
 
   return (
-    <Header 
+    <Header
       $isTopbarSidebarVisible={isTopbarSidebarVisible}
       $isTopbarSearchVisible={isTopbarSearchVisible}
       $isScrollbarVisible={isScrollbarVisible}
     >
       <Nav ref={navDomNode}>
         <TopbarHome />
-        <TopbarContents/>
-        <TopbarSidebar navDomNode={navDomNode}/>
-        <TopbarMagnifier/>
-        <TopbarSearch/>
-        <Filler style={fillerSpring}/>
+        <TopbarContents />
+        <TopbarSidebar navDomNode={navDomNode} />
+        <TopbarMagnifier />
+        <TopbarSearch />
+        <Filler style={fillerSpring} />
       </Nav>
     </Header>
   );

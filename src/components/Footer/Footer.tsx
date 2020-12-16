@@ -12,7 +12,7 @@ const Footer = () => {
   const { isTopbarSidebarVisible } = useContext(ModalsState);
   const spring = useSpring({
     config: config.molasses,
-    from: { 
+    from: {
       opacity: isTopbarSidebarVisible ? 0.2 : 1
     },
     to: async (next) => {
@@ -24,17 +24,21 @@ const Footer = () => {
   return (
     <FooterWrapper>
       <FooterContainer style={spring} $isTopbarSidebarVisible={isTopbarSidebarVisible}>
-        <FooterLink to='/contact' $isTopbarSidebarVisible={isTopbarSidebarVisible}> Contact </FooterLink>
-        <FooterLink to='/philosohpy' $isTopbarSidebarVisible={isTopbarSidebarVisible}> Philosophy </FooterLink>
+        <FooterLink to="/contact" $isTopbarSidebarVisible={isTopbarSidebarVisible}> Contact </FooterLink>
+        <FooterLink to="/philosohpy" $isTopbarSidebarVisible={isTopbarSidebarVisible}> Philosophy </FooterLink>
         <FooterText>
-          Copyright © {new Date().getFullYear()} JavaScriptTemporal
+          Copyright ©
+          {' '}
+          {new Date().getFullYear()}
+          {' '}
+          JavaScriptTemporal
         </FooterText>
         <FooterText>
           All the code in this website in MIT licensed
         </FooterText>
         <FooterText italic>
           Always bet on JS
-        </FooterText>        
+        </FooterText>
       </FooterContainer>
     </FooterWrapper>
   );

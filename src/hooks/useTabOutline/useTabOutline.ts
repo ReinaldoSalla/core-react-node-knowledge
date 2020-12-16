@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 
 const useTabOutline = () => {
   useEffect(() => {
-    const onKeyDown = (event)=> {
+    const onKeyDown = (event) => {
       if (event.keyCode === 9) {
         document.body.classList.add('tab');
       }
@@ -14,10 +14,10 @@ const useTabOutline = () => {
   useEffect(() => {
     const onMouseDown = () => {
       document.body.classList.remove('tab');
-    }
+    };
     window.addEventListener('mousedown', onMouseDown);
     return () => window.removeEventListener('mousedown', onMouseDown);
-  })
+  });
 
   return null;
 };

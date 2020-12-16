@@ -1,6 +1,6 @@
-import React, { 
-  useState, 
-  useEffect, 
+import React, {
+  useState,
+  useEffect,
   useRef,
   MutableRefObject,
   useContext
@@ -20,7 +20,7 @@ import texts from '../../constants/texts';
 import getDelimiters from './Content.utils';
 
 const useIntersectionObserver = (
-  domNode: MutableRefObject<HTMLElement>, 
+  domNode: MutableRefObject<HTMLElement>,
   rootMargin = '-200px'
 ) => {
   const [isIntersecting, setIntersecting] = useState(false);
@@ -29,11 +29,11 @@ const useIntersectionObserver = (
   useEffect(() => {
     // IntersectionObserver is created lazily once
     // https://reactjs.org/docs/hooks-faq.html
-    const getObserver= () => {
+    const getObserver = () => {
       if (observerRef.current === null) {
         observerRef.current = new IntersectionObserver(([entry]) => {
           setIntersecting(entry.isIntersecting);
-        }, { root: null, rootMargin: rootMargin, threshold: 0 });
+        }, { root: null, rootMargin, threshold: 0 });
         return observerRef.current;
       }
       return null;
@@ -62,7 +62,7 @@ const Content = () => {
     useRef<HTMLElement>(null!),
     useRef<HTMLElement>(null!),
     useRef<HTMLElement>(null!),
-    useRef<HTMLElement>(null!),
+    useRef<HTMLElement>(null!)
   ];
 
   const scrolls = [
@@ -71,7 +71,7 @@ const Content = () => {
     () => scrollToElement(domNodes[2], -10),
     () => scrollToElement(domNodes[3], -10),
     () => scrollToElement(domNodes[4], -10),
-    () => scrollToElement(domNodes[5], -10),
+    () => scrollToElement(domNodes[5], -10)
   ];
 
   const isIntersecting = [
@@ -80,9 +80,9 @@ const Content = () => {
     useIntersectionObserver(domNodes[2]),
     useIntersectionObserver(domNodes[3]),
     useIntersectionObserver(domNodes[4]),
-    useIntersectionObserver(domNodes[5]),
+    useIntersectionObserver(domNodes[5])
   ];
-  
+
   const { isTopbarSidebarVisible } = useContext(ModalsState);
   const spring = useSpring(getOpacitySpring(isTopbarSidebarVisible));
 
@@ -105,20 +105,20 @@ const Content = () => {
     } else {
       window.scrollTo(0, 0);
     }
-  }, [hash]);
+  }, [delimiters, hash, scrolls]);
 
   return (
     <main>
-      <ContentWrapper 
+      <ContentWrapper
         style={spring}
         $isTopbarSidebarVisible={isTopbarSidebarVisible}
       >
         <ContentContainer>
-          <ContentCore 
+          <ContentCore
             domNodes={domNodes}
             target={target}
           />
-          <ContentNavigation 
+          <ContentNavigation
             isIntersecting={isIntersecting}
             scrolls={scrolls}
             delimiters={delimiters}

@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { useSpring } from 'react-spring';
-import { 
+import {
   getHoverAnimation,
   getSvgAnimation
 } from './TopbarContents.animations';
@@ -11,8 +11,7 @@ import {
   TopbarContentsText,
   TopbarContentsFiller
 } from './TopbarContents.styles';
-import { ModalsState } from '../../shared/context/ModalsContext';
-import { ModalsDispatch } from '../../shared/context/ModalsContext';
+import { ModalsState, ModalsDispatch } from '../../shared/context/ModalsContext';
 
 const TopbarContents = () => {
   const { isTopbarSidebarVisible } = useContext(ModalsState);
@@ -22,7 +21,7 @@ const TopbarContents = () => {
   const toggleTopbarSidebar = () => {
     dispatch({ type: 'TOGGLE_TOPBAR_SIDEBAR' });
   };
-  
+
   const [isHovering, setIsHovering] = useState(false);
 
   const handleEnter = () => setIsHovering(true);
@@ -34,11 +33,11 @@ const TopbarContents = () => {
   const svgAnimation = useSpring(getSvgAnimation(isTopbarSidebarVisible));
 
   return (
-    <TopbarContentsWrapper 
-      onMouseEnter={handleEnter} 
+    <TopbarContentsWrapper
+      onMouseEnter={handleEnter}
       onMouseLeave={handleLeave}
-      onClick={toggleTopbarSidebar}  
-      title='Access all contents'
+      onClick={toggleTopbarSidebar}
+      title="Access all contents"
     >
       <TopbarContentsNormalizer>
         <TopbarContentsSvg style={svgAnimation} />

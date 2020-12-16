@@ -28,7 +28,7 @@ const Text = styled.a`
   }
 `;
 
-export { 
+export {
   Wrapper,
   Title,
   Topics,

@@ -13,7 +13,7 @@ const CategoriesBoard = ({
   description,
   contents,
   Svg,
-  elementRef,
+  elementRef
 }) => (
   <Wrapper>
     <CategoriesBoardTitle ref={elementRef}>
@@ -24,7 +24,7 @@ const CategoriesBoard = ({
     </CategoriesBoardDescription>
     <CategoriesBoardContents>
       {contents.map((content, index) => (
-        <CategoriesBox 
+        <CategoriesBox
           key={index}
           title={content.title}
           description={content.description}
@@ -40,4 +40,3 @@ const CategoriesBoard = ({
 );
 
 export default CategoriesBoard;
-

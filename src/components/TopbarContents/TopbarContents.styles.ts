@@ -62,4 +62,3 @@ export {
   TopbarContentsText,
   TopbarContentsFiller
 };
-

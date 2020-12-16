@@ -1,24 +1,23 @@
 import React, { useEffect, FunctionComponent } from 'react';
 import { animated, useSpring } from 'react-spring';
+import Prism from 'prismjs';
 import {
   ContentCoreHeading,
   ContentCoreTitle,
   ContentCoreText,
   ContentCoreLink,
   ContentCoreContainer,
-  ContentCoreCommand,
+  ContentCoreCommand
 } from './ContentCore.styles';
 import { ContentCoreProps } from './ContentCore.types';
 import { getTitleSpring, getSectionSpring } from './ContentCore.animations';
-import Prism from 'prismjs';
 import 'prismjs/components/prism-jsx.min.js';
 import './prism.css';
 
-const ContentCore: FunctionComponent<ContentCoreProps> = ({ 
+const ContentCore: FunctionComponent<ContentCoreProps> = ({
   domNodes,
-  target 
+  target
 }): JSX.Element => {
-
   useEffect(() => {
     Prism.highlightAll();
   }, []);
@@ -32,11 +31,16 @@ const ContentCore: FunctionComponent<ContentCoreProps> = ({
       <ContentCoreHeading style={titleSpring}>{target.title}</ContentCoreHeading>
       {target.text.map((element, index) => (
         <animated.section style={sectionSpring} key={element.subtitle} ref={domNodes[index]}>
-          <ContentCoreTitle>{index + 1}. {element.subtitle}</ContentCoreTitle>
+          <ContentCoreTitle>
+            {index + 1}
+            .
+            {' '}
+            {element.subtitle}
+          </ContentCoreTitle>
           {element.paragraphsCommandsCode.map((innerElement, innerIndex) => {
             if (innerElement.hasOwnProperty('paragraph')) {
-              return <ContentCoreText key={innerIndex}>{innerElement.paragraph}</ContentCoreText>
-            } else if (innerElement.hasOwnProperty('command')) {
+              return <ContentCoreText key={innerIndex}>{innerElement.paragraph}</ContentCoreText>;
+            } if (innerElement.hasOwnProperty('command')) {
               return (
                 <ContentCoreContainer key={innerElement}>
                   {innerElement.command.map((innerInnerElement, innerInnerIndex) => (
@@ -46,47 +50,48 @@ const ContentCore: FunctionComponent<ContentCoreProps> = ({
                   ))}
                 </ContentCoreContainer>
               );
-            } else if (innerElement.hasOwnProperty('code')) {
+            } if (innerElement.hasOwnProperty('code')) {
               return (
-                <pre key={index} className='language-jsx'>
-                  <code className='language-jsx' 
+                <pre key={index} className="language-jsx">
+                  <code
+                    className="language-jsx"
                     style={{ whiteSpace: 'pre-wrap' }}
                   >
-                  {innerElement.code} 
+                    {innerElement.code}
                   </code>
                 </pre>
               );
-            } else if (innerElement.hasOwnProperty('paragraphWithMiddleLink')) {
+            } if (innerElement.hasOwnProperty('paragraphWithMiddleLink')) {
               const blocks = innerElement.paragraphWithMiddleLink.split('*');
               return (
                 <ContentCoreText key={blocks[0]}>
-                  {blocks[0]} 
-                  <ContentCoreLink 
-                    href='https://nodejs.org/en/' 
-                    target='_blank'  
+                  {blocks[0]}
+                  <ContentCoreLink
+                    href="https://nodejs.org/en/"
+                    target="_blank"
                     rel="noopener noreferrer"
                   >
-                    {blocks[1]} 
+                    {blocks[1]}
                   </ContentCoreLink>
                   {blocks[2]}
                 </ContentCoreText>
               );
-            } else if (innerElement.hasOwnProperty('paragraphWithEndLink')) {
+            } if (innerElement.hasOwnProperty('paragraphWithEndLink')) {
               const blocks = innerElement.paragraphWithEndLink.split('*');
               return (
                 <ContentCoreText key={blocks[0]}>
                   {blocks[0]}
-                  <ContentCoreLink 
-                    href='https://nodejs.org/en/' 
-                    target='_blank'  
+                  <ContentCoreLink
+                    href="https://nodejs.org/en/"
+                    target="_blank"
                     rel="noopener noreferrer"
                   >
-                    {blocks[1]}  
-                  </ContentCoreLink>  
+                    {blocks[1]}
+                  </ContentCoreLink>
                 </ContentCoreText>
-              )
+              );
             }
-          })} 
+          })}
         </animated.section>
       ))}
     </article>

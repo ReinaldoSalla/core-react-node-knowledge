@@ -36,7 +36,6 @@ const TopbarHomeSvg = styled(animated(HomeSvg))`
   /* border: 1px solid blue; */
 `;
 
-
 const TopbarHomeText = styled.span`
   z-index: 2;
   font-size: 20px;
@@ -62,4 +61,3 @@ export {
   TopbarHomeText,
   TopbarHomeFiller
 };
-

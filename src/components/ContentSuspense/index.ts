@@ -1,3 +1,3 @@
 import ContentSuspense from './ContentSuspense';
 
-export default ContentSuspense; 
+export default ContentSuspense;

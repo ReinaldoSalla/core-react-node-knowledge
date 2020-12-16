@@ -1,7 +1,3 @@
-const getDelimiters = (target) => {
-  return target.text.map((item) => {
-    return item.subtitle;
-  });
-};
+const getDelimiters = (target) => target.text.map((item) => item.subtitle);
 
 export default getDelimiters;

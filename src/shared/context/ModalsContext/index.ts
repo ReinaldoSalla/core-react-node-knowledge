@@ -1,11 +1,11 @@
 import {
-  ModalsState, 
-  ModalsDispatch, 
-  ModalsProvider 
+  ModalsState,
+  ModalsDispatch,
+  ModalsProvider
 } from './Modals.provider';
 
 export {
-  ModalsState, 
-  ModalsDispatch, 
-  ModalsProvider 
+  ModalsState,
+  ModalsDispatch,
+  ModalsProvider
 };

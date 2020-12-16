@@ -20,9 +20,9 @@ const getInnerProps = (currentIndex: number, targetIndex: number): any => ({
   width: currentIndex === targetIndex ? '100%' : '0%'
 });
 
-export { 
-  CarouselTimerAnimation, 
+export {
+  CarouselTimerAnimation,
   CarouselTimerOffset,
   getTextProps,
-  getInnerProps 
+  getInnerProps
 };
