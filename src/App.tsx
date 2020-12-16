@@ -21,16 +21,16 @@ const App = (): JSX.Element => {
         <ThemeProvider theme={globalTheme}>
           <GlobalStyle />
           <Suspense fallback={<ContentSuspense />}>
-          <Topbar/>
+            <Topbar />
             <Switch>
-              <Route exact path='/'>
-                <Home/>
+              <Route exact path="/">
+                <Home />
               </Route>
-              <Route path='/:id'>
-                <Content/>
+              <Route path="/:id">
+                <Content />
               </Route>
-            </Switch>      
-            <Footer/>
+            </Switch>
+            <Footer />
           </Suspense>
         </ThemeProvider>
       </ModalsProvider>
