@@ -1,11 +1,7 @@
 import styled from 'styled-components';
-import { LinkProps } from './ContentCore.types';
+import { animated } from 'react-spring';
 
-const ContentCoreWrapper = styled.article`
-  /* border: 1px solid red; */
-`;
-
-const ContentCoreHeading = styled.h1`
+const ContentCoreHeading = styled(animated.h1)`
   font-size: 2em;
   padding: 0.5em 0;
   color: white;
@@ -50,7 +46,6 @@ const ContentCoreHighlight = styled.span`
 `;
 
 export { 
-  ContentCoreWrapper,
   ContentCoreHeading,
   ContentCoreTitle,
   ContentCoreText,

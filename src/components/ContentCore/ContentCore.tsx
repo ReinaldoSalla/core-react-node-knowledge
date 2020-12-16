@@ -1,6 +1,6 @@
 import React, { useEffect, FunctionComponent } from 'react';
+import { animated, useSpring } from 'react-spring';
 import {
-  ContentCoreWrapper,
   ContentCoreHeading,
   ContentCoreTitle,
   ContentCoreText,
@@ -9,6 +9,7 @@ import {
   ContentCoreCommand,
 } from './ContentCore.styles';
 import { ContentCoreProps } from './ContentCore.types';
+import { getTitleSpring, getSectionSpring } from './ContentCore.animations';
 import Prism from 'prismjs';
 import 'prismjs/components/prism-jsx.min.js';
 import './prism.css';
@@ -22,11 +23,15 @@ const ContentCore: FunctionComponent<ContentCoreProps> = ({
     Prism.highlightAll();
   }, []);
 
+  const titleSpring = useSpring(getTitleSpring());
+
+  const sectionSpring = useSpring(getSectionSpring());
+
   return (
-    <ContentCoreWrapper>
-      <ContentCoreHeading>{target.title}</ContentCoreHeading>
+    <article>
+      <ContentCoreHeading style={titleSpring}>{target.title}</ContentCoreHeading>
       {target.text.map((element, index) => (
-        <section key={element.subtitle} ref={domNodes[index]}>
+        <animated.section style={sectionSpring} key={element.subtitle} ref={domNodes[index]}>
           <ContentCoreTitle>{index + 1}. {element.subtitle}</ContentCoreTitle>
           {element.paragraphsCommandsCode.map((innerElement, innerIndex) => {
             if (innerElement.hasOwnProperty('paragraph')) {
@@ -47,7 +52,7 @@ const ContentCore: FunctionComponent<ContentCoreProps> = ({
                   <code className='language-jsx' 
                     style={{ whiteSpace: 'pre-wrap' }}
                   >
-                   {innerElement.code} 
+                  {innerElement.code} 
                   </code>
                 </pre>
               );
@@ -82,9 +87,9 @@ const ContentCore: FunctionComponent<ContentCoreProps> = ({
               )
             }
           })} 
-        </section>
+        </animated.section>
       ))}
-    </ContentCoreWrapper>
+    </article>
   );
 };
 
