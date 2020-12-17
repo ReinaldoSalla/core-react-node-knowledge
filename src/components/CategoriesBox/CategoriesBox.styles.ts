@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import WrapperProps from './CategoriesBox.types';
 
 const Wrapper = styled(Link)`
   display: flex;
@@ -14,7 +13,7 @@ const Wrapper = styled(Link)`
   border-style: solid;
   border-color: #393838;
   margin: 0 32px 48px 32px;
-  background: ${(props) => props.theme.boxBgColor};
+  background: ${(props): string => props.theme.boxBgColor};
   transition: border-color;
   
   &:hover {
@@ -27,11 +26,11 @@ const IconWrapper = styled.div`
   padding: 12px;
   width: 24px;
   height: 24px;
-  border: 1px solid ${(props) => props.theme.textColor};
+  border: 1px solid ${(props): string => props.theme.textColor};
   border-radius: 50%;
-  color: ${(props) => props.theme.textColor};
+  color: ${(props): string => props.theme.textColor};
 
-  ${(props) => props.theme.breakpoints.small} {
+  ${(props): string => props.theme.breakpoints.small} {
     padding: 12px;
     width: 22px;
     height: 22px;    
@@ -42,7 +41,7 @@ const Icon = styled.div`
   height: 24px;
   width: 24px;
 
-  ${(props) => props.theme.breakpoints.small} {
+  ${(props): string => props.theme.breakpoints.small} {
     width: 22px;
     height: 22px;
   }
@@ -54,9 +53,9 @@ const Title = styled.h4`
   font-size: 20px;
   font-weight: 600;
   text-align: center;
-  color: ${(props) => props.theme.textColor};
+  color: ${(props): string => props.theme.textColor};
 
-  ${(props) => props.theme.breakpoints.small} {
+  ${(props): string => props.theme.breakpoints.small} {
     font-size: 18px;
   }
 `;
@@ -70,10 +69,10 @@ const Description = styled.p`
   text-align: center;
   font-size: 18px;
   font-weight: 500;
-  color: ${(props) => props.theme.weakerTextColor};
+  color: ${(props): string => props.theme.weakerTextColor};
 
 
-  ${(props) => props.theme.breakpoints.small} {
+  ${(props): string => props.theme.breakpoints.small} {
     font-size: 16px;
   }
 `;
@@ -85,9 +84,9 @@ const Check = styled.span`
   font-weight: 300;
   text-align: center;
   transform: translateY(-2.5px);
-  color: ${(props) => props.theme.textColor};
+  color: ${(props): string => props.theme.textColor};
 
-  ${(props) => props.theme.breakpoints.small} {
+  ${(props): string => props.theme.breakpoints.small} {
     font-size: 14px;
   }
 `;

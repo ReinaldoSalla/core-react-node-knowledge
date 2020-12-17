@@ -16,7 +16,7 @@ const CategoriesBoardTitle = styled.h2`
   padding: 0;
   color: ${(props): string => props.theme.textColor};
 
-  ${(props) => props.theme.breakpoints.small} {
+  ${(props): string => props.theme.breakpoints.small} {
     font-size: 32px;
   }
 `;

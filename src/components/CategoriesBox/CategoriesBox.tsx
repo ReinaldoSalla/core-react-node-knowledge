@@ -14,7 +14,7 @@ const CategoriesBox = ({
   description,
   path,
   Svg,
-}) => (
+}): JSX.Element => (
   <Wrapper to={path}>
     <IconWrapper>
       <Icon as={Svg} />
