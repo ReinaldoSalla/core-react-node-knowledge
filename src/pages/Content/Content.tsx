@@ -106,6 +106,7 @@ const Content = () => {
     } else {
       window.scrollTo(0, 0);
     }
+    // eslint-disable-next-line
   }, [hash, delimiters]);
 
   return (
