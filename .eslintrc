@@ -38,7 +38,7 @@
     "comma-dangle": ["error", "always-multiline"],
     "object-curly-spacing": ["error", "always"],
     "arrow-parens": ["error", "always"],
-    "eol-last": ["error", "always"],
+    "eol-last": ["error", "never"],
     "react/prop-types": "off",
     "@typescript-eslint/no-explicit-any": "off" 
   }
