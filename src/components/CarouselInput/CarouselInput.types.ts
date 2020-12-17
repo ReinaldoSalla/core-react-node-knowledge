@@ -1,12 +1,10 @@
-interface CarouselInputProps {
+export interface CarouselInputProps {
   index: number;
   handleFirstClick: () => void;
   handleSecondClick: () => void;
   handleThirdClick: () => void;
 }
 
-interface CarouselInputWrapperProps {
+export interface CarouselInputWrapperProps {
   $isTopbarSidebarVisible: boolean;
 }
-
-export type { CarouselInputProps, CarouselInputWrapperProps };

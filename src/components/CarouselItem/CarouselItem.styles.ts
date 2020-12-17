@@ -11,7 +11,7 @@ const CarouselItemharedWrapper = styled(animated.div)`
 const CarouselItemWrapper = styled(CarouselItemharedWrapper)`
   flex-direction: column;
   justify-content: space-evenly;
-  height: calc(100% - ${(props) => props.theme.topbarHeight} - 20px);
+  height: calc(100% - ${(props): string => props.theme.topbarHeight} - 20px);
   position: absolute;
   overflow: hidden;
   padding-bottom: 20px;
@@ -24,7 +24,7 @@ const CarouselItemTitle = styled(animated(Link))<TextProps>`
   color: white;
   text-align: center;
 
-  ${(props) => props.theme.breakpoints.small} {
+  ${(props): string => props.theme.breakpoints.small} {
     font-size: 38px;
   }
 
@@ -44,7 +44,7 @@ const CarouselItemDescription = styled(animated(Link))`
   color: white;
   text-align: center;
 
-  ${(props) => props.theme.breakpoints.small} {
+  ${(props): string => props.theme.breakpoints.small} {
     font-size: 28px;
   }
 
@@ -64,7 +64,7 @@ const CarouselItemCheckWrapper = styled(CarouselItemharedWrapper)`
   border: 1px solid white;
   border-radius: 20px;
 
-  ${(props) => props.theme.breakpoints.small} {
+  ${(props): string => props.theme.breakpoints.small} {
     width: 130px;
     height: 110px;
   }
@@ -82,7 +82,7 @@ const CarouselItemCheck = styled(animated(Link))`
   color: white;
   text-align: center;
 
-  ${(props) => props.theme.breakpoints.small} {
+  ${(props): string => props.theme.breakpoints.small} {
     font-size: 24px;
   }
 

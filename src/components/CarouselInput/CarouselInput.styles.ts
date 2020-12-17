@@ -34,7 +34,7 @@ const CarouselInputButton = styled.button`
     transform: scale(1.2);
   }
 
-  ${(props) => props.theme.breakpoints.small} {
+  ${(props): string => props.theme.breakpoints.small} {
     width: 80px;
     height: 24px;
   }
@@ -45,7 +45,7 @@ const CarouselInputText = styled(animated.span)`
   text-align: center;
   z-index: 1;
 
-  ${(props) => props.theme.breakpoints.small} {
+  ${(props): string => props.theme.breakpoints.small} {
     font-size: 16px;
     width: 80px;
   }
@@ -56,7 +56,7 @@ const CarouselInputInner = styled(animated.div)`
   position: absolute;
   left: 0;
 
-  ${(props) => props.theme.breakpoints.small} {
+  ${(props): string => props.theme.breakpoints.small} {
     height: 24px;
   }
 `;
