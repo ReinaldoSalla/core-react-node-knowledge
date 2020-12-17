@@ -1,6 +1,6 @@
 import React, { useState, FunctionComponent } from 'react';
 import { useSpring } from 'react-spring';
-import { useLocation } from 'react-router';
+import { useLocation } from 'react-router-dom';
 import {
   CarouselItemWrapper,
   CarouselItemTitle,
@@ -26,9 +26,13 @@ const CarouselItem: FunctionComponent<CarouselItemProps> = ({
 
   const animationProps = useSpring(getCarouselItemProps(isHovering));
 
-  const handleMouseEnter = () => setIsHovering(true);
+  const handleMouseEnter = (): void => {
+    setIsHovering(true);
+  };
 
-  const handleMouseLeave = () => setIsHovering(false);
+  const handleMouseLeave = (): void => {
+    setIsHovering(false);
+  };
 
   return (
     <CarouselItemWrapper style={style}>

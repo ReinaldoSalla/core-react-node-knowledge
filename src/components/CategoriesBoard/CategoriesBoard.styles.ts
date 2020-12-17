@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const Wrapper = styled.section`
   padding: 0 32px;
 
-  ${(props) => props.theme.breakpoints.extraSmall} {
+  ${(props): string => props.theme.breakpoints.extraSmall} {
     padding: 0 16px;
   }
 `;
@@ -14,7 +14,7 @@ const CategoriesBoardTitle = styled.h2`
   text-align: center;
   margin: 0 16px;
   padding: 0;
-  color: ${(props) => props.theme.textColor};
+  color: ${(props): string => props.theme.textColor};
 
   ${(props) => props.theme.breakpoints.small} {
     font-size: 32px;
@@ -27,9 +27,9 @@ const CategoriesBoardDescription = styled.h3`
   text-align: center;
   margin: 32px 16px 0 16px;
   padding: 0;
-  color: ${(props) => props.theme.textColor};
+  color: ${(props): string => props.theme.textColor};
 
-  ${(props) => props.theme.breakpoints.small} {
+  ${(props): string => props.theme.breakpoints.small} {
     font-size: 22px;
   }
 `;

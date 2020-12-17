@@ -1,11 +1,11 @@
 import React from 'react';
-import { CategoriesWrapper } from './Categories.styles';
+import CategoriesWrapper from './Categories.styles';
 import CategoriesBoard from '../CategoriesBoard';
 import { processedContents, icons } from './Categories.utils';
 
 const Categories = ({
   domNodes,
-}) => (
+}): JSX.Element => (
   <main>
     <CategoriesWrapper>
       {processedContents.map((item, index) => (

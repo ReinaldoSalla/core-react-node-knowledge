@@ -7,6 +7,7 @@ import {
   CategoriesBoardContents,
   CategoriesBoardEmpty,
 } from './CategoriesBoard.styles';
+import getIndexArr from './CategoriesBoard.utils';
 
 const CategoriesBoard = ({
   title,
@@ -14,7 +15,7 @@ const CategoriesBoard = ({
   contents,
   Svg,
   elementRef,
-}) => (
+}): JSX.Element => (
   <Wrapper>
     <CategoriesBoardTitle ref={elementRef}>
       {title}
@@ -23,17 +24,17 @@ const CategoriesBoard = ({
       {description}
     </CategoriesBoardDescription>
     <CategoriesBoardContents>
-      {contents.map((content, index) => (
+      {contents.map((content) => (
         <CategoriesBox
-          key={index}
+          key={content.title}
           title={content.title}
           description={content.description}
           path={content.path}
           Svg={Svg}
         />
       ))}
-      {new Array(4).fill(0).map((_, index) => (
-        <CategoriesBoardEmpty key={index} />
+      {getIndexArr(contents + 1).map((number) => (
+        <CategoriesBoardEmpty key={number} />
       ))}
     </CategoriesBoardContents>
   </Wrapper>

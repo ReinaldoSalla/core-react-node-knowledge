@@ -1,5 +1,7 @@
 import contents from '../../constants/contents';
-import { ReactComponent as JavaScriptSvg } from '../../assets/icons/javascript.svg';
+import {
+  ReactComponent as JavaScriptSvg,
+} from '../../assets/icons/javascript.svg';
 import { ReactComponent as ReactSvg } from '../../assets/icons/react.svg';
 import { ReactComponent as ServerSvg } from '../../assets/icons/server.svg';
 
@@ -25,7 +27,7 @@ const metaSubcontents = [
 
 let counter = -1;
 
-const getProcessedSubcontents = (subcontents) => {
+const getProcessedSubcontents = (subcontents: any): any => {
   const processedSubcontents = subcontents.map((subcontent) => {
     counter++;
     return {
