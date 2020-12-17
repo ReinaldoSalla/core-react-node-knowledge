@@ -18,7 +18,7 @@ const Carousel = ({
   const transitions = useTransition(state.index, null, {
     ...carouselTransitionProps,
     order: ['leave', 'enter', 'update']
-  });
+  } as any);
   const isDocumentVisible: boolean = useDocumentVisibility();
 
   const handleFirstClick = (): void => {

@@ -1,6 +1,7 @@
 import { config } from 'react-spring';
+import { SpringUnknownProps } from '../../shared/types';
 
-const carouselTransitionProps: any = {
+const carouselTransitionProps = {
   config: {
     mass: 5,
     tension: 50,
@@ -22,12 +23,12 @@ const carouselTransitionProps: any = {
   }
 };
 
-const getspring = (isTopbarSidebarVisible) => ({
+const getspring = (isTopbarSidebarVisible): SpringUnknownProps => ({
   config: config.slow,
   from: {
     opacity: isTopbarSidebarVisible ? 0.5 : 1
   },
-  to: async (next) => {
+  to: async (next): Promise<void> => {
     await next({
       opacity: isTopbarSidebarVisible ? 0.5 : 1
     });
