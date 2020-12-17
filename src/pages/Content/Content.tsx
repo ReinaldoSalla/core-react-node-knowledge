@@ -3,7 +3,8 @@ import React, {
   useEffect,
   useRef,
   MutableRefObject,
-  useContext
+  useContext,
+  useMemo
 } from 'react';
 import { useSpring } from 'react-spring';
 import { useLocation, useParams } from 'react-router-dom';
@@ -54,7 +55,7 @@ const Content = () => {
   const { hash } = useLocation();
   const { id } = useParams();
   const target = texts[id];
-  const delimiters = getDelimiters(target);
+  const delimiters = useMemo(() => getDelimiters(target), [target]);
 
   const domNodes = [
     useRef<HTMLElement>(null!),
@@ -92,7 +93,7 @@ const Content = () => {
         window.scroll(0, 0);
       }
     };
-  }, [hash]);
+  }, [hash, delimiters]);
 
   useEffect(() => {
     if (hash) {
@@ -105,7 +106,7 @@ const Content = () => {
     } else {
       window.scrollTo(0, 0);
     }
-  }, [delimiters, hash, scrolls]);
+  }, [hash, delimiters]);
 
   return (
     <main>
@@ -130,3 +131,5 @@ const Content = () => {
 };
 
 export default Content;
+
+console.log('123');
