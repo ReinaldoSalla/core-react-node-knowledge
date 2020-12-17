@@ -4,7 +4,7 @@ import CategoriesBoard from '../CategoriesBoard';
 import { processedContents, icons } from './Categories.utils';
 
 const Categories = ({
-  domNodes
+  domNodes,
 }) => (
   <main>
     <CategoriesWrapper>

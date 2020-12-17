@@ -7,7 +7,7 @@ import {
   TopbarHomeNormalizer,
   TopbarHomeSvg,
   TopbarHomeText,
-  TopbarHomeFiller
+  TopbarHomeFiller,
 } from './TopbarHome.styles';
 import { ModalsDispatch } from '../../shared/context/ModalsContext';
 

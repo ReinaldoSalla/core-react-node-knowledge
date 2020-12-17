@@ -33,5 +33,5 @@ export {
   Title,
   Topics,
   Topic,
-  Text
+  Text,
 };

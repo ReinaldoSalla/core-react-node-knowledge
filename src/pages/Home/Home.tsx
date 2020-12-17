@@ -3,7 +3,7 @@ import React, {
   useContext,
   useRef,
   useCallback,
-  FunctionComponent
+  FunctionComponent,
 } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useSpring } from 'react-spring';
@@ -11,7 +11,7 @@ import Container from './Home.styles';
 import Carousel from '../../components/Carousel';
 import Categories from '../../components/Categories';
 import scrollToElement from '../../utils/scrollToElement';
-import CarouselBackground from '../../components/CarouselBackground';
+import VideoBackground from '../../components/VideoBackground';
 import { getOpacitySpring } from '../../shared/animations';
 import { ModalsState } from '../../shared/context/ModalsContext';
 
@@ -22,7 +22,7 @@ const Home: FunctionComponent = (): JSX.Element => {
   const domNodes = [
     useRef<HTMLElement>(null!),
     useRef<HTMLElement>(null!),
-    useRef<HTMLElement>(null!)
+    useRef<HTMLElement>(null!),
   ];
 
   const { isTopbarSidebarVisible } = useContext(ModalsState);
@@ -38,6 +38,8 @@ const Home: FunctionComponent = (): JSX.Element => {
   const scrollToNode = useCallback(() => {
     scrollToElement(domNodes[2], -100);
   }, [domNodes]);
+
+  const scrolls = [scrollToJavascript, scrollToReact, scrollToNode];
 
   const { hash } = useLocation();
 
@@ -66,12 +68,8 @@ const Home: FunctionComponent = (): JSX.Element => {
   return (
     <>
       <Container style={spring} $isTopbarSidebarVisible={isTopbarSidebarVisible} $fixedHeight>
-        <CarouselBackground />
-        <Carousel
-          scrollToJavascript={scrollToJavascript}
-          scrollToReact={scrollToReact}
-          scrollToNode={scrollToNode}
-        />
+        <VideoBackground />
+        <Carousel scrolls={scrolls} />
       </Container>
       <Container style={spring} $isTopbarSidebarVisible={isTopbarSidebarVisible}>
         <Categories domNodes={domNodes} />

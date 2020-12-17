@@ -4,8 +4,8 @@ const contents = [
     subcontents: [
       'Loops',
       'Promises',
-      'Async Await'
-    ]
+      'Async Await',
+    ],
   },
   {
     title: 'React',
@@ -14,17 +14,17 @@ const contents = [
       'Complex State Management ',
       'Side Effects',
       'Intersection Observer',
-      'Optimizing images'
-    ]
+      'Optimizing images',
+    ],
   },
   {
     title: 'Full Stack',
     subcontents: [
       'Relay/GraphQL',
       'MongoDB',
-      'Passport.js'
-    ]
-  }
+      'Passport.js',
+    ],
+  },
 ];
 
 export default contents;

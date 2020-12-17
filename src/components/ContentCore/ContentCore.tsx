@@ -7,7 +7,7 @@ import {
   ContentCoreText,
   ContentCoreLink,
   ContentCoreContainer,
-  ContentCoreCommand
+  ContentCoreCommand,
 } from './ContentCore.styles';
 import { ContentCoreProps } from './ContentCore.types';
 import { getTitleSpring, getSectionSpring } from './ContentCore.animations';
@@ -16,7 +16,7 @@ import './prism.css';
 
 const ContentCore: FunctionComponent<ContentCoreProps> = ({
   domNodes,
-  target
+  target,
 }): JSX.Element => {
   useEffect(() => {
     Prism.highlightAll();

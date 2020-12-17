@@ -1,3 +1,5 @@
+/* eslint-disable max-len */
+
 const filler = `
 React makes it painless to create interactive UIs. Design simple views for each state in your application, and React will efficiently update and render just the right components when your data changes.:
 React makes it painless to create interactive UIs. Design simple views for each state in your application, and React will efficiently update and render just the right components when your data changes.
@@ -27,8 +29,8 @@ Intro
 
 const introParagraph1 = `
 The guide aims to explore the useState hook from
-react. We\'l build a Navbar that re-renders a list of items 
-when hovered over. And we\'l also create a form that manipulates
+react. We'l build a Navbar that re-renders a list of items 
+when hovered over. And we'l also create a form that manipulates
 state in the form of text and displays submitted items in a table.
 `;
 
@@ -47,7 +49,7 @@ Install the lastest recommended version of *Node.js* and later deno
 const commands = [
   '$ npx create-react-app progrtmp-simple-state-management',
   '$ cd progrtmp-simple-state-management',
-  '$ npm run start'
+  '$ npm run start',
 ];
 
 const setupParagraph3 = `
@@ -124,8 +126,8 @@ const complexStateManagement = {
     {
       subtitle: introSubtitle,
       paragraphsCommandsCode: [
-        { paragraph: introParagraph1 }
-      ]
+        { paragraph: introParagraph1 },
+      ],
     },
     {
       subtitle: setupSubtitle,
@@ -133,36 +135,36 @@ const complexStateManagement = {
         { paragraphWithEndLink: setupParagraph1 },
         { paragraphWithMiddleLink: setupParagraph2 },
         { command: commands },
-        { paragraph: setupParagraph3 }
-      ]
+        { paragraph: setupParagraph3 },
+      ],
     },
     {
       subtitle: navbarSubtitle,
       paragraphsCommandsCode: [
         { paragraph: navbarParagraph1 },
-        { code: navbarCode1 }
-      ]
+        { code: navbarCode1 },
+      ],
     },
     {
       subtitle: formSubtitle,
       paragraphsCommandsCode: [
-        { paragraph: formParagraph1 }
-      ]
+        { paragraph: formParagraph1 },
+      ],
     },
     {
       subtitle: tableSubtitle,
       paragraphsCommandsCode: [
-        { paragraph: tableParagraph1 }
-      ]
+        { paragraph: tableParagraph1 },
+      ],
     },
     {
       subtitle: finalSubtitle,
       paragraphsCommandsCode: [
         { paragraph: finalParagraph1 },
-        { paragraph: finalParagraph2 }
-      ]
-    }
-  ]
+        { paragraph: finalParagraph2 },
+      ],
+    },
+  ],
 };
 
 export default complexStateManagement;

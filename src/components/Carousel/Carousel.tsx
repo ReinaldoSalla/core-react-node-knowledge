@@ -1,23 +1,22 @@
-import React, { useReducer, useEffect } from 'react';
+import React, { useReducer, useEffect, FunctionComponent } from 'react';
 import { useTransition } from 'react-spring';
 import CarouselWrapper from './Carousel.styles';
 import components from './Carousel.mapper';
 import initialState from './Carousel.init';
 import { carouselTransitionProps } from './Carousel.animations';
 import reducer from './Carousel.reducer';
+import { CarouselProps } from './Carousel.types';
 import CONSTANTS from './Carousel.constants';
 import CarouselInput from '../CarouselInput';
 import useDocumentVisibility from '../../hooks/useDocumentVisibility';
 
-const Carousel = ({
-  scrollToJavascript,
-  scrollToReact,
-  scrollToNode
-}) => {
+const Carousel: FunctionComponent<CarouselProps> = ({
+  scrolls,
+}): JSX.Element => {
   const [state, dispatch] = useReducer(reducer, initialState);
   const transitions = useTransition(state.index, null, {
     ...carouselTransitionProps,
-    order: ['leave', 'enter', 'update']
+    order: ['leave', 'enter', 'update'],
   } as any);
   const isDocumentVisible: boolean = useDocumentVisibility();
 
@@ -46,20 +45,20 @@ const Carousel = ({
         clearInterval(intervalId);
       };
     }
+    return undefined;
   });
 
   return (
     <>
       <CarouselWrapper>
-        {transitions.map(({ item, props, key }) => {
+        {transitions.map(({ item, props, key }, index) => {
           const Component = components[item];
           return (
             <Component
               key={key}
               style={props}
-              scrollToJavascript={scrollToJavascript}
-              scrollToReact={scrollToReact}
-              scrollToNode={scrollToNode}
+              scrolls={scrolls}
+              index={index}
             />
           );
         })}

@@ -5,7 +5,7 @@ const isScrollbarVisible = getScrollbarWidth() > 0;
 const initialState = {
   isScrollbarVisible,
   isTopbarSidebarVisible: false,
-  isTopbarSearchVisible: false
+  isTopbarSearchVisible: false,
 };
 
 export default initialState;

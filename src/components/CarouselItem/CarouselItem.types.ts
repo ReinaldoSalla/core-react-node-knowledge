@@ -1,16 +1,13 @@
-interface CarouselItemProps {
+export interface CarouselItemProps {
   style: any;
   name: string;
   title: string;
   description: string;
   check: string;
-  scrollToJavascript: () => void;
-  scrollToReact: () => void;
-  scrollToNode: () => void;
+  scrolls: any;
+  index: number;
 }
 
-interface TextProps {
+export interface TextProps {
   $isTopbarSidebarVisible: boolean;
 }
-
-export type { CarouselItemProps, TextProps };

@@ -15,7 +15,7 @@ const navigateToHome = (state: State, pathname: string): State => {
   return {
     ...state,
     isTopbarSidebarVisible: false,
-    isTopbarSearchVisible: false
+    isTopbarSearchVisible: false,
   };
 };
 
@@ -32,7 +32,7 @@ const toggleTopbarSidebar = (state: State): State => {
   return {
     ...state,
     isTopbarSidebarVisible: !state.isTopbarSidebarVisible,
-    isTopbarSearchVisible: state.isTopbarSearchVisible ? false : false
+    isTopbarSearchVisible: state.isTopbarSearchVisible ? false : false,
   };
 };
 
@@ -49,7 +49,7 @@ const toggleTopbarSearch = (state: State): State => {
   return {
     ...state,
     isTopbarSidebarVisible: state.isTopbarSidebarVisible ? false : false,
-    isTopbarSearchVisible: !state.isTopbarSearchVisible
+    isTopbarSearchVisible: !state.isTopbarSearchVisible,
   };
 };
 

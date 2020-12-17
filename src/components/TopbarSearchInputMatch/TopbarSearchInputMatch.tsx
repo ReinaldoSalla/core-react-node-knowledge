@@ -21,7 +21,7 @@ const TopbarSearchInputMatch = ({ text, toggleTopbarSearch }) => {
   return (
     <div style={{
       height: '1000px',
-      border: '1px solid yellow'
+      border: '1px solid yellow',
     }}
     />
   );
@@ -38,7 +38,7 @@ const targets = [
   'React - Side Effects',
   'Full Stack - GraphQL/Relay',
   'Full Stack - MongoDB',
-  'Full Stack - Authentication Management'
+  'Full Stack - Authentication Management',
 ];
 
 const getMatch = (currentText) => targets.filter((target) => {

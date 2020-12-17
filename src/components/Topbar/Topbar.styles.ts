@@ -36,5 +36,5 @@ const Filler = styled(animated.div)<FillerProps>`
 export {
   Header,
   Nav,
-  Filler
+  Filler,
 };

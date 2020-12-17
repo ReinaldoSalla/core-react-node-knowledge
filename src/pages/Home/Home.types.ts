@@ -9,5 +9,5 @@ interface ContainerProps {
 
 export type {
   HomeProps,
-  ContainerProps
+  ContainerProps,
 };

@@ -2,7 +2,7 @@ import { MutableRefObject } from 'react';
 
 const useScrollToElement = (
   elRef: MutableRefObject<HTMLElement>,
-  offset = 0
+  offset = 0,
 ): (
 ) => void => {
   const scrollToElement = () => {

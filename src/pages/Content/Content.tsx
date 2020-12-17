@@ -4,13 +4,13 @@ import React, {
   useRef,
   MutableRefObject,
   useContext,
-  useMemo
+  useMemo,
 } from 'react';
 import { useSpring } from 'react-spring';
 import { useLocation, useParams } from 'react-router-dom';
 import {
   ContentWrapper,
-  ContentContainer
+  ContentContainer,
 } from './Content.styles';
 import ContentCore from '../../components/ContentCore';
 import ContentNavigation from '../../components/ContentNavigation';
@@ -22,7 +22,7 @@ import getDelimiters from './Content.utils';
 
 const useIntersectionObserver = (
   domNode: MutableRefObject<HTMLElement>,
-  rootMargin = '-200px'
+  rootMargin = '-200px',
 ) => {
   const [isIntersecting, setIntersecting] = useState(false);
   const observerRef = useRef<IntersectionObserver | null>(null);
@@ -63,7 +63,7 @@ const Content = () => {
     useRef<HTMLElement>(null!),
     useRef<HTMLElement>(null!),
     useRef<HTMLElement>(null!),
-    useRef<HTMLElement>(null!)
+    useRef<HTMLElement>(null!),
   ];
 
   const scrolls = [
@@ -72,7 +72,7 @@ const Content = () => {
     () => scrollToElement(domNodes[2], -10),
     () => scrollToElement(domNodes[3], -10),
     () => scrollToElement(domNodes[4], -10),
-    () => scrollToElement(domNodes[5], -10)
+    () => scrollToElement(domNodes[5], -10),
   ];
 
   const isIntersecting = [
@@ -81,7 +81,7 @@ const Content = () => {
     useIntersectionObserver(domNodes[2]),
     useIntersectionObserver(domNodes[3]),
     useIntersectionObserver(domNodes[4]),
-    useIntersectionObserver(domNodes[5])
+    useIntersectionObserver(domNodes[5]),
   ];
 
   const { isTopbarSidebarVisible } = useContext(ModalsState);

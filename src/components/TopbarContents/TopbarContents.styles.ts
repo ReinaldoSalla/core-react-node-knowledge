@@ -60,5 +60,5 @@ export {
   TopbarContentsNormalizer,
   TopbarContentsSvg,
   TopbarContentsText,
-  TopbarContentsFiller
+  TopbarContentsFiller,
 };

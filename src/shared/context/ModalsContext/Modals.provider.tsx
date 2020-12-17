@@ -2,7 +2,7 @@ import React, {
   useReducer,
   createContext,
   Dispatch,
-  FunctionComponent
+  FunctionComponent,
 } from 'react';
 import reducer from './Modals.reducer';
 import initialState from './Modals.initialState';
@@ -12,7 +12,7 @@ const ModalsState = createContext<State>(null!);
 const ModalsDispatch = createContext<Dispatch<Action>>(null!);
 
 const ModalsProvider: FunctionComponent<ModalsProviderProps> = ({
-  children
+  children,
 }): JSX.Element => {
   const [state, dispatch] = useReducer(reducer, initialState);
   return (
@@ -27,5 +27,5 @@ const ModalsProvider: FunctionComponent<ModalsProviderProps> = ({
 export {
   ModalsState,
   ModalsDispatch,
-  ModalsProvider
+  ModalsProvider,
 };

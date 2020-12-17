@@ -5,12 +5,12 @@ import Content from '../../pages/Content';
 const routesConfig = [
   {
     path: '/',
-    component: Home
+    component: Home,
   },
   {
     path: '/rendering',
-    component: Content
-  }
+    component: Content,
+  },
 ];
 
 export default routesConfig;

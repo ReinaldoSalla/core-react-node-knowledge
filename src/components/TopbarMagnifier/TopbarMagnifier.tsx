@@ -2,14 +2,14 @@ import React, { useState, useContext } from 'react';
 import { useSpring } from 'react-spring';
 import {
   getHoverAnimation,
-  getSvgAnimation
+  getSvgAnimation,
 } from './TopbarMagnifier.animations';
 import {
   TopbarMagnifierWrapper,
   TopbarMagnifierNormalizer,
   TopbarMagnifierSvg,
   TopbarMagnifierText,
-  TopbarMagnifierFiller
+  TopbarMagnifierFiller,
 } from './TopbarMagnifier.styles';
 import { ModalsState, ModalsDispatch } from '../../shared/context/ModalsContext';
 

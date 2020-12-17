@@ -5,7 +5,7 @@ import {
   CategoriesBoardTitle,
   CategoriesBoardDescription,
   CategoriesBoardContents,
-  CategoriesBoardEmpty
+  CategoriesBoardEmpty,
 } from './CategoriesBoard.styles';
 
 const CategoriesBoard = ({
@@ -13,7 +13,7 @@ const CategoriesBoard = ({
   description,
   contents,
   Svg,
-  elementRef
+  elementRef,
 }) => (
   <Wrapper>
     <CategoriesBoardTitle ref={elementRef}>

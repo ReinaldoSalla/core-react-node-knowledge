@@ -4,7 +4,7 @@ import {
   Title,
   Topics,
   Topic,
-  Text
+  Text,
 } from './TopbarSidebarTopics.styles';
 
 const TopbarSidebarTopicss = ({ style, title, subcontents }) => (

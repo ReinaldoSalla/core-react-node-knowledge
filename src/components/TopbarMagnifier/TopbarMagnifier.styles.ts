@@ -62,5 +62,5 @@ export {
   TopbarMagnifierNormalizer,
   TopbarMagnifierSvg,
   TopbarMagnifierText,
-  TopbarMagnifierFiller
+  TopbarMagnifierFiller,
 };

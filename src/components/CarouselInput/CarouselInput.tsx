@@ -7,13 +7,13 @@ import {
   CarouselInputText,
   CarouselInputInner,
   CarouselInputTimer,
-  CarouselInputRow
+  CarouselInputRow,
 } from './CarouselInput.styles';
 import {
   CarouselTimerAnimation,
   CarouselTimerOffset,
   getTextProps,
-  getInnerProps
+  getInnerProps,
 } from './CarouselInput.animations';
 import { CarouselInputProps } from './CarouselInput.types';
 
@@ -21,7 +21,7 @@ const CarouselInput: FunctionComponent<CarouselInputProps> = ({
   index,
   handleFirstClick,
   handleSecondClick,
-  handleThirdClick
+  handleThirdClick,
 }): JSX.Element => {
   const { width, opacity }: any = useSpring(CarouselTimerAnimation);
 
@@ -67,7 +67,7 @@ const CarouselInput: FunctionComponent<CarouselInputProps> = ({
             )),
             opacity: opacity.interpolate((opacity) => (
               opacity < CarouselTimerOffset / 100 ? 0 : opacity - CarouselTimerOffset / 100
-            ))
+            )),
           }}
         />
       </CarouselInputTimer>

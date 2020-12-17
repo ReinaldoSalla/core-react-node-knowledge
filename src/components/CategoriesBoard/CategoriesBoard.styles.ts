@@ -53,5 +53,5 @@ export {
   CategoriesBoardTitle,
   CategoriesBoardDescription,
   CategoriesBoardContents,
-  CategoriesBoardEmpty
+  CategoriesBoardEmpty,
 };

@@ -21,7 +21,7 @@ const components = [...partialComponents, TopbarSidebarExit];
 
 const indexedComponents = components.map((component, key) => ({
   component,
-  key
+  key,
 }));
 
 const TopbarSidebar = ({ navDomNode }) => {
@@ -43,12 +43,12 @@ const TopbarSidebar = ({ navDomNode }) => {
   const transitions = useTransition(
     isTopbarSidebarVisible ? indexedComponents : [],
     (item) => item.key,
-    getTransitions(isTopbarSidebarVisible, transitionsRef)
+    getTransitions(isTopbarSidebarVisible, transitionsRef),
   );
 
   useChain(
     isTopbarSidebarVisible ? [springRef, transitionsRef] : [transitionsRef, springRef],
-    [0, isTopbarSidebarVisible ? 0.4 : 0.6]
+    [0, isTopbarSidebarVisible ? 0.4 : 0.6],
   );
 
   const onClickOutside = (event): void => {

@@ -1,7 +1,7 @@
 import CONSTANTS from './Carousel.constants';
 
 interface MoveToNextItem {
-  type: typeof CONSTANTS.MOVE_TO_NEXT_ITEM;
+	type: typeof CONSTANTS.MOVE_TO_NEXT_ITEM;
 }
 
 interface MoveToFirstItem {
@@ -14,6 +14,10 @@ interface MoveToSecondItem {
 
 interface MoveToThirdItem {
 	type: typeof CONSTANTS.MOVE_TO_THIRD_ITEM;
+}
+
+export interface CarouselProps {
+	scrolls: Array<() => void>;
 }
 
 export type CarouselAction =
@@ -31,8 +35,8 @@ export interface WrapperProps {
 	$isTopbarSidebarVisible: boolean;
 }
 
-// export type {
-//   CarouselState,
-//   CarouselAction,
-//   WrapperProps
-// };
+export interface CarouselItemProps {
+  style: {};
+  scrolls: Array<() => void>;
+  index: number;
+}

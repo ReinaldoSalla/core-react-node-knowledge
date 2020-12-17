@@ -3,7 +3,7 @@ import { Wrapper, Input, Element } from './TopbarSearchInput.styles';
 import TopbarSearchInputMatch from '../TopbarSearchInputMatch';
 
 const TopbarSearchInput = ({
-  style, toggleTopbarSearch, text, setText
+  style, toggleTopbarSearch, text, setText,
 }) => {
   // const [text, setText] = useState('');
 

@@ -6,14 +6,14 @@ import {
   Title,
   DescriptionWrapper,
   Description,
-  Check
+  Check,
 } from './CategoriesBox.styles';
 
 const CategoriesBox = ({
   title,
   description,
   path,
-  Svg
+  Svg,
 }) => (
   <Wrapper to={path}>
     <IconWrapper>

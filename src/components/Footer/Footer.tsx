@@ -4,7 +4,7 @@ import {
   FooterWrapper,
   FooterContainer,
   FooterLink,
-  FooterText
+  FooterText,
 } from './Footer.styles';
 import { ModalsState } from '../../shared/context/ModalsContext';
 
@@ -13,13 +13,13 @@ const Footer = () => {
   const spring = useSpring({
     config: config.molasses,
     from: {
-      opacity: isTopbarSidebarVisible ? 0.2 : 1
+      opacity: isTopbarSidebarVisible ? 0.2 : 1,
     },
     to: async (next) => {
       await next({
-        opacity: isTopbarSidebarVisible ? 0.2 : 1
+        opacity: isTopbarSidebarVisible ? 0.2 : 1,
       });
-    }
+    },
   });
   return (
     <FooterWrapper>

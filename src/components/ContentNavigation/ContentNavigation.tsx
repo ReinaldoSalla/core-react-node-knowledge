@@ -1,5 +1,5 @@
 import React, {
-  FunctionComponent
+  FunctionComponent,
 } from 'react';
 import { useSpring } from 'react-spring';
 import { useLocation } from 'react-router-dom';
@@ -8,18 +8,18 @@ import {
   ContentNavigationItem,
   ContentNavigationCircle,
   ContentNavigationText,
-  ContentNavigationLine
+  ContentNavigationLine,
 } from './ContentNavigation.styles';
 import { ContentNavigationProps } from './ContentNavigation.types';
 import {
   getTextAnimation,
-  getCircleAnimation
+  getCircleAnimation,
 } from './ContentNavigation.animations';
 
 const ContentNavigation: FunctionComponent<ContentNavigationProps> = ({
   isIntersecting,
   scrolls,
-  delimiters
+  delimiters,
 }): JSX.Element => {
   const { pathname } = useLocation();
 
@@ -29,7 +29,7 @@ const ContentNavigation: FunctionComponent<ContentNavigationProps> = ({
     useSpring(getCircleAnimation(isIntersecting[2], isIntersecting[1])),
     useSpring(getCircleAnimation(isIntersecting[3], isIntersecting[2])),
     useSpring(getCircleAnimation(isIntersecting[4], isIntersecting[3])),
-    useSpring(getCircleAnimation(isIntersecting[5], isIntersecting[4]))
+    useSpring(getCircleAnimation(isIntersecting[5], isIntersecting[4])),
   ];
 
   const textAnimations = [
@@ -38,7 +38,7 @@ const ContentNavigation: FunctionComponent<ContentNavigationProps> = ({
     useSpring(getTextAnimation(isIntersecting[2], isIntersecting[1])),
     useSpring(getTextAnimation(isIntersecting[3], isIntersecting[2])),
     useSpring(getTextAnimation(isIntersecting[4], isIntersecting[3])),
-    useSpring(getTextAnimation(isIntersecting[5], isIntersecting[4]))
+    useSpring(getTextAnimation(isIntersecting[5], isIntersecting[4])),
   ];
 
   return (

@@ -6,28 +6,10 @@ import {
   CarouselItemTitle,
   CarouselItemDescription,
   CarouselItemCheckWrapper,
-  CarouselItemCheck
+  CarouselItemCheck,
 } from './CarouselItem.styles';
 import getCarouselItemProps from './CarouselItem.animations';
 import { CarouselItemProps } from './CarouselItem.types';
-
-const getWhichElement = (
-  name,
-  scrollToJavascript,
-  scrollToReact,
-  scrollToNode
-) => {
-  switch (name) {
-  case 'javascript':
-    return scrollToJavascript;
-  case 'react':
-    return scrollToReact;
-  case 'node':
-    return scrollToNode;
-  default:
-    throw new Error(`Name ${name} is undefined`);
-  }
-};
 
 const CarouselItem: FunctionComponent<CarouselItemProps> = ({
   style,
@@ -35,9 +17,8 @@ const CarouselItem: FunctionComponent<CarouselItemProps> = ({
   title,
   description,
   check,
-  scrollToJavascript,
-  scrollToReact,
-  scrollToNode
+  scrolls,
+  index,
 }): JSX.Element => {
   const [isHovering, setIsHovering] = useState(false);
 
@@ -49,17 +30,10 @@ const CarouselItem: FunctionComponent<CarouselItemProps> = ({
 
   const handleMouseLeave = () => setIsHovering(false);
 
-  const scrollToElement = getWhichElement(
-    name,
-    scrollToJavascript,
-    scrollToReact,
-    scrollToNode
-  );
-
   return (
     <CarouselItemWrapper style={style}>
       <CarouselItemTitle
-        onClick={scrollToElement}
+        onClick={scrolls[index]}
         style={animationProps}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
@@ -68,7 +42,7 @@ const CarouselItem: FunctionComponent<CarouselItemProps> = ({
         {title}
       </CarouselItemTitle>
       <CarouselItemDescription
-        onClick={scrollToElement}
+        onClick={scrolls[index]}
         style={animationProps}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
@@ -78,7 +52,7 @@ const CarouselItem: FunctionComponent<CarouselItemProps> = ({
       </CarouselItemDescription>
       <CarouselItemCheckWrapper>
         <CarouselItemCheck
-          onClick={scrollToElement}
+          onClick={scrolls[index]}
           style={animationProps}
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
