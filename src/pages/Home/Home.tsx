@@ -12,7 +12,7 @@ import Carousel from '../../components/Carousel';
 import Categories from '../../components/Categories';
 import scrollToElement from '../../utils/scrollToElement';
 import VideoBackground from '../../components/VideoBackground';
-import { getOpacitySpring } from '../../shared/animations';
+import getOpacitySpring from '../../shared/animations';
 import { ModalsState } from '../../shared/context/ModalsContext';
 
 const Home: FunctionComponent = (): JSX.Element => {

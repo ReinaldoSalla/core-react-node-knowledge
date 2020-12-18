@@ -6,7 +6,7 @@ const getSpring = (
   from: {
     height: isTopbarSearchVisible ? '800px' : '0px',
   },
-  to: async (next) => {
+  to: async (next): Promise<void> => {
     await next({
       height: isTopbarSearchVisible ? '800px' : '0px',
     });

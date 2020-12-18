@@ -11,7 +11,10 @@ import SearchWrapper from './TopbarSearch.styles';
 import TopbarSearchTitle from '../TopbarSearchTitle';
 import TopbarSearchInput from '../TopbarSearchInput';
 import TopbarSearchExit from '../TopbarSearchExit';
-import { ModalsState, ModalsDispatch } from '../../shared/context/ModalsContext';
+import {
+  ModalsState,
+  ModalsDispatch,
+} from '../../shared/context/ModalsContext';
 
 const components = [TopbarSearchTitle, TopbarSearchInput, TopbarSearchExit];
 
@@ -43,7 +46,9 @@ const TopbarSearch: FunctionComponent = (): JSX.Element => {
   );
 
   useChain(
-    isTopbarSearchVisible ? [springRef, transitionsRef] : [transitionsRef, springRef],
+    isTopbarSearchVisible
+      ? [springRef, transitionsRef]
+      : [transitionsRef, springRef],
     [0, isTopbarSearchVisible ? 0.3 : 0.5],
   );
 
@@ -51,7 +56,7 @@ const TopbarSearch: FunctionComponent = (): JSX.Element => {
     clearTimeout(timeoutId.current);
   };
 
-  const onBlur = (): void => {
+  const onBlur = () => {
     timeoutId.current = setTimeout(() => {
       toggleTopbarSearch();
     });

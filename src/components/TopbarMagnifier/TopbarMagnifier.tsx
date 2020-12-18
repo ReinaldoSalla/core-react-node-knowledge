@@ -11,7 +11,10 @@ import {
   TopbarMagnifierText,
   TopbarMagnifierFiller,
 } from './TopbarMagnifier.styles';
-import { ModalsState, ModalsDispatch } from '../../shared/context/ModalsContext';
+import {
+  ModalsState,
+  ModalsDispatch,
+} from '../../shared/context/ModalsContext';
 
 const TopbarMagnifier = (): JSX.Element => {
   const { isTopbarSearchVisible } = useContext(ModalsState);

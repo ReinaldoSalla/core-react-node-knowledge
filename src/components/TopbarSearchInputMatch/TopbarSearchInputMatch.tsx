@@ -1,3 +1,5 @@
+/* eslint-disable max-len */
+
 import React from 'react';
 import { Text, MatchLink } from './TopbarSearchInputMatch.styles';
 import CONSTANTS from './TopbarSearchInputMatch.constants';

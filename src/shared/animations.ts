@@ -5,11 +5,11 @@ const getOpacitySpring = (isTopbarSidebarVisible: boolean): any => ({
   from: {
     opacity: isTopbarSidebarVisible ? 0.5 : 1,
   },
-  to: async (next) => {
+  to: async (next): Promise<void> => {
     await next({
       opacity: isTopbarSidebarVisible ? 0.5 : 1,
     });
   },
 });
 
-export { getOpacitySpring };
+export default getOpacitySpring;

@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 import Exit from './TopbarSearchExit.styles';
 
-const TopbarSearchExit = ({ style, toggleTopbarSearch, setText }) => {
-  const handleClick = (): void => {
+const TopbarSearchExit: FunctionComponent<any> = ({
+  style,
+  toggleTopbarSearch,
+  setText,
+}): JSX.Element => {
+  const handleClick = () => {
     toggleTopbarSearch();
     setText('');
   };

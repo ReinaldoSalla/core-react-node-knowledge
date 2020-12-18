@@ -15,43 +15,13 @@ import {
 import ContentCore from '../../components/ContentCore';
 import ContentNavigation from '../../components/ContentNavigation';
 import scrollToElement from '../../utils/scrollToElement';
-import { getOpacitySpring } from '../../shared/animations';
+import getOpacitySpring from '../../shared/animations';
 import { ModalsState } from '../../shared/context/ModalsContext';
 import texts from '../../constants/texts';
 import getDelimiters from './Content.utils';
+import useIsIntersecting from '../../hooks/useIsIntersecting';
 
-const useIntersectionObserver = (
-  domNode: MutableRefObject<HTMLElement>,
-  rootMargin = '-200px',
-) => {
-  const [isIntersecting, setIntersecting] = useState(false);
-  const observerRef = useRef<IntersectionObserver | null>(null);
-
-  useEffect(() => {
-    // IntersectionObserver is created lazily once
-    // https://reactjs.org/docs/hooks-faq.html
-    const getObserver = () => {
-      if (observerRef.current === null) {
-        observerRef.current = new IntersectionObserver(([entry]) => {
-          setIntersecting(entry.isIntersecting);
-        }, { root: null, rootMargin, threshold: 0 });
-        return observerRef.current;
-      }
-      return null;
-    };
-
-    const observer = getObserver();
-    const localDomNode = domNode.current;
-    if (observer !== null) {
-      observer.observe(localDomNode);
-      return () => observer.unobserve(localDomNode);
-    }
-  }, [domNode, rootMargin]);
-
-  return isIntersecting;
-};
-
-const Content = () => {
+const Content = (): JSX.Element => {
   const { hash } = useLocation();
   const { id } = useParams();
   const target = texts[id];
@@ -76,12 +46,12 @@ const Content = () => {
   ];
 
   const isIntersecting = [
-    useIntersectionObserver(domNodes[0], '-100px'),
-    useIntersectionObserver(domNodes[1]),
-    useIntersectionObserver(domNodes[2]),
-    useIntersectionObserver(domNodes[3]),
-    useIntersectionObserver(domNodes[4]),
-    useIntersectionObserver(domNodes[5]),
+    useIsIntersecting(domNodes[0], '-100px'),
+    useIsIntersecting(domNodes[1]),
+    useIsIntersecting(domNodes[2]),
+    useIsIntersecting(domNodes[3]),
+    useIsIntersecting(domNodes[4]),
+    useIsIntersecting(domNodes[5]),
   ];
 
   const { isTopbarSidebarVisible } = useContext(ModalsState);
@@ -132,5 +102,3 @@ const Content = () => {
 };
 
 export default Content;
-
-console.log('123');

@@ -5,7 +5,7 @@ const useScrollToElement = (
   offset = 0,
 ): (
 ) => void => {
-  const scrollToElement = () => {
+  const scrollToElement = (): void => {
     window.scrollTo(0, elRef.current?.offsetTop + offset);
   };
   return scrollToElement;

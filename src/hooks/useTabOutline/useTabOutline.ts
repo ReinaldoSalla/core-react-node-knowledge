@@ -1,25 +1,27 @@
 import { useEffect } from 'react';
 
-const useTabOutline = () => {
+const useTabOutline = (): void => {
   useEffect(() => {
-    const onKeyDown = (event) => {
+    const onKeyDown = (event): void => {
       if (event.keyCode === 9) {
         document.body.classList.add('tab');
       }
     };
     window.addEventListener('keydown', onKeyDown);
-    return () => window.removeEventListener('keydown', onKeyDown);
+    return (): void => {
+      window.removeEventListener('keydown', onKeyDown);
+    };
   });
 
   useEffect(() => {
-    const onMouseDown = () => {
+    const onMouseDown = (): void => {
       document.body.classList.remove('tab');
     };
     window.addEventListener('mousedown', onMouseDown);
-    return () => window.removeEventListener('mousedown', onMouseDown);
+    return (): void => {
+      window.removeEventListener('mousedown', onMouseDown);
+    };
   });
-
-  return null;
 };
 
 export default useTabOutline;

@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 import { Wrapper, Input, Element } from './TopbarSearchInput.styles';
 import TopbarSearchInputMatch from '../TopbarSearchInputMatch';
 
-const TopbarSearchInput = ({
+const TopbarSearchInput: FunctionComponent<any> = ({
   style, toggleTopbarSearch, text, setText,
-}) => {
-  const handleChange = (event) => {
+}): JSX.Element => {
+  const handleChange = (event): void => {
     setText(event.target.value);
   };
 

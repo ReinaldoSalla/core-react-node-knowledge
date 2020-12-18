@@ -10,10 +10,13 @@ import { getSpring, getTransitions } from './TopbarSidebar.animations';
 import TopbarSidebarTopics from '../TopbarSidebarTopics';
 import TopbarSidebarExit from '../TopbarSidebarExit';
 import contents from '../../constants/contents';
-import { ModalsState, ModalsDispatch } from '../../shared/context/ModalsContext';
+import {
+  ModalsState,
+  ModalsDispatch,
+} from '../../shared/context/ModalsContext';
 
 const partialComponents = contents.map(({ title, subcontents }) => (
-  ({ style }) => (
+  ({ style }: any): any => (
     <TopbarSidebarTopics
       style={style}
       title={title}
@@ -54,7 +57,9 @@ const TopbarSidebar: FunctionComponent<any> = ({
   );
 
   useChain(
-    isTopbarSidebarVisible ? [springRef, transitionsRef] : [transitionsRef, springRef],
+    isTopbarSidebarVisible
+      ? [springRef, transitionsRef]
+      : [transitionsRef, springRef],
     [0, isTopbarSidebarVisible ? 0.4 : 0.6],
   );
 

@@ -15,8 +15,8 @@ const TopbarSidebarTopicss: FunctionComponent<any> = ({
   <Wrapper style={style}>
     <Title>{title}</Title>
     <Topics>
-      {subcontents.map((subcontent, index) => (
-        <Topic key={index}>
+      {subcontents.map((subcontent) => (
+        <Topic key={subcontent}>
           <Text href='/#'>{subcontent}</Text>
         </Topic>
       ))}
