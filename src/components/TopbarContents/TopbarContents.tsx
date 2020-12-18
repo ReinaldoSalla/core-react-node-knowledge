@@ -16,7 +16,7 @@ import {
   ModalsDispatch,
 } from '../../shared/context/ModalsContext';
 
-const TopbarContents = () => {
+const TopbarContents = (): JSX.Element => {
   const { isTopbarSidebarVisible } = useContext(ModalsState);
 
   const dispatch = useContext(ModalsDispatch);

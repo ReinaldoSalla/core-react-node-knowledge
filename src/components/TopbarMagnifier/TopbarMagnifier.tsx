@@ -13,20 +13,24 @@ import {
 } from './TopbarMagnifier.styles';
 import { ModalsState, ModalsDispatch } from '../../shared/context/ModalsContext';
 
-const TopbarMagnifier = () => {
+const TopbarMagnifier = (): JSX.Element => {
   const { isTopbarSearchVisible } = useContext(ModalsState);
 
   const dispatch = useContext(ModalsDispatch);
 
-  const toggleTopbarSearch = () => {
+  const toggleTopbarSearch = (): void => {
     dispatch({ type: 'TOGGLE_TOPBAR_SEARCH' });
   };
 
   const [isHovering, setIsHovering] = useState(false);
 
-  const handleEnter = () => setIsHovering(true);
+  const handleEnter = (): void => {
+    setIsHovering(true);
+  };
 
-  const handleLeave = () => setIsHovering(false);
+  const handleLeave = (): void => {
+    setIsHovering(false);
+  };
 
   const hoverSpring = useSpring(getHoverAnimation(isHovering));
 

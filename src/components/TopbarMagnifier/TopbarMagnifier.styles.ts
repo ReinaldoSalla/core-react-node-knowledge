@@ -7,7 +7,6 @@ const TopbarMagnifierWrapper = styled.button`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* position: relative; */
   z-index: 4;
   width: 100%;
 
@@ -45,7 +44,7 @@ const TopbarMagnifierText = styled.span`
   line-height: 0.7em;
   color: white;
 
-  ${(props) => props.theme.breakpoints.small} {
+  ${(props): string => props.theme.breakpoints.small} {
     font-size: 16px;
   }
 `;

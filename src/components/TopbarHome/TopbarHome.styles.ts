@@ -33,7 +33,6 @@ const TopbarHomeSvg = styled(animated(HomeSvg))`
   height: 112%;
   color: white;
   transform: translate3d(-5%, -5%, 0);
-  /* border: 1px solid blue; */
 `;
 
 const TopbarHomeText = styled.span`
@@ -42,7 +41,7 @@ const TopbarHomeText = styled.span`
   line-height: 0.7em;
   color: white;
 
-  ${(props) => props.theme.breakpoints.small} {
+  ${(props): string => props.theme.breakpoints.small} {
     font-size: 16px;
   }
 `;
