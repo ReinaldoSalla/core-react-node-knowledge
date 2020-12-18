@@ -1,4 +1,4 @@
-const getTitleSpring = () => ({
+const getTitleSpring = (): any => ({
   from: {
     opacity: 0,
     transform: 'translateY(-50%)',
@@ -9,7 +9,7 @@ const getTitleSpring = () => ({
   },
 });
 
-const getSectionSpring = () => ({
+const getSectionSpring = (): any => ({
   from: {
     opacity: 0,
     transform: 'translateX(-10%)',

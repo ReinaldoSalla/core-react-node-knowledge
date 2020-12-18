@@ -8,12 +8,12 @@ const ContentCoreHeading = styled(animated.h1)`
 `;
 
 const ContentCoreTitle = styled.h2`
-  color: ${(props) => props.theme.textColor};
+  color: ${(props): string => props.theme.textColor};
 `;
 
 const ContentCoreText = styled.p`
   line-height: 1.7;
-  color: ${(props) => props.theme.textColor};
+  color: ${(props): string => props.theme.textColor};
 `;
 
 const ContentCoreLink = styled.a`

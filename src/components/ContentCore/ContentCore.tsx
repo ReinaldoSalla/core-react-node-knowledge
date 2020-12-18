@@ -28,31 +28,49 @@ const ContentCore: FunctionComponent<ContentCoreProps> = ({
 
   return (
     <article>
-      <ContentCoreHeading style={titleSpring}>{target.title}</ContentCoreHeading>
+      <ContentCoreHeading
+        style={titleSpring}
+      >
+        {target.title}
+      </ContentCoreHeading>
       {target.text.map((element, index) => (
-        <animated.section style={sectionSpring} key={element.subtitle} ref={domNodes[index]}>
+        <animated.section
+          style={sectionSpring}
+          key={element.subtitle}
+          ref={domNodes[index]}
+        >
           <ContentCoreTitle>
             {index + 1}
             .
             {' '}
             {element.subtitle}
           </ContentCoreTitle>
-          {element.paragraphsCommandsCode.map((innerElement, innerIndex) => {
-            if (innerElement.hasOwnProperty('paragraph')) {
-              return <ContentCoreText key={innerIndex}>{innerElement.paragraph}</ContentCoreText>;
-            } if (innerElement.hasOwnProperty('command')) {
+          {element.paragraphsCommandsCode.map((innerElement) => {
+            if (
+              Object.prototype.hasOwnProperty.call(innerElement, 'paragraph')
+            ) {
+              return (
+                <ContentCoreText key={element.subtitle}>
+                  {innerElement.paragraph}
+                </ContentCoreText>
+              );
+            } if (
+              Object.prototype.hasOwnProperty.call(innerElement, 'command')
+            ) {
               return (
                 <ContentCoreContainer key={innerElement}>
-                  {innerElement.command.map((innerInnerElement, innerInnerIndex) => (
-                    <ContentCoreCommand key={innerInnerIndex}>
+                  {innerElement.command.map((innerInnerElement) => (
+                    <ContentCoreCommand key={element.subtitle}>
                       {innerInnerElement}
                     </ContentCoreCommand>
                   ))}
                 </ContentCoreContainer>
               );
-            } if (innerElement.hasOwnProperty('code')) {
+            } if (
+              Object.prototype.hasOwnProperty.call(innerElement, 'code')
+            ) {
               return (
-                <pre key={index} className="language-jsx">
+                <pre key={element.subtitle} className="language-jsx">
                   <code
                     className="language-jsx"
                     style={{ whiteSpace: 'pre-wrap' }}
@@ -61,7 +79,12 @@ const ContentCore: FunctionComponent<ContentCoreProps> = ({
                   </code>
                 </pre>
               );
-            } if (innerElement.hasOwnProperty('paragraphWithMiddleLink')) {
+            } if (
+              Object.prototype.hasOwnProperty.call(
+                innerElement,
+                'paragraphWithMiddleLink',
+              )
+            ) {
               const blocks = innerElement.paragraphWithMiddleLink.split('*');
               return (
                 <ContentCoreText key={blocks[0]}>
@@ -76,7 +99,12 @@ const ContentCore: FunctionComponent<ContentCoreProps> = ({
                   {blocks[2]}
                 </ContentCoreText>
               );
-            } if (innerElement.hasOwnProperty('paragraphWithEndLink')) {
+            } if (
+              Object.prototype.hasOwnProperty.call(
+                innerElement,
+                'paragraphWithEndLink',
+              )
+            ) {
               const blocks = innerElement.paragraphWithEndLink.split('*');
               return (
                 <ContentCoreText key={blocks[0]}>
