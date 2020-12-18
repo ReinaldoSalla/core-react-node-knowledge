@@ -2,18 +2,18 @@ import React, { useContext, useState } from 'react';
 import { useSpring } from 'react-spring';
 import {
   getHoverAnimation,
-  getSvgAnimation,
+  getSvgAnimation
 } from './TopbarContents.animations';
 import {
   TopbarContentsWrapper,
   TopbarContentsNormalizer,
   TopbarContentsSvg,
   TopbarContentsText,
-  TopbarContentsFiller,
+  TopbarContentsFiller
 } from './TopbarContents.styles';
 import {
   ModalsState,
-  ModalsDispatch,
+  ModalsDispatch
 } from '../../shared/context/ModalsContext';
 
 const TopbarContents = (): JSX.Element => {

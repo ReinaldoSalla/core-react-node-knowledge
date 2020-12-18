@@ -36,5 +36,5 @@ const ContentContainer = styled.div`
 export {
   ContentWrapper,
   ContentTitle,
-  ContentContainer,
+  ContentContainer
 };

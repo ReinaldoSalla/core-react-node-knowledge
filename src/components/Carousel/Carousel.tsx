@@ -11,12 +11,12 @@ import CarouselInput from '../CarouselInput';
 import useDocumentVisibility from '../../hooks/useDocumentVisibility';
 
 const Carousel: FunctionComponent<CarouselProps> = ({
-  scrolls,
+  scrolls
 }): JSX.Element => {
   const [state, dispatch] = useReducer(reducer, initialState);
   const transitions = useTransition(state.index, null, {
     ...carouselTransitionProps,
-    order: ['leave', 'enter', 'update'],
+    order: ['leave', 'enter', 'update']
   } as any);
   const isDocumentVisible: boolean = useDocumentVisibility();
 

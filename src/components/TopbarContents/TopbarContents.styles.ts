@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { animated } from 'react-spring';
 import {
-  ReactComponent as TopbarSidebarSvg,
+  ReactComponent as TopbarSidebarSvg
 } from '../../assets/icons/contents.svg';
 
 const TopbarContentsWrapper = styled.button`
@@ -62,5 +62,5 @@ export {
   TopbarContentsNormalizer,
   TopbarContentsSvg,
   TopbarContentsText,
-  TopbarContentsFiller,
+  TopbarContentsFiller
 };

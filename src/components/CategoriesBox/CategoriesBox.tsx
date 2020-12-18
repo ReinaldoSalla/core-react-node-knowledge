@@ -6,14 +6,14 @@ import {
   Title,
   DescriptionWrapper,
   Description,
-  Check,
+  Check
 } from './CategoriesBox.styles';
 
 const CategoriesBox: FunctionComponent<any> = ({
   title,
   description,
   path,
-  Svg,
+  Svg
 }): JSX.Element => (
   <Wrapper to={path}>
     <IconWrapper>

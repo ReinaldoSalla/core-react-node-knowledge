@@ -98,5 +98,5 @@ export {
   Title,
   DescriptionWrapper,
   Description,
-  Check,
+  Check
 };

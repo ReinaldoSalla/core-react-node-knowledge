@@ -1,10 +1,10 @@
 import React, {
-  useState, useRef, useContext, FunctionComponent,
+  useState, useRef, useContext, FunctionComponent
 } from 'react';
 import {
   useSpring,
   useTransition,
-  useChain,
+  useChain
 } from 'react-spring';
 import { getSpring, getTransitions } from './TopbarSearch.animations';
 import SearchWrapper from './TopbarSearch.styles';
@@ -13,14 +13,14 @@ import TopbarSearchInput from '../TopbarSearchInput';
 import TopbarSearchExit from '../TopbarSearchExit';
 import {
   ModalsState,
-  ModalsDispatch,
+  ModalsDispatch
 } from '../../shared/context/ModalsContext';
 
 const components = [TopbarSearchTitle, TopbarSearchInput, TopbarSearchExit];
 
 const indexedComponents = components.map((component, key) => ({
   component,
-  key,
+  key
 }));
 
 const TopbarSearch: FunctionComponent = (): JSX.Element => {
@@ -42,14 +42,14 @@ const TopbarSearch: FunctionComponent = (): JSX.Element => {
   const transitions = useTransition(
     isTopbarSearchVisible ? indexedComponents : [],
     (item) => item.key,
-    getTransitions(transitionsRef, indexedComponents.length),
+    getTransitions(transitionsRef, indexedComponents.length)
   );
 
   useChain(
     isTopbarSearchVisible
       ? [springRef, transitionsRef]
       : [transitionsRef, springRef],
-    [0, isTopbarSearchVisible ? 0.3 : 0.5],
+    [0, isTopbarSearchVisible ? 0.3 : 0.5]
   );
 
   const onFocus = (): void => {

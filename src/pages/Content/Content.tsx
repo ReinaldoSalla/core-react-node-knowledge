@@ -2,13 +2,13 @@ import React, {
   useEffect,
   useRef,
   useContext,
-  useMemo,
+  useMemo
 } from 'react';
 import { useSpring } from 'react-spring';
 import { useLocation, useParams } from 'react-router-dom';
 import {
   ContentWrapper,
-  ContentContainer,
+  ContentContainer
 } from './Content.styles';
 import ContentCore from '../../components/ContentCore';
 import ContentNavigation from '../../components/ContentNavigation';
@@ -31,7 +31,7 @@ const Content = (): JSX.Element => {
     useRef<HTMLElement>(null),
     useRef<HTMLElement>(null),
     useRef<HTMLElement>(null),
-    useRef<HTMLElement>(null),
+    useRef<HTMLElement>(null)
   ];
 
   const scrolls = [
@@ -40,7 +40,7 @@ const Content = (): JSX.Element => {
     (): void => scrollToElement(domNodes[2], -10),
     (): void => scrollToElement(domNodes[3], -10),
     (): void => scrollToElement(domNodes[4], -10),
-    (): void => scrollToElement(domNodes[5], -10),
+    (): void => scrollToElement(domNodes[5], -10)
   ];
 
   const isIntersecting = [
@@ -49,7 +49,7 @@ const Content = (): JSX.Element => {
     useIsIntersecting(domNodes[2]),
     useIsIntersecting(domNodes[3]),
     useIsIntersecting(domNodes[4]),
-    useIsIntersecting(domNodes[5]),
+    useIsIntersecting(domNodes[5])
   ];
 
   const { isTopbarSidebarVisible } = useContext(ModalsState);

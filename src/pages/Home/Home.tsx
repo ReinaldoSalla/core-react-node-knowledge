@@ -3,7 +3,7 @@ import React, {
   useContext,
   useRef,
   useCallback,
-  FunctionComponent,
+  FunctionComponent
 } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useSpring } from 'react-spring';
@@ -22,7 +22,7 @@ const Home: FunctionComponent = (): JSX.Element => {
   const domNodes = [
     useRef<HTMLElement>(null),
     useRef<HTMLElement>(null),
-    useRef<HTMLElement>(null),
+    useRef<HTMLElement>(null)
   ];
 
   const { isTopbarSidebarVisible } = useContext(ModalsState);

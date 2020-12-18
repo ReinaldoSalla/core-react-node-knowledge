@@ -29,5 +29,5 @@ const Text = styled.span`
 `;
 
 export {
-  Wrapper, Input, Element, Text,
+  Wrapper, Input, Element, Text
 };

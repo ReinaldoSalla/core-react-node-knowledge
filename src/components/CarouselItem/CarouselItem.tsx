@@ -6,7 +6,7 @@ import {
   CarouselItemTitle,
   CarouselItemDescription,
   CarouselItemCheckWrapper,
-  CarouselItemCheck,
+  CarouselItemCheck
 } from './CarouselItem.styles';
 import getCarouselItemProps from './CarouselItem.animations';
 import { CarouselItemProps } from './CarouselItem.types';
@@ -18,7 +18,7 @@ const CarouselItem: FunctionComponent<CarouselItemProps> = ({
   description,
   check,
   scrolls,
-  index,
+  index
 }): JSX.Element => {
   const [isHovering, setIsHovering] = useState(false);
 

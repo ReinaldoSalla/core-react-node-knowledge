@@ -5,7 +5,7 @@ import {
   CategoriesBoardTitle,
   CategoriesBoardDescription,
   CategoriesBoardContents,
-  CategoriesBoardEmpty,
+  CategoriesBoardEmpty
 } from './CategoriesBoard.styles';
 import getIndexArr from './CategoriesBoard.utils';
 
@@ -14,7 +14,7 @@ const CategoriesBoard: FunctionComponent<any> = ({
   description,
   contents,
   Svg,
-  elementRef,
+  elementRef
 }): JSX.Element => (
   <Wrapper>
     <CategoriesBoardTitle ref={elementRef}>

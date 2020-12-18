@@ -8,28 +8,28 @@ const moveToNextItem = (state: CarouselState): CarouselState => {
   }
   return {
     index: newIndex,
-    isTimerEnabled: true,
+    isTimerEnabled: true
   };
 };
 
 const moveToFirstItem = (): CarouselState => ({
   index: 0,
-  isTimerEnabled: false,
+  isTimerEnabled: false
 });
 
 const moveToSecondItem = (): CarouselState => ({
   index: 1,
-  isTimerEnabled: false,
+  isTimerEnabled: false
 });
 
 const moveToThirdItem = (): CarouselState => ({
   index: 2,
-  isTimerEnabled: false,
+  isTimerEnabled: false
 });
 
 export {
   moveToNextItem,
   moveToFirstItem,
   moveToSecondItem,
-  moveToThirdItem,
+  moveToThirdItem
 };

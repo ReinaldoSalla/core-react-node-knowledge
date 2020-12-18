@@ -1,7 +1,7 @@
 import {
   toggleTopbarSidebar,
   toggleTopbarSearch,
-  navigateToHome,
+  navigateToHome
 } from './Modals.actions';
 import { State, Action } from './Modals.types';
 

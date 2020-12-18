@@ -95,5 +95,5 @@ export {
   CarouselItemTitle,
   CarouselItemDescription,
   CarouselItemCheckWrapper,
-  CarouselItemCheck,
+  CarouselItemCheck
 };

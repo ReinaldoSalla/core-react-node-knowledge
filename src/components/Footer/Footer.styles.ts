@@ -57,5 +57,5 @@ export {
   FooterWrapper,
   FooterContainer,
   FooterLink,
-  FooterText,
+  FooterText
 };

@@ -2,7 +2,7 @@ import React, {
   useContext,
   useEffect,
   useRef,
-  FunctionComponent,
+  FunctionComponent
 } from 'react';
 import { useSpring, useTransition, useChain } from 'react-spring';
 import TopbarSidebarWrapper from './TopbarSidebar.styles';
@@ -12,7 +12,7 @@ import TopbarSidebarExit from '../TopbarSidebarExit';
 import contents from '../../constants/contents';
 import {
   ModalsState,
-  ModalsDispatch,
+  ModalsDispatch
 } from '../../shared/context/ModalsContext';
 
 const partialComponents = contents.map(({ title, subcontents }) => (
@@ -29,11 +29,11 @@ const components = [...partialComponents, TopbarSidebarExit];
 
 const indexedComponents: any = components.map((component, key) => ({
   component,
-  key,
+  key
 }));
 
 const TopbarSidebar: FunctionComponent<any> = ({
-  navDomNode,
+  navDomNode
 }): any => {
   const springRef: any = useRef();
   const transitionsRef: any = useRef();
@@ -53,14 +53,14 @@ const TopbarSidebar: FunctionComponent<any> = ({
   const transitions = useTransition(
     isTopbarSidebarVisible ? indexedComponents : [],
     (item) => item.key,
-    getTransitions(isTopbarSidebarVisible, transitionsRef),
+    getTransitions(isTopbarSidebarVisible, transitionsRef)
   );
 
   useChain(
     isTopbarSidebarVisible
       ? [springRef, transitionsRef]
       : [transitionsRef, springRef],
-    [0, isTopbarSidebarVisible ? 0.4 : 0.6],
+    [0, isTopbarSidebarVisible ? 0.4 : 0.6]
   );
 
   const onClickOutside = (event: any): void => {

@@ -4,7 +4,7 @@ import Exit from './TopbarSearchExit.styles';
 const TopbarSearchExit: FunctionComponent<any> = ({
   style,
   toggleTopbarSearch,
-  setText,
+  setText
 }): JSX.Element => {
   const handleClick = (): void => {
     toggleTopbarSearch();

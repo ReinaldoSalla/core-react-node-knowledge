@@ -1,6 +1,6 @@
 import contents from '../../constants/contents';
 import {
-  ReactComponent as JavaScriptSvg,
+  ReactComponent as JavaScriptSvg
 } from '../../assets/icons/javascript.svg';
 import { ReactComponent as ReactSvg } from '../../assets/icons/react.svg';
 import { ReactComponent as ServerSvg } from '../../assets/icons/server.svg';
@@ -8,7 +8,7 @@ import { ReactComponent as ServerSvg } from '../../assets/icons/server.svg';
 const metaContents = [
   'Curated tutorials, emphasizing on ES6+ features',
   'Concepts from React, focusing on function components and React Hooks',
-  'Extending applications with Node.js and GraphQL',
+  'Extending applications with Node.js and GraphQL'
 ];
 
 const metaSubcontents = [
@@ -22,7 +22,7 @@ const metaSubcontents = [
   'Optimizing images in React',
   'Modeling backend APIs with GraphQL and integrating with the frontend',
   'Persisting unstructured data using a Non-Relational Database',
-  'Authenticating users on the web with passport.js',
+  'Authenticating users on the web with passport.js'
 ];
 
 let counter = -1;
@@ -33,7 +33,7 @@ const getProcessedSubcontents = (subcontents: any): any => {
     return {
       title: subcontent,
       path: subcontent.toLowerCase().replaceAll(' ', ''),
-      description: metaSubcontents[counter],
+      description: metaSubcontents[counter]
     };
   });
   return processedSubcontents;
@@ -42,13 +42,13 @@ const getProcessedSubcontents = (subcontents: any): any => {
 const processedContents = contents.map((content, index) => ({
   ...content,
   description: metaContents[index],
-  subcontents: getProcessedSubcontents(content.subcontents),
+  subcontents: getProcessedSubcontents(content.subcontents)
 }));
 
 const icons = [
   JavaScriptSvg,
   ReactSvg,
-  ServerSvg,
+  ServerSvg
 ];
 
 export { processedContents, icons };

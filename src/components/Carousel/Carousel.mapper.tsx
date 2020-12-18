@@ -4,7 +4,7 @@ import CarouselItem from '../CarouselItem';
 import { CarouselItemProps } from './Carousel.types';
 
 const components = markup.map(({
-  name, title, description, check,
+  name, title, description, check
 }) => (({ style, scrolls, index }: CarouselItemProps): JSX.Element => (
   <CarouselItem
     style={style}

@@ -58,5 +58,5 @@ export {
   TopbarHomeNormalizer,
   TopbarHomeSvg,
   TopbarHomeText,
-  TopbarHomeFiller,
+  TopbarHomeFiller
 };

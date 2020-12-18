@@ -9,7 +9,7 @@ const Header = styled.header<HeaderProps>`
   width: ${({
     $isTopbarSidebarVisible,
     $isTopbarSearchVisible,
-    $isScrollbarVisible,
+    $isScrollbarVisible
   }): string => (
     ($isTopbarSidebarVisible && $isScrollbarVisible)
     || ($isTopbarSearchVisible && $isScrollbarVisible)
@@ -40,5 +40,5 @@ const Filler = styled(animated.div)<FillerProps>`
 export {
   Header,
   Nav,
-  Filler,
+  Filler
 };

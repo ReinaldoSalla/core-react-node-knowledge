@@ -4,13 +4,13 @@ import CONSTANTS from './TopbarSearchInputMatch.constants';
 
 const TopbarSearchInputMatch: FunctionComponent<any> = ({
   text,
-  toggleTopbarSearch,
+  toggleTopbarSearch
 }): JSX.Element => {
   const firstMatch = CONSTANTS.SPECIFIC_TARGETS.find((target) => {
     const isolatedTarget = target.split(' - ')[0];
     return isolatedTarget.slice(
       0,
-      text.length,
+      text.length
     ).toLowerCase() === text.toLowerCase();
   });
   if (firstMatch) {
@@ -27,7 +27,7 @@ const TopbarSearchInputMatch: FunctionComponent<any> = ({
     const isolatedTarget = target.split('-')[0];
     return isolatedTarget.slice(
       0,
-      text.length,
+      text.length
     ).toLowerCase() === text.toLowerCase();
   });
   if (secondMatch) {
@@ -43,7 +43,7 @@ const TopbarSearchInputMatch: FunctionComponent<any> = ({
   return (
     <div style={{
       height: '1000px',
-      border: '1px solid yellow',
+      border: '1px solid yellow'
     }}
     />
   );

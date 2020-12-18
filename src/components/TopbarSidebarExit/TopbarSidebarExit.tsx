@@ -3,7 +3,7 @@ import Exit from './TopbarSidebarExit.styles';
 
 const TopbarSidebarExit: FunctionComponent<any> = ({
   style,
-  toggleTopbarSidebar,
+  toggleTopbarSidebar
 }): JSX.Element => (
   <Exit
     style={style}

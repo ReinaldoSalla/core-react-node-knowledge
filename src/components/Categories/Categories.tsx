@@ -4,7 +4,7 @@ import CategoriesBoard from '../CategoriesBoard';
 import { processedContents, icons } from './Categories.utils';
 
 const Categories: FunctionComponent<any> = ({
-  domNodes,
+  domNodes
 }): JSX.Element => (
   <main>
     <CategoriesWrapper>

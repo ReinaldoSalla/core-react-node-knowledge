@@ -2,14 +2,14 @@ import {
   moveToNextItem,
   moveToFirstItem,
   moveToSecondItem,
-  moveToThirdItem,
+  moveToThirdItem
 } from './Carousel.actions';
 import CONSTANTS from './Carousel.constants';
 import { CarouselState, CarouselAction } from './Carousel.types';
 
 const reducer = (
   state: CarouselState,
-  action: CarouselAction,
+  action: CarouselAction
 ): CarouselState => {
   switch (action.type) {
   case CONSTANTS.MOVE_TO_NEXT_ITEM:

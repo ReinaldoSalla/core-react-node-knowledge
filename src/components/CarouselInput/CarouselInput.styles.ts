@@ -82,5 +82,5 @@ export {
   CarouselInputText,
   CarouselInputInner,
   CarouselInputTimer,
-  CarouselInputRow,
+  CarouselInputRow
 };

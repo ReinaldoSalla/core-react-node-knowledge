@@ -4,13 +4,13 @@ import {
   Title,
   Topics,
   Topic,
-  Text,
+  Text
 } from './TopbarSidebarTopics.styles';
 
 const TopbarSidebarTopicss: FunctionComponent<any> = ({
   style,
   title,
-  subcontents,
+  subcontents
 }): JSX.Element => (
   <Wrapper style={style}>
     <Title>{title}</Title>

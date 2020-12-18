@@ -1,11 +1,11 @@
 const getTopbarAnimation = (
   isInTop: boolean,
   isTopbarSidebarVisible: boolean,
-  isTopbarSearchVisible: boolean,
+  isTopbarSearchVisible: boolean
 ): any => ({
   config: isInTop
     ? {
-      mass: 2, tension: 120, friction: 26, clamp: true,
+      mass: 2, tension: 120, friction: 26, clamp: true
     }
     : { mass: 1, tension: 120, friction: 26 },
   from: { height: '0%' },
@@ -15,9 +15,9 @@ const getTopbarAnimation = (
         (isInTop && !isTopbarSidebarVisible)
         && (isInTop && !isTopbarSearchVisible)
           ? '0%'
-          : '100%',
+          : '100%'
     });
-  },
+  }
 });
 
 export default getTopbarAnimation;

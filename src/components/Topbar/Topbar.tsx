@@ -8,7 +8,7 @@ import useIsInTop from '../../hooks/useIsInTop';
 import {
   Header,
   Nav,
-  Filler,
+  Filler
 } from './Topbar.styles';
 import TopbarSidebar from '../TopbarSidebar';
 import TopbarSearch from '../TopbarSearch';
@@ -19,14 +19,14 @@ const Topbar = (): JSX.Element => {
   const {
     isTopbarSidebarVisible,
     isTopbarSearchVisible,
-    isScrollbarVisible,
+    isScrollbarVisible
   } = useContext(ModalsState);
   const navDomNode = useRef<any>(null);
 
   const fillerSpring = useSpring(getTopbarAnimation(
     isInTop,
     isTopbarSidebarVisible,
-    isTopbarSearchVisible,
+    isTopbarSearchVisible
   ));
 
   return (

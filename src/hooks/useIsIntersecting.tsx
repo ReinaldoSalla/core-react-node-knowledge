@@ -1,10 +1,10 @@
 import {
-  useState, useEffect, useRef,
+  useState, useEffect, useRef
 } from 'react';
 
 const useIsIntersecting = (
   domNode: any,
-  rootMargin = '-200px',
+  rootMargin = '-200px'
 ): boolean => {
   const [isIntersecting, setIntersecting] = useState(false);
   const observerRef = useRef<IntersectionObserver | null>(null);

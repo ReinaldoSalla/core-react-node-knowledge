@@ -52,5 +52,5 @@ export {
   ContentCoreLink,
   ContentCoreContainer,
   ContentCoreCommand,
-  ContentCoreHighlight,
+  ContentCoreHighlight
 };

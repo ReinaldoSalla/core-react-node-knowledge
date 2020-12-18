@@ -7,7 +7,7 @@ import {
   ContentCoreText,
   ContentCoreLink,
   ContentCoreContainer,
-  ContentCoreCommand,
+  ContentCoreCommand
 } from './ContentCore.styles';
 import { ContentCoreProps } from './ContentCore.types';
 import { getTitleSpring, getSectionSpring } from './ContentCore.animations';
@@ -16,7 +16,7 @@ import './prism.css';
 
 const ContentCore: FunctionComponent<ContentCoreProps> = ({
   domNodes,
-  target,
+  target
 }): JSX.Element => {
   useEffect(() => {
     Prism.highlightAll();
@@ -82,7 +82,7 @@ const ContentCore: FunctionComponent<ContentCoreProps> = ({
             } if (
               Object.prototype.hasOwnProperty.call(
                 innerElement,
-                'paragraphWithMiddleLink',
+                'paragraphWithMiddleLink'
               )
             ) {
               const blocks = innerElement.paragraphWithMiddleLink.split('*');
@@ -102,7 +102,7 @@ const ContentCore: FunctionComponent<ContentCoreProps> = ({
             } if (
               Object.prototype.hasOwnProperty.call(
                 innerElement,
-                'paragraphWithEndLink',
+                'paragraphWithEndLink'
               )
             ) {
               const blocks = innerElement.paragraphWithEndLink.split('*');
