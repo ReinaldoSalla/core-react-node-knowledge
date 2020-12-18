@@ -6,7 +6,7 @@ const TopbarSearchExit: FunctionComponent<any> = ({
   toggleTopbarSearch,
   setText,
 }): JSX.Element => {
-  const handleClick = () => {
+  const handleClick = (): void => {
     toggleTopbarSearch();
     setText('');
   };

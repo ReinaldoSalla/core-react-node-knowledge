@@ -56,7 +56,7 @@ const TopbarSearch: FunctionComponent = (): JSX.Element => {
     clearTimeout(timeoutId.current);
   };
 
-  const onBlur = () => {
+  const onBlur = (): void => {
     timeoutId.current = setTimeout(() => {
       toggleTopbarSearch();
     });

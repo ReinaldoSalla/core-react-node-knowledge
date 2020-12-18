@@ -22,7 +22,12 @@ const TopbarSearchInput: FunctionComponent<any> = ({
         />
       </Wrapper>
       <Element style={style}>
-        {text ? <TopbarSearchInputMatch text={text} toggleTopbarSearch={toggleTopbarSearch} /> : null}
+        {text && (
+          <TopbarSearchInputMatch
+            text={text}
+            toggleTopbarSearch={toggleTopbarSearch}
+          />
+        )}
       </Element>
     </>
   );
