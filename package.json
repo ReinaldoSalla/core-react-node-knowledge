@@ -7,7 +7,6 @@
     "@testing-library/react": "9.5.0",
     "@testing-library/user-event": "7.2.1",
     "fontsource-source-sans-pro": "3.0.9",
-    "prettier": "2.1.2",
     "prismjs": "1.22.0",
     "react": "16.13.1",
     "react-app-polyfill": "2.0.0",
@@ -22,15 +21,26 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "serve": "serve -s build",
     "test": "react-scripts test --coverage",
     "eject": "react-scripts eject",
     "lint": "eslint src/**/*.{tsx,ts}",
     "lint:fix": "eslint src/**/*.{ts,tsx} --fix",
-    "lint:singlefile": "eslint src/App.tsx",
-    "serve": "serve -s build"
+    "lint-staged": "lint-staged"
   },
   "eslintConfig": {
     "extends": "react-app"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{ts,tsx}": [
+      "npm run lint",
+      "git add ."
+    ]
   },
   "browserslist": {
     "production": [
