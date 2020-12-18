@@ -30,7 +30,7 @@ Intro
 const introParagraph1 = `
 The guide aims to explore the useState hook from
 react. We'l build a Navbar that re-renders a list of items 
-when hovered over. And we\'l also create a form that manipulates
+when hovered over. And we'l also create a form that manipulates
 state in the form of text and displays submitted items in a table.
 `;
 
