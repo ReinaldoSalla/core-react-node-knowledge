@@ -23,21 +23,21 @@ const Footer = (): JSX.Element => {
   });
   return (
     <FooterWrapper>
-      <FooterContainer 
-        style={spring} 
+      <FooterContainer
+        style={spring}
         $isTopbarSidebarVisible={isTopbarSidebarVisible}
       >
-        <FooterLink 
-          to="/contact" 
+        <FooterLink
+          to="/contact"
           $isTopbarSidebarVisible={isTopbarSidebarVisible}
-        > 
-          Contact 
+        >
+          Contact
         </FooterLink>
-        <FooterLink 
-          to="/philosohpy" 
+        <FooterLink
+          to="/philosohpy"
           $isTopbarSidebarVisible={isTopbarSidebarVisible}
-        > 
-          Philosophy 
+        >
+          Philosophy
         </FooterLink>
         <FooterText>
           Copyright ©

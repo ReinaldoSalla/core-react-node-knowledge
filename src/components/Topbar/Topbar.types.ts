@@ -1,4 +1,4 @@
-interface TopbarProps {
+export interface TopbarProps {
   isTopbarSidebarVisible: boolean;
   isTopbarSearchVisible: boolean;
   toggleTopbarSidebar: () => void;
@@ -6,10 +6,8 @@ interface TopbarProps {
   isDeviceMobileOrTablet: boolean;
 }
 
-interface HeaderProps {
+export interface HeaderProps {
   $isTopbarSidebarVisible: boolean;
   $isTopbarSearchVisible: boolean;
   $isScrollbarVisible: boolean;
 }
-
-export type { TopbarProps, HeaderProps };

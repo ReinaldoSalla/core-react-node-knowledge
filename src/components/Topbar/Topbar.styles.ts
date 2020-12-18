@@ -6,18 +6,22 @@ const Header = styled.header<HeaderProps>`
   position: fixed;
   top: 0;
   z-index: 2;
-  width: ${({ $isTopbarSidebarVisible, $isTopbarSearchVisible, $isScrollbarVisible }) => (
+  width: ${({
+    $isTopbarSidebarVisible,
+    $isTopbarSearchVisible,
+    $isScrollbarVisible,
+  }): string => (
     ($isTopbarSidebarVisible && $isScrollbarVisible)
     || ($isTopbarSearchVisible && $isScrollbarVisible)
       ? 'calc(100% - 17px)'
       : '100%'
   )};
-  height: ${(props) => props.theme.topbarHeight};
+  height: ${(props): string => props.theme.topbarHeight};
 `;
 
 const Nav = styled.nav`
   width: 100%;
-  height: ${(props) => props.theme.topbarHeight};
+  height: ${(props): string => props.theme.topbarHeight};
   display: flex;
   align-items: center;
   justify-content: center;
@@ -29,7 +33,7 @@ interface FillerProps {
 
 const Filler = styled(animated.div)<FillerProps>`
   position: absolute;
-  background: ${(props) => props.theme.topbarBgColor};
+  background: ${(props): string => props.theme.topbarBgColor};
   width: 100%;
 `;
 

@@ -9,7 +9,7 @@ const ContentSuspense = (): JSX.Element => {
       setIsTimeoutFinished(true);
     }, 250);
     return (): void => {
-      clearTimeout(timeoutId)
+      clearTimeout(timeoutId);
     };
   }, []);
 
