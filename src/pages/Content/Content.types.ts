@@ -1,5 +1,3 @@
-interface ContentWrapperProps {
+export default interface ContentWrapperProps {
   $isTopbarSidebarVisible: boolean;
 }
-
-export type { ContentWrapperProps };

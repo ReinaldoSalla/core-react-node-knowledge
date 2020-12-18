@@ -1,13 +1,8 @@
-interface HomeProps {
+export interface HomeProps {
   isTopbarSidebarVisible: boolean;
 }
 
-interface ContainerProps {
+export interface ContainerProps {
   $isTopbarSidebarVisible: boolean;
   $fixedHeight?: boolean;
 }
-
-export type {
-  HomeProps,
-  ContainerProps,
-};

@@ -44,7 +44,7 @@ const TopbarSidebar: FunctionComponent<any> = ({
 
   const dispatch = useContext(ModalsDispatch);
 
-  const toggleTopbarSidebar = () => {
+  const toggleTopbarSidebar = (): void => {
     dispatch({ type: 'TOGGLE_TOPBAR_SIDEBAR' });
   };
 

@@ -1,8 +1,6 @@
 import React, {
-  useState,
   useEffect,
   useRef,
-  MutableRefObject,
   useContext,
   useMemo,
 } from 'react';
@@ -28,21 +26,21 @@ const Content = (): JSX.Element => {
   const delimiters = useMemo(() => getDelimiters(target), [target]);
 
   const domNodes = [
-    useRef<HTMLElement>(null!),
-    useRef<HTMLElement>(null!),
-    useRef<HTMLElement>(null!),
-    useRef<HTMLElement>(null!),
-    useRef<HTMLElement>(null!),
-    useRef<HTMLElement>(null!),
+    useRef<HTMLElement>(null),
+    useRef<HTMLElement>(null),
+    useRef<HTMLElement>(null),
+    useRef<HTMLElement>(null),
+    useRef<HTMLElement>(null),
+    useRef<HTMLElement>(null),
   ];
 
   const scrolls = [
-    () => scrollToElement(domNodes[0], -10),
-    () => scrollToElement(domNodes[1], -10),
-    () => scrollToElement(domNodes[2], -10),
-    () => scrollToElement(domNodes[3], -10),
-    () => scrollToElement(domNodes[4], -10),
-    () => scrollToElement(domNodes[5], -10),
+    (): void => scrollToElement(domNodes[0], -10),
+    (): void => scrollToElement(domNodes[1], -10),
+    (): void => scrollToElement(domNodes[2], -10),
+    (): void => scrollToElement(domNodes[3], -10),
+    (): void => scrollToElement(domNodes[4], -10),
+    (): void => scrollToElement(domNodes[5], -10),
   ];
 
   const isIntersecting = [
@@ -58,7 +56,7 @@ const Content = (): JSX.Element => {
   const spring = useSpring(getOpacitySpring(isTopbarSidebarVisible));
 
   useEffect(() => {
-    window.onbeforeunload = () => {
+    window.onbeforeunload = (): void => {
       if (!hash) {
         window.scroll(0, 0);
       }
@@ -67,11 +65,11 @@ const Content = (): JSX.Element => {
 
   useEffect(() => {
     if (hash) {
-      for (const [index, delimiter] of delimiters.entries()) {
-        if (hash === `#${delimiter.trim()}`) {
-          scrolls[index]();
-          break;
-        }
+      const indexFound = delimiters.findIndex((delimiter) => (
+        hash === `#${delimiter.trim()}`
+      ));
+      if (indexFound > -1) {
+        scrolls[indexFound]();
       }
     } else {
       window.scrollTo(0, 0);

@@ -8,7 +8,7 @@ import reducer from './Modals.reducer';
 import initialState from './Modals.initialState';
 import { State, Action, ModalsProviderProps } from './Modals.types';
 
-const ModalsState = createContext<State>(null!);
+const ModalsState = createContext<State>(initialState);
 const ModalsDispatch = createContext<Dispatch<Action>>(null!);
 
 const ModalsProvider: FunctionComponent<ModalsProviderProps> = ({

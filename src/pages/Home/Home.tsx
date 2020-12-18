@@ -20,9 +20,9 @@ const Home: FunctionComponent = (): JSX.Element => {
   // const reactRef = useRef<HTMLElement>(null!);
   // const nodeRef = useRef<HTMLElement>(null!);
   const domNodes = [
-    useRef<HTMLElement>(null!),
-    useRef<HTMLElement>(null!),
-    useRef<HTMLElement>(null!),
+    useRef<HTMLElement>(null),
+    useRef<HTMLElement>(null),
+    useRef<HTMLElement>(null),
   ];
 
   const { isTopbarSidebarVisible } = useContext(ModalsState);
@@ -67,11 +67,18 @@ const Home: FunctionComponent = (): JSX.Element => {
 
   return (
     <>
-      <Container style={spring} $isTopbarSidebarVisible={isTopbarSidebarVisible} $fixedHeight>
+      <Container
+        style={spring}
+        $isTopbarSidebarVisible={isTopbarSidebarVisible}
+        $fixedHeight
+      >
         <VideoBackground />
         <Carousel scrolls={scrolls} />
       </Container>
-      <Container style={spring} $isTopbarSidebarVisible={isTopbarSidebarVisible}>
+      <Container
+        style={spring}
+        $isTopbarSidebarVisible={isTopbarSidebarVisible}
+      >
         <Categories domNodes={domNodes} />
       </Container>
     </>

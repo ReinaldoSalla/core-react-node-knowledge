@@ -1,9 +1,9 @@
 import {
-  useState, useEffect, useRef, MutableRefObject,
+  useState, useEffect, useRef,
 } from 'react';
 
 const useIsIntersecting = (
-  domNode: MutableRefObject<HTMLElement>,
+  domNode: any,
   rootMargin = '-200px',
 ): boolean => {
   const [isIntersecting, setIntersecting] = useState(false);
@@ -12,7 +12,7 @@ const useIsIntersecting = (
   useEffect(() => {
     // IntersectionObserver is created lazily once
     // https://reactjs.org/docs/hooks-faq.html
-    const getObserver = () => {
+    const getObserver = (): IntersectionObserver | null => {
       if (observerRef.current === null) {
         observerRef.current = new IntersectionObserver(([entry]) => {
           setIntersecting(entry.isIntersecting);
@@ -30,6 +30,7 @@ const useIsIntersecting = (
         observer.unobserve(localDomNode);
       };
     }
+    return undefined;
   }, [domNode, rootMargin]);
 
   return isIntersecting;
