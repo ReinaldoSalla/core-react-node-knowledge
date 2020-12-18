@@ -63,7 +63,7 @@ const TopbarSidebar: FunctionComponent<any> = ({
     [0, isTopbarSidebarVisible ? 0.4 : 0.6],
   );
 
-  const onClickOutside = (event): void => {
+  const onClickOutside = (event: any): void => {
     if (
       isTopbarSidebarVisible
       && !topbarSidebarDomNode.current.contains(event.target)

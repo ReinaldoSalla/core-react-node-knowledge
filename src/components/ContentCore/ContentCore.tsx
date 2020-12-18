@@ -33,7 +33,7 @@ const ContentCore: FunctionComponent<ContentCoreProps> = ({
       >
         {target.title}
       </ContentCoreHeading>
-      {target.text.map((element, index) => (
+      {target.text.map((element: any, index: any) => (
         <animated.section
           style={sectionSpring}
           key={element.subtitle}
@@ -45,7 +45,7 @@ const ContentCore: FunctionComponent<ContentCoreProps> = ({
             {' '}
             {element.subtitle}
           </ContentCoreTitle>
-          {element.paragraphsCommandsCode.map((innerElement) => {
+          {element.paragraphsCommandsCode.map((innerElement: any) => {
             if (
               Object.prototype.hasOwnProperty.call(innerElement, 'paragraph')
             ) {
@@ -59,7 +59,7 @@ const ContentCore: FunctionComponent<ContentCoreProps> = ({
             ) {
               return (
                 <ContentCoreContainer key={innerElement}>
-                  {innerElement.command.map((innerInnerElement) => (
+                  {innerElement.command.map((innerInnerElement: any) => (
                     <ContentCoreCommand key={element.subtitle}>
                       {innerInnerElement}
                     </ContentCoreCommand>

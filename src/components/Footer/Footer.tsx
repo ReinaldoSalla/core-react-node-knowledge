@@ -15,7 +15,7 @@ const Footer = (): JSX.Element => {
     from: {
       opacity: isTopbarSidebarVisible ? 0.2 : 1,
     },
-    to: async (next) => {
+    to: async (next: any) => {
       await next({
         opacity: isTopbarSidebarVisible ? 0.2 : 1,
       });

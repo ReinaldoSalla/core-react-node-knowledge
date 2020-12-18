@@ -65,11 +65,11 @@ const CarouselInput: FunctionComponent<CarouselInputProps> = ({
       <CarouselInputTimer>
         <CarouselInputRow
           style={{
-            width: width.interpolate((currWidth) => (
+            width: width.interpolate((currWidth: any) => (
               currWidth < CarouselTimerOffset
                 ? 0
                 : `${currWidth}%`)),
-            opacity: opacity.interpolate((currOpacity) => (
+            opacity: opacity.interpolate((currOpacity: any) => (
               currOpacity < CarouselTimerOffset / 100
                 ? 0
                 : currOpacity - CarouselTimerOffset / 100)),

@@ -1,7 +1,7 @@
 import CONSTANTS from './Carousel.constants';
 import { CarouselState } from './Carousel.types';
 
-const moveToNextItem = (state): CarouselState => {
+const moveToNextItem = (state: CarouselState): CarouselState => {
   let newIndex = state.index + 1;
   if (newIndex === CONSTANTS.LENGTH) {
     newIndex = 0;

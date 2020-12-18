@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import { animated } from 'react-spring';
 import { Link } from 'react-router-dom';
-import { TextProps } from './CarouselItem.types';
 
 const CarouselItemharedWrapper = styled(animated.div)`
   display: flex;
@@ -17,7 +16,7 @@ const CarouselItemWrapper = styled(CarouselItemharedWrapper)`
   padding-bottom: 20px;
 `;
 
-const CarouselItemTitle = styled(animated(Link))<TextProps>`
+const CarouselItemTitle = styled(animated(Link))`
   font-size: 46px;
   font-weight: 600;
   margin: 0 16px;

@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 import CategoriesWrapper from './Categories.styles';
 import CategoriesBoard from '../CategoriesBoard';
 import { processedContents, icons } from './Categories.utils';
 
-const Categories = ({
+const Categories: FunctionComponent<any> = ({
   domNodes,
 }): JSX.Element => (
   <main>

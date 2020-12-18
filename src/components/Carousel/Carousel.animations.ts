@@ -23,12 +23,12 @@ const carouselTransitionProps = {
   },
 };
 
-const getspring = (isTopbarSidebarVisible): SpringUnknownProps => ({
+const getspring = (isTopbarSidebarVisible: boolean): SpringUnknownProps => ({
   config: config.slow,
   from: {
     opacity: isTopbarSidebarVisible ? 0.5 : 1,
   },
-  to: async (next): Promise<void> => {
+  to: async (next: any): Promise<void> => {
     await next({
       opacity: isTopbarSidebarVisible ? 0.5 : 1,
     });

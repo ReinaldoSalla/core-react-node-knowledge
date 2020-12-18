@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 import CategoriesBox from '../CategoriesBox';
 import {
   Wrapper,
@@ -9,7 +9,7 @@ import {
 } from './CategoriesBoard.styles';
 import getIndexArr from './CategoriesBoard.utils';
 
-const CategoriesBoard = ({
+const CategoriesBoard: FunctionComponent<any> = ({
   title,
   description,
   contents,
@@ -24,7 +24,7 @@ const CategoriesBoard = ({
       {description}
     </CategoriesBoardDescription>
     <CategoriesBoardContents>
-      {contents.map((content) => (
+      {contents.map((content: any) => (
         <CategoriesBox
           key={content.title}
           title={content.title}

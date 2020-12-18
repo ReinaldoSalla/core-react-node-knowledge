@@ -1,7 +1,7 @@
 const getTopbarAnimation = (
-  isInTop,
-  isTopbarSidebarVisible,
-  isTopbarSearchVisible,
+  isInTop: boolean,
+  isTopbarSidebarVisible: boolean,
+  isTopbarSearchVisible: boolean,
 ): any => ({
   config: isInTop
     ? {
@@ -9,7 +9,7 @@ const getTopbarAnimation = (
     }
     : { mass: 1, tension: 120, friction: 26 },
   from: { height: '0%' },
-  to: async (next): Promise<void> => {
+  to: async (next: any): Promise<void> => {
     await next({
       height:
         (isInTop && !isTopbarSidebarVisible)

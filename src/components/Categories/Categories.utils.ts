@@ -28,7 +28,7 @@ const metaSubcontents = [
 let counter = -1;
 
 const getProcessedSubcontents = (subcontents: any): any => {
-  const processedSubcontents = subcontents.map((subcontent) => {
+  const processedSubcontents = subcontents.map((subcontent: any) => {
     counter++;
     return {
       title: subcontent,

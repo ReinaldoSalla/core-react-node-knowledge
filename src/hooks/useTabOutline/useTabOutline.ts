@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 
 const useTabOutline = (): void => {
   useEffect(() => {
-    const onKeyDown = (event): void => {
+    const onKeyDown = (event: any): void => {
       if (event.keyCode === 9) {
         document.body.classList.add('tab');
       }

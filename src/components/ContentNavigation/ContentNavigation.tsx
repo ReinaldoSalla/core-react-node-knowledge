@@ -43,7 +43,7 @@ const ContentNavigation: FunctionComponent<ContentNavigationProps> = ({
 
   return (
     <ContentNavigationWrapper>
-      {delimiters.map((item, index) => (
+      {delimiters.map((item: any, index: any) => (
         <div key={item}>
           <ContentNavigationItem
             to={`${pathname}#${item}`}

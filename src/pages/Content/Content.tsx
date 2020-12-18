@@ -21,8 +21,8 @@ import useIsIntersecting from '../../hooks/useIsIntersecting';
 
 const Content = (): JSX.Element => {
   const { hash } = useLocation();
-  const { id } = useParams();
-  const target = texts[id];
+  const { id }: any = useParams();
+  const target: any = texts[id];
   const delimiters = useMemo(() => getDelimiters(target), [target]);
 
   const domNodes = [

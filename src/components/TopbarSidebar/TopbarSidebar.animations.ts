@@ -10,7 +10,7 @@ const getSpring = (
     opacity: 0,
     transform: 'translate3d(-100%, 0, 0)',
   },
-  to: async (next): Promise<void> => {
+  to: async (next: any): Promise<void> => {
     await next({
       opacity: isTopbarSidebarVisible ? 1 : 0,
       transform: isTopbarSidebarVisible

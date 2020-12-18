@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 import {
   Wrapper,
   IconWrapper,
@@ -9,7 +9,7 @@ import {
   Check,
 } from './CategoriesBox.styles';
 
-const CategoriesBox = ({
+const CategoriesBox: FunctionComponent<any> = ({
   title,
   description,
   path,

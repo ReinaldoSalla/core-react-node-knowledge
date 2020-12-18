@@ -5,7 +5,7 @@ import TopbarSearchInputMatch from '../TopbarSearchInputMatch';
 const TopbarSearchInput: FunctionComponent<any> = ({
   style, toggleTopbarSearch, text, setText,
 }): JSX.Element => {
-  const handleChange = (event): void => {
+  const handleChange = (event: any): void => {
     setText(event.target.value);
   };
 
