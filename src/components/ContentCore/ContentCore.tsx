@@ -1,3 +1,7 @@
+/* eslint-disable max-len */
+/* eslint-disable react/no-array-index-key */
+/* eslint-disable no-shadow */
+
 import React, { useEffect, FunctionComponent } from 'react';
 import { animated, useSpring } from 'react-spring';
 import Prism from 'prismjs';
@@ -45,12 +49,12 @@ const ContentCore: FunctionComponent<ContentCoreProps> = ({
             {' '}
             {element.subtitle}
           </ContentCoreTitle>
-          {element.paragraphsCommandsCode.map((innerElement: any) => {
+          {element.paragraphsCommandsCode.map((innerElement: any, index: number) => {
             if (
               Object.prototype.hasOwnProperty.call(innerElement, 'paragraph')
             ) {
               return (
-                <ContentCoreText key={element.subtitle}>
+                <ContentCoreText key={index}>
                   {innerElement.paragraph}
                 </ContentCoreText>
               );
@@ -58,9 +62,9 @@ const ContentCore: FunctionComponent<ContentCoreProps> = ({
               Object.prototype.hasOwnProperty.call(innerElement, 'command')
             ) {
               return (
-                <ContentCoreContainer key={innerElement}>
-                  {innerElement.command.map((innerInnerElement: any) => (
-                    <ContentCoreCommand key={element.subtitle}>
+                <ContentCoreContainer key={index}>
+                  {innerElement.command.map((innerInnerElement: any, index: number) => (
+                    <ContentCoreCommand key={index}>
                       {innerInnerElement}
                     </ContentCoreCommand>
                   ))}
@@ -70,7 +74,7 @@ const ContentCore: FunctionComponent<ContentCoreProps> = ({
               Object.prototype.hasOwnProperty.call(innerElement, 'code')
             ) {
               return (
-                <pre key={element.subtitle} className='language-jsx'>
+                <pre key={index} className='language-jsx'>
                   <code
                     className='language-jsx'
                     style={{ whiteSpace: 'pre-wrap' }}
@@ -87,7 +91,7 @@ const ContentCore: FunctionComponent<ContentCoreProps> = ({
             ) {
               const blocks = innerElement.paragraphWithMiddleLink.split('*');
               return (
-                <ContentCoreText key={blocks[0]}>
+                <ContentCoreText key={index}>
                   {blocks[0]}
                   <ContentCoreLink
                     href='https://nodejs.org/en/'
@@ -107,7 +111,7 @@ const ContentCore: FunctionComponent<ContentCoreProps> = ({
             ) {
               const blocks = innerElement.paragraphWithEndLink.split('*');
               return (
-                <ContentCoreText key={blocks[0]}>
+                <ContentCoreText key={index}>
                   {blocks[0]}
                   <ContentCoreLink
                     href='https://nodejs.org/en/'
