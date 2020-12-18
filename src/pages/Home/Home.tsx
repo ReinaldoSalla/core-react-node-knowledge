@@ -43,13 +43,13 @@ const Home: FunctionComponent = (): JSX.Element => {
 
   const { hash } = useLocation();
 
-  useEffect(() => {
-    window.onbeforeunload = (): void => {
-      if (!hash) {
-        window.scroll(0, 0);
-      }
-    };
-  }, [hash]);
+  // useEffect(() => {
+  //   window.onbeforeunload = (): void => {
+  //     if (!hash) {
+  //       window.scroll(0, 0);
+  //     }
+  //   };
+  // }, [hash]);
 
   useEffect(() => {
     if (hash === '#javascript') {

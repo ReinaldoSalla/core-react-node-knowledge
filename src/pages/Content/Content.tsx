@@ -55,13 +55,13 @@ const Content = (): JSX.Element => {
   const { isTopbarSidebarVisible } = useContext(ModalsState);
   const spring = useSpring(getOpacitySpring(isTopbarSidebarVisible));
 
-  useEffect(() => {
-    window.onbeforeunload = (): void => {
-      if (!hash) {
-        window.scroll(0, 0);
-      }
-    };
-  }, [hash, delimiters]);
+  // useEffect(() => {
+  //   window.onbeforeunload = (): void => {
+  //     if (!hash) {
+  //       window.scroll(0, 0);
+  //     }
+  //   };
+  // }, [hash, delimiters]);
 
   useEffect(() => {
     if (hash) {
@@ -71,8 +71,6 @@ const Content = (): JSX.Element => {
       if (indexFound > -1) {
         scrolls[indexFound]();
       }
-    } else {
-      window.scrollTo(0, 0);
     }
     // eslint-disable-next-line
   }, [hash, delimiters]);

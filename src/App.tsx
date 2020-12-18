@@ -2,6 +2,7 @@ import React, { Suspense, lazy } from 'react';
 import { ThemeProvider } from 'styled-components';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { GlobalStyle, globalTheme } from './App.styles';
+import ScrollToTop from './utils/ScrollToTop';
 import Topbar from './components/Topbar';
 import Footer from './components/Footer';
 import { ModalsProvider } from './shared/context/ModalsContext';
@@ -20,6 +21,7 @@ const App = (): JSX.Element => {
       <ModalsProvider>
         <ThemeProvider theme={globalTheme}>
           <GlobalStyle />
+          <ScrollToTop />
           <Suspense fallback={<ContentSuspense />}>
             <Topbar />
             <Switch>
