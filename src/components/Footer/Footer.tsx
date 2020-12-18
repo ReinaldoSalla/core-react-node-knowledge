@@ -8,7 +8,7 @@ import {
 } from './Footer.styles';
 import { ModalsState } from '../../shared/context/ModalsContext';
 
-const Footer = () => {
+const Footer = (): JSX.Element => {
   const { isTopbarSidebarVisible } = useContext(ModalsState);
   const spring = useSpring({
     config: config.molasses,
@@ -23,9 +23,22 @@ const Footer = () => {
   });
   return (
     <FooterWrapper>
-      <FooterContainer style={spring} $isTopbarSidebarVisible={isTopbarSidebarVisible}>
-        <FooterLink to="/contact" $isTopbarSidebarVisible={isTopbarSidebarVisible}> Contact </FooterLink>
-        <FooterLink to="/philosohpy" $isTopbarSidebarVisible={isTopbarSidebarVisible}> Philosophy </FooterLink>
+      <FooterContainer 
+        style={spring} 
+        $isTopbarSidebarVisible={isTopbarSidebarVisible}
+      >
+        <FooterLink 
+          to="/contact" 
+          $isTopbarSidebarVisible={isTopbarSidebarVisible}
+        > 
+          Contact 
+        </FooterLink>
+        <FooterLink 
+          to="/philosohpy" 
+          $isTopbarSidebarVisible={isTopbarSidebarVisible}
+        > 
+          Philosophy 
+        </FooterLink>
         <FooterText>
           Copyright ©
           {' '}

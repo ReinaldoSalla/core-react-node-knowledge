@@ -1,6 +1,6 @@
 import React, { useContext, useRef } from 'react';
 import { useSpring } from 'react-spring';
-import { getTopbarAnimation } from './Topbar.animations';
+import getTopbarAnimation from './Topbar.animations';
 import TopbarContents from '../TopbarContents';
 import TopbarHome from '../TopbarHome';
 import TopbarMagnifier from '../TopbarMagnifier';

@@ -1,9 +1,7 @@
-interface FooterTextProps {
+export interface FooterTextProps {
   italic?: boolean;
 }
 
-interface FooterLinkProps {
+export interface FooterLinkProps {
   $isTopbarSidebarVisible: boolean;
 }
-
-export type { FooterTextProps, FooterLinkProps };

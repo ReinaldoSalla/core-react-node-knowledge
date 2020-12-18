@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { animated } from 'react-spring';
-import { LinkProps } from './ContentNavigation.types';
 
 const ContentNavigationWrapper = styled.aside`
   position: sticky;
@@ -11,7 +10,7 @@ const ContentNavigationWrapper = styled.aside`
   margin-top: 140px;
   margin-left: 48px;
   
-  ${(props) => props.theme.breakpoints.large} {
+  ${(props): string => props.theme.breakpoints.large} {
     display: none;
   }
 `;

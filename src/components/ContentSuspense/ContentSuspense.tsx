@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Text, Spinner } from './ContentSuspense.styles';
 
-const ContentSuspense = () => {
+const ContentSuspense = (): JSX.Element => {
   const [isTimeoutFinished, setIsTimeoutFinished] = useState(false);
 
   useEffect(() => {
     const timeoutId = setTimeout(() => {
       setIsTimeoutFinished(true);
     }, 250);
-    return () => clearTimeout(timeoutId);
+    return (): void => {
+      clearTimeout(timeoutId)
+    };
   }, []);
 
   return (

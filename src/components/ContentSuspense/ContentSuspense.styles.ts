@@ -3,7 +3,7 @@ import styled, { keyframes } from 'styled-components';
 const Container = styled.div`
   display: flex;
   justify-content: center;
-  padding-top: calc(${(props) => props.theme.topbarHeight} + 100px);
+  padding-top: calc(${(props): string => props.theme.topbarHeight} + 100px);
 `;
 
 const Text = styled.div`
@@ -11,7 +11,7 @@ const Text = styled.div`
   padding-right: 3rem;
   color: white;
 
-  ${(props) => props.theme.breakpoints.extraSmall} {
+  ${(props): string => props.theme.breakpoints.extraSmall} {
     font-size: 40px;
   }
 `;
@@ -33,7 +33,7 @@ const Spinner = styled.div`
   height: 100px;
   animation: ${spin} 1s linear infinite;
 
-  ${(props) => props.theme.breakpoints.extraSmall} {
+  ${(props): string => props.theme.breakpoints.extraSmall} {
     border: 5px solid white;
     border-top: 5px solid transparent;
     width: 50px;
