@@ -1,3 +1,5 @@
-export default interface ExCSSStyleDeclaration extends CSSStyleDeclaration {
+interface ExCSSStyleDeclaration extends CSSStyleDeclaration {
   msOverflowStyle: string;
 }
+
+export default ExCSSStyleDeclaration;

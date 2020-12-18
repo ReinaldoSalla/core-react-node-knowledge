@@ -43,5 +43,12 @@
     "react/jsx-closing-bracket-location": [1, "line-aligned"],
     "react/prop-types": "off",
     "jsx-quotes": ["error", "prefer-single"]
-  }
+  },
+  "overrides": [{
+    "files": ["**/*.ts"],
+    "parser": "@typescript-eslint/parser",
+    "rules": {
+      "no-undef": "off"
+    }
+  }]
 }
