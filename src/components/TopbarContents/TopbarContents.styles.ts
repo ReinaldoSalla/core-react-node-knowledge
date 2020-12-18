@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 import { animated } from 'react-spring';
-import { ReactComponent as TopbarSidebarSvg } from '../../assets/icons/contents.svg';
+import {
+  ReactComponent as TopbarSidebarSvg,
+} from '../../assets/icons/contents.svg';
 
 const TopbarContentsWrapper = styled.button`
   display: flex;
@@ -43,7 +45,7 @@ const TopbarContentsText = styled.span`
   line-height: 0.7em;
   color: white;
 
-  ${(props) => props.theme.breakpoints.small} {
+  ${(props): string => props.theme.breakpoints.small} {
     font-size: 16px;
   }
 `;

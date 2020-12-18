@@ -17,8 +17,8 @@ const MatchLink = styled(Link)`
   transition: color 250ms, border-bottom 250ms;
 
   &:hover {
-    color: ${(props) => props.theme.hoverColor};
-    border-bottom: ${(props) => `1px solid ${props.theme.hoverColor}`};
+    color: ${(props): string => props.theme.hoverColor};
+    border-bottom: ${(props): string => `1px solid ${props.theme.hoverColor}`};
     cursor: pointer;
   }
 `;

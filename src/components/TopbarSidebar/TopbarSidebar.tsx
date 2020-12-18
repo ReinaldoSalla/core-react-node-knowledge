@@ -1,4 +1,9 @@
-import React, { useContext, useEffect, useRef } from 'react';
+import React, {
+  useContext,
+  useEffect,
+  useRef,
+  FunctionComponent,
+} from 'react';
 import { useSpring, useTransition, useChain } from 'react-spring';
 import TopbarSidebarWrapper from './TopbarSidebar.styles';
 import { getSpring, getTransitions } from './TopbarSidebar.animations';
@@ -19,12 +24,14 @@ const partialComponents = contents.map(({ title, subcontents }) => (
 
 const components = [...partialComponents, TopbarSidebarExit];
 
-const indexedComponents = components.map((component, key) => ({
+const indexedComponents: any = components.map((component, key) => ({
   component,
   key,
 }));
 
-const TopbarSidebar = ({ navDomNode }) => {
+const TopbarSidebar: FunctionComponent<any> = ({
+  navDomNode,
+}): any => {
   const springRef: any = useRef();
   const transitionsRef: any = useRef();
   const timeoutId = useRef<any>(null);
@@ -63,21 +70,28 @@ const TopbarSidebar = ({ navDomNode }) => {
 
   useEffect(() => {
     window.addEventListener('click', onClickOutside);
-    return () => window.removeEventListener('click', onClickOutside);
+    return (): void => {
+      window.removeEventListener('click', onClickOutside);
+    };
   });
 
-  const onFocus = () => {
+  const onFocus = (): void => {
     clearTimeout(timeoutId.current);
   };
 
-  const onBlur = () => {
+  const onBlur = (): void => {
     timeoutId.current = setTimeout(() => {
       toggleTopbarSidebar();
     });
   };
 
   return (
-    <TopbarSidebarWrapper ref={topbarSidebarDomNode} style={spring} onBlur={onBlur} onFocus={onFocus}>
+    <TopbarSidebarWrapper
+      ref={topbarSidebarDomNode}
+      style={spring}
+      onBlur={onBlur}
+      onFocus={onFocus}
+    >
       {transitions.map(({ item, key, props }) => (
         <item.component
           style={props}

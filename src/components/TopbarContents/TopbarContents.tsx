@@ -11,22 +11,29 @@ import {
   TopbarContentsText,
   TopbarContentsFiller,
 } from './TopbarContents.styles';
-import { ModalsState, ModalsDispatch } from '../../shared/context/ModalsContext';
+import {
+  ModalsState,
+  ModalsDispatch,
+} from '../../shared/context/ModalsContext';
 
 const TopbarContents = () => {
   const { isTopbarSidebarVisible } = useContext(ModalsState);
 
   const dispatch = useContext(ModalsDispatch);
 
-  const toggleTopbarSidebar = () => {
+  const toggleTopbarSidebar = (): void => {
     dispatch({ type: 'TOGGLE_TOPBAR_SIDEBAR' });
   };
 
   const [isHovering, setIsHovering] = useState(false);
 
-  const handleEnter = () => setIsHovering(true);
+  const handleEnter = (): void => {
+    setIsHovering(true);
+  };
 
-  const handleLeave = () => setIsHovering(false);
+  const handleLeave = (): void => {
+    setIsHovering(false);
+  };
 
   const hoverAnimation = useSpring(getHoverAnimation(isHovering));
 

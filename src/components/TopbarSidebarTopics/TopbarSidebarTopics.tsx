@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 import {
   Wrapper,
   Title,
@@ -7,7 +7,11 @@ import {
   Text,
 } from './TopbarSidebarTopics.styles';
 
-const TopbarSidebarTopicss = ({ style, title, subcontents }) => (
+const TopbarSidebarTopicss: FunctionComponent<any> = ({
+  style,
+  title,
+  subcontents,
+}): JSX.Element => (
   <Wrapper style={style}>
     <Title>{title}</Title>
     <Topics>

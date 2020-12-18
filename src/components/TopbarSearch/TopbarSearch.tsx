@@ -30,7 +30,7 @@ const TopbarSearch: FunctionComponent = (): JSX.Element => {
 
   const dispatch = useContext(ModalsDispatch);
 
-  const toggleTopbarSearch = () => {
+  const toggleTopbarSearch = (): void => {
     dispatch({ type: 'TOGGLE_TOPBAR_SEARCH' });
   };
 
@@ -39,7 +39,7 @@ const TopbarSearch: FunctionComponent = (): JSX.Element => {
   const transitions = useTransition(
     isTopbarSearchVisible ? indexedComponents : [],
     (item) => item.key,
-    getTransitions(isTopbarSearchVisible, transitionsRef, indexedComponents.length),
+    getTransitions(transitionsRef, indexedComponents.length),
   );
 
   useChain(
@@ -47,11 +47,11 @@ const TopbarSearch: FunctionComponent = (): JSX.Element => {
     [0, isTopbarSearchVisible ? 0.3 : 0.5],
   );
 
-  const onFocus = () => {
+  const onFocus = (): void => {
     clearTimeout(timeoutId.current);
   };
 
-  const onBlur = () => {
+  const onBlur = (): void => {
     timeoutId.current = setTimeout(() => {
       toggleTopbarSearch();
     });

@@ -8,7 +8,6 @@ const Title = styled(animated.label)`
   width: 100%;
   margin-top: 180px;
   color: white;
-  /* border: 10px solid red; */
 `;
 
 export default Title;

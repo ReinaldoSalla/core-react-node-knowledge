@@ -12,7 +12,7 @@ const TopbarSidebarWrapper = styled(animated.aside)`
   overflow-y: auto;
   overflow-x: hidden;
 
-  ${(props) => props.theme.breakpoints.small} {
+  ${(props): string => props.theme.breakpoints.small} {
     width: 100%;
   }
 `;

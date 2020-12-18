@@ -1,10 +1,8 @@
-interface SearchProps {
+export interface SearchProps {
   isTopbarSearchVisible: boolean;
   toggleTopbarSearch: () => void;
 }
 
-interface SearchWrapperProps {
+export interface SearchWrapperProps {
   $scroll: boolean;
 }
-
-export type { SearchProps, SearchWrapperProps };

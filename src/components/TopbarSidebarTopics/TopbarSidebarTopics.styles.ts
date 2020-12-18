@@ -23,7 +23,7 @@ const Text = styled.a`
   transition: color 250ms;
 
   &:hover {
-    color: ${(props) => props.theme.hoverColor};
+    color: ${(props): string => props.theme.hoverColor};
     cursor: pointer;
   }
 `;

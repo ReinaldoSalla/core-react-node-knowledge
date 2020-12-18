@@ -13,7 +13,7 @@ const Exit = styled(animated.button)`
   font-family: sans-serif;
 
   &:hover {
-    color: ${(props) => props.theme.hoverColor};
+    color: ${(props): string => props.theme.hoverColor};
     cursor: pointer;
   }
 `;

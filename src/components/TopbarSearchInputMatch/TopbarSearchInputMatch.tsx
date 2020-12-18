@@ -17,7 +17,6 @@ const TopbarSearchInputMatch = ({ text, toggleTopbarSearch }) => {
   if (secondMatch) {
     return <MatchLink onClick={toggleTopbarSearch} to='/'>{secondMatch}</MatchLink>;
   }
-  // return <Text>"{text}" not found</Text>
   return (
     <div style={{
       height: '1000px',
@@ -29,22 +28,23 @@ const TopbarSearchInputMatch = ({ text, toggleTopbarSearch }) => {
 
 export default TopbarSearchInputMatch;
 
-const targets = [
-  'JavaScript - Loops',
-  'JavaScript - Promises',
-  'JavaScript - Async Await',
-  'React - Rendering',
-  'React - State Management',
-  'React - Side Effects',
-  'Full Stack - GraphQL/Relay',
-  'Full Stack - MongoDB',
-  'Full Stack - Authentication Management',
-];
+/* prototype for a simple search */
+// const targets = [
+//   'JavaScript - Loops',
+//   'JavaScript - Promises',
+//   'JavaScript - Async Await',
+//   'React - Rendering',
+//   'React - State Management',
+//   'React - Side Effects',
+//   'Full Stack - GraphQL/Relay',
+//   'Full Stack - MongoDB',
+//   'Full Stack - Authentication Management',
+// ];
 
-const getMatch = (currentText) => targets.filter((target) => {
-  const lowerCaseTarget = target.toLowerCase();
-  const lowerCaseCurrentText = currentText.toLowerCase();
-  const [broadTarget, specificTarget] = lowerCaseTarget.split(' - ');
-  const found = broadTarget.includes(lowerCaseCurrentText);
-  return found || specificTarget.includes(lowerCaseCurrentText);
-});
+// const getMatch = (currentText) => targets.filter((target) => {
+//   const lowerCaseTarget = target.toLowerCase();
+//   const lowerCaseCurrentText = currentText.toLowerCase();
+//   const [broadTarget, specificTarget] = lowerCaseTarget.split(' - ');
+//   const found = broadTarget.includes(lowerCaseCurrentText);
+//   return found || specificTarget.includes(lowerCaseCurrentText);
+// });

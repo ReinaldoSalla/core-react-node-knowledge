@@ -10,7 +10,7 @@ const Exit = styled(animated.button)`
   transition: color 250;
 
   &:hover {
-    color: ${(props) => props.theme.hoverColor};
+    color: ${(props): string => props.theme.hoverColor};
     cursor: pointer;
   }
 `;
