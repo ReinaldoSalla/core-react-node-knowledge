@@ -58,8 +58,6 @@ const Home: FunctionComponent = (): JSX.Element => {
       scrollToReact();
     } else if (hash === '#node') {
       scrollToNode();
-    } else {
-      window.scrollTo(0, 0);
     }
   }, [hash, scrollToJavascript, scrollToNode, scrollToReact]);
 
