@@ -23,10 +23,10 @@ const App = (): JSX.Element => {
           <Suspense fallback={<ContentSuspense />}>
             <Topbar />
             <Switch>
-              <Route exact path="/">
+              <Route exact path='/'>
                 <Home />
               </Route>
-              <Route path="/:id">
+              <Route path='/:id'>
                 <Content />
               </Route>
             </Switch>

@@ -28,13 +28,13 @@ const Footer = (): JSX.Element => {
         $isTopbarSidebarVisible={isTopbarSidebarVisible}
       >
         <FooterLink
-          to="/contact"
+          to='/contact'
           $isTopbarSidebarVisible={isTopbarSidebarVisible}
         >
           Contact
         </FooterLink>
         <FooterLink
-          to="/philosohpy"
+          to='/philosohpy'
           $isTopbarSidebarVisible={isTopbarSidebarVisible}
         >
           Philosophy

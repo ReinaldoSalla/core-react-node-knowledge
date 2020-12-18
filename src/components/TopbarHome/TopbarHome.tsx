@@ -38,8 +38,8 @@ const TopbarHome = () => {
       onMouseEnter={handleEnter}
       onMouseLeave={handleLeave}
       onClick={handleClick}
-      title="Access the home page"
-      to="/"
+      title='Access the home page'
+      to='/'
     >
       <TopbarHomeNormalizer>
         <TopbarHomeSvg />

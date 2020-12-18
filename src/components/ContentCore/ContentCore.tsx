@@ -70,9 +70,9 @@ const ContentCore: FunctionComponent<ContentCoreProps> = ({
               Object.prototype.hasOwnProperty.call(innerElement, 'code')
             ) {
               return (
-                <pre key={element.subtitle} className="language-jsx">
+                <pre key={element.subtitle} className='language-jsx'>
                   <code
-                    className="language-jsx"
+                    className='language-jsx'
                     style={{ whiteSpace: 'pre-wrap' }}
                   >
                     {innerElement.code}
@@ -90,9 +90,9 @@ const ContentCore: FunctionComponent<ContentCoreProps> = ({
                 <ContentCoreText key={blocks[0]}>
                   {blocks[0]}
                   <ContentCoreLink
-                    href="https://nodejs.org/en/"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    href='https://nodejs.org/en/'
+                    target='_blank'
+                    rel='noopener noreferrer'
                   >
                     {blocks[1]}
                   </ContentCoreLink>
@@ -110,9 +110,9 @@ const ContentCore: FunctionComponent<ContentCoreProps> = ({
                 <ContentCoreText key={blocks[0]}>
                   {blocks[0]}
                   <ContentCoreLink
-                    href="https://nodejs.org/en/"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    href='https://nodejs.org/en/'
+                    target='_blank'
+                    rel='noopener noreferrer'
                   >
                     {blocks[1]}
                   </ContentCoreLink>

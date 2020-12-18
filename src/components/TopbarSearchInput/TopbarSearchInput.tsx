@@ -16,11 +16,11 @@ const TopbarSearchInput = ({
       <Wrapper>
         <Input
           style={style}
-          type="text"
-          placeholder="e.g. GraphQL"
+          type='text'
+          placeholder='e.g. GraphQL'
           value={text}
           onChange={handleChange}
-          id="TopbarSearch"
+          id='TopbarSearch'
         />
       </Wrapper>
       <Element style={style}>

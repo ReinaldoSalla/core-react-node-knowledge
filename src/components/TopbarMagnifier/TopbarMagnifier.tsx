@@ -37,7 +37,7 @@ const TopbarMagnifier = () => {
       onMouseEnter={handleEnter}
       onMouseLeave={handleLeave}
       onClick={toggleTopbarSearch}
-      title="TopbarSearch for contents"
+      title='TopbarSearch for contents'
     >
       <TopbarMagnifierNormalizer style={svgSpring}>
         <TopbarMagnifierSvg />

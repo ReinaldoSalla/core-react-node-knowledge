@@ -25,8 +25,6 @@
       "ignorePackages",
       { "ts": "never", "tsx": "never" }
     ],
-    "react/jsx-filename-extension": [1, { "extensions": [".tsx"] }],
-    "react/jsx-closing-bracket-location": [1, "line-aligned"],
     "no-tabs": "off",
     "no-console": "error",
     "curly": ["error", "all"],
@@ -39,8 +37,11 @@
     "object-curly-spacing": ["error", "always"],
     "arrow-parens": ["error", "always"],
     "eol-last": ["error", "never"],
-    "react/prop-types": "off",
     "@typescript-eslint/no-explicit-any": "off",
-    "no-plusplus": "off"
+    "no-plusplus": "off",
+    "react/jsx-filename-extension": [1, { "extensions": [".tsx"] }],
+    "react/jsx-closing-bracket-location": [1, "line-aligned"],
+    "react/prop-types": "off",
+    "jsx-quotes": ["error", "prefer-single"]
   }
 }

@@ -4,8 +4,8 @@ import img from '../../assets/videos/loading.png';
 import './VideoBackground.css';
 
 const VideoBackground = () => (
-  <video className="videobackground" autoPlay muted loop poster={img}>
-    <source src={video} type="video/mp4" />
+  <video className='videobackground' autoPlay muted loop poster={img}>
+    <source src={video} type='video/mp4' />
   </video>
 );
 

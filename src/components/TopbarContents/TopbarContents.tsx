@@ -37,7 +37,7 @@ const TopbarContents = () => {
       onMouseEnter={handleEnter}
       onMouseLeave={handleLeave}
       onClick={toggleTopbarSidebar}
-      title="Access all contents"
+      title='Access all contents'
     >
       <TopbarContentsNormalizer>
         <TopbarContentsSvg style={svgAnimation} />

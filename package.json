@@ -26,6 +26,7 @@
     "eject": "react-scripts eject",
     "lint": "eslint src/**/*.{tsx,ts}",
     "lint:fix": "eslint src/**/*.{ts,tsx} --fix",
+    "lint:singlefile": "eslint src/App.tsx",
     "serve": "serve -s build"
   },
   "eslintConfig": {
