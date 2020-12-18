@@ -119,6 +119,7 @@ const ContentCore: FunctionComponent<ContentCoreProps> = ({
                 </ContentCoreText>
               );
             }
+            return null;
           })}
         </animated.section>
       ))}
