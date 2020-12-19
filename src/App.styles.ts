@@ -12,7 +12,7 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     margin: 0;
     background: black;
-    font-family: 'Source Sans Pro';
+    font-family: 'Source Sans Pro', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
@@ -27,14 +27,6 @@ const GlobalStyle = createGlobalStyle`
   
   body::-webkit-scrollbar-thumb {
     background: gray;
-  }
-
-  body:not(.tab) button:focus,
-  body:not(.tab) input:focus,
-  body:not(.tab) select:focus,
-  body:not(.tab) textarea:focus,
-  body:not(.tab) a:focus {
-    outline: 1px solid transparent;
   }
 
   ul, ol {
@@ -57,6 +49,14 @@ const GlobalStyle = createGlobalStyle`
     background: none;
     color: inherit;
     border: none;
+  }
+
+  body:not(.tab) button:focus,
+  body:not(.tab) input:focus,
+  body:not(.tab) select:focus,
+  body:not(.tab) textarea:focus,
+  body:not(.tab) a:focus {
+    outline: 1px solid transparent;
   }
 `;
 
