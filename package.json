@@ -25,7 +25,7 @@
     "lint": "eslint src/**/*.{tsx,ts}",
     "lint:fix": "eslint src/**/*.{ts,tsx} --fix",
     "lint-staged": "lint-staged",
-    "lint:css": "stylelint src/**/*.ts"
+    "lint:css": "stylelint src/**/*.styles.ts"
   },
   "eslintConfig": {
     "extends": "react-app"

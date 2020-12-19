@@ -5,44 +5,53 @@ import {
 import { ReactComponent as ReactSvg } from '../../assets/icons/react.svg';
 import { ReactComponent as ServerSvg } from '../../assets/icons/server.svg';
 
-const metaContents = [
+const injectableContents = [
   'Curated tutorials, emphasizing on ES6+ features',
   'Concepts from React, focusing on function components and React Hooks',
   'Extending applications with Node.js and GraphQL'
 ];
 
-const metaSubcontents = [
-  'Iterating over sequences by repetition or by traversing an iterable',
-  'Making async calls and avoiding callback hell',
-  'Syntatic sugar for Generator plus Promises',
-  'Manipulating state with the useState hook',
-  'Decoupling the state management with the useReducer hook',
-  'Dealing with side effects inside functional components',
-  'Using the Intersection Observer with React',
-  'Optimizing images in React',
-  'Modeling backend APIs with GraphQL and integrating with the frontend',
-  'Persisting unstructured data using a Non-Relational Database',
-  'Authenticating users on the web with passport.js'
+const injectableSubcontents = [
+  {
+    description: [
+      'Iterating over sequences by repetition or by traversing an iterable',
+      'Making async calls and avoiding callback hell',
+      'Syntatic sugar for Generator plus Promises'
+    ]
+  },
+  {
+    description: [
+      'Manipulating state with the useState hook',
+      'Decoupling the state management with the useReducer hook',
+      'Dealing with side effects inside functional components',
+      'Using the Intersection Observer with React',
+      'Optimizing images in React'
+    ]
+  },
+  {
+    description: [
+      'Modeling backend APIs with GraphQL and integrating with the frontend',
+      'Persisting unstructured data using a Non-Relational Database',
+      'Authenticating users on the web with passport.js'
+    ]
+  }
 ];
 
-let counter = -1;
-
-const getProcessedSubcontents = (subcontents: any): any => {
-  const processedSubcontents = subcontents.map((subcontent: any) => {
-    counter++;
-    return {
-      title: subcontent,
-      path: subcontent.toLowerCase().split(' ').join(''),
-      description: metaSubcontents[counter]
-    };
-  });
-  return processedSubcontents;
-};
+const getProcessedSubcontents = (
+  subcontents: any,
+  injectableIndex: number
+): any => (
+  subcontents.map((subcontent: any, index: number) => ({
+    title: subcontent,
+    path: subcontent.toLowerCase().split(' ').join(''),
+    description: injectableSubcontents[injectableIndex].description[index]
+  }))
+);
 
 const processedContents = contents.map((content, index) => ({
   ...content,
-  description: metaContents[index],
-  subcontents: getProcessedSubcontents(content.subcontents)
+  description: injectableContents[index],
+  subcontents: getProcessedSubcontents(content.subcontents, index)
 }));
 
 const icons = [
