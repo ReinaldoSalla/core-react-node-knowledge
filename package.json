@@ -9,9 +9,7 @@
     "fontsource-source-sans-pro": "3.0.9",
     "prismjs": "1.22.0",
     "react": "16.13.1",
-    "react-app-polyfill": "2.0.0",
     "react-dom": "16.13.1",
-    "react-icons": "3.11.0",
     "react-router-dom": "5.2.0",
     "react-scripts": "3.4.3",
     "react-spring": "8.0.27",
@@ -26,7 +24,6 @@
     "eject": "react-scripts eject",
     "lint": "eslint src/**/*.{tsx,ts}",
     "lint:fix": "eslint src/**/*.{ts,tsx} --fix",
-    "lint:singlefile": "eslint src/App.tsx", 
     "lint-staged": "lint-staged"
   },
   "eslintConfig": {
