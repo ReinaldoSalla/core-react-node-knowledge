@@ -12,10 +12,10 @@ const ContentWrapper = styled(animated.div)<ContentWrapperProps>`
   )};
   ${(props): string => props.theme.breakpoints.medium} {
     padding: ${(props): string => `${props.theme.topbarHeight} 36px 36px 36px`}
-  };
+  }
   ${(props): string => props.theme.breakpoints.small} {
     padding: ${(props): string => `${props.theme.topbarHeight} 24px 36px 24px`}
-  };
+  }
 `;
 
 const ContentTitle = styled.h1`

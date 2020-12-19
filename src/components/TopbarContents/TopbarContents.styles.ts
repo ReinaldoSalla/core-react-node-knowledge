@@ -27,7 +27,6 @@ const TopbarContentsWrapper = styled.button`
 
 const TopbarContentsNormalizer = styled.div`
   z-index: 2;
-  height: 32px;
   width: 32px;
   height: 32px;
   margin-bottom: 8px;
