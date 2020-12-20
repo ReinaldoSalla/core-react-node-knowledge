@@ -32,9 +32,9 @@ const TopbarSearch: FunctionComponent = (): JSX.Element => {
 
   const dispatch = useContext(ModalsDispatch);
 
-  const toggleTopbarSearch = (): void => {
-    dispatch({ type: 'TOGGLE_TOPBAR_SEARCH' });
-  };
+  // const toggleTopbarSearch = (): void => {
+  //   dispatch({ type: 'TOGGLE_TOPBAR_SEARCH' });
+  // };
 
   const spring = useSpring(getSpring(isTopbarSearchVisible, springRef));
 
@@ -57,7 +57,8 @@ const TopbarSearch: FunctionComponent = (): JSX.Element => {
 
   const onBlur = (): void => {
     timeoutId.current = setTimeout(() => {
-      toggleTopbarSearch();
+      // console.log('flag');
+      // toggleTopbarSearch();
     });
   };
 
