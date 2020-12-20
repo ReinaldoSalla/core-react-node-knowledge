@@ -1,14 +1,18 @@
-import React, { FunctionComponent } from 'react';
+import React, { useContext, FunctionComponent } from 'react';
 import Exit from './TopbarSearchExit.styles';
+import { ModalsDispatch } from '../../shared/context/ModalsContext';
 
 const TopbarSearchExit: FunctionComponent<any> = ({
-  style,
-  toggleTopbarSearch,
-  setText
+  style
 }): JSX.Element => {
+  const dispatch = useContext(ModalsDispatch);
+
+  const toggleTopbarSearch = (): void => {
+    dispatch({ type: 'TOGGLE_TOPBAR_SEARCH' });
+  };
+
   const handleClick = (): void => {
     toggleTopbarSearch();
-    setText('');
   };
 
   return (

@@ -1,11 +1,17 @@
-import React, { FunctionComponent } from 'react';
-import { MatchLink } from './TopbarSearchInputMatch.styles';
+import React, { useContext, FunctionComponent } from 'react';
+import { MatchLink, Text } from './TopbarSearchInputMatch.styles';
 import CONSTANTS from './TopbarSearchInputMatch.constants';
+import { ModalsDispatch } from '../../shared/context/ModalsContext';
 
 const TopbarSearchInputMatch: FunctionComponent<any> = ({
-  text,
-  toggleTopbarSearch
+  text
 }): JSX.Element => {
+  const dispatch = useContext(ModalsDispatch);
+
+  const toggleTopbarSearch = (): void => {
+    dispatch({ type: 'TOGGLE_TOPBAR_SEARCH' });
+  };
+
   const firstMatch = CONSTANTS.SPECIFIC_TARGETS.find((target) => {
     const isolatedTarget = target.split(' - ')[0];
     return isolatedTarget.slice(
@@ -41,11 +47,11 @@ const TopbarSearchInputMatch: FunctionComponent<any> = ({
     );
   }
   return (
-    <div style={{
-      height: '1000px',
-      border: '1px solid yellow'
-    }}
-    />
+    <Text>
+      &quot;
+      {text}
+      &quot; not found
+    </Text>
   );
 };
 

@@ -1,10 +1,12 @@
-import React, { FunctionComponent } from 'react';
+import React, { useState, FunctionComponent } from 'react';
 import { Wrapper, Input, Element } from './TopbarSearchInput.styles';
 import TopbarSearchInputMatch from '../TopbarSearchInputMatch';
 
 const TopbarSearchInput: FunctionComponent<any> = ({
-  style, toggleTopbarSearch, text, setText
+  style, toggleTopbarSearch
 }): JSX.Element => {
+  const [text, setText] = useState('');
+
   const handleChange = (event: any): void => {
     setText(event.target.value);
   };

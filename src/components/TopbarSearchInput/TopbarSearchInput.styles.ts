@@ -14,6 +14,10 @@ const Input = styled(animated.input)`
   border-radius: 20px;
   font-size: 24px;
   padding: 0 16px;
+
+  ${(props): string => props.theme.breakpoints.small} {
+    width: calc(100% - 100px);
+  }
 `;
 
 const Element = styled(animated.div)`

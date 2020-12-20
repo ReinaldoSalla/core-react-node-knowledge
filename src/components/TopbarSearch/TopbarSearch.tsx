@@ -1,5 +1,5 @@
 import React, {
-  useState, useRef, useContext, FunctionComponent
+  useRef, useContext, FunctionComponent
 } from 'react';
 import {
   useSpring,
@@ -24,7 +24,6 @@ const indexedComponents = components.map((component, key) => ({
 }));
 
 const TopbarSearch: FunctionComponent = (): JSX.Element => {
-  const [text, setText] = useState('');
   const springRef: any = useRef();
   const transitionsRef: any = useRef();
   const timeoutId = useRef<any>(null);
@@ -65,7 +64,6 @@ const TopbarSearch: FunctionComponent = (): JSX.Element => {
   return (
     <SearchWrapper
       style={spring}
-      $scroll={text.length > 0}
       onFocus={onFocus}
       onBlur={onBlur}
     >
@@ -73,9 +71,6 @@ const TopbarSearch: FunctionComponent = (): JSX.Element => {
         <item.component
           style={props}
           key={key}
-          toggleTopbarSearch={toggleTopbarSearch}
-          text={text}
-          setText={setText}
         />
       ))}
     </SearchWrapper>
