@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { animated } from 'react-spring';
 
-const Wrapper = styled.div`
+const Wrapper = styled.form`
   display: flex;
   justify-content: center;
   width: 100%;

@@ -3,7 +3,7 @@ import { Wrapper, Input, Element } from './TopbarSearchInput.styles';
 import TopbarSearchInputMatch from '../TopbarSearchInputMatch';
 
 const TopbarSearchInput: FunctionComponent<any> = ({
-  style, toggleTopbarSearch
+  style
 }): JSX.Element => {
   const [text, setText] = useState('');
 
@@ -21,13 +21,13 @@ const TopbarSearchInput: FunctionComponent<any> = ({
           value={text}
           onChange={handleChange}
           id='TopbarSearch'
+          autoComplete='off'
         />
       </Wrapper>
       <Element style={style}>
         {text && (
           <TopbarSearchInputMatch
             text={text}
-            toggleTopbarSearch={toggleTopbarSearch}
           />
         )}
       </Element>
