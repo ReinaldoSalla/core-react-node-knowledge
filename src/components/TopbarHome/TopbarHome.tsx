@@ -1,7 +1,6 @@
 import React, { useState, useContext } from 'react';
-import { useSpring } from 'react-spring';
+import { useTransition } from 'react-spring';
 import { Link, useLocation } from 'react-router-dom';
-import getHoverAnimation from './TopbarHome.animations';
 import {
   Container,
   Normalizer,
@@ -9,6 +8,7 @@ import {
   Text,
   Filler
 } from '../TopbarButton/TopbarButton.styles';
+import getTransition from '../TopbarButton/TopbarButton.animations';
 import { ModalsDispatch } from '../../shared/context/ModalsContext';
 import {
   ReactComponent as HomeSvg
@@ -31,7 +31,11 @@ const TopbarHome = (): JSX.Element => {
     dispatch({ type: 'NAVIGATE_TO_HOME', payload: pathname });
   };
 
-  const hoverAnimation = useSpring(getHoverAnimation(isHovering));
+  const transitions = useTransition(
+    isHovering,
+    null,
+    getTransition(isHovering)
+  );
 
   return (
     <Container
@@ -53,7 +57,9 @@ const TopbarHome = (): JSX.Element => {
       <Text>
         ProgrTmp
       </Text>
-      <Filler style={hoverAnimation} />
+      {transitions.map(({ item, key, props }) => (
+        item && <Filler key={key} style={props} />
+      ))}
     </Container>
   );
 };

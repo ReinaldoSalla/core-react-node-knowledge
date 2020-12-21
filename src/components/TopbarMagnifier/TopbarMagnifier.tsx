@@ -1,7 +1,6 @@
 import React, { useState, useContext } from 'react';
-import { useSpring } from 'react-spring';
+import { useSpring, useTransition } from 'react-spring';
 import {
-  getHoverAnimation,
   getSvgAnimation
 } from './TopbarMagnifier.animations';
 import {
@@ -11,6 +10,7 @@ import {
   Text,
   Filler
 } from '../TopbarButton/TopbarButton.styles';
+import getTransition from '../TopbarButton/TopbarButton.animations';
 import {
   ModalsDispatch,
   ModalsState
@@ -38,7 +38,11 @@ const TopbarHome = (): JSX.Element => {
     setIsHovering(false);
   };
 
-  const hoverAnimation = useSpring(getHoverAnimation(isHovering));
+  const transitions = useTransition(
+    isHovering,
+    null,
+    getTransition(isHovering)
+  );
 
   const svgAnimation = useSpring(getSvgAnimation(isTopbarSearchVisible));
 
@@ -61,7 +65,9 @@ const TopbarHome = (): JSX.Element => {
       <Text>
         Contents
       </Text>
-      <Filler style={hoverAnimation} />
+      {transitions.map(({ item, key, props }) => (
+        item && <Filler key={key} style={props} />
+      ))}
     </Container>
   );
 };
