@@ -1,15 +1,18 @@
 import React, { useState, useContext } from 'react';
 import { useSpring } from 'react-spring';
-import { useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import getHoverAnimation from './TopbarHome.animations';
 import {
-  TopbarHomeWrapper,
-  TopbarHomeNormalizer,
-  TopbarHomeSvg,
-  TopbarHomeText,
-  TopbarHomeFiller
-} from './TopbarHome.styles';
+  Container,
+  Normalizer,
+  Svg,
+  Text,
+  Filler
+} from '../TopbarButton/TopbarButton.styles';
 import { ModalsDispatch } from '../../shared/context/ModalsContext';
+import {
+  ReactComponent as HomeSvg
+} from '../../assets/icons/home.svg';
 
 const TopbarHome = (): JSX.Element => {
   const [isHovering, setIsHovering] = useState(false);
@@ -31,21 +34,27 @@ const TopbarHome = (): JSX.Element => {
   const hoverAnimation = useSpring(getHoverAnimation(isHovering));
 
   return (
-    <TopbarHomeWrapper
+    <Container
       onMouseEnter={handleEnter}
       onMouseLeave={handleLeave}
       onClick={handleClick}
       title='Access the home page'
       to='/'
+      as={Link}
     >
-      <TopbarHomeNormalizer>
-        <TopbarHomeSvg />
-      </TopbarHomeNormalizer>
-      <TopbarHomeText>
+      <Normalizer>
+        <Svg
+          width='112%'
+          height='112%'
+          transform='translate3d(-5%, -5%, 0)'
+          as={HomeSvg}
+        />
+      </Normalizer>
+      <Text>
         ProgrTmp
-      </TopbarHomeText>
-      <TopbarHomeFiller style={hoverAnimation} />
-    </TopbarHomeWrapper>
+      </Text>
+      <Filler style={hoverAnimation} />
+    </Container>
   );
 };
 

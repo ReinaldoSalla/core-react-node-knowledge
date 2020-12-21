@@ -1,22 +1,25 @@
-import React, { useContext, useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { useSpring } from 'react-spring';
 import {
   getHoverAnimation,
   getSvgAnimation
 } from './TopbarContents.animations';
 import {
-  TopbarContentsWrapper,
-  TopbarContentsNormalizer,
-  TopbarContentsSvg,
-  TopbarContentsText,
-  TopbarContentsFiller
-} from './TopbarContents.styles';
+  Container,
+  Normalizer,
+  Svg,
+  Text,
+  Filler
+} from '../TopbarButton/TopbarButton.styles';
 import {
-  ModalsState,
-  ModalsDispatch
+  ModalsDispatch,
+  ModalsState
 } from '../../shared/context/ModalsContext';
+import {
+  ReactComponent as ContentSvg
+} from '../../assets/icons/contents.svg';
 
-const TopbarContents = (): JSX.Element => {
+const TopbarHome = (): JSX.Element => {
   const { isTopbarSidebarVisible } = useContext(ModalsState);
 
   const dispatch = useContext(ModalsDispatch);
@@ -38,23 +41,28 @@ const TopbarContents = (): JSX.Element => {
   const hoverAnimation = useSpring(getHoverAnimation(isHovering));
 
   const svgAnimation = useSpring(getSvgAnimation(isTopbarSidebarVisible));
-
   return (
-    <TopbarContentsWrapper
+    <Container
       onMouseEnter={handleEnter}
       onMouseLeave={handleLeave}
       onClick={toggleTopbarSidebar}
       title='Access all contents'
+      as='button'
     >
-      <TopbarContentsNormalizer>
-        <TopbarContentsSvg style={svgAnimation} />
-      </TopbarContentsNormalizer>
-      <TopbarContentsText>
+      <Normalizer style={svgAnimation}>
+        <Svg
+          width='100%'
+          height='100%'
+          transform='translate3d(0, 0, 0)'
+          as={ContentSvg}
+        />
+      </Normalizer>
+      <Text>
         Contents
-      </TopbarContentsText>
-      <TopbarContentsFiller style={hoverAnimation} />
-    </TopbarContentsWrapper>
+      </Text>
+      <Filler style={hoverAnimation} />
+    </Container>
   );
 };
 
-export default TopbarContents;
+export default TopbarHome;

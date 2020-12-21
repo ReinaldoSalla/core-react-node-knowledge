@@ -5,23 +5,26 @@ import {
   getSvgAnimation
 } from './TopbarMagnifier.animations';
 import {
-  TopbarMagnifierWrapper,
-  TopbarMagnifierNormalizer,
-  TopbarMagnifierSvg,
-  TopbarMagnifierText,
-  TopbarMagnifierFiller
-} from './TopbarMagnifier.styles';
+  Container,
+  Normalizer,
+  Svg,
+  Text,
+  Filler
+} from '../TopbarButton/TopbarButton.styles';
 import {
-  ModalsState,
-  ModalsDispatch
+  ModalsDispatch,
+  ModalsState
 } from '../../shared/context/ModalsContext';
+import {
+  ReactComponent as SearchSvg
+} from '../../assets/icons/search.svg';
 
-const TopbarMagnifier = (): JSX.Element => {
+const TopbarHome = (): JSX.Element => {
   const { isTopbarSearchVisible } = useContext(ModalsState);
 
   const dispatch = useContext(ModalsDispatch);
 
-  const toggleTopbarSearch = (): void => {
+  const toggleTopbarSidebar = (): void => {
     dispatch({ type: 'TOGGLE_TOPBAR_SEARCH' });
   };
 
@@ -35,26 +38,32 @@ const TopbarMagnifier = (): JSX.Element => {
     setIsHovering(false);
   };
 
-  const hoverSpring = useSpring(getHoverAnimation(isHovering));
+  const hoverAnimation = useSpring(getHoverAnimation(isHovering));
 
-  const svgSpring = useSpring(getSvgAnimation(isTopbarSearchVisible));
+  const svgAnimation = useSpring(getSvgAnimation(isTopbarSearchVisible));
 
   return (
-    <TopbarMagnifierWrapper
+    <Container
       onMouseEnter={handleEnter}
       onMouseLeave={handleLeave}
-      onClick={toggleTopbarSearch}
-      title='Search for contents'
+      onClick={toggleTopbarSidebar}
+      title='Search for content'
+      as='button'
     >
-      <TopbarMagnifierNormalizer style={svgSpring}>
-        <TopbarMagnifierSvg />
-      </TopbarMagnifierNormalizer>
-      <TopbarMagnifierText>
-        Search
-      </TopbarMagnifierText>
-      <TopbarMagnifierFiller style={hoverSpring} />
-    </TopbarMagnifierWrapper>
+      <Normalizer style={svgAnimation}>
+        <Svg
+          width='120%'
+          height='120%'
+          transform='translate3d(-8%, -8%, 0)'
+          as={SearchSvg}
+        />
+      </Normalizer>
+      <Text>
+        Contents
+      </Text>
+      <Filler style={hoverAnimation} />
+    </Container>
   );
 };
 
-export default TopbarMagnifier;
+export default TopbarHome;

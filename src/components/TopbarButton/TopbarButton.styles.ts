@@ -19,7 +19,7 @@ const Container = styled.div`
   }
 `;
 
-const Normalizer = styled.div`
+const Normalizer = styled(animated.div)`
   z-index: 2;
   margin-bottom: 8px;
   height: 32px;
@@ -27,7 +27,7 @@ const Normalizer = styled.div`
   color: white;
 `;
 
-const Svg = styled(animated.div)<SvgProps>`
+const Svg = styled.div<SvgProps>`
   width: ${(props): string => props.width};
   height: ${(props): string => props.height};
   color: white;
