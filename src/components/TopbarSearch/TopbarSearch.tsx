@@ -12,8 +12,8 @@ import TopbarSearchTitle from '../TopbarSearchTitle';
 import TopbarSearchInput from '../TopbarSearchInput';
 import TopbarSearchExit from '../TopbarSearchExit';
 import {
-  ModalsState,
-  ModalsDispatch
+  ModalsState
+  // ModalsDispatch
 } from '../../shared/context/ModalsContext';
 
 const components = [TopbarSearchTitle, TopbarSearchInput, TopbarSearchExit];
@@ -30,7 +30,7 @@ const TopbarSearch: FunctionComponent = (): JSX.Element => {
 
   const { isTopbarSearchVisible } = useContext(ModalsState);
 
-  const dispatch = useContext(ModalsDispatch);
+  // const dispatch = useContext(ModalsDispatch);
 
   // const toggleTopbarSearch = (): void => {
   //   dispatch({ type: 'TOGGLE_TOPBAR_SEARCH' });

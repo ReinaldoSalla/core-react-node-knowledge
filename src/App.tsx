@@ -7,9 +7,10 @@ import Topbar from './components/Topbar';
 import Footer from './components/Footer';
 import { ModalsProvider } from './shared/context/ModalsContext';
 import useTabOutline from './hooks/useTabOutline';
-import './App.css';
 import Home from './pages/Home';
 import ContentSuspense from './components/ContentSuspense';
+import About from './pages/About';
+import './App.css';
 
 const Content = lazy(() => import('./pages/Content'));
 
@@ -27,6 +28,9 @@ const App = (): JSX.Element => {
             <Switch>
               <Route exact path='/'>
                 <Home />
+              </Route>
+              <Route exact path='/about'>
+                <About />
               </Route>
               <Route path='/:id'>
                 <Content />

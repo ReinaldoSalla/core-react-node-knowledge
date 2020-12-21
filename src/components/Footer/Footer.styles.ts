@@ -25,7 +25,7 @@ const FooterContainer = styled(animated.div)<FooterLinkProps>`
   }
 `;
 
-const FooterLink = styled(Link)<FooterLinkProps>`
+const FooterLink = styled(Link)`
   font-size: 32px;
   color: white;
   border-bottom: 1px solid white;

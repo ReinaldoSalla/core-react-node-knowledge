@@ -28,26 +28,24 @@ const Footer = (): JSX.Element => {
         $isTopbarSidebarVisible={isTopbarSidebarVisible}
       >
         <FooterLink
-          to='/contact'
-          $isTopbarSidebarVisible={isTopbarSidebarVisible}
+          to='/about'
         >
-          Contact
+          About ProgrTmp
         </FooterLink>
         <FooterLink
-          to='/philosohpy'
-          $isTopbarSidebarVisible={isTopbarSidebarVisible}
+          to='/legal'
         >
-          Philosophy
+          Legal Section
         </FooterLink>
         <FooterText>
           Copyright ©
           {' '}
           {new Date().getFullYear()}
           {' '}
-          JavaScriptTemporal
+          ProgrTmp
         </FooterText>
         <FooterText>
-          All the code in this website in MIT licensed
+          All the code in this website is MIT licensed
         </FooterText>
         <FooterText italic>
           Always bet on JS
