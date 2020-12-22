@@ -56,7 +56,7 @@ const TopbarHome = (): JSX.Element => {
         <Svg
           width='120%'
           height='120%'
-          transform='translate3d(-8%, -5%, 0)'
+          transform='translate(0%, -8%)'
           as={SearchSvg}
         />
       </Normalizer>

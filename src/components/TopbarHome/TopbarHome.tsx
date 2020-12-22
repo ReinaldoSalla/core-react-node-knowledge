@@ -48,9 +48,9 @@ const TopbarHome = (): JSX.Element => {
     >
       <Normalizer>
         <Svg
-          width='112%'
-          height='112%'
-          transform='translate3d(-5%, -5%, 0)'
+          width='110%'
+          height='110%'
+          transform='translate(0%, -4%)'
           as={HomeSvg}
         />
       </Normalizer>
