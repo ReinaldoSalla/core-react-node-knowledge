@@ -1,8 +1,6 @@
 import React, { useState, useContext } from 'react';
 import { useSpring, useTransition } from 'react-spring';
-import {
-  getSvgAnimation
-} from './TopbarMagnifier.animations';
+import getSvgAnimation from './TopbarMagnifier.animations';
 import {
   Container,
   Normalizer,
@@ -58,7 +56,7 @@ const TopbarHome = (): JSX.Element => {
         <Svg
           width='120%'
           height='120%'
-          transform='translate3d(-8%, -8%, 0)'
+          transform='translate3d(-8%, -5%, 0)'
           as={SearchSvg}
         />
       </Normalizer>

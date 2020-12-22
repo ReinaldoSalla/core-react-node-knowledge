@@ -12,6 +12,7 @@ import {
 } from './Topbar.styles';
 import TopbarSidebar from '../TopbarSidebar';
 import TopbarSearch from '../TopbarSearch';
+import TopbarProfile from '../TopbarProfile';
 import { ModalsState } from '../../shared/context/ModalsContext';
 
 const Topbar = (): JSX.Element => {
@@ -41,6 +42,7 @@ const Topbar = (): JSX.Element => {
         <TopbarSidebar navDomNode={navDomNode} />
         <TopbarMagnifier />
         <TopbarSearch />
+        <TopbarProfile />
         <Filler style={fillerSpring} />
       </Nav>
     </Header>

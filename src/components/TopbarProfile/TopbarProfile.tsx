@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
-import { useSpring, useTransition } from 'react-spring';
-import getSvgAnimation from './TopbarContents.animations';
+import { useTransition } from 'react-spring';
+import { Link, useLocation } from 'react-router-dom';
 import {
   Container,
   Normalizer,
@@ -9,24 +9,15 @@ import {
   Filler
 } from '../TopbarButton/TopbarButton.styles';
 import getTransition from '../TopbarButton/TopbarButton.animations';
+import { ModalsDispatch } from '../../shared/context/ModalsContext';
 import {
-  ModalsDispatch,
-  ModalsState
-} from '../../shared/context/ModalsContext';
-import {
-  ReactComponent as ContentSvg
-} from '../../assets/icons/contents.svg';
+  ReactComponent as ProfileSvg
+} from '../../assets/icons/profile.svg';
 
 const TopbarHome = (): JSX.Element => {
-  const { isTopbarSidebarVisible } = useContext(ModalsState);
-
-  const dispatch = useContext(ModalsDispatch);
-
-  const toggleTopbarSidebar = (): void => {
-    dispatch({ type: 'TOGGLE_TOPBAR_SIDEBAR' });
-  };
-
   const [isHovering, setIsHovering] = useState(false);
+  const { pathname } = useLocation();
+  const dispatch = useContext(ModalsDispatch);
 
   const handleEnter = (): void => {
     setIsHovering(true);
@@ -36,32 +27,34 @@ const TopbarHome = (): JSX.Element => {
     setIsHovering(false);
   };
 
+  const handleClick = (): void => {
+    dispatch({ type: 'NAVIGATE_TO_HOME', payload: pathname });
+  };
+
   const transitions = useTransition(
     isHovering,
     null,
     getTransition(isHovering)
   );
 
-  const svgAnimation = useSpring(getSvgAnimation(isTopbarSidebarVisible));
-
   return (
     <Container
       onMouseEnter={handleEnter}
       onMouseLeave={handleLeave}
-      onClick={toggleTopbarSidebar}
-      title='Access all contents'
-      as='button'
+      onClick={handleClick}
+      to='/login'
+      as={Link}
     >
-      <Normalizer style={svgAnimation}>
+      <Normalizer>
         <Svg
           width='100%'
           height='100%'
           transform='translate3d(0, 5%, 0)'
-          as={ContentSvg}
+          as={ProfileSvg}
         />
       </Normalizer>
       <Text>
-        Contents
+        Log In
       </Text>
       {transitions.map(({ item, key, props }) => (
         item && <Filler key={key} style={props} />
