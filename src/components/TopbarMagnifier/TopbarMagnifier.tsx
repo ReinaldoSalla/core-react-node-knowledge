@@ -61,7 +61,7 @@ const TopbarHome = (): JSX.Element => {
         />
       </Normalizer>
       <Text>
-        Contents
+        Search
       </Text>
       {transitions.map(({ item, key, props }) => (
         item && <Filler key={key} style={props} />

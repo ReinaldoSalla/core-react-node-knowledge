@@ -19,6 +19,18 @@ const navigateToHome = (state: State, pathname: string): State => {
   };
 };
 
+const navigateToLogin = (state: State): State => {
+  if (state.isTopbarSidebarVisible || state.isTopbarSearchVisible) {
+    document.body.style.overflowY = 'auto';
+    document.body.style.width = '100%';
+  }
+  return {
+    ...state,
+    isTopbarSidebarVisible: false,
+    isTopbarSearchVisible: false
+  };
+};
+
 const toggleTopbarSidebar = (state: State): State => {
   if (!state.isTopbarSidebarVisible) {
     document.body.style.overflowY = 'hidden';
@@ -61,4 +73,9 @@ const toggleTopbarSearch = (state: State): State => {
   };
 };
 
-export { toggleTopbarSidebar, toggleTopbarSearch, navigateToHome };
+export {
+  navigateToHome,
+  navigateToLogin,
+  toggleTopbarSidebar,
+  toggleTopbarSearch
+};

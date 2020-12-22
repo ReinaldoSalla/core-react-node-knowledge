@@ -1,15 +1,16 @@
 import React, { Suspense, lazy } from 'react';
 import { ThemeProvider } from 'styled-components';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import useTabOutline from './hooks/useTabOutline';
 import { GlobalStyle, globalTheme } from './App.styles';
 import ScrollToTop from './utils/ScrollToTop';
 import Topbar from './components/Topbar';
-import Footer from './components/Footer';
-import { ModalsProvider } from './shared/context/ModalsContext';
-import useTabOutline from './hooks/useTabOutline';
 import Home from './pages/Home';
-import ContentSuspense from './components/ContentSuspense';
+import Login from './pages/Login';
 import About from './pages/About';
+import Footer from './components/Footer';
+import ContentSuspense from './components/ContentSuspense';
+import { ModalsProvider } from './shared/context/ModalsContext';
 import './App.css';
 
 const Content = lazy(() => import('./pages/Content'));
@@ -28,6 +29,9 @@ const App = (): JSX.Element => {
             <Switch>
               <Route exact path='/'>
                 <Home />
+              </Route>
+              <Route exact path='/login'>
+                <Login />
               </Route>
               <Route exact path='/about'>
                 <About />

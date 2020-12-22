@@ -7,9 +7,10 @@ export interface State {
 }
 
 export type Action =
+  | { type: 'NAVIGATE_TO_HOME'; payload: string }
+  | { type: 'NAVIGATE_TO_LOGIN' }
   | { type: 'TOGGLE_TOPBAR_SIDEBAR' }
-  | { type: 'TOGGLE_TOPBAR_SEARCH' }
-  | { type: 'NAVIGATE_TO_HOME'; payload: string };
+  | { type: 'TOGGLE_TOPBAR_SEARCH' };
 
 export interface ModalsProviderProps {
   children: ReactNode;

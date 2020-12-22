@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 import { useTransition } from 'react-spring';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import {
   Container,
   Normalizer,
@@ -16,7 +16,6 @@ import {
 
 const TopbarHome = (): JSX.Element => {
   const [isHovering, setIsHovering] = useState(false);
-  const { pathname } = useLocation();
   const dispatch = useContext(ModalsDispatch);
 
   const handleEnter = (): void => {
@@ -28,7 +27,7 @@ const TopbarHome = (): JSX.Element => {
   };
 
   const handleClick = (): void => {
-    dispatch({ type: 'NAVIGATE_TO_HOME', payload: pathname });
+    dispatch({ type: 'NAVIGATE_TO_LOGIN' });
   };
 
   const transitions = useTransition(
