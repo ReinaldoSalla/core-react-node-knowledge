@@ -1,3 +1,5 @@
+/* eslint-disable no-multi-assign */
+
 import React, { useState } from 'react';
 import { useSpring } from 'react-spring';
 import getLabelSpring from './Login.animations';
@@ -12,9 +14,14 @@ import {
   Input,
   Label,
   Text,
-  Button,
+  ButtonWrapper,
+  ButtonLoginWrapper,
+  ButtonGoogleContainer,
+  ButtonGoogleText,
+  GoogleSvg,
   Line
 } from './Login.styles';
+import './Login.css';
 
 const Login = (): JSX.Element => {
   const [isFirstFocused, setIsFirstFocused] = useState(false);
@@ -34,6 +41,27 @@ const Login = (): JSX.Element => {
 
   const onBlurSecond = (): void => {
     setIsSecondFocused(false);
+  };
+
+  const onClick = (event: any): void => {
+    const button = event.currentTarget;
+
+    const circle = document.createElement('span');
+    const diameter = Math.max(button.clientWidth, button.clientHeight);
+    const radius = diameter / 2;
+
+    circle.style.width = circle.style.height = `${diameter}px`;
+    circle.style.left = `${event.clientX - button.offsetLeft - radius}px`;
+    circle.style.top = `${event.clientY - button.offsetTop - radius}px`;
+    circle.classList.add('ripple');
+
+    const ripple = button.getElementsByClassName('ripple')[0];
+
+    if (ripple) {
+      ripple.remove();
+    }
+
+    button.appendChild(circle);
   };
 
   const firstLabelSpring = useSpring(getLabelSpring(isFirstFocused));
@@ -60,10 +88,21 @@ const Login = (): JSX.Element => {
             <Label style={secondLabelSpring} htmlFor='password'>Password</Label>
           </InputContainer>
           <Text>Forgot password ?</Text>
-          <Button>Log in</Button>
+          <ButtonWrapper>
+            <ButtonLoginWrapper onClick={onClick}>
+              Continue
+            </ButtonLoginWrapper>
+          </ButtonWrapper>
         </Form>
         <Line>Or</Line>
-        <Button>Login with Google</Button>
+        <ButtonWrapper>
+          <ButtonGoogleContainer>
+            <GoogleSvg />
+            <ButtonGoogleText>
+              Login with Google
+            </ButtonGoogleText>
+          </ButtonGoogleContainer>
+        </ButtonWrapper>
       </Container>
     </Wrapper>
   );

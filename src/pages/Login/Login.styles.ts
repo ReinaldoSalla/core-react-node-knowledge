@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { animated } from 'react-spring';
+import { AiOutlineGoogle } from 'react-icons/ai';
 
 const Wrapper = styled.div`
   display: flex;
@@ -84,26 +85,67 @@ const Text = styled.div`
     color: orange;
   }
 `;
+const ButtonWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  width: 100%;
+`;
 
-const Button = styled.button`
+const ButtonLoginWrapper = styled.button`
+  position: relative;
   width: 12rem;
   height: 4rem;
   padding: 0.5rem;
-  border: 1px solid #350003;
+  border: 1px solid transparent;
   border-radius: 12px;
-  background: #350003;
+  background-color: #263238;
   color: white;
+  transition: background-color 500ms;
+  overflow: hidden;
+
+  &:hover {
+    background-color: #26323894;
+    cursor: pointer;
+  }
+
+  /* &:active {
+    background-color: #26323861;
+  } */
+`;
+
+const ButtonGoogleContainer = styled.button`
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  /* position: relative; */
+  width: 12rem;
+  height: 4rem;
+  border: 1px solid #263238;
+  border-radius: 12px;
+  background: #263238;
+  color: white;
+`;
+
+const ButtonGoogleText = styled.span`
+  /* display: inline-block; */
+  /* width: 10rem; */
+  /* height: 2rem; */
+  /* border: 1px solid white; */
+  /* margin-left: 3rem; */
+`;
+
+const GoogleSvg = styled(AiOutlineGoogle)`
+  /* position: absolute; */
+  /* right: 0.5rem; */
+  width: 2rem;
+  height: 2rem;
+  /* border: 1px solid white; */
 `;
 
 const Line = styled.div`
   text-align: center;
   color: white;
   margin-bottom: 2rem;
-`;
-
-const GoogleButton = styled.button`
-  border: 1px solid red;
-  color: white;
 `;
 
 export {
@@ -117,7 +159,10 @@ export {
   Input,
   Label,
   Text,
-  Button,
-  Line,
-  GoogleButton
+  ButtonWrapper,
+  ButtonLoginWrapper,
+  ButtonGoogleContainer,
+  ButtonGoogleText,
+  GoogleSvg,
+  Line
 };
