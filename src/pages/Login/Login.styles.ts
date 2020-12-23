@@ -84,6 +84,7 @@ const Text = styled.div`
     color: orange;
   }
 `;
+
 const ButtonWrapper = styled.div`
   display: flex;
   justify-content: center;
@@ -107,9 +108,10 @@ const ButtonLoginWrapper = styled.button`
     cursor: pointer;
   }
 
-  /* &:active {
+  &:active {
+    transition: background-color 250ms;
     background-color: #26323861;
-  } */
+  }
 `;
 
 const ButtonGoogleContainer = styled.button`
@@ -121,8 +123,19 @@ const ButtonGoogleContainer = styled.button`
   height: 4rem;
   border: 1px solid #263238;
   border-radius: 12px;
-  background: #263238;
+  background-color: #263238;
   color: white;
+  transition: background-color 500ms;
+
+  &:hover {
+    background-color: #26323894;
+    cursor: pointer;
+  }
+
+  &:active {
+    transition: background-color 250ms;
+    background-color: #26323861;
+  }
 `;
 
 const ButtonGoogleText = styled.span`
