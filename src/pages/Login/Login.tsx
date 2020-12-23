@@ -13,6 +13,9 @@ import {
   InputContainer,
   Input,
   Label,
+  UserSvg,
+  PasswordSvg,
+  EyeSvg,
   Text,
   ButtonWrapper,
   ButtonLoginWrapper,
@@ -58,12 +61,15 @@ const Login = (): JSX.Element => {
         </Heading2>
         <Form>
           <InputContainer onFocus={onFocusFirst} onBlur={onBlurFirst}>
+            <UserSvg />
             <Input type='email' id='email' />
             <Label style={firstLabelSpring} htmlFor='email'>Email</Label>
           </InputContainer>
           <InputContainer onFocus={onFocusSecond} onBlur={onBlurSecond}>
+            <PasswordSvg />
             <Input id='password' />
             <Label style={secondLabelSpring} htmlFor='password'>Password</Label>
+            <EyeSvg />
           </InputContainer>
           <Text>Forgot password ?</Text>
           <ButtonWrapper>

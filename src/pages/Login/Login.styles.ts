@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 import { animated } from 'react-spring';
-import { AiOutlineGoogle } from 'react-icons/ai';
+import { AiOutlineGoogle, AiOutlineUser, AiOutlineEye } from 'react-icons/ai';
+
+import { RiLockPasswordLine } from 'react-icons/ri';
 
 const Wrapper = styled.div`
   display: flex;
@@ -52,24 +54,55 @@ const InputContainer = styled.div`
 
 const Input = styled.input`
   position: relative;
-  height: 32px;
+  padding-left: 2rem;
+  height: 3rem;
   border: 1px solid gray;
   border-radius: 10px;
   color: white;
   background-color: transparent;
-
+  
   &:focus {
     border: 1px solid white;
     border-radius: 10px;
     outline: none;
   }
-`;
+  `;
 
 const Label = styled(animated.label)`
+  display: flex;
+  align-items: center;
   position: absolute;
   z-index: -1;
-  top: 0.5rem;
-  left: 1rem;
+  top: 50%;
+  left: 2rem;
+  height: 1.5rem;
+  color: white;
+  /* border: 1px solid red; */
+`;
+
+const UserSvg = styled(AiOutlineUser)`
+  position: absolute;
+  top: 50%;
+  left: 0.25rem;
+  width: 1.5rem;
+  height: 1.5rem;  
+  transform: translateY(-50%);
+  color: white;
+  /* border: 1px solid red; */
+`;
+
+const PasswordSvg = styled(RiLockPasswordLine)`
+  position: absolute;
+  top: 1rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  color: white;
+`;
+
+const EyeSvg = styled(AiOutlineEye)`
+  position: absolute;
+  width: 1.5rem;
+  height: 1.5rem;
   color: white;
 `;
 
@@ -159,8 +192,6 @@ const Line = styled.div`
   color: white;
   margin-bottom: 2rem;
   overflow: hidden;
-  display: flex;
-
   &::before, &::after{
     content: "";
     flex: 1 1;
@@ -189,6 +220,9 @@ export {
   InputContainer,
   Input,
   Label,
+  UserSvg,
+  PasswordSvg,
+  EyeSvg,
   Text,
   ButtonWrapper,
   ButtonLoginWrapper,
