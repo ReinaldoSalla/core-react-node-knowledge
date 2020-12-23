@@ -52,7 +52,6 @@ const InputContainer = styled.div`
 
 const Input = styled.input`
   position: relative;
-  z-index: 2;
   height: 32px;
   border: 1px solid gray;
   border-radius: 10px;
@@ -68,7 +67,7 @@ const Input = styled.input`
 
 const Label = styled(animated.label)`
   position: absolute;
-  z-index: 1;
+  z-index: -1;
   top: 0.5rem;
   left: 1rem;
   color: white;
@@ -146,6 +145,25 @@ const Line = styled.div`
   text-align: center;
   color: white;
   margin-bottom: 2rem;
+  overflow: hidden;
+  display: flex;
+
+  &::before, &::after{
+    content: "";
+    flex: 1 1;
+    border-bottom: 1px solid white;
+    margin: auto;
+  }
+
+  &::before {
+    margin-right: 10px;
+    margin-left: 10px;
+  }
+
+  &::after {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
 `;
 
 export {

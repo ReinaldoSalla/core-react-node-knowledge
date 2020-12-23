@@ -94,7 +94,7 @@ const Login = (): JSX.Element => {
             </ButtonLoginWrapper>
           </ButtonWrapper>
         </Form>
-        <Line>Or</Line>
+        <Line>OR</Line>
         <ButtonWrapper>
           <ButtonGoogleContainer>
             <GoogleSvg />
