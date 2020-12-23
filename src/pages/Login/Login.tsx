@@ -1,6 +1,6 @@
 /* eslint-disable no-multi-assign */
 
-import React, { useState } from 'react';
+import React, { useState, ChangeEvent } from 'react';
 import { useSpring } from 'react-spring';
 import getLabelSpring from './Login.animations';
 import {
@@ -28,6 +28,7 @@ import {
 const Login = (): JSX.Element => {
   const [isFirstFocused, setIsFirstFocused] = useState(false);
   const [isSecondFocused, setIsSecondFocused] = useState(false);
+  const [firstText, setFirstText] = useState('');
 
   const onFocusFirst = (): void => {
     setIsFirstFocused(true);
@@ -45,9 +46,19 @@ const Login = (): JSX.Element => {
     setIsSecondFocused(false);
   };
 
-  const firstLabelSpring = useSpring(getLabelSpring(isFirstFocused));
+  const onChangeFirst = (event: ChangeEvent<HTMLInputElement>): void => {
+    setFirstText(event.currentTarget.value);
+  };
 
-  const secondLabelSpring = useSpring(getLabelSpring(isSecondFocused));
+  const firstLabelSpring = useSpring(getLabelSpring(
+    isFirstFocused,
+    firstText.length
+  ));
+
+  const secondLabelSpring = useSpring(getLabelSpring(
+    isSecondFocused,
+    firstText.length
+  ));
 
   return (
     <Wrapper>
@@ -62,7 +73,12 @@ const Login = (): JSX.Element => {
         <Form>
           <InputContainer onFocus={onFocusFirst} onBlur={onBlurFirst}>
             <UserSvg />
-            <Input type='email' id='email' />
+            <Input
+              type='email'
+              id='email'
+              onChange={onChangeFirst}
+              value={firstText}
+            />
             <Label style={firstLabelSpring} htmlFor='email'>Email</Label>
           </InputContainer>
           <InputContainer onFocus={onFocusSecond} onBlur={onBlurSecond}>

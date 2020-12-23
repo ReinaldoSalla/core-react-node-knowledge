@@ -54,10 +54,11 @@ const InputContainer = styled.div`
 
 const Input = styled.input`
   position: relative;
-  padding-left: 2rem;
+  padding-left: 3rem;
   height: 3rem;
   border: 1px solid gray;
   border-radius: 10px;
+  font-size: 1rem;
   color: white;
   background-color: transparent;
   
@@ -66,7 +67,7 @@ const Input = styled.input`
     border-radius: 10px;
     outline: none;
   }
-  `;
+`;
 
 const Label = styled(animated.label)`
   display: flex;
@@ -74,7 +75,7 @@ const Label = styled(animated.label)`
   position: absolute;
   z-index: -1;
   top: 50%;
-  left: 2rem;
+  left: 3rem;
   height: 1.5rem;
   color: white;
   /* border: 1px solid red; */
@@ -83,7 +84,7 @@ const Label = styled(animated.label)`
 const UserSvg = styled(AiOutlineUser)`
   position: absolute;
   top: 50%;
-  left: 0.25rem;
+  left: 1rem;
   width: 1.5rem;
   height: 1.5rem;  
   transform: translateY(-50%);
