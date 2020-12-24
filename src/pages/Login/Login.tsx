@@ -4,8 +4,8 @@ import getLabelSpring from './Login.animations';
 import {
   Wrapper,
   Container,
-  Heading1,
-  Heading2,
+  Title,
+  Subtitle,
   Highlight,
   Form,
   InputContainer,
@@ -14,11 +14,10 @@ import {
   UserSvg,
   PasswordSvg,
   EyeSvg,
-  Text,
+  Forgot,
   ButtonWrapper,
   ButtonLoginWrapper,
   ButtonGoogleContainer,
-  ButtonGoogleText,
   GoogleSvg,
   Line
 } from './Login.styles';
@@ -69,13 +68,13 @@ const Login = (): JSX.Element => {
   return (
     <Wrapper>
       <Container>
-        <Heading1>Log in ProgrTmp</Heading1>
-        <Heading2>
+        <Title>Log in ProgrTmp</Title>
+        <Subtitle>
           Don&apos;t have an account?
           <Highlight>
             Sign Up
           </Highlight>
-        </Heading2>
+        </Subtitle>
         <Form>
           <InputContainer onFocus={onFocusFirst} onBlur={onBlurFirst}>
             <UserSvg />
@@ -84,6 +83,7 @@ const Login = (): JSX.Element => {
               id='email'
               onChange={onChange}
               value={formData.email}
+              autoComplete='off'
             />
             <Label style={firstLabelSpring} htmlFor='email'>Email</Label>
           </InputContainer>
@@ -93,11 +93,12 @@ const Login = (): JSX.Element => {
               id='password'
               onChange={onChange}
               value={formData.password}
+              autoComplete='off'
             />
             <Label style={secondLabelSpring} htmlFor='password'>Password</Label>
             <EyeSvg />
           </InputContainer>
-          <Text>Forgot password ?</Text>
+          <Forgot>Forgot password ?</Forgot>
           <ButtonWrapper>
             <ButtonLoginWrapper>
               Continue
@@ -108,9 +109,7 @@ const Login = (): JSX.Element => {
         <ButtonWrapper>
           <ButtonGoogleContainer>
             <GoogleSvg />
-            <ButtonGoogleText>
-              Login with Google
-            </ButtonGoogleText>
+            Login with Google
           </ButtonGoogleContainer>
         </ButtonWrapper>
       </Container>
@@ -119,3 +118,30 @@ const Login = (): JSX.Element => {
 };
 
 export default Login;
+
+/*
+first draft css bem
+<login__wrapper>
+  <login_container>
+    <login__title>
+    <login__subtitle>
+      <login__link>
+    <login__form>
+      <login__input-container>
+        <login__user-svg>
+        <login__input>
+        <login__labal>
+      <login__input-container<
+        <login__password-svg>
+        <login__inupt>
+        <login__label>
+        <login__eye-svg>
+      <login__forgot-password>
+      <login__button-wrapper>
+        <login__button-login-wrapper>
+      <login__or>
+      <login__button-wrapper>
+        <login__button-google-container>
+          <login__button-google-svg>
+          <login__button-google-text>
+*/

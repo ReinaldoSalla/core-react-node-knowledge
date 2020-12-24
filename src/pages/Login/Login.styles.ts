@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { animated } from 'react-spring';
 import { AiOutlineGoogle, AiOutlineUser, AiOutlineEye } from 'react-icons/ai';
 import { RiLockPasswordLine } from 'react-icons/ri';
@@ -15,14 +15,14 @@ const Container = styled.div`
   border: 1px solid gray;
   border-radius: 1rem;
 
-  ${(props) => props.theme.breakpoints.small} {
+  ${(props): string => props.theme.breakpoints.small} {
     padding: 0;
     margin: calc(${(props): string => props.theme.topbarHeight} + 20px) 0 40px;
     border: none;
   }
 `;
 
-const Heading1 = styled.h1`
+const Title = styled.h1`
   padding: 0 1rem;
   margin: 0 1rem 2rem;
   text-align: center;
@@ -33,7 +33,7 @@ const Heading1 = styled.h1`
   }
 `;
 
-const Heading2 = styled.h2`
+const Subtitle = styled.h2`
   margin: 0 1rem 2rem;
   text-align: center;
   color: white;
@@ -55,7 +55,7 @@ const Highlight = styled.span`
   }
 `;
 
-const Form = styled.div`
+const Form = styled.form`
   margin: 0 0 2rem 0;
 `;
 
@@ -99,41 +99,33 @@ const Label = styled(animated.label)`
   left: 3rem;
   height: 1.5rem;
   color: white;
-  /* border: 1px solid red; */
 `;
 
-const UserSvg = styled(AiOutlineUser)`
+const svg = css`
   position: absolute;
   top: 50%;
-  left: 1rem;
   width: 1.5rem;
   height: 1.5rem;  
   transform: translateY(-50%);
   color: white;
-  /* border: 1px solid red; */
+`;
+
+const UserSvg = styled(AiOutlineUser)`
+  ${svg}
+  left: 1rem;
 `;
 
 const PasswordSvg = styled(RiLockPasswordLine)`
-  position: absolute;
-  top: 50%;
+  ${svg}
   left: 1rem;
-  width: 1.5rem;
-  height: 1.5rem;
-  transform: translateY(-50%);
-  color: white;
 `;
 
 const EyeSvg = styled(AiOutlineEye)`
-  position: absolute;
-  top: 50%;
+  ${svg}
   right: 1rem;
-  width: 1.5rem;
-  height: 1.5rem;
-  transform: translateY(-50%);
-  color: white;
 `;
 
-const Text = styled.div`
+const Forgot = styled.div`
   text-align: center;
   margin: 0 0 2rem 0;
   color: red;
@@ -156,7 +148,6 @@ const ButtonWrapper = styled.div`
 `;
 
 const ButtonLoginWrapper = styled.button`
-  position: relative;
   width: 12rem;
   height: 4rem;
   padding: 0.5rem;
@@ -165,7 +156,6 @@ const ButtonLoginWrapper = styled.button`
   background-color: #263238;
   color: white;
   transition: background-color 500ms;
-  overflow: hidden;
 
   &:hover {
     background-color: #26323894;
@@ -182,48 +172,15 @@ const ButtonLoginWrapper = styled.button`
   }
 `;
 
-const ButtonGoogleContainer = styled.button`
+const ButtonGoogleContainer = styled(ButtonLoginWrapper)`
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  /* position: relative; */
-  width: 12rem;
-  height: 4rem;
-  border: 1px solid #263238;
-  border-radius: 12px;
-  background-color: #263238;
-  color: white;
-  transition: background-color 500ms;
-
-  &:hover {
-    background-color: #26323894;
-    cursor: pointer;
-  }
-
-  &:active {
-    transition: background-color 250ms;
-    background-color: #26323861;
-  }
-
-  @media only screen and (max-height: 680px) {
-    height: 3.5rem;
-  }
-`;
-
-const ButtonGoogleText = styled.span`
-  /* display: inline-block; */
-  /* width: 10rem; */
-  /* height: 2rem; */
-  /* border: 1px solid white; */
-  /* margin-left: 3rem; */
 `;
 
 const GoogleSvg = styled(AiOutlineGoogle)`
-  /* position: absolute; */
-  /* right: 0.5rem; */
   width: 2rem;
   height: 2rem;
-  /* border: 1px solid white; */
 `;
 
 const Line = styled.div`
@@ -264,8 +221,8 @@ const Line = styled.div`
 export {
   Wrapper,
   Container,
-  Heading1,
-  Heading2,
+  Title,
+  Subtitle,
   Highlight,
   Form,
   InputContainer,
@@ -274,11 +231,10 @@ export {
   UserSvg,
   PasswordSvg,
   EyeSvg,
-  Text,
+  Forgot,
   ButtonWrapper,
   ButtonLoginWrapper,
   ButtonGoogleContainer,
-  ButtonGoogleText,
   GoogleSvg,
   Line
 };
