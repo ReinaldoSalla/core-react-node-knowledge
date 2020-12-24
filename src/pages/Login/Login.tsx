@@ -28,7 +28,10 @@ import {
 const Login = (): JSX.Element => {
   const [isFirstFocused, setIsFirstFocused] = useState(false);
   const [isSecondFocused, setIsSecondFocused] = useState(false);
-  const [firstText, setFirstText] = useState('');
+  const [formData, setFormData] = useState({
+    email: '',
+    password: ''
+  });
 
   const onFocusFirst = (): void => {
     setIsFirstFocused(true);
@@ -46,18 +49,21 @@ const Login = (): JSX.Element => {
     setIsSecondFocused(false);
   };
 
-  const onChangeFirst = (event: ChangeEvent<HTMLInputElement>): void => {
-    setFirstText(event.currentTarget.value);
+  const onChange = (event: ChangeEvent<HTMLInputElement>): void => {
+    setFormData({
+      ...formData,
+      [event.currentTarget.id]: event.currentTarget.value
+    });
   };
 
   const firstLabelSpring = useSpring(getLabelSpring(
     isFirstFocused,
-    firstText.length
+    formData.email.length
   ));
 
   const secondLabelSpring = useSpring(getLabelSpring(
     isSecondFocused,
-    firstText.length
+    formData.password.length
   ));
 
   return (
@@ -76,14 +82,18 @@ const Login = (): JSX.Element => {
             <Input
               type='email'
               id='email'
-              onChange={onChangeFirst}
-              value={firstText}
+              onChange={onChange}
+              value={formData.email}
             />
             <Label style={firstLabelSpring} htmlFor='email'>Email</Label>
           </InputContainer>
           <InputContainer onFocus={onFocusSecond} onBlur={onBlurSecond}>
             <PasswordSvg />
-            <Input id='password' />
+            <Input
+              id='password'
+              onChange={onChange}
+              value={formData.password}
+            />
             <Label style={secondLabelSpring} htmlFor='password'>Password</Label>
             <EyeSvg />
           </InputContainer>

@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import { animated } from 'react-spring';
 import { AiOutlineGoogle, AiOutlineUser, AiOutlineEye } from 'react-icons/ai';
-
 import { RiLockPasswordLine } from 'react-icons/ri';
 
 const Wrapper = styled.div`
@@ -94,16 +93,21 @@ const UserSvg = styled(AiOutlineUser)`
 
 const PasswordSvg = styled(RiLockPasswordLine)`
   position: absolute;
-  top: 1rem;
+  top: 50%;
+  left: 1rem;
   width: 1.5rem;
   height: 1.5rem;
+  transform: translateY(-50%);
   color: white;
 `;
 
 const EyeSvg = styled(AiOutlineEye)`
   position: absolute;
+  top: 50%;
+  right: 1rem;
   width: 1.5rem;
   height: 1.5rem;
+  transform: translateY(-50%);
   color: white;
 `;
 
@@ -193,6 +197,7 @@ const Line = styled.div`
   color: white;
   margin-bottom: 2rem;
   overflow: hidden;
+
   &::before, &::after{
     content: "";
     flex: 1 1;
