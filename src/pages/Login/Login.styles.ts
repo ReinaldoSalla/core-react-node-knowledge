@@ -31,6 +31,10 @@ const Heading1 = styled.h1`
   ${(props): string => props.theme.breakpoints.small} {
     /* font-size: 1.5rem; */
   }
+
+  @media only screen and (max-height: 680px) {
+    font-size: 1.5rem;
+  }
 `;
 
 const Heading2 = styled.h2`
@@ -41,6 +45,11 @@ const Heading2 = styled.h2`
   ${(props): string => props.theme.breakpoints.small} {
     /* font-size: 1rem; */
   }
+
+  @media only screen and (max-height: 680px) {
+    font-size: 1rem;
+  }
+
 `;
 
 const Highlight = styled.span`
@@ -140,6 +149,10 @@ const Text = styled.div`
     cursor: pointer;
     color: orange;
   }
+
+  @media only screen and (max-height: 680px) {
+    font-size: 14px;
+  }
 `;
 
 const ButtonWrapper = styled.div`
@@ -169,6 +182,10 @@ const ButtonLoginWrapper = styled.button`
     transition: background-color 250ms;
     background-color: #26323861;
   }
+  
+  @media only screen and (max-height: 680px) {
+    height: 3.5rem;
+  }
 `;
 
 const ButtonGoogleContainer = styled.button`
@@ -192,6 +209,10 @@ const ButtonGoogleContainer = styled.button`
   &:active {
     transition: background-color 250ms;
     background-color: #26323861;
+  }
+
+  @media only screen and (max-height: 680px) {
+    height: 3.5rem;
   }
 `;
 
