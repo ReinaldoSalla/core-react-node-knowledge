@@ -49,9 +49,3 @@ const App = (): JSX.Element => {
 };
 
 export default App;
-
-// import React from 'react';
-// import './App.css';
-// export default () => (
-//   <h1>test</h1>
-// )

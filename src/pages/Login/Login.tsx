@@ -100,14 +100,14 @@ const Login = (): JSX.Element => {
           </InputContainer>
           <Forgot>Forgot password ?</Forgot>
           <ButtonWrapper>
-            <ButtonLoginWrapper>
+            <ButtonLoginWrapper type='button'>
               Continue
             </ButtonLoginWrapper>
           </ButtonWrapper>
         </Form>
         <Line>OR</Line>
         <ButtonWrapper>
-          <ButtonGoogleContainer>
+          <ButtonGoogleContainer type='button'>
             <GoogleSvg />
             Login with Google
           </ButtonGoogleContainer>
