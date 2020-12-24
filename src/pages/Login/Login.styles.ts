@@ -16,7 +16,7 @@ const Container = styled.div`
   border-radius: 1rem;
 
   ${(props) => props.theme.breakpoints.small} {
-    padding: 0 1.5rem;
+    padding: 0;
     margin: calc(${(props): string => props.theme.topbarHeight} + 20px) 0 40px;
     border: none;
   }
@@ -28,7 +28,7 @@ const Heading1 = styled.h1`
   color: white;
 
   ${(props): string => props.theme.breakpoints.small} {
-    /* font-size: 2rem; */
+    font-size: 1.5rem;
   }
 `;
 
@@ -38,7 +38,7 @@ const Heading2 = styled.h2`
   color: white;
 
   ${(props): string => props.theme.breakpoints.small} {
-    /* font-size: 1.5rem; */
+    font-size: 1rem;
   }
 `;
 
@@ -62,6 +62,10 @@ const InputContainer = styled.div`
   flex-direction: column;
   position: relative;
   margin-bottom: 2rem;
+  
+  ${(props): string => props.theme.breakpoints.small} {
+    width: 80vw;
+  }
 `;
 
 const Input = styled.input`
