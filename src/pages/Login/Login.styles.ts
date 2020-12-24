@@ -23,22 +23,23 @@ const Container = styled.div`
 `;
 
 const Heading1 = styled.h1`
+  padding: 0 1rem;
+  margin: 0 1rem 2rem;
   text-align: center;
-  margin: 0 0 2rem 0;
   color: white;
 
   ${(props): string => props.theme.breakpoints.small} {
-    font-size: 1.5rem;
+    /* font-size: 1.5rem; */
   }
 `;
 
 const Heading2 = styled.h2`
+  margin: 0 1rem 2rem;
   text-align: center;
-  margin: 0 0 2rem 0;
   color: white;
 
   ${(props): string => props.theme.breakpoints.small} {
-    font-size: 1rem;
+    /* font-size: 1rem; */
   }
 `;
 
@@ -65,6 +66,7 @@ const InputContainer = styled.div`
   
   ${(props): string => props.theme.breakpoints.small} {
     width: 80vw;
+    margin: 0 2rem 2rem;
   }
 `;
 
