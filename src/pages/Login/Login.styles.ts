@@ -28,10 +28,6 @@ const Heading1 = styled.h1`
   text-align: center;
   color: white;
 
-  ${(props): string => props.theme.breakpoints.small} {
-    /* font-size: 1.5rem; */
-  }
-
   @media only screen and (max-height: 680px) {
     font-size: 1.5rem;
   }
@@ -41,11 +37,7 @@ const Heading2 = styled.h2`
   margin: 0 1rem 2rem;
   text-align: center;
   color: white;
-
-  ${(props): string => props.theme.breakpoints.small} {
-    /* font-size: 1rem; */
-  }
-
+  
   @media only screen and (max-height: 680px) {
     font-size: 1rem;
   }
@@ -182,7 +174,7 @@ const ButtonLoginWrapper = styled.button`
     transition: background-color 250ms;
     background-color: #26323861;
   }
-  
+
   @media only screen and (max-height: 680px) {
     height: 3.5rem;
   }

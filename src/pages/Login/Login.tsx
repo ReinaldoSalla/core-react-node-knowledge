@@ -56,12 +56,14 @@ const Login = (): JSX.Element => {
 
   const firstLabelSpring = useSpring(getLabelSpring(
     isFirstFocused,
-    formData.email.length
+    formData.email.length,
+    '-165%'
   ));
 
   const secondLabelSpring = useSpring(getLabelSpring(
     isSecondFocused,
-    formData.password.length
+    formData.password.length,
+    '-100%'
   ));
 
   return (
