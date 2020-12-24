@@ -16,7 +16,7 @@ const Container = styled.div`
   border-radius: 1rem;
 
   ${(props) => props.theme.breakpoints.small} {
-    padding: 0 3rem;
+    padding: 0 1.5rem;
     margin: calc(${(props): string => props.theme.topbarHeight} + 20px) 0 40px;
     border: none;
   }
@@ -26,12 +26,20 @@ const Heading1 = styled.h1`
   text-align: center;
   margin: 0 0 2rem 0;
   color: white;
+
+  ${(props): string => props.theme.breakpoints.small} {
+    /* font-size: 2rem; */
+  }
 `;
 
 const Heading2 = styled.h2`
   text-align: center;
   margin: 0 0 2rem 0;
   color: white;
+
+  ${(props): string => props.theme.breakpoints.small} {
+    /* font-size: 1.5rem; */
+  }
 `;
 
 const Highlight = styled.span`
@@ -202,6 +210,7 @@ const Line = styled.div`
   color: white;
   margin-bottom: 2rem;
   overflow: hidden;
+  display: flex;
 
   &::before, &::after{
     content: "";
