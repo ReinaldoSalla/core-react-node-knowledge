@@ -59,11 +59,13 @@ const Form = styled.div`
   margin: 0 0 2rem 0;
 `;
 
-const InputContainer = styled.div`
+const InputContainer = styled.fieldset`
   display: flex;
   flex-direction: column;
   position: relative;
   margin-bottom: 2rem;
+  border: none;
+  padding: 0;
   
   ${(props): string => props.theme.breakpoints.small} {
     width: 80vw;
