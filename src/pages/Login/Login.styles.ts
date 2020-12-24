@@ -234,6 +234,16 @@ const Line = styled.div`
     margin-left: 10px;
     margin-right: 10px;
   }
+
+  ${(props): string => props.theme.breakpoints.small} {
+    &::before {
+      margin-left: 30px;
+    }
+
+    &::after {
+      margin-right: 30px;
+    }
+  }
 `;
 
 export {
