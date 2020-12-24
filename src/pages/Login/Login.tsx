@@ -1,5 +1,3 @@
-/* eslint-disable no-multi-assign */
-
 import React, { useState, ChangeEvent } from 'react';
 import { useSpring } from 'react-spring';
 import getLabelSpring from './Login.animations';

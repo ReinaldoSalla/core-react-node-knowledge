@@ -7,14 +7,19 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100%;
 `;
 
 const Container = styled.div`
   padding: 2rem 3rem;
-  margin-top: ${(props): string => props.theme.topbarHeight};
+  margin: calc(${(props): string => props.theme.topbarHeight} + 40px) 0 40px;
   border: 1px solid gray;
   border-radius: 1rem;
+
+  ${(props) => props.theme.breakpoints.small} {
+    padding: 0 3rem;
+    margin: calc(${(props): string => props.theme.topbarHeight} + 20px) 0 40px;
+    border: none;
+  }
 `;
 
 const Heading1 = styled.h1`
