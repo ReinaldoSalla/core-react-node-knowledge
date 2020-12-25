@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 import { animated } from 'react-spring';
 
+const Article = styled.article`
+  border: 1px solid transparent;
+`;
+
 const ContentCoreHeading = styled(animated.h1)`
   font-size: 2em;
   padding: 0.5em 0;
@@ -46,6 +50,7 @@ const ContentCoreHighlight = styled.span`
 `;
 
 export {
+  Article,
   ContentCoreHeading,
   ContentCoreTitle,
   ContentCoreText,

@@ -6,6 +6,7 @@ import React, { useEffect, FunctionComponent } from 'react';
 import { animated, useSpring } from 'react-spring';
 import Prism from 'prismjs';
 import {
+  Article,
   ContentCoreHeading,
   ContentCoreTitle,
   ContentCoreText,
@@ -31,7 +32,7 @@ const ContentCore: FunctionComponent<ContentCoreProps> = ({
   const sectionSpring = useSpring(getSectionSpring());
 
   return (
-    <article>
+    <Article>
       <ContentCoreHeading
         style={titleSpring}
       >
@@ -127,7 +128,7 @@ const ContentCore: FunctionComponent<ContentCoreProps> = ({
           })}
         </animated.section>
       ))}
-    </article>
+    </Article>
   );
 };
 
