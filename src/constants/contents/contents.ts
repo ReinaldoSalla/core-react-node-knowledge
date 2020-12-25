@@ -11,7 +11,7 @@ const contents = [
     title: 'React',
     subcontents: [
       'Simple State Management',
-      'Complex State Management ',
+      'Complex State Management',
       'Side Effects',
       'Intersection Observer',
       'Optimizing images'
@@ -20,7 +20,7 @@ const contents = [
   {
     title: 'Full Stack',
     subcontents: [
-      'Relay/GraphQL',
+      'GraphQL',
       'MongoDB',
       'Passport.js'
     ]

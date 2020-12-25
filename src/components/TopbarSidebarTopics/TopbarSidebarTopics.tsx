@@ -6,6 +6,7 @@ import {
   Topic,
   Text
 } from './TopbarSidebarTopics.styles';
+import { uglify } from '../../utils/textManipulation';
 
 const TopbarSidebarTopicss: FunctionComponent<any> = ({
   style,
@@ -17,7 +18,7 @@ const TopbarSidebarTopicss: FunctionComponent<any> = ({
     <Topics>
       {subcontents.map((subcontent: any) => (
         <Topic key={subcontent}>
-          <Text href='/#'>{subcontent}</Text>
+          <Text to={uglify(subcontent)}>{subcontent}</Text>
         </Topic>
       ))}
     </Topics>

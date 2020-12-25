@@ -18,11 +18,12 @@ import { ModalsState } from '../../shared/context/ModalsContext';
 import texts from '../../constants/texts';
 import getDelimiters from './Content.utils';
 import useIsIntersecting from '../../hooks/useIsIntersecting';
+import { camelCasify } from '../../utils/textManipulation';
 
 const Content = (): JSX.Element => {
   const { hash } = useLocation();
   const { id }: any = useParams();
-  const target: any = texts[id];
+  const target: any = texts[camelCasify(id)];
   const delimiters = useMemo(() => getDelimiters(target), [target]);
 
   const domNodes = [

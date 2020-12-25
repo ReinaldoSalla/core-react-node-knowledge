@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { animated } from 'react-spring';
+import { Link } from 'react-router-dom';
 
 const Wrapper = styled(animated.section)`
   margin: 0 0 0 2rem;
@@ -18,7 +19,7 @@ const Topic = styled.li`
   margin: 8px 0;
 `;
 
-const Text = styled.a`
+const Text = styled(Link)`
   color: white;
   transition: color 250ms;
 
