@@ -18,7 +18,7 @@ import { ModalsState } from '../../shared/context/ModalsContext';
 import texts from '../../constants/texts';
 import getDelimiters from './Content.utils';
 import useIsIntersecting from '../../hooks/useIsIntersecting';
-import { camelCasify } from '../../utils/textManipulation';
+import { camelCasify, prettify } from '../../utils/textManipulation';
 
 const Content = (): JSX.Element => {
   const { hash } = useLocation();
@@ -67,7 +67,7 @@ const Content = (): JSX.Element => {
   useEffect(() => {
     if (hash) {
       const indexFound = delimiters.findIndex((delimiter) => (
-        hash === `#${delimiter.trim()}`
+        prettify(hash.replace('#', '')) === `${delimiter.trim()}`
       ));
       if (indexFound > -1) {
         scrolls[indexFound]();

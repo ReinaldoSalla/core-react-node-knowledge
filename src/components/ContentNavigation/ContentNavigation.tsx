@@ -15,6 +15,7 @@ import {
   getTextAnimation,
   getCircleAnimation
 } from './ContentNavigation.animations';
+import { uglify } from '../../utils/textManipulation';
 
 const ContentNavigation: FunctionComponent<ContentNavigationProps> = ({
   isIntersecting,
@@ -46,7 +47,7 @@ const ContentNavigation: FunctionComponent<ContentNavigationProps> = ({
       {delimiters.map((item: any, index: any) => (
         <div key={item}>
           <ContentNavigationItem
-            to={`${pathname}#${item}`}
+            to={`${pathname}#${uglify(item)}`}
             onClick={scrolls[index]}
           >
             <ContentNavigationCircle style={circleAnimations[index]} />

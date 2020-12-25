@@ -109,7 +109,7 @@ ${filler}
 `;
 
 const finalSubtitle = `
-FinalCode
+Final Code
 `;
 
 const finalParagraph1 = `
