@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from 'react';
-import { Container, Text, Button } from './ContentNull.styles';
+import { Container, Text } from './ContentNull.styles';
 import ContentNullProps from './ContentNull.types';
+import ButtonLink from '../../shared/styles/ButtonLink.styles';
 
 const ContentNull: FunctionComponent<ContentNullProps> = ({
   id
@@ -11,7 +12,7 @@ const ContentNull: FunctionComponent<ContentNullProps> = ({
       {id}
       &ldquo;
     </Text>
-    <Button>Back to Home</Button>
+    <ButtonLink to='/'>Back to Home</ButtonLink>
   </Container>
 );
 

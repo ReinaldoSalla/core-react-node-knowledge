@@ -16,11 +16,11 @@ import {
   EyeSvg,
   Forgot,
   ButtonWrapper,
-  ButtonLoginWrapper,
   ButtonGoogleContainer,
   GoogleSvg,
   Line
 } from './Login.styles';
+import Button from '../../shared/styles/Button.styles';
 
 const Login = (): JSX.Element => {
   const [isFirstFocused, setIsFirstFocused] = useState(false);
@@ -100,9 +100,9 @@ const Login = (): JSX.Element => {
           </InputContainer>
           <Forgot>Forgot password ?</Forgot>
           <ButtonWrapper>
-            <ButtonLoginWrapper type='button'>
+            <Button type='button'>
               Continue
-            </ButtonLoginWrapper>
+            </Button>
           </ButtonWrapper>
         </Form>
         <Line>OR</Line>

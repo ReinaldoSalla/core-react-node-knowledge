@@ -2,6 +2,7 @@ import styled, { css } from 'styled-components';
 import { animated } from 'react-spring';
 import { AiOutlineGoogle, AiOutlineUser, AiOutlineEye } from 'react-icons/ai';
 import { RiLockPasswordLine } from 'react-icons/ri';
+import Button from '../../shared/styles/Button.styles';
 
 const Wrapper = styled.div`
   display: flex;
@@ -147,32 +148,7 @@ const ButtonWrapper = styled.div`
   width: 100%;
 `;
 
-const ButtonLoginWrapper = styled.button`
-  width: 12rem;
-  height: 4rem;
-  padding: 0.5rem;
-  border: 1px solid transparent;
-  border-radius: 12px;
-  background-color: #263238;
-  color: white;
-  transition: background-color 500ms;
-
-  &:hover {
-    background-color: #26323894;
-    cursor: pointer;
-  }
-
-  &:active {
-    transition: background-color 250ms;
-    background-color: #26323861;
-  }
-
-  @media only screen and (max-height: 680px) {
-    height: 3.5rem;
-  }
-`;
-
-const ButtonGoogleContainer = styled(ButtonLoginWrapper)`
+const ButtonGoogleContainer = styled(Button)`
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -233,7 +209,6 @@ export {
   EyeSvg,
   Forgot,
   ButtonWrapper,
-  ButtonLoginWrapper,
   ButtonGoogleContainer,
   GoogleSvg,
   Line

@@ -1,21 +1,6 @@
-import styled from 'styled-components';
+import { css } from 'styled-components';
 
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: calc(100% - 200px);
-  padding-top: 200px;
-  border: 1px solid red;
-`;
-
-const Text = styled.p`
-  text-align: center;
-  font-size: 2rem;
-  color: white;
-`;
-
-const Button = styled.button`
+const genericButton = css`
   width: 12rem;
   height: 4rem;
   padding: 0.5rem;
@@ -40,4 +25,4 @@ const Button = styled.button`
   }
 `;
 
-export { Container, Text, Button };
+export default genericButton;

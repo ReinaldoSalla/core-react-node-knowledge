@@ -49,3 +49,37 @@ const App = (): JSX.Element => {
 };
 
 export default App;
+
+// import React from 'react';
+// import styled from 'styled-components';
+// import { BrowserRouter } from 'react-router-dom';
+// import { GlobalStyle } from './App.styles';
+// import Button from './shared/styles/Button.styles';
+// import ButtonLink from './shared/styles/ButtonLink.styles';
+
+// const LButton = styled.button`
+//   height: 100px;
+//   width: 100px;
+//   border: 1px solid black;
+//   background: white;
+// `;
+
+// const LButtonLink = styled.a`
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   height: 100px;
+//   width: 100px;
+//   border: 1px solid black;
+//   background: white;
+// `;
+
+// export default () => (
+//   <BrowserRouter>
+//     <GlobalStyle />
+//     <LButton>lbutton</LButton>
+//     <LButtonLink>lbuttonlink</LButtonLink>
+//     <Button>button</Button>
+//     <ButtonLink to='/'>lbuttonlink</ButtonLink>
+//   </BrowserRouter>
+// )
