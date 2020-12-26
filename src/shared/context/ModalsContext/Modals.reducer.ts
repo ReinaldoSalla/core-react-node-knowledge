@@ -2,7 +2,8 @@ import {
   navigateToHome,
   navigateToLogin,
   toggleTopbarSidebar,
-  toggleTopbarSearch
+  toggleTopbarSearch,
+  closeModals
 } from './Modals.actions';
 import { State, Action } from './Modals.types';
 
@@ -16,6 +17,8 @@ const reducer = (state: State, action: Action): State => {
     return toggleTopbarSidebar(state);
   case 'TOGGLE_TOPBAR_SEARCH':
     return toggleTopbarSearch(state);
+  case 'CLOSE_MODALS':
+    return closeModals(state);
   default:
     return state;
   }

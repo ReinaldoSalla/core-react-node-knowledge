@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import React, { useContext, FunctionComponent } from 'react';
 import {
   Wrapper,
   Title,
@@ -7,22 +7,32 @@ import {
   Text
 } from './TopbarSidebarTopics.styles';
 import { uglify } from '../../utils/textManipulation';
+import { ModalsDispatch } from '../../shared/context/ModalsContext';
 
 const TopbarSidebarTopicss: FunctionComponent<any> = ({
   style,
   title,
   subcontents
-}): JSX.Element => (
-  <Wrapper style={style}>
-    <Title>{title}</Title>
-    <Topics>
-      {subcontents.map((subcontent: any) => (
-        <Topic key={subcontent}>
-          <Text to={uglify(subcontent)}>{subcontent}</Text>
-        </Topic>
-      ))}
-    </Topics>
-  </Wrapper>
-);
+}): JSX.Element => {
+  const dispatch = useContext(ModalsDispatch);
+
+  return (
+    <Wrapper style={style}>
+      <Title>{title}</Title>
+      <Topics>
+        {subcontents.map((subcontent: any) => (
+          <Topic key={subcontent}>
+            <Text
+              onClick={() => dispatch({ type: 'CLOSE_MODALS' })}
+              to={uglify(subcontent)}
+            >
+              {subcontent}
+            </Text>
+          </Topic>
+        ))}
+      </Topics>
+    </Wrapper>
+  );
+};
 
 export default TopbarSidebarTopicss;
