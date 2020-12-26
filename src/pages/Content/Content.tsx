@@ -20,19 +20,20 @@ import getDelimiters from './Content.utils';
 import useIsIntersecting from '../../hooks/useIsIntersecting';
 import { camelCasify, prettify } from '../../utils/textManipulation';
 
-const Content = (): JSX.Element => {
+const Content = (): JSX.Element | null => {
   const { hash } = useLocation();
   const { id }: any = useParams();
   const target: any = texts[camelCasify(id)];
+
   const delimiters = useMemo(() => getDelimiters(target), [target]);
 
   const domNodes = [
-    useRef<HTMLElement>(null),
-    useRef<HTMLElement>(null),
-    useRef<HTMLElement>(null),
-    useRef<HTMLElement>(null),
-    useRef<HTMLElement>(null),
-    useRef<HTMLElement>(null)
+    useRef<HTMLElement | null>(null),
+    useRef<HTMLElement | null>(null),
+    useRef<HTMLElement | null>(null),
+    useRef<HTMLElement | null>(null),
+    useRef<HTMLElement | null>(null),
+    useRef<HTMLElement | null>(null)
   ];
 
   const scrolls = [
@@ -65,7 +66,7 @@ const Content = (): JSX.Element => {
   // }, [hash, delimiters]);
 
   useEffect(() => {
-    if (hash) {
+    if (hash && delimiters) {
       const indexFound = delimiters.findIndex((delimiter) => (
         prettify(hash.replace('#', '')) === `${delimiter.trim()}`
       ));
@@ -75,6 +76,10 @@ const Content = (): JSX.Element => {
     }
     // eslint-disable-next-line
   }, [hash, delimiters]);
+
+  if (!target) {
+    return null;
+  }
 
   return (
     <main>

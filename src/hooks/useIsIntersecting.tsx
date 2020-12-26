@@ -24,7 +24,7 @@ const useIsIntersecting = (
 
     const observer = getObserver();
     const localDomNode = domNode.current;
-    if (observer !== null) {
+    if (observer && localDomNode) {
       observer.observe(localDomNode);
       return (): void => {
         observer.unobserve(localDomNode);
