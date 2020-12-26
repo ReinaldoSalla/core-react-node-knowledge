@@ -23,7 +23,7 @@ const TopbarSidebarTopicss: FunctionComponent<any> = ({
         {subcontents.map((subcontent: any) => (
           <Topic key={subcontent}>
             <Text
-              onClick={() => dispatch({ type: 'CLOSE_MODALS' })}
+              onClick={(): void => dispatch({ type: 'CLOSE_MODALS' })}
               to={uglify(subcontent)}
             >
               {subcontent}

@@ -12,6 +12,7 @@ import {
 } from './Content.styles';
 import ContentCore from '../../components/ContentCore';
 import ContentNavigation from '../../components/ContentNavigation';
+import ContentNull from '../../components/ContentNull';
 import scrollToElement from '../../utils/scrollToElement';
 import getOpacitySpring from '../../shared/animations';
 import { ModalsState } from '../../shared/context/ModalsContext';
@@ -78,7 +79,7 @@ const Content = (): JSX.Element | null => {
   }, [hash, delimiters]);
 
   if (!target) {
-    return null;
+    return <ContentNull id={id} />;
   }
 
   return (
