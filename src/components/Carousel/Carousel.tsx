@@ -1,4 +1,6 @@
-import React, { useReducer, useEffect, FunctionComponent } from 'react';
+import React, {
+  useReducer, useEffect, useRef, FunctionComponent
+} from 'react';
 import { useTransition } from 'react-spring';
 import CarouselWrapper from './Carousel.styles';
 import components from './Carousel.mapper';
@@ -9,6 +11,7 @@ import { CarouselProps } from './Carousel.types';
 import CONSTANTS from './Carousel.constants';
 import CarouselInput from '../CarouselInput';
 import useDocumentVisibility from '../../hooks/useDocumentVisibility';
+import Background from '../Background';
 
 const Carousel: FunctionComponent<CarouselProps> = ({
   scrolls
@@ -19,6 +22,7 @@ const Carousel: FunctionComponent<CarouselProps> = ({
     order: ['leave', 'enter', 'update']
   } as any);
   const isDocumentVisible: boolean = useDocumentVisibility();
+  const videoDomNode = useRef<any>(null);
 
   const handleFirstClick = (): void => {
     dispatch({ type: CONSTANTS.MOVE_TO_FIRST_ITEM });
@@ -50,6 +54,7 @@ const Carousel: FunctionComponent<CarouselProps> = ({
 
   return (
     <>
+      <Background videoDomNode={videoDomNode} />
       <CarouselWrapper>
         {transitions.map(({ item, props, key }, index) => {
           const Component = components[item];

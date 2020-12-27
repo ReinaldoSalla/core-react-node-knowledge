@@ -15,11 +15,11 @@ const reducer = (
   case CONSTANTS.MOVE_TO_NEXT_ITEM:
     return moveToNextItem(state);
   case CONSTANTS.MOVE_TO_FIRST_ITEM:
-    return moveToFirstItem();
+    return moveToFirstItem(state);
   case CONSTANTS.MOVE_TO_SECOND_ITEM:
-    return moveToSecondItem();
+    return moveToSecondItem(state);
   case CONSTANTS.MOVE_TO_THIRD_ITEM:
-    return moveToThirdItem();
+    return moveToThirdItem(state);
   default:
     return state;
   }
