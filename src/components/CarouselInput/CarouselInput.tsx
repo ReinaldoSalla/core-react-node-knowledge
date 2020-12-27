@@ -7,6 +7,9 @@ import {
   CarouselInputText,
   CarouselInputInner,
   CarouselInputTimer,
+  // PlaySvg,
+  // PauseContainer,
+  // PauseSvg,
   CarouselInputRow
 } from './CarouselInput.styles';
 import {
@@ -21,7 +24,8 @@ const CarouselInput: FunctionComponent<CarouselInputProps> = ({
   index,
   handleFirstClick,
   handleSecondClick,
-  handleThirdClick
+  handleThirdClick,
+  handleToggleMotion
 }): JSX.Element => {
   const {
     width,
@@ -62,14 +66,35 @@ const CarouselInput: FunctionComponent<CarouselInputProps> = ({
           <CarouselInputInner style={thirdInnerAnimation} />
         </CarouselInputButton>
       </CarouselInputArea>
-      <CarouselInputTimer>
+      <CarouselInputTimer onClick={handleToggleMotion}>
+        {/* {isMotionEnabled ? (
+          <>
+            <PauseContainer>
+              <PauseSvg />
+            </PauseContainer>
+            <CarouselInputRow
+              style={{
+                width: width.interpolate((currWidth: any) => (
+                  currWidth < CarouselTimerOffset
+                    ? 0
+                    : `${currWidth}%`)),
+                opacity: opacity.interpolate((currOpacity: any) => (
+                  currOpacity < CarouselTimerOffset / 100
+                    ? 0
+                    : currOpacity - CarouselTimerOffset / 100))
+              }}
+            />
+          </>
+        ) : (
+            <PlaySvg />
+        )} */}
         <CarouselInputRow
           style={{
-            width: width.interpolate((currWidth: any) => (
+            width: width.interpolate((currWidth: number) => (
               currWidth < CarouselTimerOffset
                 ? 0
                 : `${currWidth}%`)),
-            opacity: opacity.interpolate((currOpacity: any) => (
+            opacity: opacity.interpolate((currOpacity: number) => (
               currOpacity < CarouselTimerOffset / 100
                 ? 0
                 : currOpacity - CarouselTimerOffset / 100))

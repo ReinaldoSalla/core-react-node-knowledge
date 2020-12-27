@@ -1,5 +1,5 @@
 import React, {
-  useReducer, useEffect, useRef, FunctionComponent
+  useReducer, useEffect, useRef, useContext, FunctionComponent
 } from 'react';
 import { useTransition } from 'react-spring';
 import CarouselWrapper from './Carousel.styles';
@@ -12,6 +12,7 @@ import CONSTANTS from './Carousel.constants';
 import CarouselInput from '../CarouselInput';
 import useDocumentVisibility from '../../hooks/useDocumentVisibility';
 import Background from '../Background';
+import { ModalsState } from '../../shared/context/ModalsContext';
 
 const Carousel: FunctionComponent<CarouselProps> = ({
   scrolls
@@ -23,6 +24,7 @@ const Carousel: FunctionComponent<CarouselProps> = ({
   } as any);
   const isDocumentVisible: boolean = useDocumentVisibility();
   const videoDomNode = useRef<any>(null);
+  const { isTopbarSidebarVisible } = useContext(ModalsState);
 
   const handleFirstClick = (): void => {
     dispatch({ type: CONSTANTS.MOVE_TO_FIRST_ITEM });
@@ -36,12 +38,15 @@ const Carousel: FunctionComponent<CarouselProps> = ({
     dispatch({ type: CONSTANTS.MOVE_TO_THIRD_ITEM });
   };
 
+  const handleToggleMotion = (): void => {
+    dispatch({ type: CONSTANTS.TOGGLE_MOTION });
+  };
+
   useEffect(() => {
     const handleNextItem = (): void => {
       dispatch({ type: CONSTANTS.MOVE_TO_NEXT_ITEM });
     };
-
-    if (isDocumentVisible) {
+    if (isDocumentVisible && !isTopbarSidebarVisible) {
       const intervalId = setInterval(() => {
         handleNextItem();
       }, CONSTANTS.DURATION);
@@ -68,10 +73,12 @@ const Carousel: FunctionComponent<CarouselProps> = ({
           );
         })}
         <CarouselInput
+          index={state.index}
+          isMotionEnabled={state.isMotionEnabled}
           handleFirstClick={handleFirstClick}
           handleSecondClick={handleSecondClick}
           handleThirdClick={handleThirdClick}
-          index={state.index}
+          handleToggleMotion={handleToggleMotion}
         />
       </CarouselWrapper>
     </>

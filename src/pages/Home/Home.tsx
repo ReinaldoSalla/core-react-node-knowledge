@@ -11,7 +11,6 @@ import Container from './Home.styles';
 import Carousel from '../../components/Carousel';
 import Categories from '../../components/Categories';
 import scrollToElement from '../../utils/scrollToElement';
-// import Background from '../../components/Background';
 import getOpacitySpring from '../../shared/animations';
 import { ModalsState } from '../../shared/context/ModalsContext';
 
@@ -67,7 +66,6 @@ const Home: FunctionComponent = (): JSX.Element => {
         $isTopbarSidebarVisible={isTopbarSidebarVisible}
         $fixedHeight
       >
-        {/* <Background videoDomNode={null}/> */}
         <Carousel scrolls={scrolls} />
       </Container>
       <Container

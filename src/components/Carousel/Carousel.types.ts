@@ -7,13 +7,16 @@ interface MoveToNextItem {
 interface MoveToFirstItem {
 	type: typeof CONSTANTS.MOVE_TO_FIRST_ITEM;
 }
-
 interface MoveToSecondItem {
 	type: typeof CONSTANTS.MOVE_TO_SECOND_ITEM;
 }
 
 interface MoveToThirdItem {
 	type: typeof CONSTANTS.MOVE_TO_THIRD_ITEM;
+}
+
+interface ToggleMotion {
+	type: typeof CONSTANTS.TOGGLE_MOTION;
 }
 
 export interface CarouselProps {
@@ -25,6 +28,7 @@ export type CarouselAction =
 | MoveToFirstItem
 | MoveToSecondItem
 | MoveToThirdItem
+| ToggleMotion
 
 export interface CarouselState {
 	index: number;
