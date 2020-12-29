@@ -7,9 +7,9 @@ import {
   CarouselInputText,
   CarouselInputInner,
   CarouselInputTimer,
-  // PlaySvg,
-  // PauseContainer,
-  // PauseSvg,
+  PlaySvg,
+  PauseContainer,
+  PauseSvg,
   CarouselInputRow
 } from './CarouselInput.styles';
 import {
@@ -25,7 +25,8 @@ const CarouselInput: FunctionComponent<CarouselInputProps> = ({
   handleFirstClick,
   handleSecondClick,
   handleThirdClick,
-  handleToggleMotion
+  handleToggleMotion,
+  isMotionEnabled
 }): JSX.Element => {
   const {
     width,
@@ -67,7 +68,7 @@ const CarouselInput: FunctionComponent<CarouselInputProps> = ({
         </CarouselInputButton>
       </CarouselInputArea>
       <CarouselInputTimer onClick={handleToggleMotion}>
-        {/* {isMotionEnabled ? (
+        {isMotionEnabled ? (
           <>
             <PauseContainer>
               <PauseSvg />
@@ -86,9 +87,9 @@ const CarouselInput: FunctionComponent<CarouselInputProps> = ({
             />
           </>
         ) : (
-            <PlaySvg />
-        )} */}
-        <CarouselInputRow
+          <PlaySvg />
+        )}
+        {/* <CarouselInputRow
           style={{
             width: width.interpolate((currWidth: number) => (
               currWidth < CarouselTimerOffset
@@ -99,7 +100,7 @@ const CarouselInput: FunctionComponent<CarouselInputProps> = ({
                 ? 0
                 : currOpacity - CarouselTimerOffset / 100))
           }}
-        />
+        /> */}
       </CarouselInputTimer>
     </CarouselInputWrapper>
   );

@@ -49,3 +49,44 @@ const App = (): JSX.Element => {
 };
 
 export default App;
+
+// import React from 'react';
+// import styled from 'styled-components';
+
+// const Container = styled.div`
+//   position: relative;
+//   height: 100px;
+//   /* border: 1px solid black; */
+// `;
+
+// const Line = styled.div`
+//   position: relative;
+//   z-index: -1;
+//   /* z-index: 1; */
+//   top: 10px;
+//   width: 100%;
+//   border-top: 1px solid black;
+//   /* opacity: 0.5; */
+//   background: rgba(0, 0, 0, 0.1);
+// `;
+
+// const Box = styled.div`
+//   height: 50px;
+//   width: 50px;
+//   position: absolute;
+//   top: 0px;
+//   left: 0px;
+//   border: 1px solid black;
+//   /* background: transparent; */
+//   background:white;
+//   filter: alpha(opacity=1);
+// `;
+
+// const App = () => (
+//   <Container>
+//     <Line />
+//     <Box />
+//   </Container>
+// );
+
+// export default App;

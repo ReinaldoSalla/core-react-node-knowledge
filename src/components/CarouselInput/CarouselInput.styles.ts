@@ -1,16 +1,19 @@
 import styled from 'styled-components';
 import { animated } from 'react-spring';
-// import { AiOutlinePlayCircle } from 'react-icons/ai';
-// import { FaBars } from 'react-icons/fa';
+import { AiOutlinePlayCircle } from 'react-icons/ai';
+import { FaBars } from 'react-icons/fa';
 
 const CarouselInputWrapper = styled.div`
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 80%;
+  flex-direction: column-reverse;
+  justify-content: space-between;
   position: absolute;
   bottom: 10px;
   z-index: 0;
+  width: 80%;
+  height: 105px;
+  margin-bottom: 8px;
+  /* border: 1px solid red; */
 `;
 
 const CarouselInputArea = styled.div`
@@ -78,28 +81,28 @@ const CarouselInputTimer = styled.div`
   }
 `;
 
-// const PauseContainer = styled.button`
-//   position: absolute;
-//   z-index: 1;
-//   border: 1px solid blue;
-// `;
+const PauseContainer = styled.div`
+  position: absolute;
+  /* border: 1px solid blue; */
+`;
 
-// const PauseSvg = styled(FaBars)`
-//   width: 2rem;
-//   width: 2rem;
-//   color: white;
-// `;
+const PauseSvg = styled(FaBars)`
+  width: 2rem;
+  height: 2rem;
+  color: white;
+`;
 
-// const PlaySvg = styled(AiOutlinePlayCircle)`
-//   width: 2rem;
-//   height: 2rem;
-//   color: white;
-//   /* transform: translateY(-30%); */
-// `;
+const PlaySvg = styled(AiOutlinePlayCircle)`
+  width: 2.5rem;
+  height: 2.5rem;
+  color: white;
+  /* transform: translateY(-30%); */
+`;
 
 const CarouselInputRow = styled(animated.div)`
   position: relative;
-  z-index: 10;
+  top: 12.5%;
+  z-index: -1;
   height: 10px;
   border-top: 2px solid white;
 `;
@@ -111,8 +114,8 @@ export {
   CarouselInputText,
   CarouselInputInner,
   CarouselInputTimer,
-  // PauseContainer,
-  // PauseSvg,
-  // PlaySvg,
+  PauseContainer,
+  PauseSvg,
+  PlaySvg,
   CarouselInputRow
 };
