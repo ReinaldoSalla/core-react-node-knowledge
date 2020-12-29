@@ -15,25 +15,24 @@ import getOpacitySpring from '../../shared/animations';
 import { ModalsState } from '../../shared/context/ModalsContext';
 
 const Home: FunctionComponent = (): JSX.Element => {
-  const domNodes = [
-    useRef<HTMLElement>(null),
-    useRef<HTMLElement>(null),
-    useRef<HTMLElement>(null)
-  ];
-
   const { isTopbarSidebarVisible } = useContext(ModalsState);
 
+  const javascriptNode = useRef<HTMLElement>(null);
+  const reactNode = useRef<HTMLElement>(null);
+  const fullstackNode = useRef<HTMLElement>(null);
+  const domNodes = [javascriptNode, reactNode, fullstackNode];
+
   const scrollToJavascript = useCallback(() => {
-    scrollToElement(domNodes[0], -100);
-  }, [domNodes]);
+    scrollToElement(javascriptNode, -100);
+  }, [javascriptNode]);
 
   const scrollToReact = useCallback(() => {
-    scrollToElement(domNodes[1], -100);
-  }, [domNodes]);
+    scrollToElement(reactNode, -100);
+  }, [reactNode]);
 
   const scrollToNode = useCallback(() => {
-    scrollToElement(domNodes[2], -100);
-  }, [domNodes]);
+    scrollToElement(fullstackNode, -100);
+  }, [fullstackNode]);
 
   const scrolls = [scrollToJavascript, scrollToReact, scrollToNode];
 
@@ -47,22 +46,13 @@ const Home: FunctionComponent = (): JSX.Element => {
   //   };
   // }, [hash]);
 
-  const componentDidMount = useRef(false);
-
   useEffect(() => {
-    componentDidMount.current = true;
-  }, []);
-
-  useEffect(() => {
-    if (componentDidMount.current) {
-      componentDidMount.current = false;
-      if (hash === '#javascript') {
-        scrollToJavascript();
-      } else if (hash === '#react') {
-        scrollToReact();
-      } else if (hash === '#node') {
-        scrollToNode();
-      }
+    if (hash === '#javascript') {
+      scrollToJavascript();
+    } else if (hash === '#react') {
+      scrollToReact();
+    } else if (hash === '#node') {
+      scrollToNode();
     }
   }, [hash, scrollToJavascript, scrollToReact, scrollToNode]);
 
