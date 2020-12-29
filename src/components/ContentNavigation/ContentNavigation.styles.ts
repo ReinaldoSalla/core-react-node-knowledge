@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import { animated } from 'react-spring';
 
 const ContentNavigationWrapper = styled.aside`
@@ -15,7 +15,7 @@ const ContentNavigationWrapper = styled.aside`
   }
 `;
 
-const ContentNavigationItem = styled(Link)`
+const ContentNavigationItem = styled.span`
   position: relative;
   bottom: 1px;
   display: flex;

@@ -1,11 +1,10 @@
 import React, {
-  useEffect,
   useRef,
   useContext,
   useMemo
 } from 'react';
 import { useSpring } from 'react-spring';
-import { useLocation, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import {
   ContentWrapper,
   ContentContainer
@@ -19,10 +18,10 @@ import { ModalsState } from '../../shared/context/ModalsContext';
 import texts from '../../constants/texts';
 import getDelimiters from './Content.utils';
 import useIsIntersecting from '../../hooks/useIsIntersecting';
-import { camelCasify, prettify } from '../../utils/textManipulation';
+import { camelCasify } from '../../utils/textManipulation';
 
 const Content = (): JSX.Element | null => {
-  const { hash } = useLocation();
+  // const { hash } = useLocation();
   const { id }: any = useParams();
   const target: any = texts[camelCasify(id)];
 
@@ -66,17 +65,25 @@ const Content = (): JSX.Element | null => {
   //   };
   // }, [hash, delimiters]);
 
-  useEffect(() => {
-    if (hash && delimiters) {
-      const indexFound = delimiters.findIndex((delimiter) => (
-        prettify(hash.replace('#', '')) === `${delimiter.trim()}`
-      ));
-      if (indexFound > -1) {
-        scrolls[indexFound]();
-      }
-    }
-    // eslint-disable-next-line
-  }, [hash, delimiters]);
+  // const componentDidMount = useRef(false);
+
+  // useEffect(() => {
+  //   componentDidMount.current = true;
+  // }, []);
+
+  // useEffect(() => {
+  //   if (componentDidMount.current) {
+  //     componentDidMount.current = false;
+  //     if (hash && delimiters) {
+  //       const indexFound = delimiters.findIndex((delimiter) => (
+  //         prettify(hash.replace('#', '')) === `${delimiter.trim()}`
+  //       ));
+  //       if (indexFound > -1) {
+  //         scrolls[indexFound]();
+  //       }
+  //     }
+  //   }
+  // }, [hash, delimiters, scrolls]);
 
   if (!target) {
     return <ContentNull id={id} />;

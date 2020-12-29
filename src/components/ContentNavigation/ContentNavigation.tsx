@@ -2,7 +2,7 @@ import React, {
   FunctionComponent
 } from 'react';
 import { useSpring } from 'react-spring';
-import { useLocation } from 'react-router-dom';
+// import { useLocation } from 'react-router-dom';
 import {
   ContentNavigationWrapper,
   ContentNavigationItem,
@@ -15,14 +15,14 @@ import {
   getTextAnimation,
   getCircleAnimation
 } from './ContentNavigation.animations';
-import { uglify } from '../../utils/textManipulation';
+// import { uglify } from '../../utils/textManipulation';
 
 const ContentNavigation: FunctionComponent<ContentNavigationProps> = ({
   isIntersecting,
   scrolls,
   delimiters
 }): JSX.Element => {
-  const { pathname } = useLocation();
+  // const { pathname } = useLocation();
 
   const circleAnimations = [
     useSpring(getCircleAnimation(isIntersecting[0])),
@@ -44,10 +44,10 @@ const ContentNavigation: FunctionComponent<ContentNavigationProps> = ({
 
   return (
     <ContentNavigationWrapper>
-      {delimiters.map((item: any, index: any) => (
+      {delimiters.map((item: any, index: number) => (
         <div key={item}>
           <ContentNavigationItem
-            to={`${pathname}#${uglify(item)}`}
+            // to={`${pathname}#${uglify(item)}`}
             onClick={scrolls[index]}
           >
             <ContentNavigationCircle style={circleAnimations[index]} />
