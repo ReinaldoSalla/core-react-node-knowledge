@@ -61,14 +61,14 @@ const Carousel: FunctionComponent<CarouselProps> = ({
     <>
       <Background videoDomNode={videoDomNode} />
       <CarouselWrapper>
-        {transitions.map(({ item, props, key }, index) => {
+        {transitions.map(({ item, props, key }) => {
           const Component = components[item];
           return (
             <Component
               key={key}
               style={props}
               scrolls={scrolls}
-              index={index}
+              index={item}
             />
           );
         })}

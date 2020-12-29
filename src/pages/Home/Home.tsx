@@ -47,15 +47,24 @@ const Home: FunctionComponent = (): JSX.Element => {
   //   };
   // }, [hash]);
 
+  const componentDidMount = useRef(false);
+
   useEffect(() => {
-    if (hash === '#javascript') {
-      scrollToJavascript();
-    } else if (hash === '#react') {
-      scrollToReact();
-    } else if (hash === '#node') {
-      scrollToNode();
+    componentDidMount.current = true;
+  }, []);
+
+  useEffect(() => {
+    if (componentDidMount.current) {
+      componentDidMount.current = false;
+      if (hash === '#javascript') {
+        scrollToJavascript();
+      } else if (hash === '#react') {
+        scrollToReact();
+      } else if (hash === '#node') {
+        scrollToNode();
+      }
     }
-  }, [hash, scrollToJavascript, scrollToNode, scrollToReact]);
+  }, [hash, scrollToJavascript, scrollToReact, scrollToNode]);
 
   const spring = useSpring(getOpacitySpring(isTopbarSidebarVisible));
 
