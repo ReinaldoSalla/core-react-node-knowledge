@@ -15,8 +15,10 @@ const Background: FunctionComponent<BackgroundProps> = ({
   } = useContext(ModalsState);
 
   useEffect(() => {
-    // videoDomNode.current.pause();
-  });
+    if (window.matchMedia('(prefers-reduced-motion)').matches) {
+      videoDomNode.current.pause();
+    }
+  }, [videoDomNode]);
 
   return (
     <Video
@@ -35,12 +37,3 @@ const Background: FunctionComponent<BackgroundProps> = ({
 };
 
 export default Background;
-
-/*
-const video = document.getElementById('background-video')
-
-if (window.matchMedia('(prefers-reduced-motion)').matches) {
- video.removeAttribute('autoplay')
- video.pause()
-}
-*/
