@@ -7,7 +7,7 @@ const ContentSuspense = (): JSX.Element => {
   useEffect(() => {
     const timeoutId = setTimeout(() => {
       setIsTimeoutFinished(true);
-    }, 250);
+    }, 500);
     return (): void => {
       clearTimeout(timeoutId);
     };
