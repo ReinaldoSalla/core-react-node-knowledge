@@ -5,14 +5,18 @@ import useTabOutline from './hooks/useTabOutline';
 import { GlobalStyle, globalTheme } from './App.styles';
 import ScrollToTop from './utils/ScrollToTop';
 import Topbar from './components/Topbar';
-import Home from './pages/Home';
-import Login from './pages/Login';
-import About from './pages/About';
 import Footer from './components/Footer';
 import ContentSuspense from './components/ContentSuspense';
 import { ModalsProvider } from './shared/context/ModalsContext';
 import './App.css';
 
+// import Home from './pages/Home';
+// import Login from './pages/Login';
+// import About from './pages/About';
+
+const Home = lazy(() => import('./pages/Home'));
+const Login = lazy(() => import('./pages/Login'));
+const About = lazy(() => import('./pages/About'));
 const Content = lazy(() => import('./pages/Content'));
 
 const App = (): JSX.Element => {
