@@ -1,11 +1,11 @@
 import React, { useEffect, useContext, useRef } from 'react';
-import Video from './Background.styles';
+import Video from './CarouselBackground.styles';
 import { ModalsState } from '../../shared/context/ModalsContext';
 import webm from '../../assets/videos/tech.1920x1080px.1000kbps.webm';
 import mp4 from '../../assets/videos/tech.1920x1080px.1000kbps.mp4';
 import img from '../../assets/videos/loading.png';
 
-const Background = (): JSX.Element => {
+const CarouselBackground = (): JSX.Element => {
   const {
     isTopbarSidebarVisible,
     isScrollbarVisible
@@ -37,4 +37,4 @@ const Background = (): JSX.Element => {
   );
 };
 
-export default Background;
+export default CarouselBackground;

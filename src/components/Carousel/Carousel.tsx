@@ -1,5 +1,5 @@
 import React, {
-  useReducer, useEffect, useRef, useContext, FunctionComponent
+  useReducer, useEffect, useContext, FunctionComponent
 } from 'react';
 import { useTransition } from 'react-spring';
 import CarouselWrapper from './Carousel.styles';
@@ -23,7 +23,6 @@ const Carousel: FunctionComponent<CarouselProps> = ({
     order: ['leave', 'enter', 'update']
   } as any);
   const isDocumentVisible: boolean = useDocumentVisibility();
-  const videoDomNode = useRef<any>(null);
   const { isTopbarSidebarVisible } = useContext(ModalsState);
 
   const handleFirstClick = (): void => {
@@ -62,7 +61,7 @@ const Carousel: FunctionComponent<CarouselProps> = ({
 
   return (
     <>
-      <Background videoDomNode={videoDomNode} />
+      <Background />
       <CarouselWrapper>
         {transitions.map(({ item, props, key }) => {
           const Component = components[item];
