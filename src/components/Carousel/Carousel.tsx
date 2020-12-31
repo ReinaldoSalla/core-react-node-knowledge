@@ -11,7 +11,7 @@ import { CarouselProps } from './Carousel.types';
 import CONSTANTS from './Carousel.constants';
 import CarouselInput from '../CarouselInput';
 import useDocumentVisibility from '../../hooks/useDocumentVisibility';
-import Background from '../Background';
+import CarouselBackground from '../CarouselBackground';
 import { ModalsState } from '../../shared/context/ModalsContext';
 
 const Carousel: FunctionComponent<CarouselProps> = ({
@@ -61,7 +61,7 @@ const Carousel: FunctionComponent<CarouselProps> = ({
 
   return (
     <>
-      <Background />
+      <CarouselBackground />
       <CarouselWrapper>
         {transitions.map(({ item, props, key }) => {
           const Component = components[item];

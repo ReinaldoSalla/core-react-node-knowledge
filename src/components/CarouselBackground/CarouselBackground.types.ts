@@ -1,5 +1,5 @@
 interface CarouselBackgroundProps {
-  videoDomNode: HTMLVideoElement;
+  videoDomNode: any;
 }
 
 interface VideoProps {
