@@ -43,19 +43,22 @@ const Carousel: FunctionComponent<CarouselProps> = ({
   };
 
   useEffect(() => {
-    const handleNextItem = (): void => {
-      dispatch({ type: CONSTANTS.MOVE_TO_NEXT_ITEM });
-    };
-    if (isDocumentVisible && !isTopbarSidebarVisible) {
-      const intervalId = setInterval(() => {
-        handleNextItem();
-      }, CONSTANTS.DURATION);
-      return (): void => {
-        clearInterval(intervalId);
-      };
-    }
-    return undefined;
-  });
+    // if (isDocumentVisible && !isTopbarSidebarVisible) {
+    //   const intervalId = setInterval(() => {
+    //     dispatch({ type: CONSTANTS.MOVE_TO_NEXT_ITEM });
+    //   }, CONSTANTS.DURATION);
+    //   return (): void => {
+    //     clearInterval(intervalId);
+    //   };
+    // }
+    // return undefined;
+    const intervalId = setInterval(() => {
+      if (isDocumentVisible && !isTopbarSidebarVisible) {
+        dispatch({ type: CONSTANTS.MOVE_TO_NEXT_ITEM });
+      }
+    }, CONSTANTS.DURATION);
+    return (): void => clearInterval(intervalId);
+  }, [isDocumentVisible, isTopbarSidebarVisible]);
 
   return (
     <>

@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import React, { useContext, FunctionComponent } from 'react';
 import { useSpring } from 'react-spring';
 import {
   CarouselInputWrapper,
@@ -7,18 +7,16 @@ import {
   CarouselInputText,
   CarouselInputInner,
   CarouselInputTimer,
-  // PlaySvg,
-  // PauseContainer,
-  // PauseSvg,
   CarouselInputRow
 } from './CarouselInput.styles';
 import {
   CarouselTimerAnimation,
-  CarouselTimerOffset,
+  carouselTimerOffset,
   getTextProps,
   getInnerProps
 } from './CarouselInput.animations';
 import { CarouselInputProps } from './CarouselInput.types';
+import { ModalsState } from '../../shared/context/ModalsContext';
 
 const CarouselInput: FunctionComponent<CarouselInputProps> = ({
   index,
@@ -31,6 +29,7 @@ const CarouselInput: FunctionComponent<CarouselInputProps> = ({
     width,
     opacity
   }: any = useSpring(CarouselTimerAnimation);
+  const { isTopbarSidebarVisible } = useContext(ModalsState);
 
   const firstTextAnimation = useSpring(getTextProps(index, 0));
 
@@ -67,37 +66,17 @@ const CarouselInput: FunctionComponent<CarouselInputProps> = ({
         </CarouselInputButton>
       </CarouselInputArea>
       <CarouselInputTimer onClick={handleToggleMotion}>
-        {/* {isMotionEnabled ? (
-          <>
-            <PauseContainer>
-              <PauseSvg />
-            </PauseContainer>
-            <CarouselInputRow
-              style={{
-                width: width.interpolate((currWidth: any) => (
-                  currWidth < CarouselTimerOffset
-                    ? 0
-                    : `${currWidth}%`)),
-                opacity: opacity.interpolate((currOpacity: any) => (
-                  currOpacity < CarouselTimerOffset / 100
-                    ? 0
-                    : currOpacity - CarouselTimerOffset / 100))
-              }}
-            />
-          </>
-        ) : (
-            <PlaySvg />
-        )} */}
         <CarouselInputRow
           style={{
             width: width.interpolate((currWidth: number) => (
-              currWidth < CarouselTimerOffset
+              currWidth < carouselTimerOffset
                 ? 0
                 : `${currWidth}%`)),
             opacity: opacity.interpolate((currOpacity: number) => (
-              currOpacity < CarouselTimerOffset / 100
+              currOpacity < carouselTimerOffset / 100
                 ? 0
-                : currOpacity - CarouselTimerOffset / 100))
+                : currOpacity - carouselTimerOffset / 100)),
+            display: isTopbarSidebarVisible ? 'none' : 'block'
           }}
         />
       </CarouselInputTimer>

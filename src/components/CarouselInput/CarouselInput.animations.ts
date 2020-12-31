@@ -1,6 +1,6 @@
 import CONSTANTS from '../Carousel/Carousel.constants';
 
-const CarouselTimerOffset = 15;
+const carouselTimerOffset = 15;
 
 const CarouselTimerAnimation = {
   config: { duration: CONSTANTS.DURATION },
@@ -22,7 +22,7 @@ const getInnerProps = (currentIndex: number, targetIndex: number): any => ({
 
 export {
   CarouselTimerAnimation,
-  CarouselTimerOffset,
+  carouselTimerOffset,
   getTextProps,
   getInnerProps
 };
