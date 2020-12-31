@@ -40,7 +40,7 @@
     "arrow-parens": ["error", "always"],
     "eol-last": ["error", "never"],
     "@typescript-eslint/no-explicit-any": "off",
-    "no-plusplus": "off",
+    "@typescript-eslint/no-non-null-assertion": "off",
     "react/jsx-filename-extension": [1, { "extensions": [".tsx"] }],
     "react/jsx-closing-bracket-location": [1, "line-aligned"],
     "react/prop-types": "off",

@@ -13,6 +13,7 @@ import './App.css';
 // import Home from './pages/Home';
 // import Login from './pages/Login';
 // import About from './pages/About';
+// import Content from './pages/Content';
 
 const Home = lazy(() => import('./pages/Home'));
 const Login = lazy(() => import('./pages/Login'));

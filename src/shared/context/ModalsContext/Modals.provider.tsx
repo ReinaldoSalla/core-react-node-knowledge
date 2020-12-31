@@ -5,10 +5,12 @@ import React, {
 } from 'react';
 import reducer from './Modals.reducer';
 import initialState from './Modals.initialState';
-import { State, ModalsProviderProps } from './Modals.types';
+import { State, Action, ModalsProviderProps } from './Modals.types';
+
+type Dispatch = (action: Action) => void;
 
 const ModalsState = createContext<State>(initialState);
-const ModalsDispatch = createContext<any>(null);
+const ModalsDispatch = createContext<Dispatch>(null!);
 
 const ModalsProvider: FunctionComponent<ModalsProviderProps> = ({
   children
