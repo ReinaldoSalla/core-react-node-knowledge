@@ -10,7 +10,7 @@ import {
   CarouselInputRow
 } from './CarouselInput.styles';
 import {
-  CarouselTimerAnimation,
+  carouselTimerAnimation,
   carouselTimerOffset,
   getTextProps,
   getInnerProps
@@ -28,7 +28,7 @@ const CarouselInput: FunctionComponent<CarouselInputProps> = ({
   const {
     width,
     opacity
-  }: any = useSpring(CarouselTimerAnimation);
+  }: any = useSpring(carouselTimerAnimation);
   const { isTopbarSidebarVisible } = useContext(ModalsState);
 
   const firstTextAnimation = useSpring(getTextProps(index, 0));
