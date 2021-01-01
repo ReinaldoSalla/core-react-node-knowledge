@@ -33,7 +33,12 @@ const CarouselInputButton = styled.button`
 
   &:hover {
     cursor: pointer;
-    transform: scale(1.2);
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    &:hover {
+      transform: scale(1.2);
+    }
   }
 
   ${(props): string => props.theme.breakpoints.small} {
