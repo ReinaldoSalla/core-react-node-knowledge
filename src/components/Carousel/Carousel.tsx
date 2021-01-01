@@ -5,7 +5,7 @@ import { useTransition } from 'react-spring';
 import CarouselWrapper from './Carousel.styles';
 import components from './Carousel.mapper';
 import initialState from './Carousel.init';
-import { carouselTransitionProps } from './Carousel.animations';
+import getTransition from './Carousel.animations';
 import reducer from './Carousel.reducer';
 import { CarouselProps } from './Carousel.types';
 import CONSTANTS from './Carousel.constants';
@@ -19,7 +19,7 @@ const Carousel: FunctionComponent<CarouselProps> = ({
 }): JSX.Element => {
   const [state, dispatch] = useReducer(reducer, initialState);
   const transitions = useTransition(state.index, null, {
-    ...carouselTransitionProps,
+    ...getTransition(),
     order: ['leave', 'enter', 'update']
   } as any);
   const isDocumentVisible: boolean = useDocumentVisibility();

@@ -1,7 +1,17 @@
-import { config } from 'react-spring';
-import { SpringUnknownProps } from '../../shared/types';
+const getMotionDisabledTransition = () => ({
+  trail: 1000,
+  from: {
+    transform: 'scale(1)'
+  },
+  enter: {
+    transform: 'scale(1)'
+  },
+  leave: {
+    transform: 'scale(1)'
+  }
+});
 
-const carouselTransitionProps = {
+const getMotionEnabledTransition = () => ({
   config: {
     mass: 5,
     tension: 50,
@@ -21,21 +31,12 @@ const carouselTransitionProps = {
     opacity: 0,
     transform: 'scale(2)'
   }
-};
-
-const getspring = (isTopbarSidebarVisible: boolean): SpringUnknownProps => ({
-  config: config.slow,
-  from: {
-    opacity: isTopbarSidebarVisible ? 0.5 : 1
-  },
-  to: async (next: any): Promise<void> => {
-    await next({
-      opacity: isTopbarSidebarVisible ? 0.5 : 1
-    });
-  }
 });
 
-export {
-  carouselTransitionProps,
-  getspring
-};
+const getTransition = (): any => (
+  window.matchMedia('(prefers-reduced-motion)').matches
+    ? getMotionDisabledTransition()
+    : getMotionEnabledTransition()
+);
+
+export default getTransition;
