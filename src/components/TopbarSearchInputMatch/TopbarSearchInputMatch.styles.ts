@@ -13,12 +13,14 @@ const Text = styled.span`
 
 const MatchLink = styled(Link)`
   ${textCSS}
-  border-bottom: 1px solid white;
-  transition: color 250ms, border-bottom 250ms;
+  padding: 1rem;
+  border: 1px solid white;
+  border-radius: 2rem;
+  transition: color 250ms, border 250ms;
 
   &:hover {
     color: ${(props): string => props.theme.hoverColor};
-    border-bottom: ${(props): string => `1px solid ${props.theme.hoverColor}`};
+    border: ${(props): string => `1px solid ${props.theme.hoverColor}`};
     cursor: pointer;
   }
 `;

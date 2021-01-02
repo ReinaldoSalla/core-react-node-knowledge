@@ -1,4 +1,4 @@
-const getMotionDisabledTransition = () => ({
+const getMotionDisabledTransition = (): any => ({
   trail: 1000,
   from: {
     transform: 'scale(1)'
@@ -11,7 +11,7 @@ const getMotionDisabledTransition = () => ({
   }
 });
 
-const getMotionEnabledTransition = () => ({
+const getMotionEnabledTransition = (): any => ({
   config: {
     mass: 5,
     tension: 50,

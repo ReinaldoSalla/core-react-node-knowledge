@@ -13,7 +13,6 @@ import TopbarSearchInput from '../TopbarSearchInput';
 import TopbarSearchExit from '../TopbarSearchExit';
 import {
   ModalsState
-  // ModalsDispatch
 } from '../../shared/context/ModalsContext';
 
 const components = [TopbarSearchTitle, TopbarSearchInput, TopbarSearchExit];
@@ -29,12 +28,6 @@ const TopbarSearch: FunctionComponent = (): JSX.Element => {
   const timeoutId = useRef<any>(null);
 
   const { isTopbarSearchVisible } = useContext(ModalsState);
-
-  // const dispatch = useContext(ModalsDispatch);
-
-  // const toggleTopbarSearch = (): void => {
-  //   dispatch({ type: 'TOGGLE_TOPBAR_SEARCH' });
-  // };
 
   const spring = useSpring(getSpring(isTopbarSearchVisible, springRef));
 
@@ -58,7 +51,6 @@ const TopbarSearch: FunctionComponent = (): JSX.Element => {
   const onBlur = (): void => {
     timeoutId.current = setTimeout(() => {
       // console.log('flag');
-      // toggleTopbarSearch();
     });
   };
 

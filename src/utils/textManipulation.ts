@@ -1,5 +1,8 @@
+/**
+ * Convert from hifen-case to normal
+ * software-development = Software Development
+ */
 const prettify = (text: string): string => {
-  // Convert e.g. async-await to Async Await
   const words = text.split('-');
   const upperCaseWords = words.map((word: string) => (
     word.replace(
