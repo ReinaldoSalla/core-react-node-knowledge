@@ -18,12 +18,12 @@ import { ModalsState } from '../../shared/context/ModalsContext';
 import texts from '../../constants/texts';
 import getDelimiters from './Content.utils';
 import useIsIntersecting from '../../hooks/useIsIntersecting';
-import { camelCasify } from '../../utils/textManipulation';
+import { hifenToCamel } from '../../utils/textManipulation';
 
 const Content = (): JSX.Element | null => {
   // const { hash } = useLocation();
   const { id }: any = useParams();
-  const target: any = texts[camelCasify(id)];
+  const target: any = texts[hifenToCamel(id)];
 
   const delimiters = useMemo(() => getDelimiters(target), [target]);
 
@@ -76,7 +76,7 @@ const Content = (): JSX.Element | null => {
   //     componentDidMount.current = false;
   //     if (hash && delimiters) {
   //       const indexFound = delimiters.findIndex((delimiter) => (
-  //         prettify(hash.replace('#', '')) === `${delimiter.trim()}`
+  //         hifenToNormal(hash.replace('#', '')) === `${delimiter.trim()}`
   //       ));
   //       if (indexFound > -1) {
   //         scrolls[indexFound]();

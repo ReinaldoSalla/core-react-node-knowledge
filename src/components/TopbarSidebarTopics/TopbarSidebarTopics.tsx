@@ -6,7 +6,7 @@ import {
   Topic,
   Text
 } from './TopbarSidebarTopics.styles';
-import { uglify } from '../../utils/textManipulation';
+import { normalToHifen } from '../../utils/textManipulation';
 import { ModalsDispatch } from '../../shared/context/ModalsContext';
 
 const TopbarSidebarTopicss: FunctionComponent<any> = ({
@@ -24,7 +24,7 @@ const TopbarSidebarTopicss: FunctionComponent<any> = ({
           <Topic key={subcontent}>
             <Text
               onClick={(): void => dispatch({ type: 'CLOSE_MODALS' })}
-              to={uglify(subcontent)}
+              to={normalToHifen(subcontent)}
             >
               {subcontent}
             </Text>

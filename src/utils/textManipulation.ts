@@ -1,25 +1,16 @@
 /**
- * Convert from hifen-case to normal
- * software-development = Software Development
+ * Convert from normal to hifen-case
+ * Software Development = software-development
  */
-const prettify = (text: string): string => {
-  const words = text.split('-');
-  const upperCaseWords = words.map((word: string) => (
-    word.replace(
-      word.charAt(0),
-      word.charAt(0).toUpperCase()
-    )
-  ));
-  return upperCaseWords.join(' ');
-};
-
-const uglify = (text: string): string => (
-  // Convert e.g, Async Await to async-await
+const normalToHifen = (text: string): string => (
   text.split(' ').join('-').toLowerCase()
 );
 
-const hifenCasify = (text: string): string => {
-  // Convert, e.g. simpleStateManagement to simple-state-management
+/**
+ * Convert from camelCase to hifen-case
+ * softwareDevelopment = sofware-development
+ */
+const camelToHifen = (text: string): string => {
   const letters = text.split('');
   const convertedLetters = letters.map((letter: string) => {
     if (letter === letter.toUpperCase()) {
@@ -30,8 +21,26 @@ const hifenCasify = (text: string): string => {
   return convertedLetters.join('');
 };
 
-const camelCasify = (text: string): string => {
-  // Convert, e.g. simple-state-management to simpleStateManagement
+/**
+ * Convert from hifen-case to normal
+ * software-development = Software Development
+ */
+const hifenToNormal = (text: string): string => {
+  const words = text.split('-');
+  const upperCaseWords = words.map((word: string) => (
+    word.replace(
+      word.charAt(0),
+      word.charAt(0).toUpperCase()
+    )
+  ));
+  return upperCaseWords.join(' ');
+};
+
+/**
+ * Convert from hifen-case to camelCase
+ * software-development = softwareDevelopment
+ */
+const hifenToCamel = (text: string): string => {
   const words = text.split('-');
   const convertedLetters = words.map((word, index) => {
     if (index > 0) {
@@ -46,5 +55,5 @@ const camelCasify = (text: string): string => {
 };
 
 export {
-  prettify, uglify, hifenCasify, camelCasify
+  hifenToNormal, normalToHifen, camelToHifen, hifenToCamel
 };

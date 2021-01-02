@@ -4,7 +4,7 @@ import {
 } from '../../assets/icons/javascript.svg';
 import { ReactComponent as ReactSvg } from '../../assets/icons/react.svg';
 import { ReactComponent as ServerSvg } from '../../assets/icons/server.svg';
-import { uglify } from '../../utils/textManipulation';
+import { normalToHifen } from '../../utils/textManipulation';
 
 const injectableContents = [
   'Curated tutorials, emphasizing on ES6+ features',
@@ -44,7 +44,7 @@ const getProcessedSubcontents = (
 ): any => (
   subcontents.map((subcontent: any, index: number) => ({
     title: subcontent,
-    path: uglify(subcontent),
+    path: normalToHifen(subcontent),
     description: injectableSubcontents[injectableIndex].description[index]
   }))
 );
