@@ -1,5 +1,5 @@
 import React, {
-  useReducer, useEffect, useContext, FunctionComponent
+  useReducer, useEffect, useContext, useRef, FunctionComponent
 } from 'react';
 import { useTransition } from 'react-spring';
 import CarouselWrapper from './Carousel.styles';
@@ -14,6 +14,8 @@ import useDocumentVisibility from '../../hooks/useDocumentVisibility';
 import CarouselBackground from '../CarouselBackground';
 import { ModalsState } from '../../shared/context/ModalsContext';
 
+const offset = 1000;
+
 const Carousel: FunctionComponent<CarouselProps> = ({
   scrolls
 }): JSX.Element => {
@@ -25,20 +27,38 @@ const Carousel: FunctionComponent<CarouselProps> = ({
   const isDocumentVisible: boolean = useDocumentVisibility();
   const { isTopbarSidebarVisible } = useContext(ModalsState);
 
+  const timer = useRef(0);
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      timer.current += 1;
+      if (timer.current === 10000 / offset) {
+        // console.log(`timer.current = ${timer.current}`)
+        dispatch({ type: 'MOVE_TO_NEXT_ITEM' });
+        timer.current = 0;
+      }
+    }, offset);
+    return () => clearInterval(intervalId);
+  });
+
+  // Reset the timer when the user comes back from another window
+  useEffect(() => {
+    timer.current = 0;
+  }, [isDocumentVisible]);
+
   const handleFirstClick = (): void => {
     dispatch({ type: CONSTANTS.MOVE_TO_FIRST_ITEM });
+    timer.current = 0;
   };
 
   const handleSecondClick = (): void => {
     dispatch({ type: CONSTANTS.MOVE_TO_SECOND_ITEM });
+    timer.current = 0;
   };
 
   const handleThirdClick = (): void => {
     dispatch({ type: CONSTANTS.MOVE_TO_THIRD_ITEM });
-  };
-
-  const handleToggleMotion = (): void => {
-    dispatch({ type: CONSTANTS.TOGGLE_MOTION });
+    timer.current = 0;
   };
 
   useEffect(() => {
@@ -51,13 +71,19 @@ const Carousel: FunctionComponent<CarouselProps> = ({
     //   };
     // }
     // return undefined;
-    const intervalId = setInterval(() => {
-      if (isDocumentVisible && !isTopbarSidebarVisible) {
-        dispatch({ type: CONSTANTS.MOVE_TO_NEXT_ITEM });
-      }
-    }, CONSTANTS.DURATION);
-    return (): void => clearInterval(intervalId);
+    // const intervalId = setInterval(() => {
+    //   if (isDocumentVisible && !isTopbarSidebarVisible) {
+    //     dispatch({ type: CONSTANTS.MOVE_TO_NEXT_ITEM });
+    //   }
+    // }, CONSTANTS.DURATION);
+    // return (): void => clearInterval(intervalId);
   }, [isDocumentVisible, isTopbarSidebarVisible]);
+
+  // const numRenders = useRef(0);
+
+  useEffect(() => {
+    // console.log(`Carousel re-render #${numRenders.current++}`);
+  });
 
   return (
     <>
@@ -80,7 +106,6 @@ const Carousel: FunctionComponent<CarouselProps> = ({
           handleFirstClick={handleFirstClick}
           handleSecondClick={handleSecondClick}
           handleThirdClick={handleThirdClick}
-          handleToggleMotion={handleToggleMotion}
         />
       </CarouselWrapper>
     </>

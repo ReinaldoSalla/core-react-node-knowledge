@@ -4,7 +4,6 @@ export interface CarouselInputProps {
   handleFirstClick: () => void;
   handleSecondClick: () => void;
   handleThirdClick: () => void;
-  handleToggleMotion: () => void;
 }
 
 export interface CarouselInputWrapperProps {

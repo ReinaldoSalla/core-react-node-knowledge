@@ -22,8 +22,7 @@ const CarouselInput: FunctionComponent<CarouselInputProps> = ({
   index,
   handleFirstClick,
   handleSecondClick,
-  handleThirdClick,
-  handleToggleMotion
+  handleThirdClick
 }): JSX.Element => {
   const {
     width,
@@ -65,7 +64,7 @@ const CarouselInput: FunctionComponent<CarouselInputProps> = ({
           <CarouselInputInner style={thirdInnerAnimation} />
         </CarouselInputButton>
       </CarouselInputArea>
-      <CarouselInputTimer onClick={handleToggleMotion}>
+      <CarouselInputTimer>
         <CarouselInputRow
           style={{
             width: width.interpolate((currWidth: number) => (
