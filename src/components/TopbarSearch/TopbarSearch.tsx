@@ -26,7 +26,6 @@ const indexedComponents = components.map((component, key) => ({
 const TopbarSearch: FunctionComponent = (): JSX.Element => {
   const springRef: any = useRef();
   const transitionsRef: any = useRef();
-  const timeoutId = useRef<any>(null);
 
   const { isTopbarSearchVisible } = useContext(ModalsState);
 
@@ -54,22 +53,8 @@ const TopbarSearch: FunctionComponent = (): JSX.Element => {
     }
   }, [isTopbarSearchVisible, pathname, history]);
 
-  const onFocus = (): void => {
-    clearTimeout(timeoutId.current);
-  };
-
-  const onBlur = (): void => {
-    timeoutId.current = setTimeout(() => {
-      // console.log('flag');
-    });
-  };
-
   return (
-    <SearchWrapper
-      style={spring}
-      onFocus={onFocus}
-      onBlur={onBlur}
-    >
+    <SearchWrapper style={spring}>
       {transitions.map(({ item, key, props }) => (
         <item.component
           style={props}

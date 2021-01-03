@@ -18,6 +18,10 @@ const TopbarHome = (): JSX.Element => {
   const [isHovering, setIsHovering] = useState(false);
   const dispatch = useContext(ModalsDispatch);
 
+  const onFocus = () => {
+    dispatch({ type: 'CLOSE_MODALS' });
+  };
+
   const handleEnter = (): void => {
     setIsHovering(true);
   };
@@ -43,6 +47,7 @@ const TopbarHome = (): JSX.Element => {
       onClick={handleClick}
       to='/login'
       as={Link}
+      onFocus={onFocus}
     >
       <Normalizer>
         <Svg
