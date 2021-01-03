@@ -1,11 +1,12 @@
 import React, {
-  useRef, useContext, FunctionComponent
+  useRef, useContext, useEffect, FunctionComponent
 } from 'react';
 import {
   useSpring,
   useTransition,
   useChain
 } from 'react-spring';
+import { useLocation, useHistory } from 'react-router-dom';
 import { getSpring, getTransitions } from './TopbarSearch.animations';
 import SearchWrapper from './TopbarSearch.styles';
 import TopbarSearchTitle from '../TopbarSearchTitle';
@@ -43,6 +44,15 @@ const TopbarSearch: FunctionComponent = (): JSX.Element => {
       : [transitionsRef, springRef],
     [0, isTopbarSearchVisible ? 0.3 : 0.5]
   );
+
+  const history = useHistory();
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    if (isTopbarSearchVisible && pathname === '/') {
+      history.push(pathname);
+    }
+  }, [isTopbarSearchVisible, pathname, history]);
 
   const onFocus = (): void => {
     clearTimeout(timeoutId.current);

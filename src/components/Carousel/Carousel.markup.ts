@@ -15,11 +15,11 @@ const markup = [
     check: checkGenerator('React')
   },
   {
-    name: 'node',
-    title: titleGenerator('Node'),
+    name: 'full-stack',
+    title: titleGenerator('FullStack'),
     description:
-			'Dynamic backend structures with Node and GraphQl',
-    check: checkGenerator('Node')
+			'Dynamic backend structures with Node.js and GraphQL',
+    check: checkGenerator('Full Stack')
   }
 ];
 

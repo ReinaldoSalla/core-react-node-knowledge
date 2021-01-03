@@ -21,4 +21,8 @@ const targets = {
   specificTargets: getSpecificTargets(contents)
 };
 
-export default targets;
+const getLink = (text: string): string => (
+  text.split(' -')[0].toLowerCase().replace(' ', '-')
+);
+
+export { targets, getLink };

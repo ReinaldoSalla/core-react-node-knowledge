@@ -1,6 +1,6 @@
 import React, { useContext, FunctionComponent } from 'react';
 import { MatchLink, Text } from './TopbarSearchInputMatch.styles';
-import targets from './TopbarSearchInputMatch.utils';
+import { targets, getLink } from './TopbarSearchInputMatch.utils';
 import { ModalsDispatch } from '../../shared/context/ModalsContext';
 
 const TopbarSearchInputMatch: FunctionComponent<any> = ({
@@ -23,7 +23,7 @@ const TopbarSearchInputMatch: FunctionComponent<any> = ({
     return (
       <MatchLink
         onClick={toggleTopbarSearch}
-        to='/rendering'
+        to={`/${getLink(firstMatch)}`}
       >
         {firstMatch}
       </MatchLink>
@@ -40,7 +40,7 @@ const TopbarSearchInputMatch: FunctionComponent<any> = ({
     return (
       <MatchLink
         onClick={toggleTopbarSearch}
-        to='/'
+        to={`/#${getLink(secondMatch)}`}
       >
         {secondMatch}
       </MatchLink>

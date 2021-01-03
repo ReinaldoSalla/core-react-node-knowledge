@@ -51,7 +51,7 @@ const Home: FunctionComponent = (): JSX.Element => {
       scrollToJavascript();
     } else if (hash === '#react') {
       scrollToReact();
-    } else if (hash === '#node') {
+    } else if (hash === '#full-stack') {
       scrollToNode();
     }
   }, [hash, scrollToJavascript, scrollToReact, scrollToNode]);
