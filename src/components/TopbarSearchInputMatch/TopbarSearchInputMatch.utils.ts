@@ -22,7 +22,7 @@ const targets = {
 };
 
 const getLink = (text: string): string => (
-  text.split(' -')[0].toLowerCase().replace(' ', '-')
+  text.split(' -')[0].toLowerCase().split(' ').join('-')
 );
 
 export { targets, getLink };
