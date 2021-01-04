@@ -22,63 +22,26 @@ const Carousel: FunctionComponent<CarouselProps> = ({
     ...getTransition(),
     order: ['leave', 'enter', 'update']
   } as any);
-  // const isDocumentVisible: boolean = useDocumentVisibility();
+  const isDocumentVisible: boolean = useDocumentVisibility();
   const { isTopbarSidebarVisible } = useContext(ModalsState);
 
-  // const timer = useRef(0);
-
-  // useEffect(() => {
-  //   const intervalId = setInterval(() => {
-  //     timer.current += 1;
-  //     if (timer.current === 10000 / offset) {
-  //       // console.log(`timer.current = ${timer.current}`)
-  //       dispatch({ type: 'MOVE_TO_NEXT_ITEM' });
-  //       timer.current = 0;
-  //     }
-  //   }, offset);
-  //   return () => clearInterval(intervalId);
-  // });
-
-  // Reset the timer when the user comes back from another window
-  // useEffect(() => {
-  //   timer.current = 0;
-  // }, [isDocumentVisible]);
-
-  const raf = useRef<any>(null);
-  const start = useRef<any>(null);
-  const timer = useRef<number>(0);
-  const threshold = useRef<number>(1000);
-
-  const isDocumentVisible = useDocumentVisibility();
+  const timer = useRef(0);
 
   useEffect(() => {
-    timer.current = 0;
-    // console.log(timer.current);
-  }, [isDocumentVisible]);
-
-  useEffect(() => {
-    const step = (timestamp: number) => {
-      // console.log(`timer.current inside raf = ${timer.current}`)
-      if (!start.current) {
-        start.current = timestamp;
+    const intervalId = setInterval(() => {
+      if (isDocumentVisible) {
+        timer.current += 1;
       }
-      const elapsed = timestamp - start.current;
-      if (elapsed >= threshold.current) {
-        threshold.current += 1000;
-        timer.current += 1000;
-      }
-      if (timer.current >= 10000) {
+      if (timer.current === 10 && isDocumentVisible) {
         timer.current = 0;
         dispatch({ type: 'MOVE_TO_NEXT_ITEM' });
       }
-      raf.current = requestAnimationFrame(step);
-    };
-    if (isDocumentVisible) {
-      raf.current = requestAnimationFrame(step);
-    } else {
-      cancelAnimationFrame(raf.current);
+    }, 1000);
+    if (!isDocumentVisible) {
+      timer.current = 0;
+      clearInterval(intervalId);
     }
-    return () => cancelAnimationFrame(raf.current);
+    return () => clearInterval(intervalId);
   }, [isDocumentVisible]);
 
   const handleFirstClick = (): void => {
