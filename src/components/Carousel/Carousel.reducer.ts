@@ -2,8 +2,7 @@ import {
   moveToNextItem,
   moveToFirstItem,
   moveToSecondItem,
-  moveToThirdItem,
-  toggleMotion
+  moveToThirdItem
 } from './Carousel.actions';
 import CONSTANTS from './Carousel.constants';
 import { CarouselState, CarouselAction } from './Carousel.types';
@@ -21,8 +20,6 @@ const reducer = (
     return moveToSecondItem(state);
   case CONSTANTS.MOVE_TO_THIRD_ITEM:
     return moveToThirdItem(state);
-  case CONSTANTS.TOGGLE_MOTION:
-    return toggleMotion(state);
   default:
     return state;
   }

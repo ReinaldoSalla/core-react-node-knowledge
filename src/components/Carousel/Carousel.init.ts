@@ -1,6 +1,6 @@
 const initialState = {
   index: 0,
-  isTimerEnabled: true,
+  isTransitionEnabled: true,
   isMotionEnabled: true
 };
 

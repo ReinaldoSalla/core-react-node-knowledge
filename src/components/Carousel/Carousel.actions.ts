@@ -9,37 +9,31 @@ const moveToNextItem = (state: CarouselState): CarouselState => {
   return {
     ...state,
     index: newIndex,
-    isTimerEnabled: true
+    isTransitionEnabled: true
   };
 };
 
 const moveToFirstItem = (state: CarouselState): CarouselState => ({
   ...state,
   index: 0,
-  isTimerEnabled: false
+  isTransitionEnabled: false
 });
 
 const moveToSecondItem = (state: CarouselState): CarouselState => ({
   ...state,
   index: 1,
-  isTimerEnabled: false
+  isTransitionEnabled: false
 });
 
 const moveToThirdItem = (state: CarouselState): CarouselState => ({
   ...state,
   index: 2,
-  isTimerEnabled: false
-});
-
-const toggleMotion = (state: CarouselState): CarouselState => ({
-  ...state,
-  isMotionEnabled: !state.isMotionEnabled
+  isTransitionEnabled: false
 });
 
 export {
   moveToNextItem,
   moveToFirstItem,
   moveToSecondItem,
-  moveToThirdItem,
-  toggleMotion
+  moveToThirdItem
 };

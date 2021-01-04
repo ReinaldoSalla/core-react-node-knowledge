@@ -32,7 +32,7 @@ export type CarouselAction =
 
 export interface CarouselState {
 	index: number;
-	isTimerEnabled: boolean;
+	isTransitionEnabled: boolean;
 	isMotionEnabled: boolean;
 }
 
