@@ -1,6 +1,5 @@
 export interface CarouselInputProps {
   index: number;
-  isMotionEnabled: boolean;
   handleFirstClick: () => void;
   handleSecondClick: () => void;
   handleThirdClick: () => void;

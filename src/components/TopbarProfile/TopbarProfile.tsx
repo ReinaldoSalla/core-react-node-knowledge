@@ -18,7 +18,7 @@ const TopbarHome = (): JSX.Element => {
   const [isHovering, setIsHovering] = useState(false);
   const dispatch = useContext(ModalsDispatch);
 
-  const onFocus = () => {
+  const onFocus = (): void => {
     dispatch({ type: 'CLOSE_MODALS' });
   };
 

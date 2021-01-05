@@ -4,8 +4,8 @@ const carouselTimerOffset = 15;
 
 const carouselTimerAnimation = {
   config: { duration: CONSTANTS.DURATION },
-  from: { width: 0, opacity: 0 },
-  to: { width: 99, opacity: 1 },
+  from: { width: '0%' },
+  to: { width: '100%' },
   reset: true
 };
 

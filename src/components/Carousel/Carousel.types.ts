@@ -32,8 +32,6 @@ export type CarouselAction =
 
 export interface CarouselState {
 	index: number;
-	isTransitionEnabled: boolean;
-	isMotionEnabled: boolean;
 }
 
 export interface WrapperProps {

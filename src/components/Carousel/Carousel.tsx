@@ -1,5 +1,5 @@
 import React, {
-  useReducer, useEffect, useContext, useRef, FunctionComponent
+  useReducer, useEffect, useContext, useRef, FunctionComponent, useMemo
 } from 'react';
 import { useTransition } from 'react-spring';
 import CarouselWrapper from './Carousel.styles';
@@ -39,7 +39,7 @@ const Carousel: FunctionComponent<CarouselProps> = ({
       seconds.current = 0;
       clearInterval(intervalId);
     }
-    return () => clearInterval(intervalId);
+    return (): void => clearInterval(intervalId);
   }, [isDocumentVisible, isTopbarSidebarVisible]);
 
   const handleFirstClick = (): void => {
@@ -57,6 +57,15 @@ const Carousel: FunctionComponent<CarouselProps> = ({
     seconds.current = 0;
   };
 
+  const inputMemo = useMemo(() => (
+    <CarouselInput
+      index={state.index}
+      handleFirstClick={handleFirstClick}
+      handleSecondClick={handleSecondClick}
+      handleThirdClick={handleThirdClick}
+    />
+  ), [state.index]);
+
   return (
     <>
       <CarouselBackground />
@@ -72,13 +81,7 @@ const Carousel: FunctionComponent<CarouselProps> = ({
             />
           );
         })}
-        <CarouselInput
-          index={state.index}
-          isMotionEnabled={state.isMotionEnabled}
-          handleFirstClick={handleFirstClick}
-          handleSecondClick={handleSecondClick}
-          handleThirdClick={handleThirdClick}
-        />
+        {inputMemo}
       </CarouselWrapper>
     </>
   );

@@ -11,12 +11,12 @@ import {
 } from './CarouselInput.styles';
 import {
   carouselTimerAnimation,
-  carouselTimerOffset,
   getTextProps,
   getInnerProps
 } from './CarouselInput.animations';
 import { CarouselInputProps } from './CarouselInput.types';
 import { ModalsState } from '../../shared/context/ModalsContext';
+import useDocumentVisibility from '../../hooks/useDocumentVisibility';
 
 const CarouselInput: FunctionComponent<CarouselInputProps> = ({
   index,
@@ -24,10 +24,10 @@ const CarouselInput: FunctionComponent<CarouselInputProps> = ({
   handleSecondClick,
   handleThirdClick
 }): JSX.Element => {
-  const {
-    width,
-    opacity
-  }: any = useSpring(carouselTimerAnimation);
+  const spring = useSpring(carouselTimerAnimation);
+
+  const isDocumentVisible = useDocumentVisibility();
+
   const { isTopbarSidebarVisible } = useContext(ModalsState);
 
   const firstTextAnimation = useSpring(getTextProps(index, 0));
@@ -67,15 +67,10 @@ const CarouselInput: FunctionComponent<CarouselInputProps> = ({
       <CarouselInputTimer>
         <CarouselInputRow
           style={{
-            width: width.interpolate((currWidth: number) => (
-              currWidth < carouselTimerOffset
-                ? 0
-                : `${currWidth}%`)),
-            opacity: opacity.interpolate((currOpacity: number) => (
-              currOpacity < carouselTimerOffset / 100
-                ? 0
-                : currOpacity - carouselTimerOffset / 100)),
-            display: isTopbarSidebarVisible ? 'none' : 'block'
+            ...spring,
+            display: isTopbarSidebarVisible || !isDocumentVisible
+              ? 'none'
+              : 'block'
           }}
         />
       </CarouselInputTimer>
