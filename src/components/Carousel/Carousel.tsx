@@ -25,63 +25,37 @@ const Carousel: FunctionComponent<CarouselProps> = ({
   const isDocumentVisible: boolean = useDocumentVisibility();
   const { isTopbarSidebarVisible } = useContext(ModalsState);
 
-  const timer = useRef(0);
+  const seconds = useRef(0);
 
   useEffect(() => {
     const intervalId = setInterval(() => {
-      if (isDocumentVisible) {
-        timer.current += 1;
-      }
-      if (timer.current === 10 && isDocumentVisible) {
-        timer.current = 0;
+      seconds.current += 1;
+      if (seconds.current === 10) {
+        seconds.current = 0;
         dispatch({ type: 'MOVE_TO_NEXT_ITEM' });
       }
     }, 1000);
-    if (!isDocumentVisible) {
-      timer.current = 0;
+    if (!isDocumentVisible || isTopbarSidebarVisible) {
+      seconds.current = 0;
       clearInterval(intervalId);
     }
     return () => clearInterval(intervalId);
-  }, [isDocumentVisible]);
+  }, [isDocumentVisible, isTopbarSidebarVisible]);
 
   const handleFirstClick = (): void => {
     dispatch({ type: CONSTANTS.MOVE_TO_FIRST_ITEM });
-    timer.current = 0;
+    seconds.current = 0;
   };
 
   const handleSecondClick = (): void => {
     dispatch({ type: CONSTANTS.MOVE_TO_SECOND_ITEM });
-    timer.current = 0;
+    seconds.current = 0;
   };
 
   const handleThirdClick = (): void => {
     dispatch({ type: CONSTANTS.MOVE_TO_THIRD_ITEM });
-    timer.current = 0;
+    seconds.current = 0;
   };
-
-  useEffect(() => {
-    // if (isDocumentVisible && !isTopbarSidebarVisible) {
-    //   const intervalId = setInterval(() => {
-    //     dispatch({ type: CONSTANTS.MOVE_TO_NEXT_ITEM });
-    //   }, CONSTANTS.DURATION);
-    //   return (): void => {
-    //     clearInterval(intervalId);
-    //   };
-    // }
-    // return undefined;
-    // const intervalId = setInterval(() => {
-    //   if (isDocumentVisible && !isTopbarSidebarVisible) {
-    //     dispatch({ type: CONSTANTS.MOVE_TO_NEXT_ITEM });
-    //   }
-    // }, CONSTANTS.DURATION);
-    // return (): void => clearInterval(intervalId);
-  }, [isDocumentVisible, isTopbarSidebarVisible]);
-
-  // const numRenders = useRef(0);
-
-  useEffect(() => {
-    // console.log(`Carousel re-render #${numRenders.current++}`);
-  });
 
   return (
     <>
