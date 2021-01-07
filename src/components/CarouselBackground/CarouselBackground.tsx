@@ -7,8 +7,6 @@ import fullhdMp4 from '../../assets/videos/tech.1920x1080px.1000kpbs.mp4';
 import hdMp4 from '../../assets/videos/tech.1280x720px.500kpbs.mp4';
 // import img from '../../assets/videos/loading.png';
 
-const width = window.innerWidth;
-
 const CarouselBackground = (): JSX.Element => {
   const {
     isTopbarSidebarVisible,
@@ -35,7 +33,7 @@ const CarouselBackground = (): JSX.Element => {
       isTopbarSidebarVisible={isTopbarSidebarVisible}
       isScrollbarVisible={isScrollbarVisible}
     >
-      {width > 576 ? (
+      {window.innerWidth > 576 ? (
         <>
           <source src={fullhdWebm} type='video/webm' />
           <source src={fullhdMp4} type='video/mp4' />
