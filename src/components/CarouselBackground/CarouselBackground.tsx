@@ -3,7 +3,7 @@ import Video from './CarouselBackground.styles';
 import { ModalsState } from '../../shared/context/ModalsContext';
 import webm from '../../assets/videos/tech.1920x1080px.1000kbps.webm';
 import mp4 from '../../assets/videos/tech.1920x1080px.1000kbps.mp4';
-import img from '../../assets/videos/loading.png';
+// import img from '../../assets/videos/loading.png';
 
 const CarouselBackground = (): JSX.Element => {
   const {
@@ -26,7 +26,7 @@ const CarouselBackground = (): JSX.Element => {
       autoPlay
       muted
       loop
-      poster={img}
+      // poster={img}
       ref={videoDomNode}
       isTopbarSidebarVisible={isTopbarSidebarVisible}
       isScrollbarVisible={isScrollbarVisible}
