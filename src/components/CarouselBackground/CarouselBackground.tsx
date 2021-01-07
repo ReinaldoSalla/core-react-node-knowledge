@@ -1,10 +1,13 @@
 import React, { useEffect, useContext, useRef } from 'react';
 import Video from './CarouselBackground.styles';
 import { ModalsState } from '../../shared/context/ModalsContext';
-import webm from '../../assets/videos/tech.1920x1080px.1000kbps.webm';
-// import mp4 from '../../assets/videos/tech.1920x1080px.1000kbps.mp4';
-import webm720p from '../../assets/videos/tech.1280x720px.500kpbs.webm';
+import fullhdWebm from '../../assets/videos/tech.1920x1080px.1000kbps.webm';
+import hdWebm from '../../assets/videos/tech.1280x720px.500kpbs.webm';
+import fullhdMp4 from '../../assets/videos/tech.1920x1080px.1000kpbs.mp4';
+import hdMp4 from '../../assets/videos/tech.1280x720px.500kpbs.mp4';
 // import img from '../../assets/videos/loading.png';
+
+const width = window.innerWidth;
 
 const CarouselBackground = (): JSX.Element => {
   const {
@@ -32,9 +35,17 @@ const CarouselBackground = (): JSX.Element => {
       isTopbarSidebarVisible={isTopbarSidebarVisible}
       isScrollbarVisible={isScrollbarVisible}
     >
-      <source src={webm720p} type='video/webm' />
-      <source src={webm} type='video/webm' />
-      {/* <source src={mp4} type='video/mp4' /> */}
+      {width > 576 ? (
+        <>
+          <source src={fullhdWebm} type='video/webm' />
+          <source src={fullhdMp4} type='video/mp4' />
+        </>
+      ) : (
+        <>
+          <source src={hdWebm} type='video/webm' />
+          <source src={hdMp4} type='video/mp4' />
+        </>
+      )}
     </Video>
   );
 };
