@@ -57,6 +57,10 @@ const Carousel: FunctionComponent<CarouselProps> = ({
     seconds.current = 0;
   };
 
+  const backgroundMemo = useMemo(() => (
+    <CarouselBackground />
+  ), []);
+
   const inputMemo = useMemo(() => (
     <CarouselInput
       index={state.index}
@@ -68,7 +72,7 @@ const Carousel: FunctionComponent<CarouselProps> = ({
 
   return (
     <>
-      <CarouselBackground />
+      {backgroundMemo}
       <CarouselWrapper>
         {transitions.map(({ item, props, key }) => {
           const Component = components[item];

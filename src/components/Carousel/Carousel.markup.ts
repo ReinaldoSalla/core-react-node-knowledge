@@ -16,10 +16,10 @@ const markup = [
   },
   {
     name: 'full-stack',
-    title: titleGenerator('FullStack'),
+    title: titleGenerator('Full Stack'),
     description:
 			'Dynamic backend structures with Node.js and GraphQL',
-    check: checkGenerator('Full Stack')
+    check: checkGenerator('Node')
   }
 ];
 
