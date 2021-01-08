@@ -1,7 +1,5 @@
 import styled from 'styled-components';
 import { animated } from 'react-spring';
-// import { AiOutlinePlayCircle } from 'react-icons/ai';
-// import { FaBars } from 'react-icons/fa';
 
 const CarouselInputWrapper = styled.div`
   display: flex;
@@ -61,11 +59,10 @@ const CarouselInputText = styled(animated.span)`
 const CarouselInputInner = styled(animated.div)`
   height: 100%;
   position: absolute;
-  left: 0;
-
-  ${(props): string => props.theme.breakpoints.small} {
-    height: 24px;
-  }
+  top: -1px;
+  left: 0px;
+  border: 1px solid transparent;
+  border-radius: 5px; 
 `;
 
 const CarouselInputTimer = styled.div`
@@ -76,37 +73,18 @@ const CarouselInputTimer = styled.div`
   justify-content: center;
   width: 100%;
   height: 20px;
-  /* border: 1px solid red; */
-
-  &:hover {
-    /* cursor: pointer; */
-  }
 `;
-
-// const PauseContainer = styled.button`
-//   position: absolute;
-//   z-index: 1;
-//   border: 1px solid blue;
-// `;
-
-// const PauseSvg = styled(FaBars)`
-//   width: 2rem;
-//   width: 2rem;
-//   color: white;
-// `;
-
-// const PlaySvg = styled(AiOutlinePlayCircle)`
-//   width: 2rem;
-//   height: 2rem;
-//   color: white;
-//   /* transform: translateY(-30%); */
-// `;
 
 const CarouselInputRow = styled(animated.div)`
   position: relative;
   z-index: 10;
   height: 10px;
   border-top: 2px solid white;
+
+
+  @media (prefers-reduced-motion: no-preference) {
+    display: none;
+  }
 `;
 
 export {
@@ -116,8 +94,5 @@ export {
   CarouselInputText,
   CarouselInputInner,
   CarouselInputTimer,
-  // PauseContainer,
-  // PauseSvg,
-  // PlaySvg,
   CarouselInputRow
 };

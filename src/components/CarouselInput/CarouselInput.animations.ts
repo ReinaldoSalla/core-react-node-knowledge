@@ -32,7 +32,7 @@ const getInnerDisabled = (): any => ({
 const getInnerSpring = (currentIndex: number, targetIndex: number): any => ({
   config: { duration: 2000 },
   background: currentIndex === targetIndex ? 'white' : 'rgba(0, 0, 0, 0)',
-  width: currentIndex === targetIndex ? '100%' : '0%'
+  width: currentIndex === targetIndex ? '98%' : '0%'
 });
 
 const getInnerProps = (currentIndex: number, targetIndex: number): any => (
