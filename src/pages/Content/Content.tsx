@@ -5,6 +5,7 @@ import React, {
 } from 'react';
 import { useSpring } from 'react-spring';
 import { useParams } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import {
   ContentWrapper,
   ContentContainer
@@ -65,32 +66,19 @@ const Content = (): JSX.Element | null => {
   //   };
   // }, [hash, delimiters]);
 
-  // const componentDidMount = useRef(false);
-
-  // useEffect(() => {
-  //   componentDidMount.current = true;
-  // }, []);
-
-  // useEffect(() => {
-  //   if (componentDidMount.current) {
-  //     componentDidMount.current = false;
-  //     if (hash && delimiters) {
-  //       const indexFound = delimiters.findIndex((delimiter) => (
-  //         hifenToNormal(hash.replace('#', '')) === `${delimiter.trim()}`
-  //       ));
-  //       if (indexFound > -1) {
-  //         scrolls[indexFound]();
-  //       }
-  //     }
-  //   }
-  // }, [hash, delimiters, scrolls]);
-
   if (!target) {
     return <ContentNull id={id} />;
   }
 
   return (
     <main>
+      <Helmet>
+        <title>{target.title}</title>
+        <meta
+          name='description'
+          content='description for content'
+        />
+      </Helmet>
       <ContentWrapper
         style={spring}
         $isTopbarSidebarVisible={isTopbarSidebarVisible}
