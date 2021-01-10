@@ -1,6 +1,7 @@
 import React, { Suspense, lazy } from 'react';
 import { ThemeProvider } from 'styled-components';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { HelmetProvider } from 'react-helmet-async';
 import useTabOutline from './hooks/useTabOutline';
 import { GlobalStyle, globalTheme } from './App.styles';
 import ScrollToTop from './utils/ScrollToTop';
@@ -29,30 +30,32 @@ const App = (): JSX.Element => {
 
   return (
     <BrowserRouter>
-      <ModalsProvider>
-        <ThemeProvider theme={globalTheme}>
-          <GlobalStyle />
-          <ScrollToTop />
-          <Suspense fallback={<ContentSuspense />}>
-            <Topbar />
-            <Switch>
-              <Route exact path='/'>
-                <Home />
-              </Route>
-              <Route exact path='/login'>
-                <Login />
-              </Route>
-              <Route exact path='/about'>
-                <About />
-              </Route>
-              <Route path='/:id'>
-                <Content />
-              </Route>
-            </Switch>
-            <Footer />
-          </Suspense>
-        </ThemeProvider>
-      </ModalsProvider>
+      <HelmetProvider>
+        <ModalsProvider>
+          <ThemeProvider theme={globalTheme}>
+            <GlobalStyle />
+            <ScrollToTop />
+            <Suspense fallback={<ContentSuspense />}>
+              <Topbar />
+              <Switch>
+                <Route exact path='/'>
+                  <Home />
+                </Route>
+                <Route exact path='/login'>
+                  <Login />
+                </Route>
+                <Route exact path='/about'>
+                  <About />
+                </Route>
+                <Route path='/:id'>
+                  <Content />
+                </Route>
+              </Switch>
+              <Footer />
+            </Suspense>
+          </ThemeProvider>
+        </ModalsProvider>
+      </HelmetProvider>
     </BrowserRouter>
   );
 };

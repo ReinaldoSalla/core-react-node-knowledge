@@ -7,6 +7,7 @@ import React, {
 } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useSpring } from 'react-spring';
+import { Helmet } from 'react-helmet-async';
 import Container from './Home.styles';
 import Carousel from '../../components/Carousel';
 import Categories from '../../components/Categories';
@@ -60,6 +61,13 @@ const Home: FunctionComponent = (): JSX.Element => {
 
   return (
     <>
+      <Helmet>
+        <title>ProgrTmp</title>
+        <meta
+          name='description'
+          content='description for Home'
+        />
+      </Helmet>
       <Container
         style={spring}
         $isTopbarSidebarVisible={isTopbarSidebarVisible}
