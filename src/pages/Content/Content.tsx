@@ -22,7 +22,6 @@ import useIsIntersecting from '../../hooks/useIsIntersecting';
 import { hifenToCamel } from '../../utils/textManipulation';
 
 const Content = (): JSX.Element | null => {
-  // const { hash } = useLocation();
   const { id }: any = useParams();
   const target: any = texts[hifenToCamel(id)];
 
@@ -76,7 +75,12 @@ const Content = (): JSX.Element | null => {
         <title>{target.title}</title>
         <meta
           name='description'
-          content='description for content'
+          content={
+            target
+              .text[0]
+              .paragraphsCommandsCode[0]
+              .paragraph.slice(0, 100)
+          }
         />
       </Helmet>
       <ContentWrapper

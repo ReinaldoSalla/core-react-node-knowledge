@@ -5,7 +5,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-// import { hydrate } from 'react-dom';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -13,8 +12,5 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById('root') as HTMLElement
 );
-
-// const root = document.getElementById('root');
-// hydrate(<App />, root);
 
 serviceWorker.register();

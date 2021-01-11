@@ -65,7 +65,10 @@ const Home: FunctionComponent = (): JSX.Element => {
         <title>ProgrTmp</title>
         <meta
           name='description'
-          content='description for Home'
+          content={
+            'Interview questions, tutorials, guides for JavaScript, '
+            + 'TypeScript and React'
+          }
         />
       </Helmet>
       <Container
