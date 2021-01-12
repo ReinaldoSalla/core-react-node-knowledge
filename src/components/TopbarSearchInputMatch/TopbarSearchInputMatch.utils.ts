@@ -16,13 +16,36 @@ const getSpecificTargets = (
   ))
 );
 
-const targets = {
-  broadTargets: getBroadTargets(contents),
-  specificTargets: getSpecificTargets(contents)
+const getMatch = (text: string): string | null => {
+  const targets = {
+    broadTargets: getBroadTargets(contents),
+    specificTargets: getSpecificTargets(contents)
+  };
+  const firstMatch = targets.specificTargets.find((target) => {
+    const isolatedTarget = target.split(' - ')[0];
+    return isolatedTarget.slice(
+      0,
+      text.length
+    ).toLowerCase() === text.toLowerCase();
+  });
+  if (firstMatch) {
+    return firstMatch;
+  }
+  const secondMatch = targets.broadTargets.find((target) => {
+    const isolatedTarget = target.split('-')[0];
+    return isolatedTarget.slice(
+      0,
+      text.length
+    ).toLowerCase() === text.toLowerCase();
+  });
+  if (secondMatch) {
+    return `#${secondMatch}`;
+  }
+  return null;
 };
 
 const getLink = (text: string): string => (
   text.split(' -')[0].toLowerCase().split(' ').join('-')
 );
 
-export { targets, getLink };
+export { getLink, getMatch };
