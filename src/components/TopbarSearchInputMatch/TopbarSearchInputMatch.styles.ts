@@ -7,10 +7,6 @@ const textCSS = css`
   text-align: center;
 `;
 
-const Text = styled.span`
-  ${textCSS}
-`;
-
 const MatchLink = styled(Link)`
   ${textCSS}
   padding: 1rem;
@@ -25,4 +21,12 @@ const MatchLink = styled(Link)`
   }
 `;
 
-export { Text, MatchLink };
+const Highlight = styled.span`
+  background: #737325;
+`;
+
+const Text = styled.span`
+  ${textCSS}
+`;
+
+export { MatchLink, Highlight, Text };

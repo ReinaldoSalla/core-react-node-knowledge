@@ -1,6 +1,10 @@
 import React, { useContext, FunctionComponent } from 'react';
-import { MatchLink, Text } from './TopbarSearchInputMatch.styles';
-import { getLink, getMatch } from './TopbarSearchInputMatch.utils';
+import { MatchLink, Highlight, Text } from './TopbarSearchInputMatch.styles';
+import {
+  getLink,
+  getMatch,
+  formatResult
+} from './TopbarSearchInputMatch.utils';
 import { ModalsDispatch } from '../../shared/context/ModalsContext';
 
 const TopbarSearchInputMatch: FunctionComponent<any> = ({
@@ -14,21 +18,22 @@ const TopbarSearchInputMatch: FunctionComponent<any> = ({
 
   const match = getMatch(text);
 
-  return (
-    match ? (
-      <MatchLink
-        onClick={toggleTopbarSearch}
-        to={`/${getLink(match)}`}
-      >
-        {match.replace('#', '')}
+  if (match) {
+    const [currentText, remainingMatch] = formatResult(text, match);
+    return (
+      <MatchLink onClick={toggleTopbarSearch} to={`/${getLink(match)}`}>
+        <Highlight>{currentText}</Highlight>
+        {remainingMatch}
       </MatchLink>
-    ) : (
-      <Text>
-        &quot;
-        {text}
-        &quot; not found
-      </Text>
-    )
+    );
+  }
+
+  return (
+    <Text>
+      &quot;
+      {text}
+      &quot; not found
+    </Text>
   );
 };
 

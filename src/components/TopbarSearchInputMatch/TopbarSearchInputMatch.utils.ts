@@ -48,4 +48,15 @@ const getLink = (text: string): string => (
   text.split(' -')[0].toLowerCase().split(' ').join('-')
 );
 
-export { getLink, getMatch };
+const formatResult = (currentText: string, match: string): Array<string> => {
+  const matchWithoutHash = match.replace('#', '');
+  const lowerCaseCurrentText = currentText.toLowerCase();
+  const formatedCurrentText = matchWithoutHash.slice(
+    0,
+    lowerCaseCurrentText.length
+  );
+  const formatedMatch = matchWithoutHash.slice(lowerCaseCurrentText.length);
+  return [formatedCurrentText, formatedMatch];
+};
+
+export { getLink, getMatch, formatResult };
