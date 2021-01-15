@@ -7,7 +7,6 @@ import { GlobalStyle, globalTheme } from './App.styles';
 import ScrollToTop from './utils/ScrollToTop';
 import ContentSuspense from './components/ContentSuspense';
 import { ModalsProvider } from './shared/context/ModalsContext';
-import './App.css';
 
 // import Topbar from './components/Topbar';
 // import Footer from './components/Footer';

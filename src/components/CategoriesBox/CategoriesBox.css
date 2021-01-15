@@ -20,9 +20,9 @@
   padding: 12px;
   width: 24px;
   height: 24px;
-  border: 1px solid var(--font-color);
+  border: 1px solid var(--${(props): string => props.theme.textColor});
   border-radius: 50%;
-  color: var(--font-color);
+  color: var(--${(props): string => props.theme.textColor});
 }
 
 .categoriescontent-iconwrapper-icon {
@@ -36,7 +36,7 @@
   font-size: 20px;
   font-weight: 600;
   text-align: center;
-  color: var(--font-color);
+  color: var(--${(props): string => props.theme.textColor});
 }
 
 .categoriescontent-descriptionwrapper {
@@ -48,7 +48,7 @@
   text-align: center;
   font-size: 18px;
   font-weight: 500;
-  color: var(--font-color);
+  color: var(--${(props): string => props.theme.textColor});
 }
 
 .categoriescontent-checkwrapper-text {
@@ -58,7 +58,7 @@
   font-weight: 300;
   text-align: center;
   transform: translateY(-2.5px);
-  color: var(--font-color);
+  color: var(--${(props): string => props.theme.textColor});
 }
 
 @media only screen and (max-width: 576px) {

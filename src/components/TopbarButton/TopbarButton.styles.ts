@@ -49,7 +49,7 @@ const Filler = styled(animated.div)`
   position: absolute;
   z-index: 1;
   height: 80px;
-  background: var(--hover-color);
+  background: ${(props): string => props.theme.hoverColor};
 `;
 
 export {

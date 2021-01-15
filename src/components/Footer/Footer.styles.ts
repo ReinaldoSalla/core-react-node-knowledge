@@ -4,8 +4,8 @@ import { animated } from 'react-spring';
 import { FooterTextProps, FooterLinkProps } from './Footer.types';
 
 const FooterWrapper = styled.footer`
-  height: calc(100% - var(--topbar-height));
-  background: var(--bg-color);
+  height: calc(100% - ${(props): string => props.theme.topbarHeight});
+  background: ${(props): string => props.theme.topbarBgColor};
 `;
 
 const FooterContainer = styled(animated.div)<FooterLinkProps>`
