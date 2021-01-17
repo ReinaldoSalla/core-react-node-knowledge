@@ -17,12 +17,19 @@ const Input = styled(animated.input)`
 
   ${(props): string => props.theme.breakpoints.small} {
     width: calc(100% - 100px);
+    height: 40px;
+    margin-top: 20px;
+    font-size: 1rem;
   }
 `;
 
 const Element = styled(animated.div)`
   margin: 48px 0;
   text-align: center;
+
+  ${(props): string => props.theme.breakpoints.small} {
+    margin: 20px 0;
+  }
 `;
 
 const Text = styled.span`
