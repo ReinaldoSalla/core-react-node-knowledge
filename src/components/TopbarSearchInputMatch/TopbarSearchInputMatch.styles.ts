@@ -5,6 +5,12 @@ const textCSS = css`
   font-size: 32px;
   color: white;
   text-align: center;
+
+  ${(props) => props.theme.breakpoints.small} {
+    font-size: 1rem;
+    position: relative;
+    top: 0.5rem;
+  }
 `;
 
 const MatchLink = styled(Link)`
@@ -19,6 +25,10 @@ const MatchLink = styled(Link)`
     border: ${(props): string => `1px solid ${props.theme.hoverColor}`};
     cursor: pointer;
   }
+
+  ${(props): string => props.theme.breakpoints.small} {
+    padding: 0.5rem;
+  }
 `;
 
 const Highlight = styled.span`
@@ -27,6 +37,7 @@ const Highlight = styled.span`
 
 const Text = styled.span`
   ${textCSS}
+
 `;
 
 export { MatchLink, Highlight, Text };

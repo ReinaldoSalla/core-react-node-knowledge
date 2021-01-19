@@ -3,7 +3,7 @@ import { animated } from 'react-spring';
 
 const Exit = styled(animated.button)`
   position: absolute;
-  top: calc(100px);
+  top: 100px;
   right: 32px;
   font-size: 48px;
   color: white;
@@ -12,6 +12,11 @@ const Exit = styled(animated.button)`
   &:hover {
     color: ${(props): string => props.theme.hoverColor};
     cursor: pointer;
+  }
+
+  ${(props) => props.theme.breakpoints.small} {
+    top: 87px;
+    font-size: 2.5rem;
   }
 `;
 
