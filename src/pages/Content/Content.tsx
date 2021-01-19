@@ -79,7 +79,8 @@ const Content = (): JSX.Element | null => {
             target
               .text[0]
               .paragraphsCommandsCode[0]
-              .paragraph.slice(0, 100)
+              .paragraph
+              .slice(0, 100)
           }
         />
       </Helmet>

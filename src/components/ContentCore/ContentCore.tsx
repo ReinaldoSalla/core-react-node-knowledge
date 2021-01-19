@@ -16,8 +16,11 @@ import {
 } from './ContentCore.styles';
 import { ContentCoreProps } from './ContentCore.types';
 import { getTitleSpring, getSectionSpring } from './ContentCore.animations';
-import 'prismjs/components/prism-jsx.min.js';
-import './prism.css';
+import 'prismjs/components/prism-typescript.min.js';
+// import 'prismjs/components/prism-javascript.min.js';
+// import 'prismjs/components/prism-jsx.min.js';
+// import './prism.css';
+import 'prismjs/themes/prism-tomorrow.css';
 
 const ContentCore: FunctionComponent<ContentCoreProps> = ({
   domNodes,
@@ -75,9 +78,9 @@ const ContentCore: FunctionComponent<ContentCoreProps> = ({
               Object.prototype.hasOwnProperty.call(innerElement, 'code')
             ) {
               return (
-                <pre key={index} className='language-jsx'>
+                <pre key={index} className='language-typescript'>
                   <code
-                    className='language-jsx'
+                    className='language-typescript'
                     style={{ whiteSpace: 'pre-wrap' }}
                   >
                     {innerElement.code}

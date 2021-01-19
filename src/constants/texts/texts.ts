@@ -1,9 +1,11 @@
 import simpleStateManagement from './simpleStateManagement';
 import complexStateManagement from './complexStateManagement';
+import findPair from './findPair';
 
 const texts: any = {
   simpleStateManagement,
-  complexStateManagement
+  complexStateManagement,
+  findPair
 };
 
 export default texts;

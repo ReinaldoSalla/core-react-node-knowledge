@@ -28,7 +28,7 @@ Problem
 `;
 
 const introParagraph1 = `
-Create a function to return a pair of items inside an array whose sum equals a target number. 
+Create a function that returns a pair of items inside an array whose sum equals a target number. 
 If there is no such pair, the function should return null.
 `;
 
@@ -60,25 +60,28 @@ ${filler}
 `;
 
 const navbarSubtitle = `
-.some + .find
+Quadratic
 `;
 
 const navbarParagraph1 = `
-React makes it painless to create interactive UIs. Design simple views for each state in your application, and React will efficiently update and render just the right components when your data changes.:
-React makes it painless to create interactive UIs. Design simple views for each state in your application, and React will efficiently update and render just the right components when your data changes.
-React makes it painless to create interactive UIs. Design simple views for each state in your application, and React will efficiently update and render just the right components when your data changes.
-React makes it painless to create interactive UIs. Design simple views for each state in your application, and React will efficiently update and render just the right components when your data changes.
-${filler}
+The easiest method to solve this problem is to compare every item with every other item, according to the code bellow. 
 `;
 
 const navbarCode1 = `
-onSubmit(e) {
-  e.preventDefault();
-  const job = {
-    title: 'Developer',
-    company: 'xyz' 
-  };
-}
+const findPair = (array: Array<number>, sum: number): Array<number> => {
+  const found = array.slice(0, -1).find((item, index) => (
+    array
+      .slice(index + 1)
+      .some((possibleMatch) => item + possibleMatch === sum)
+  ));
+  return found ? [found, sum-found] : []; 
+};
+
+const sequence = [1, 2, 3];
+const sum = 5;
+
+const result = findPair(sequence, sum);
+console.log(result);
 `;
 
 const formSubtitle = `
