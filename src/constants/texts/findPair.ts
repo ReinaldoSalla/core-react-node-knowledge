@@ -68,7 +68,10 @@ The easiest method to solve this problem is to compare every item with every oth
 `;
 
 const navbarCode1 = `
-const findPair = (array: Array<number>, sum: number): Array<number> => {
+const findPair = (
+  array: Array<number>, 
+  sum: number
+): Array<number> => {
   const found = array.slice(0, -1).find((item, index) => (
     array
       .slice(index + 1)
@@ -79,7 +82,6 @@ const findPair = (array: Array<number>, sum: number): Array<number> => {
 
 const sequence = [1, 2, 3];
 const sum = 5;
-
 const result = findPair(sequence, sum);
 console.log(result);
 `;

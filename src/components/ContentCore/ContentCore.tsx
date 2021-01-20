@@ -16,11 +16,13 @@ import {
 } from './ContentCore.styles';
 import { ContentCoreProps } from './ContentCore.types';
 import { getTitleSpring, getSectionSpring } from './ContentCore.animations';
-import 'prismjs/components/prism-typescript.min.js';
+import 'prismjs/components/prism-typescript.min';
+import 'prismjs/plugins/line-numbers/prism-line-numbers.min';
+import 'prismjs/plugins/line-numbers/prism-line-numbers.css';
+import './ContentCore.css';
 // import 'prismjs/components/prism-javascript.min.js';
 // import 'prismjs/components/prism-jsx.min.js';
-// import './prism.css';
-import 'prismjs/themes/prism-tomorrow.css';
+// import 'prismjs/themes/prism-okaidia.css';
 
 const ContentCore: FunctionComponent<ContentCoreProps> = ({
   domNodes,
@@ -78,12 +80,12 @@ const ContentCore: FunctionComponent<ContentCoreProps> = ({
               Object.prototype.hasOwnProperty.call(innerElement, 'code')
             ) {
               return (
-                <pre key={index} className='language-typescript'>
+                <pre key={index} className='language-typescript line-numbers'>
                   <code
                     className='language-typescript'
                     style={{ whiteSpace: 'pre-wrap' }}
                   >
-                    {innerElement.code}
+                    {innerElement.code.trim()}
                   </code>
                 </pre>
               );
