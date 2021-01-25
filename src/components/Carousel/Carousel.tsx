@@ -28,18 +28,24 @@ const Carousel: FunctionComponent<CarouselProps> = ({
   const seconds = useRef(0);
 
   useEffect(() => {
+    let hasUnmounted = false;
     const intervalId = setInterval(() => {
       seconds.current += 1;
       if (seconds.current === 10) {
         seconds.current = 0;
-        dispatch({ type: 'MOVE_TO_NEXT_ITEM' });
+        if (!hasUnmounted) {
+          dispatch({ type: 'MOVE_TO_NEXT_ITEM' });
+        }
       }
     }, 1000);
     if (!isDocumentVisible || isTopbarSidebarVisible) {
       seconds.current = 0;
       clearInterval(intervalId);
     }
-    return (): void => clearInterval(intervalId);
+    return (): void => {
+      clearInterval(intervalId);
+      hasUnmounted = true;
+    };
   }, [isDocumentVisible, isTopbarSidebarVisible]);
 
   const handleFirstClick = (): void => {
@@ -69,6 +75,10 @@ const Carousel: FunctionComponent<CarouselProps> = ({
       handleThirdClick={handleThirdClick}
     />
   ), [state.index]);
+
+  // useEffect(() => {
+  //   console.log(state.index);
+  // })
 
   return (
     <>

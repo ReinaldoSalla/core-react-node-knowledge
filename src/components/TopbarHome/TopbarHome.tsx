@@ -50,7 +50,7 @@ const TopbarHome = (): JSX.Element => {
         <Svg
           width='110%'
           height='110%'
-          transform='translate(0%, -4%)'
+          $transform='translate(0%, -4%)'
           as={HomeSvg}
         />
       </Normalizer>

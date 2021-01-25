@@ -31,7 +31,7 @@ const Svg = styled.div<SvgProps>`
   width: ${(props): string => props.width};
   height: ${(props): string => props.height};
   color: white;
-  transform: ${(props): string => props.transform};
+  transform: ${(props): string => props.$transform};
 `;
 
 const Text = styled.span`
