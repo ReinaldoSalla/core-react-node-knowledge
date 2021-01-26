@@ -10,7 +10,7 @@ import {
   CarouselInputRow
 } from './CarouselInput.styles';
 import {
-  carouselTimerAnimation,
+  // carouselTimerAnimation,
   getTextProps,
   getInnerProps
 } from './CarouselInput.animations';
@@ -24,8 +24,6 @@ const CarouselInput: FunctionComponent<CarouselInputProps> = ({
   handleSecondClick,
   handleThirdClick
 }): JSX.Element => {
-  const spring = useSpring(carouselTimerAnimation);
-
   const isDocumentVisible = useDocumentVisibility();
 
   const { isTopbarSidebarVisible } = useContext(ModalsState);
@@ -66,8 +64,8 @@ const CarouselInput: FunctionComponent<CarouselInputProps> = ({
       </CarouselInputArea>
       <CarouselInputTimer>
         <CarouselInputRow
+          key={index}
           style={{
-            ...spring,
             display: isTopbarSidebarVisible || !isDocumentVisible
               ? 'none'
               : 'block'

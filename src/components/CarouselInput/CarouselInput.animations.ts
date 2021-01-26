@@ -1,14 +1,3 @@
-import CONSTANTS from '../Carousel/Carousel.constants';
-
-const carouselTimerOffset = 15;
-
-const carouselTimerAnimation = {
-  config: { duration: CONSTANTS.DURATION },
-  from: { width: '0%' },
-  to: { width: '100%' },
-  reset: true
-};
-
 const getDisabledText = (): any => ({
   color: 'black'
 });
@@ -42,8 +31,6 @@ const getInnerProps = (currentIndex: number, targetIndex: number): any => (
 );
 
 export {
-  carouselTimerAnimation,
-  carouselTimerOffset,
   getTextProps,
   getInnerProps
 };

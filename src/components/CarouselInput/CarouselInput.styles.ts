@@ -1,5 +1,6 @@
-import styled from 'styled-components';
+import styled, { keyframes, css } from 'styled-components';
 import { animated } from 'react-spring';
+import CONSTANTS from '../Carousel/Carousel.constants';
 
 const CarouselInputWrapper = styled.div`
   display: flex;
@@ -75,11 +76,26 @@ const CarouselInputTimer = styled.div`
   height: 20px;
 `;
 
+const timer = keyframes`
+  0% {
+    width: 0%;
+  }
+
+  100% {
+    width: 100%;
+  }
+`;
+
+const timerCSS = css`
+  animation: ${timer} ${CONSTANTS.DURATION}ms infinite linear backwards;
+`;
+
 const CarouselInputRow = styled(animated.div)`
   position: relative;
   z-index: 10;
   height: 10px;
   border-top: 2px solid white;
+  ${timerCSS}
 
 
   @media (prefers-reduced-motion: no-preference) {
