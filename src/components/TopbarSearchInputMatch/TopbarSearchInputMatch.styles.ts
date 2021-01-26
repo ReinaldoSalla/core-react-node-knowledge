@@ -6,7 +6,7 @@ const textCSS = css`
   color: white;
   text-align: center;
 
-  ${(props) => props.theme.breakpoints.small} {
+  ${(props): string => props.theme.breakpoints.small} {
     font-size: 1rem;
     position: relative;
     top: 0.5rem;

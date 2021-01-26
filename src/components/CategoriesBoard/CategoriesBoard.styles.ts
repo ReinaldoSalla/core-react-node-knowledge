@@ -14,7 +14,7 @@ const CategoriesBoardTitle = styled.h2`
   text-align: center;
   margin: 0 16px;
   padding: 0;
-  color: ${(props): string => props.theme.textColor};
+  color: ${(props): string => props.theme.secondaryTextColor};
 
   ${(props): string => props.theme.breakpoints.small} {
     font-size: 32px;
@@ -27,7 +27,7 @@ const CategoriesBoardDescription = styled.h3`
   text-align: center;
   margin: 32px 16px 0 16px;
   padding: 0;
-  color: ${(props): string => props.theme.textColor};
+  color: ${(props): string => props.theme.tertiaryTextColor};
 
   ${(props): string => props.theme.breakpoints.small} {
     font-size: 22px;

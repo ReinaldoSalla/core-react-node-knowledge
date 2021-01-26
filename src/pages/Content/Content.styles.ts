@@ -18,12 +18,6 @@ const ContentWrapper = styled(animated.div)<ContentWrapperProps>`
   }
 `;
 
-const ContentTitle = styled.h1`
-  font-size: 32px;
-  padding-top: 24px;
-  color: ${(props): string => props.theme.textColor};
-`;
-
 const ContentContainer = styled.div`
   display: flex;
   position: relative;
@@ -35,6 +29,5 @@ const ContentContainer = styled.div`
 
 export {
   ContentWrapper,
-  ContentTitle,
   ContentContainer
 };

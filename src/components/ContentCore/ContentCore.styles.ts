@@ -8,16 +8,16 @@ const Article = styled.article`
 const ContentCoreHeading = styled(animated.h1)`
   font-size: 2em;
   padding: 0.5em 0;
-  color: white;
+  color: ${(props): string => props.theme.primaryTextColor};
 `;
 
 const ContentCoreTitle = styled.h2`
-  color: ${(props): string => props.theme.textColor};
+  color: ${(props): string => props.theme.primaryTextColor};
 `;
 
 const ContentCoreText = styled.p`
   line-height: 1.7;
-  color: ${(props): string => props.theme.textColor};
+  color: ${(props): string => props.theme.secondaryTextColor};
 `;
 
 const ContentCoreLink = styled.a`

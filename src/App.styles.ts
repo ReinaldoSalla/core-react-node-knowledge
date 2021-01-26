@@ -76,8 +76,10 @@ const globalTheme = {
   topbarBgColor: '#280808',
   secondaryBgColor: '#392c2c',
   hoverColor: '#c41010',
-  textColor: 'rgba(255, 255, 255, 0.85)',
-  weakerTextColor: 'rgba(255, 255, 255, 0.7)',
+  primaryTextColor: 'rgba(255, 255, 255, 1)',
+  secondaryTextColor: 'rgba(255, 255, 255, 0.9)',
+  tertiaryTextColor: 'rgba(255, 255, 255, 0.8)',
+  quaternaryTextColor: 'rgba(255, 255, 255, 0.7)',
   pageBgColor: '#0b0b0b',
   boxBgColor: '#272727'
 };

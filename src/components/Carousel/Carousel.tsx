@@ -76,10 +76,6 @@ const Carousel: FunctionComponent<CarouselProps> = ({
     />
   ), [state.index]);
 
-  // useEffect(() => {
-  //   console.log(state.index);
-  // })
-
   return (
     <>
       {backgroundMemo}

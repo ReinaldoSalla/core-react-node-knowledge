@@ -26,9 +26,9 @@ const IconWrapper = styled.div`
   padding: 12px;
   width: 24px;
   height: 24px;
-  border: 1px solid ${(props): string => props.theme.textColor};
+  border: 1px solid ${(props): string => props.theme.primaryTextColor};
   border-radius: 50%;
-  color: ${(props): string => props.theme.textColor};
+  color: ${(props): string => props.theme.primaryTextColor};
 
   ${(props): string => props.theme.breakpoints.small} {
     padding: 12px;
@@ -53,7 +53,7 @@ const Title = styled.h4`
   font-size: 20px;
   font-weight: 600;
   text-align: center;
-  color: ${(props): string => props.theme.textColor};
+  color: ${(props): string => props.theme.tertiaryTextColor};
 
   ${(props): string => props.theme.breakpoints.small} {
     font-size: 18px;
@@ -69,7 +69,7 @@ const Description = styled.p`
   text-align: center;
   font-size: 18px;
   font-weight: 500;
-  color: ${(props): string => props.theme.weakerTextColor};
+  color: ${(props): string => props.theme.quaternaryTextColor};
 
 
   ${(props): string => props.theme.breakpoints.small} {
@@ -84,7 +84,7 @@ const Check = styled.span`
   font-weight: 300;
   text-align: center;
   transform: translateY(-2.5px);
-  color: ${(props): string => props.theme.textColor};
+  color: ${(props): string => props.theme.quaternaryTextColor};
 
   ${(props): string => props.theme.breakpoints.small} {
     font-size: 14px;

@@ -6,7 +6,6 @@ const Container = styled.div`
   align-items: center;
   height: calc(100% - 200px);
   padding-top: 200px;
-  border: 1px solid red;
 `;
 
 const Text = styled.p`

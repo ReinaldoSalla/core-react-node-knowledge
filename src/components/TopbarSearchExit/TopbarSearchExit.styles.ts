@@ -14,7 +14,7 @@ const Exit = styled(animated.button)`
     cursor: pointer;
   }
 
-  ${(props) => props.theme.breakpoints.small} {
+  ${(props): string => props.theme.breakpoints.small} {
     top: 87px;
     font-size: 2.5rem;
   }
