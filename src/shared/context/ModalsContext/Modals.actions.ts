@@ -73,6 +73,19 @@ const toggleTopbarSearch = (state: State): State => {
   };
 };
 
+const closeTopbarSidebar = (state: State): State => {
+  let newIsTopbarSidebarVisible = false;
+  if (state.isTopbarSidebarVisible) {
+    newIsTopbarSidebarVisible = false;
+    document.body.style.overflowY = 'auto';
+    document.body.style.width = '100%';
+  }
+  return {
+    ...state,
+    isTopbarSidebarVisible: newIsTopbarSidebarVisible
+  };
+};
+
 const closeModals = (state: State): State => {
   if (state.isTopbarSidebarVisible || state.isTopbarSearchVisible) {
     document.body.style.overflowY = 'auto';
@@ -89,6 +102,7 @@ export {
   navigateToHome,
   navigateToLogin,
   toggleTopbarSidebar,
+  closeTopbarSidebar,
   toggleTopbarSearch,
   closeModals
 };

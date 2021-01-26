@@ -37,7 +37,6 @@ const TopbarSidebar: FunctionComponent<any> = ({
 }): any => {
   const springRef: any = useRef();
   const transitionsRef: any = useRef();
-  const timeoutId = useRef<any>(null);
   const topbarSidebarDomNode = useRef<any>(null);
 
   const { isTopbarSidebarVisible } = useContext(ModalsState);
@@ -80,22 +79,10 @@ const TopbarSidebar: FunctionComponent<any> = ({
     };
   });
 
-  const onFocus = (): void => {
-    clearTimeout(timeoutId.current);
-  };
-
-  const onBlur = (): void => {
-    timeoutId.current = setTimeout(() => {
-      toggleTopbarSidebar();
-    });
-  };
-
   return (
     <TopbarSidebarWrapper
       ref={topbarSidebarDomNode}
       style={spring}
-      onBlur={onBlur}
-      onFocus={onFocus}
     >
       {transitions.map(({ item, key, props }) => (
         <item.component

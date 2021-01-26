@@ -11,6 +11,7 @@ export type Action =
   | { type: 'NAVIGATE_TO_LOGIN' }
   | { type: 'TOGGLE_TOPBAR_SIDEBAR' }
   | { type: 'TOGGLE_TOPBAR_SEARCH' }
+  | { type: 'CLOSE_TOPBAR_SIDEBAR' }
   | { type: 'CLOSE_MODALS' };
 
 export interface ModalsProviderProps {

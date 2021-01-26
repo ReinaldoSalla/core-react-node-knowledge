@@ -36,6 +36,10 @@ const TopbarHome = (): JSX.Element => {
     setIsHovering(false);
   };
 
+  const onFocus = (): void => {
+    dispatch({ type: 'CLOSE_TOPBAR_SIDEBAR' });
+  };
+
   const transitions = useTransition(
     isHovering,
     null,
@@ -49,6 +53,7 @@ const TopbarHome = (): JSX.Element => {
       onMouseEnter={handleEnter}
       onMouseLeave={handleLeave}
       onClick={toggleTopbarSidebar}
+      onFocus={onFocus}
       title='Search for content'
       as='button'
     >

@@ -16,6 +16,10 @@ const TopbarSidebarTopicss: FunctionComponent<any> = ({
 }): JSX.Element => {
   const dispatch = useContext(ModalsDispatch);
 
+  const onClick = (): void => {
+    dispatch({ type: 'CLOSE_MODALS' });
+  };
+
   return (
     <Wrapper style={style}>
       <Title>{title}</Title>
@@ -23,7 +27,7 @@ const TopbarSidebarTopicss: FunctionComponent<any> = ({
         {subcontents.map((subcontent: any) => (
           <Topic key={subcontent}>
             <Text
-              onClick={(): void => dispatch({ type: 'CLOSE_MODALS' })}
+              onClick={onClick}
               to={normalToHifen(subcontent)}
             >
               {subcontent}

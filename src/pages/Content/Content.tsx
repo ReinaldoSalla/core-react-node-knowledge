@@ -1,7 +1,8 @@
 import React, {
   useRef,
   useContext,
-  useMemo
+  useMemo,
+  useEffect
 } from 'react';
 import { useSpring } from 'react-spring';
 import { useParams } from 'react-router-dom';
@@ -55,6 +56,7 @@ const Content = (): JSX.Element | null => {
   ];
 
   const { isTopbarSidebarVisible } = useContext(ModalsState);
+  // const dispatch = useContext(ModalsDispatch);
   const spring = useSpring(getOpacitySpring(isTopbarSidebarVisible));
 
   // useEffect(() => {
@@ -64,6 +66,10 @@ const Content = (): JSX.Element | null => {
   //     }
   //   };
   // }, [hash, delimiters]);
+
+  useEffect(() => {
+    // dispatch({ type: 'CLOSE_MODALS' });
+  }, []);
 
   if (!target) {
     return <ContentNull id={id} />;
