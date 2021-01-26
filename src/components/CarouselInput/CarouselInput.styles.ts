@@ -95,11 +95,9 @@ const CarouselInputRow = styled(animated.div)`
   z-index: 10;
   height: 10px;
   border-top: 2px solid white;
-  ${timerCSS}
-
-
+  
   @media (prefers-reduced-motion: no-preference) {
-    display: none;
+    ${timerCSS}
   }
 `;
 
