@@ -41,14 +41,10 @@ const toggleTopbarSidebar = (state: State): State => {
     document.body.style.overflowY = 'auto';
     document.body.style.width = '100%';
   }
-  let newIsTopbarSearchVisible = false;
-  if (state.isTopbarSearchVisible) {
-    newIsTopbarSearchVisible = false;
-  }
   return {
     ...state,
     isTopbarSidebarVisible: !state.isTopbarSidebarVisible,
-    isTopbarSearchVisible: newIsTopbarSearchVisible
+    isTopbarSearchVisible: false
   };
 };
 
@@ -62,27 +58,21 @@ const toggleTopbarSearch = (state: State): State => {
     document.body.style.overflowY = 'auto';
     document.body.style.width = '100%';
   }
-  let newIsTopbarSidebarVisible = false;
-  if (state.isTopbarSidebarVisible) {
-    newIsTopbarSidebarVisible = false;
-  }
   return {
     ...state,
-    isTopbarSidebarVisible: newIsTopbarSidebarVisible,
+    isTopbarSidebarVisible: false,
     isTopbarSearchVisible: !state.isTopbarSearchVisible
   };
 };
 
 const closeTopbarSidebar = (state: State): State => {
-  let newIsTopbarSidebarVisible = false;
   if (state.isTopbarSidebarVisible) {
-    newIsTopbarSidebarVisible = false;
     document.body.style.overflowY = 'auto';
     document.body.style.width = '100%';
   }
   return {
     ...state,
-    isTopbarSidebarVisible: newIsTopbarSidebarVisible
+    isTopbarSidebarVisible: false
   };
 };
 
