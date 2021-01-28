@@ -4,7 +4,9 @@
         "es2021": true
     },
     "extends": [
-        "airbnb-base"
+        "airbnb-base",
+        "eslint:recommended",
+        "plugin:@typescript-eslint/recommended"
     ],
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
@@ -14,6 +16,41 @@
     "plugins": [
         "@typescript-eslint"
     ],
+    "settings": {
+        "import/parsers": {
+            "@typescript-eslint/parser": [".ts"]
+        },
+        "import/resolver": {
+            "typescript": {
+                "alwaysTryTypes": true
+            }
+        }
+    },
     "rules": {
-    }
+        "linebreak-style": "off",
+        "import/extensions": [
+            "error",
+            "ignorePackages",
+            { "ts": "never", "tsx": "never" }
+        ],
+        "no-tabs": "off",
+        "no-console": "error",
+        "curly": ["error", "all"],
+        "func-style": ["error", "expression"],
+        "max-len": ["error", { "code": 80 }],
+        "indent": ["error", 2],
+        "semi": ["error", "always"],
+        "quotes": ["error", "single"],
+        "comma-dangle": ["error", "never"],
+        "object-curly-spacing": ["error", "always"],
+        "arrow-parens": ["error", "always"],
+        "eol-last": ["error", "never"]
+    },
+    "overrides": [{
+        "files": ["**/*.ts"],
+        "parser": "@typescript-eslint/parser",
+        "rules": {
+        "no-undef": "off"
+        }
+    }]
 }

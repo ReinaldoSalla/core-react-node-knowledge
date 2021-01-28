@@ -1,7 +1,11 @@
+/* eslint-disable */
+
 import express, { Request, Response, NextFunction } from 'express';
 import { graphqlHTTP } from 'express-graphql';
 import { buildSchema } from 'graphql';
 import cors from 'cors';
+
+console.log('123');
 
 const loggingMiddleware = (
   req: Request, 

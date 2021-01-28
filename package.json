@@ -18,6 +18,11 @@
   "homepage": "https://github.com/ReinaldoSalla/core-react-node-itself#readme",
   "devDependencies": {
     "husky": "4.3.8",
-    "lerna": "^3.22.1"
+    "lerna": "3.22.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lerna run lint-staged --concurrency 1"
+    }
   }
 }
