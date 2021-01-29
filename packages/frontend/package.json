@@ -27,17 +27,11 @@
     "eject": "react-scripts eject",
     "lint": "eslint src/**/*.{tsx,ts}",
     "lint:fix": "eslint src/**/*.{ts,tsx} --fix",
-    "lint-staged": "lint-staged",
-    "lint:css": "stylelint src/**/*.styles.ts"
+    "lint:css": "stylelint src/**/*.styles.ts",
+    "lint-staged": "lint-staged"
   },
   "eslintConfig": {
     "extends": "react-app"
-  },
-  "lint-staged": {
-    "src/**/*.{ts,tsx}": [
-      "npm run lint:fix",
-      "git add ."
-    ]
   },
   "browserslist": {
     "production": [
@@ -74,5 +68,12 @@
     "stylelint-no-unsupported-browser-features": "4.1.4",
     "stylelint-processor-styled-components": "1.10.0",
     "typescript": "4.0.3"
+  },
+  "lint-staged": {
+    "src/**/*.{ts,tsx}": [
+      "npm run lint:fix",
+      "npm run lint:css",
+      "git add ."
+    ]
   }
 }
