@@ -35,7 +35,7 @@ const CarouselBackground = (): JSX.Element => {
       isTopbarSidebarVisible={isTopbarSidebarVisible}
       isScrollbarVisible={isScrollbarVisible}
     >
-      {width > 576 ? (
+      {width > 432 ? (
         <>
           <source src={fullhdWebm} type='video/webm' />
           <source src={fullhdMp4} type='video/mp4' />
