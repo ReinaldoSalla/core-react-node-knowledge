@@ -1,0 +1,8 @@
+Problem
+What is the order of the logs for the code bellow ?
+
+Separation
+First, it's worth metioning the code can be separated in three parts. 
+Syncronous code will be executed right away.
+Resolved promises (either with .then or async await) will be executed on the microtask queue, this means that it will be executed when the current stack gets empty, but before the next iteration of the event loop.
+Timers, like setTimeout or setInterval, are executed on the task queue, which is also called macrotask queue or callback queue. This means that it will be executed on the next event loop.
