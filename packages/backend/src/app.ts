@@ -9,150 +9,62 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-// const schema = buildSchema(`
-//   input MessageInput {
-//     content: String!
-//     author: String!
-//   }
-
-//   type Message {
-//     id: ID!
-//     content: String!
-//     author: String!
-//   }
-
-//   type Mutation {
-//     createMessage(input: MessageInput): Message
-//   }
-
-//   type Query {
-//     getMessage(id: ID!): Message
-//     getFixedMessage: String
-//   }
-// `);
-
-// const database: any = {};
-
-// const createMessage = ({ author, content}: any) => {
-//   const id = crypto.randomBytes(10).toString('hex');
-//   const dataToSave = {
-//     author,
-//     content,
-//     date: new Date()
-//   };
-//   database[id] = dataToSave;
-//   console.log(`Messaged saved. Id = ${id}. data=${JSON.stringify(dataToSave)}`);
-//   return { id, ...dataToSave };
-// };
-
-// const readMessage = (id: string) => {
-//   if (!database[id]) {
-//     throw new Error(`No message exists with id ${id}`);
-//   }
-//   return database[id];
-// };
-
-// const root = {
-//   createMessage: ({ input }: any) => createMessage(input),
-//   getMessage: ({ id }: any) => readMessage(id),
-//   getFixedMessage: () => `fixed msg`,
-// };
-
-// const app = express();
-// app.use(cors());
-// app.use('/graphql', graphqlHTTP({
-//   schema: schema,
-//   rootValue: root,
-//   graphiql: true,
-// }));
-// app.listen(process.env.PORT, () => {
-//   console.log(
-//     `Running a GraphQL API server at `
-//     + `${process.env.HOSTNAME}:${process.env.PORT}`
-//   );
-// });
-
-
-
-
-
-
-
-
-
-
-
-
-var schema = buildSchema(`
+const schema = buildSchema(`
   input MessageInput {
-    content: String
-    author: String
+    content: String!
+    author: String!
   }
- 
-  type Message {
+
+  type Message { 
     id: ID!
     content: String
     author: String
+    date: String
   }
-  
-  type Query {
-    getMessage(id: ID!): Message
-    getFixedMessage: String
-    ip: String
-  }
- 
+
   type Mutation {
     createMessage(input: MessageInput): Message
-    updateMessage(id: ID!, input: MessageInput): Message
+  }
+ 
+  type Query {
+    getFixedMessage: String
+    getFixedMessageWithArg(text: String!): String!
+    getMessage(id: ID!): Message
   }
 `);
- 
-// If Message had any complex fields, we'd put them on this object.
-class Message {
-  id: string;
-  content: string;
-  author: string;
-  constructor(id: any, {content, author}: any) {
-    this.id = id;
-    this.content = content;
-    this.author = author;
-  }
-}
 
-// Maps username to content
-var fakeDatabase: any = {};
+const database: any = {};
 let id = 0;
 
- 
-var root = {
-  getMessage: ({id}: any) => {
-    if (!fakeDatabase[id]) {
-      throw new Error('no message exists with id ' + id);
-    }
-    return new Message(id, fakeDatabase[id]);
-  },
-  getFixedMsg: () => 'text for fixed msg',
-  createMessage: ({input}: any) => {
-    // Create a random id for our "database".
-    id++; 
-    fakeDatabase[id] = input;
-    console.log(`returned by class = ${JSON.stringify(new Message(id, input))}`) 
-    return new Message(id, input);
-  },
-  updateMessage: ({id, input}: any) => {
-    if (!fakeDatabase[id]) {
-      throw new Error('no message exists with id ' + id);
-    }
-    // This replaces all old data, but some apps might want partial update.
-    fakeDatabase[id] = input;
-    return new Message(id, input);
-  },
-  id: (args: any, request: Request) => {
-    return request.ip
-  }
+const createMessage = ({ author, content }: any) => {
+  // const id = crypto.randomBytes(10).toString('hex');
+  id++;
+  const dataToSave = {
+    id,
+    author,
+    content,
+    date: new Date()
+  };
+  database[id] = dataToSave;
+  console.log(`Messaged saved. Id = ${id}. data=${JSON.stringify(dataToSave)}`);
+  return dataToSave;
 };
 
-var app = express();
+const readMessage = (id: string) => {
+  if (!database[id]) {
+    throw new Error(`No message exists with id ${id}`);
+  }
+  return database[id];
+};
+
+const root = {
+  createMessage: ({ input }: any) => createMessage(input),
+  getMessage: ({ id }: any) => readMessage(id),
+  getFixedMessage: () => `fixed msg`,
+  getFixedMessageWithArg: ({ text }: any) => `this was the arggument passed into the request: ${text}`
+};
+
+const app = express();
 app.use(cors());
 app.use('/graphql', graphqlHTTP({
   schema: schema,
@@ -162,9 +74,111 @@ app.use('/graphql', graphqlHTTP({
 app.listen(process.env.PORT, () => {
   console.log(
     `Running a GraphQL API server at `
-    + `${process.env.HOSTNAME}:${process.env.PORT}`
+    + `${process.env.HOSTNAME}:${process.env.PORT}/graphql`
   );
-});
+}); 
+
+
+
+
+
+
+
+
+
+
+
+// var schema = buildSchema(`
+//   input MessageInput {
+//     content: String
+//     author: String
+//   }
+// 
+//   t pe Message {
+//     id: ID!
+//     content: String
+//     author: String
+//   }
+// 
+//   type Query {
+//     getMessage(id: ID!): Message
+//     getFixedMessage: String
+//     ip: String
+//   } 
+// 
+//   type Mutation {
+//     createMessage(input: MessageInput): Message
+//     updateMessage(id: ID!, input: MessageInput): Message
+//   }
+// `);
+// 
+// /  If Message had any complex fields, we'd put them on this object.
+// class Message {
+//   id: string;
+//   content: string;
+//   author: string;
+//   constructor(id: any, {content, author}: any) {
+//     this.id = id;
+//     this.content = content;
+//     this.author = author;
+//   }
+// }
+// 
+// // Maps username to content
+// var fakeDatabase: any = {};
+// let id = 0;
+// 
+// 
+// var root = {
+//   getMessage: ({id}: any) => {
+//     if (!fakeDatabase[id]) {
+//       throw new Error('no message exists with id ' + id);
+//     }
+//     return new Message(id, fakeDatabase[id]);
+//   },
+//   getFixedMsg: () => 'text for fixed msg',
+//   createMessage: ({input}: any) => {
+//     // Create a random id for our "database".
+//     id++; 
+//     fakeDatabase[id] = input;
+//     console.log(`returned by class = ${JSON.stringify(new Message(id, input))}`) 
+//     return new Message(id, input);
+//   },
+//   updateMessage: ({id, input}: any) => {
+//     if (!fakeDatabase[id]) {
+//       throw new Error('no message exists with id ' + id);
+//     }
+//     // This replaces all old data, but some apps might want partial update.
+//     fakeDatabase[id] = input;
+//     return new Message(id, input);
+//   },
+//   id: (args: any, request: Request) => {
+//     return request.ip
+//   }
+// };
+// 
+// var app = express();
+// app.use(cors());
+// app.use('/graphql', graphqlHTTP({
+//   schema: schema,
+//   rootValue: root,
+//   graphiql: true,
+// }));
+// app.listen(process.env.PORT, () => {
+//   console.log(
+//     `Running a GraphQL API server at `
+//     + `${process.env.HOSTNAME}:${process.env.PORT}/graphql`
+//   );
+// });
+// 
+// 
+// 
+
+
+
+
+
+
 
 /*
 post
