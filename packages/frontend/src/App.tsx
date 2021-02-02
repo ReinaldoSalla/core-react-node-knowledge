@@ -24,6 +24,9 @@ const Login = lazy(() => import('./pages/Login'));
 const About = lazy(() => import('./pages/About'));
 const Content = lazy(() => import('./pages/Content'));
 
+// const Crud = lazy(() => import('./pages/Crud'));
+const Crud = lazy(() => import('./pages/Crud'));
+
 const App = (): JSX.Element => {
   useTabOutline();
 
@@ -45,6 +48,9 @@ const App = (): JSX.Element => {
                 </Route>
                 <Route exact path='/about'>
                   <About />
+                </Route>
+                <Route exact path='/progrtmp-test-backend'>
+                  <Crud />
                 </Route>
                 <Route path='/:id'>
                   <Content />
