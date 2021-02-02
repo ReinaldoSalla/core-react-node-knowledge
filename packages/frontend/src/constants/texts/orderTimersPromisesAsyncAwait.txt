@@ -1,8 +1,223 @@
-Problem
-What is the order of the logs for the code bellow ?
+if it's a macrotask, it will do this...
+it it's a task, it will to this...
 
-Separation
+
+
+1. Problem
+What is the order of the logs for the code bellow?
+
+2. Separation
 First, it's worth metioning the code can be separated in three parts. 
-Syncronous code will be executed right away.
+Synchronous code will be executed right away.
 Resolved promises (either with .then or async await) will be executed on the microtask queue, this means that it will be executed when the current stack gets empty, but before the next iteration of the event loop.
 Timers, like setTimeout or setInterval, are executed on the task queue, which is also called macrotask queue or callback queue. This means that it will be executed on the next event loop.
+
+console.log('sync start');
+
+setTimeout(() => {
+  console.log('top level setTimeout 2ms');
+}, 2);
+
+setTimeout(() => {
+  console.log('top level setTimeout 1ms');
+}, 1);
+
+setTimeout(() => {
+  console.log('top level setTimeout 0ms');
+}, 0);
+
+const promise = new Promise((resolve) => {
+  console.log('promise constructor before resolve');
+  resolve('Promise resolved');
+});
+
+promise.then((result) => {
+  console.log(`result of createPromise().then = ${result}`);
+});
+
+const callPromise = async (): Promise<void> => {
+  console.log('started async function callPromise');
+  const result = await promise; 
+  console.log(`result of callPromise using async-await = ${result}`);
+  console.log(`finished async function callPromise`);
+};
+
+callPromise();
+
+const setTimeoutAfterResolve = (ms: number): Promise<void> => {
+  return new Promise((resolve) => {
+    resolve;
+    setTimeout(() => {
+      console.log(`setTimeoutAfterResolve ${ms}ms`);
+    }, ms);
+  });
+};
+
+setTimeoutAfterResolve(1000)
+  .then(() => console.log('.then for setTimeoutAfterResolve'));
+
+const callSetTimeoutAfterResolve = async (ms: number): Promise<void> => {
+  console.log('start async function callSetTimeoutAfterResolve');
+  await setTimeoutAfterResolve(ms);
+  console.log('finished async function callSetTimeoutAfterResolve');
+};
+
+callSetTimeoutAfterResolve(1000);
+
+const asyncSleep = (ms: number): Promise<void> => (
+  new Promise((resolve) => {
+    setTimeout(resolve, ms);
+  })
+);
+
+asyncSleep(1000)
+  .then(() => {
+    console.log(`.then for asynSleep 1000ms`);
+  })
+
+const callAsyncSleep = async (ms: number): Promise<void> => {
+  console.log('start async function callAsyncSleep');
+  await asyncSleep(ms);
+  console.log(`finished async function callAsyncSleep`);
+};
+
+callAsyncSleep(1000);
+
+console.log('sync finished');
+
+
+
+
+
+2. Synchronous
+Top level console logs will get executed right away. Any code inside
+a promise constructor, before the resolve invocation, will also get executes
+synchronously.
+Code written before the await keyword inside an asyn function will also
+be executed right away.
+Thus, the non-commented below will be executed first.
+
+console.log('sync start');
+
+// setTimeout(() => {
+//   console.log('top level setTimeout 2ms');
+// }, 2);
+
+// setTimeout(() => {
+//   console.log('top level setTimeout 1ms');
+// }, 1);
+
+// setTimeout(() => {
+//   console.log('top level setTimeout 0ms');
+// }, 0);
+
+const promise = new Promise((resolve) => {
+  console.log('promise constructor before resolve');
+  // resolve('Promise resolved');
+});
+
+// promise.then((result) => {
+//   console.log(`result of createPromise().then = ${result}`);
+// });
+
+const callPromise = async (): Promise<void> => {
+  console.log('started async function callPromise');
+  // const result = await promise; 
+  // console.log(`result of callPromise using async-await = ${result}`);
+  // console.log(`finished async function callPromise`);
+};
+
+callPromise();
+
+const setTimeoutAfterResolve = (ms: number): Promise<void> => {
+  return new Promise((resolve) => {
+    // resolve;
+    // setTimeout(() => {
+    //   console.log(`setTimeoutAfterResolve ${ms}ms`);
+    // }, ms);
+  });
+};
+
+// setTimeoutAfterResolve(1000)
+//   .then(() => console.log('.then for setTimeoutAfterResolve'));
+
+const callSetTimeoutAfterResolve = async (ms: number): Promise<void> => {
+  console.log('start async function callSetTimeoutAfterResolve');
+  // await setTimeoutAfterResolve(ms);
+  // console.log('finished async function callSetTimeoutAfterResolve');
+};
+
+callSetTimeoutAfterResolve(1000);
+
+const asyncSleep = (ms: number): Promise<void> => (
+  new Promise((resolve) => {
+    setTimeout(resolve, ms);
+  })
+);
+
+// asyncSleep(1000)
+//   .then(() => {
+//     console.log(`.then for asynSleep 1000ms`);
+//   })
+
+const callAsyncSleep = async (ms: number): Promise<void> => {
+  console.log('start async function callAsyncSleep');
+  // await asyncSleep(ms);
+  // console.log(`finished async function callAsyncSleep`);
+};
+
+callAsyncSleep(1000);
+
+console.log('sync finished');
+
+
+
+
+
+
+Therefore, these are the first executed logs.
+
+sync start
+promise constructor before resolve
+started async function callPromise
+start async function callSetTimeoutAfterResolve
+start async function callAsyncSleep
+sync finished
+
+
+
+3. Microtask
+As mentioned above, resolved promises are executed on the microtask queue. 
+Therefore, the non-commented code bellow will executed on the microtask queue.
+
+copy code here
+
+
+These are the logs executed during the microtask queue.
+
+result of createPromise().then = Promise resolved
+result of callPromise using async-await = Promise resolved
+finished async function callPromise
+
+
+
+
+
+4. Task
+Timers are going to be executed on the task queue.
+The top level logs on the code bellow will be executed on this order: 1ms, 0ms, 2ms.
+
+setTimeout(() => {
+  console.log('top level setTimeout 2ms');
+}, 2);
+
+setTimeout(() => {
+  console.log('top level setTimeout 1ms');
+}, 1);
+
+setTimeout(() => {
+  console.log('top level setTimeout 0ms');
+}, 0);
+
+If you have never seen the code above, you may think that the order would be
+0ms, 1ms, 2ms. 
