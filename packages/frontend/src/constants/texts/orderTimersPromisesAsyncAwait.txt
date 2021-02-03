@@ -6,14 +6,6 @@ it it's a task, it will to this...
 1. Problem
 What is the order of the logs for the code bellow?
 
-2. Separation
-First, it's worth metioning the code can be separated in three parts. 
-Synchronous code will be executed right away.
-Resolved promises (either with .then or async await) will be executed on the microtask queue, this means that it will be executed when the current stack gets empty, but before the next iteration of the event loop.
-Timers, like setTimeout or setInterval, are executed on the task queue, which is also called macrotask queue or callback queue. This means that it will be executed on the next event loop.
-
-console.log('sync start');
-
 setTimeout(() => {
   console.log('top level setTimeout 2ms');
 }, 2);
@@ -87,7 +79,11 @@ console.log('sync finished');
 
 
 
-
+2. Separation
+First, it's worth metioning the code can be separated in three parts. 
+Synchronous code will be executed right away.
+Resolved promises (either with .then or async await) will be executed on the microtask queue, this means that it will be executed when the current stack gets empty, but before the next iteration of the event loop.
+Timers, like setTimeout or setInterval, are executed on the task queue, which is also called macrotask queue or callback queue. This means that it will be executed on the next event loop.
 
 2. Synchronous
 Top level console logs will get executed right away. Any code inside
@@ -204,8 +200,7 @@ finished async function callPromise
 
 
 4. Task
-Timers are going to be executed on the task queue.
-The top level logs on the code bellow will be executed on this order: 1ms, 0ms, 2ms.
+Timers are going to be executed on the task queue. These are the top-level timers.
 
 setTimeout(() => {
   console.log('top level setTimeout 2ms');
@@ -219,5 +214,33 @@ setTimeout(() => {
   console.log('top level setTimeout 0ms');
 }, 0);
 
-If you have never seen the code above, you may think that the order would be
-0ms, 1ms, 2ms. 
+The second argument is the delay in miliseconds. In theory, the execution order should be 0ms, 1ms and 2ms.
+However, in practice, the result will depend on which environment the code is executed
+On Firefox, it will be 0ms, 1ms and 2ms. On Chrome, Edge and on Node.js, it will be 1ms, 0ms and 2ms.
+Node.js will convert 0ms to 1ms, so both are interpreted as 1ms. The first one to run will be the first one declared. That's why 1ms gets logged before 0ms.
+The code bellow is from the Node.js 
+
+inline link
+source code
+https://github.com/nodejs/node/blob/master/lib/internal/timers.js
+
+
+, and it demonstrated the conversion from < 1ms to 0ms
+
+
+function Timeout(callback, after, args, isRepeat, isRefed) {
+  after *= 1; // Coalesce to number or NaN
+  if (!(after >= 1 && after <= TIMEOUT_MAX)) {
+    if (after > TIMEOUT_MAX) {
+      process.emitWarning(`${after} does not fit into` +
+                          ' a 32-bit signed integer.' +
+                          '\nTimeout duration was set to 1.',
+                          'TimeoutOverflowWarning');
+    }
+    after = 1; // Schedule on next tick, follows browser behavior
+  }
+  ...
+}
+
+
+
