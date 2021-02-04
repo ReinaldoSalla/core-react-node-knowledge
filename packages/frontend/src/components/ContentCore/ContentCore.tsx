@@ -16,13 +16,14 @@ import {
 } from './ContentCore.styles';
 import { ContentCoreProps } from './ContentCore.types';
 import { getTitleSpring, getSectionSpring } from './ContentCore.animations';
+import 'prismjs/components/prism-javascript.min';
 import 'prismjs/components/prism-typescript.min';
+import 'prismjs/components/prism-jsx.min';
+import 'prismjs/components/prism-tsx.min';
 import 'prismjs/plugins/line-numbers/prism-line-numbers.min';
 import 'prismjs/plugins/line-numbers/prism-line-numbers.css';
-import './ContentCore.css';
-// import 'prismjs/components/prism-javascript.min.js';
-// import 'prismjs/components/prism-jsx.min.js';
-// import 'prismjs/themes/prism-okaidia.css';
+import 'prismjs/themes/prism-twilight.css';
+// import './ContentCore.css';
 
 const ContentCore: FunctionComponent<ContentCoreProps> = ({
   domNodes,
@@ -79,13 +80,33 @@ const ContentCore: FunctionComponent<ContentCoreProps> = ({
             } if (
               Object.prototype.hasOwnProperty.call(innerElement, 'code')
             ) {
+              // testing typescript
+              // return (
+              //   <pre key={index} className='language-typescript line-numbers'>
+              //     <code
+              //       className='language-typescript'
+              //       style={{ whiteSpace: 'pre-wrap' }}
+              //     >
+              //       {innerElement.code.trim()}
+              //     </code>
+              //   </pre>
+              // );
+
+              // testing tsx
               return (
-                <pre key={index} className='language-typescript line-numbers'>
+                <pre key={index} className='line-numbers'>
                   <code
-                    className='language-typescript'
+                    className='language-tsx'
                     style={{ whiteSpace: 'pre-wrap' }}
                   >
                     {innerElement.code.trim()}
+                    {' '}
+                    <br />
+                    <pre>
+                      <code className='language-typescript'>
+                        export default Component;
+                      </code>
+                    </pre>
                   </code>
                 </pre>
               );
