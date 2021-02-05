@@ -1,0 +1,19 @@
+code[class*="language-"],
+pre[class*="language-"] {
+    white-space: pre-wrap;
+}
+
+/* The following is needed for Google Chrome. */
+pre.line-numbers > code {
+    /* display: inline-block; */
+}
+
+.code-scrollbar::-webkit-scrollbar {
+  width: 0px;
+}
+
+@media only screen and (max-width: 432px) {
+  pre[class*="language-"] { 
+    font-size: 12px; 
+  }
+}

@@ -23,7 +23,7 @@ import 'prismjs/components/prism-tsx.min';
 import 'prismjs/plugins/line-numbers/prism-line-numbers.min';
 import 'prismjs/plugins/line-numbers/prism-line-numbers.css';
 import 'prismjs/themes/prism-twilight.css';
-// import './ContentCore.css';
+import './wrap.css';
 
 const ContentCore: FunctionComponent<ContentCoreProps> = ({
   domNodes,
@@ -81,35 +81,58 @@ const ContentCore: FunctionComponent<ContentCoreProps> = ({
               Object.prototype.hasOwnProperty.call(innerElement, 'code')
             ) {
               // testing typescript
-              // return (
-              //   <pre key={index} className='language-typescript line-numbers'>
-              //     <code
-              //       className='language-typescript'
-              //       style={{ whiteSpace: 'pre-wrap' }}
-              //     >
-              //       {innerElement.code.trim()}
-              //     </code>
-              //   </pre>
-              // );
-
-              // testing tsx
               return (
-                <pre key={index} className='line-numbers'>
+                <pre
+                  key={index}
+                  className='line-numbers code-scrollbar'
+                >
                   <code
-                    className='language-tsx'
-                    style={{ whiteSpace: 'pre-wrap' }}
+                    className='language-typescript font-mobile'
+                    style={{
+                      // whiteSpace: 'pre-wrap',
+                      // padding: '16px'
+                      // paddingRight: '48px'
+                    }}
                   >
                     {innerElement.code.trim()}
-                    {' '}
-                    <br />
-                    <pre>
-                      <code className='language-typescript'>
-                        export default Component;
-                      </code>
-                    </pre>
                   </code>
                 </pre>
               );
+
+              // testing tsx
+              // return (
+              //   <div key={index}>
+
+              //     <pre key={index} className='line-numbers'>
+              //       <code
+              //         className='language-tsx'
+              //         style={{ whiteSpace: 'pre-wrap' }}
+              //       >
+              //         {innerElement.code.trim()}
+              //         {' '}
+              //       </code>
+              //     </pre>
+
+              //     <pre
+              //       className='line-numbers'
+              //       style={{
+              //         position: 'absolute',
+              //         bottom: '32px'
+              //       }}
+              //     >
+              //       <code
+              //         className='language-typescript'
+              //         // style={{
+              //         //   position: 'relative',
+              //         //   bottom: '32px'
+              //         // }}
+              //       >
+              //         export default Component;
+              //       </code>
+              //     </pre>
+
+              //   </div>
+              // );
             } if (
               Object.prototype.hasOwnProperty.call(
                 innerElement,
