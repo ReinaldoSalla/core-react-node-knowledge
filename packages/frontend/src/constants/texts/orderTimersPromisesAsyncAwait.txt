@@ -183,7 +183,7 @@ sync finished
 
 
 3. Microtask
-As mentioned above, resolved promises are executed on the microtask queue. 
+As mentioned above, resolved promises are executed on the microtask queue.
 Therefore, the non-commented code bellow will executed on the microtask queue.
 
 copy code here
@@ -242,5 +242,8 @@ function Timeout(callback, after, args, isRepeat, isRefed) {
   ...
 }
 
+Lastly, the callAsyncSleep will continue after the delay of 1 second, and it will be the last log
 
 
+5. Result
+This is the order of the logs
