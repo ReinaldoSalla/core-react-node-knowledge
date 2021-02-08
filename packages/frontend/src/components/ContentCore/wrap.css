@@ -3,17 +3,47 @@ pre[class*="language-"] {
     white-space: pre-wrap;
 }
 
-/* The following is needed for Google Chrome. */
-pre.line-numbers > code {
-    /* display: inline-block; */
-}
+/* Somewhere on prism github discussion */
+/* pre.line-numbers > code {
+    display: inline-block;
+} */
 
+/* Vertical scrollbar bug on chrome */
 .code-scrollbar::-webkit-scrollbar {
   width: 0px;
 }
 
-@media only screen and (max-width: 432px) {
+/* Make the font smaller on mobile */
+/* @media only screen and (max-width: 432px) {
   pre[class*="language-"] { 
     font-size: 12px; 
   }
-}
+} */
+/* It gets called like this */
+/*
+return (
+  <pre
+    key={index}
+    className='line-numbers code-scrollbar'
+  >
+    <code
+      className='language-typescript font-mobile'
+      style={{
+        // whiteSpace: 'pre-wrap',
+        // padding: '16px'
+        // paddingRight: '48px'
+        wordBreak: 'break-word'
+      }}
+    >
+      {innerElement.code.trim()}
+    </code>
+  </pre>
+);
+*/
+
+/* export default at the bottom of the file tsx bug */
+/* it was caused by a primsjs misinterpreation on generics vs react-components
+/* .language-tsx span:nth-last-child(3).plain-text{
+  border: 1px solid red;
+  color: red;
+} */

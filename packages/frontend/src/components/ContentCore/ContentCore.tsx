@@ -78,61 +78,59 @@ const ContentCore: FunctionComponent<ContentCoreProps> = ({
                 </ContentCoreContainer>
               );
             } if (
+              Object.prototype.hasOwnProperty.call(innerElement, 'filePath')
+            ) {
+              return (
+                <pre key={index}>
+                  <code
+                    className='language-typescript'
+                    style={{
+                      wordBreak: 'break-word'
+                    }}
+                  >
+                    {innerElement.filePath.trim()}
+                  </code>
+                </pre>
+              );
+            } if (
               Object.prototype.hasOwnProperty.call(innerElement, 'code')
             ) {
               // testing typescript
+              // return (
+              //   <pre
+              //     key={index}
+              //     className='line-numbers code-scrollbar'
+              //   >
+              //     <code
+              //       className='language-typescript font-mobile'
+              //       style={{
+              //         // whiteSpace: 'pre-wrap',
+              //         // padding: '16px'
+              //         // paddingRight: '48px'
+              //         wordBreak: 'break-word'
+              //       }}
+              //     >
+              //       {innerElement.code.trim()}
+              //     </code>
+              //   </pre>
+              // );
+
+              // testing tsx return (
               return (
                 <pre
                   key={index}
                   className='line-numbers code-scrollbar'
                 >
                   <code
-                    className='language-typescript font-mobile'
+                    className='language-tsx'
                     style={{
-                      // whiteSpace: 'pre-wrap',
-                      // padding: '16px'
-                      // paddingRight: '48px'
+                      wordBreak: 'break-word'
                     }}
                   >
                     {innerElement.code.trim()}
                   </code>
                 </pre>
               );
-
-              // testing tsx
-              // return (
-              //   <div key={index}>
-
-              //     <pre key={index} className='line-numbers'>
-              //       <code
-              //         className='language-tsx'
-              //         style={{ whiteSpace: 'pre-wrap' }}
-              //       >
-              //         {innerElement.code.trim()}
-              //         {' '}
-              //       </code>
-              //     </pre>
-
-              //     <pre
-              //       className='line-numbers'
-              //       style={{
-              //         position: 'absolute',
-              //         bottom: '32px'
-              //       }}
-              //     >
-              //       <code
-              //         className='language-typescript'
-              //         // style={{
-              //         //   position: 'relative',
-              //         //   bottom: '32px'
-              //         // }}
-              //       >
-              //         export default Component;
-              //       </code>
-              //     </pre>
-
-              //   </div>
-              // );
             } if (
               Object.prototype.hasOwnProperty.call(
                 innerElement,
