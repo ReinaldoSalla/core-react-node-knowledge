@@ -22,8 +22,12 @@ const ContentCoreText = styled.p`
 
 const ContentCoreLink = styled.a`
   font-weight: 600;
+  font-size: 1rem;
+  position: relative;
+  top: 0.5px;
   color: red;
   transition: color 250ms;
+  /* border: 1px solid red; */
 
   &:hover {
     color: orange;

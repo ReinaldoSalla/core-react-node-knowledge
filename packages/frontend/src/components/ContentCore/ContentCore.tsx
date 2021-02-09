@@ -122,7 +122,7 @@ const ContentCore: FunctionComponent<ContentCoreProps> = ({
                   className='line-numbers code-scrollbar'
                 >
                   <code
-                    className='language-tsx'
+                    className='language-tsx font-mobile'
                     style={{
                       wordBreak: 'break-word'
                     }}
@@ -134,40 +134,33 @@ const ContentCore: FunctionComponent<ContentCoreProps> = ({
             } if (
               Object.prototype.hasOwnProperty.call(
                 innerElement,
-                'paragraphWithMiddleLink'
+                'paragraphWithLink'
               )
             ) {
-              const blocks = innerElement.paragraphWithMiddleLink.split('*');
+              const blocks = innerElement.paragraphWithLink.split('*');
               return (
                 <ContentCoreText key={index}>
-                  {blocks[0]}
-                  <ContentCoreLink
-                    href='https://nodejs.org/en/'
-                    target='_blank'
-                    rel='noopener noreferrer'
-                  >
-                    {blocks[1]}
-                  </ContentCoreLink>
-                  {blocks[2]}
-                </ContentCoreText>
-              );
-            } if (
-              Object.prototype.hasOwnProperty.call(
-                innerElement,
-                'paragraphWithEndLink'
-              )
-            ) {
-              const blocks = innerElement.paragraphWithEndLink.split('*');
-              return (
-                <ContentCoreText key={index}>
-                  {blocks[0]}
-                  <ContentCoreLink
-                    href='https://nodejs.org/en/'
-                    target='_blank'
-                    rel='noopener noreferrer'
-                  >
-                    {blocks[1]}
-                  </ContentCoreLink>
+                  {blocks.map((block: any) => {
+                    if (block[0] === '#') {
+                      const withoutHash = block.replace('#', '');
+                      const [text, link] = withoutHash.split('(');
+                      const processedLink = link.replace(')', '');
+                      return (
+                        <ContentCoreLink
+                          href={processedLink}
+                          target='_blank'
+                          rel='nofollow noopener noreferrer'
+                          key={link}
+                        >
+                          {' '}
+                          {text}
+                        </ContentCoreLink>
+                      );
+                    }
+                    return (
+                      String(block.trim())
+                    );
+                  })}
                 </ContentCoreText>
               );
             }

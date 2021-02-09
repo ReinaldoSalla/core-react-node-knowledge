@@ -14,11 +14,11 @@ pre[class*="language-"] {
 }
 
 /* Make the font smaller on mobile */
-/* @media only screen and (max-width: 432px) {
+@media only screen and (max-width: 432px) {
   pre[class*="language-"] { 
     font-size: 12px; 
   }
-} */
+}
 /* It gets called like this */
 /*
 return (
