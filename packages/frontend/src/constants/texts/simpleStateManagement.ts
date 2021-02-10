@@ -4,6 +4,10 @@ const title = `
 React - Simple State Management
 `;
 
+const seo = `
+Interview questions, solutions, tutorial, guides for JavaScript promises, async-await, setTimeout, setInterval, asyncronous programming.
+`;
+
 const introSubtitle = `
 Intro
 `;
@@ -51,6 +55,11 @@ React makes it painless to create interactive UIs. Design simple views for each 
 React makes it painless to create interactive UIs. Design simple views for each state in your application, and React will efficiently update and render just the right components when your data changes.
 React makes it painless to create interactive UIs. Design simple views for each state in your application, and React will efficiently update and render just the right components when your data changes.
 `;
+
+const language1 = `
+language-tsx  
+`;
+
 const filePath1 = `
   ./src/app.ts
 `;
@@ -190,6 +199,7 @@ Install the lastest recommended version of
 
 const simpleStateManagement = {
   title,
+  seo,
   text: [
     {
       subtitle: introSubtitle,
@@ -211,7 +221,12 @@ const simpleStateManagement = {
       paragraphsCommandsCode: [
         { paragraph: navbarParagraph1 },
         { filePath: filePath1 },
-        { code: navbarCode1 }
+        {
+          codeBlock: {
+            code: navbarCode1,
+            language: language1
+          }
+        }
       ]
     },
     {

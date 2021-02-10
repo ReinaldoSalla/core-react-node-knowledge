@@ -19,27 +19,6 @@ pre[class*="language-"] {
     font-size: 12px; 
   }
 }
-/* It gets called like this */
-/*
-return (
-  <pre
-    key={index}
-    className='line-numbers code-scrollbar'
-  >
-    <code
-      className='language-typescript font-mobile'
-      style={{
-        // whiteSpace: 'pre-wrap',
-        // padding: '16px'
-        // paddingRight: '48px'
-        wordBreak: 'break-word'
-      }}
-    >
-      {innerElement.code.trim()}
-    </code>
-  </pre>
-);
-*/
 
 /* export default at the bottom of the file tsx bug */
 /* it was caused by a primsjs misinterpreation on generics vs react-components

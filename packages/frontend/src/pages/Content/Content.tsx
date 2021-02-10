@@ -1,8 +1,7 @@
 import React, {
   useRef,
   useContext,
-  useMemo,
-  useEffect
+  useMemo
 } from 'react';
 import { useSpring } from 'react-spring';
 import { useParams } from 'react-router-dom';
@@ -56,7 +55,6 @@ const Content = (): JSX.Element | null => {
   ];
 
   const { isTopbarSidebarVisible } = useContext(ModalsState);
-  // const dispatch = useContext(ModalsDispatch);
   const spring = useSpring(getOpacitySpring(isTopbarSidebarVisible));
 
   // useEffect(() => {
@@ -67,10 +65,6 @@ const Content = (): JSX.Element | null => {
   //   };
   // }, [hash, delimiters]);
 
-  useEffect(() => {
-    // dispatch({ type: 'CLOSE_MODALS' });
-  }, []);
-
   if (!target) {
     return <ContentNull id={id} />;
   }
@@ -78,16 +72,14 @@ const Content = (): JSX.Element | null => {
   return (
     <main>
       <Helmet>
-        <title>{target.title}</title>
+        <title>
+          {target.title}
+          {' '}
+          - ProgrTmp
+        </title>
         <meta
           name='description'
-          content={
-            target
-              .text[0]
-              .paragraphsCommandsCode[0]
-              .paragraph
-              .slice(0, 100)
-          }
+          content={target.seo}
         />
       </Helmet>
       <ContentWrapper

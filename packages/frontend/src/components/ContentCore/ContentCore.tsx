@@ -93,41 +93,20 @@ const ContentCore: FunctionComponent<ContentCoreProps> = ({
                 </pre>
               );
             } if (
-              Object.prototype.hasOwnProperty.call(innerElement, 'code')
+              Object.prototype.hasOwnProperty.call(innerElement, 'codeBlock')
             ) {
-              // testing typescript
-              // return (
-              //   <pre
-              //     key={index}
-              //     className='line-numbers code-scrollbar'
-              //   >
-              //     <code
-              //       className='language-typescript font-mobile'
-              //       style={{
-              //         // whiteSpace: 'pre-wrap',
-              //         // padding: '16px'
-              //         // paddingRight: '48px'
-              //         wordBreak: 'break-word'
-              //       }}
-              //     >
-              //       {innerElement.code.trim()}
-              //     </code>
-              //   </pre>
-              // );
-
-              // testing tsx return (
               return (
                 <pre
                   key={index}
                   className='line-numbers code-scrollbar'
                 >
                   <code
-                    className='language-tsx font-mobile'
+                    className={innerElement.codeBlock.language}
                     style={{
                       wordBreak: 'break-word'
                     }}
                   >
-                    {innerElement.code.trim()}
+                    {innerElement.codeBlock.code.trim()}
                   </code>
                 </pre>
               );

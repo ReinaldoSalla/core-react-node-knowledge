@@ -23,6 +23,10 @@ const title = `
 React - Complex State Management
 `;
 
+const seo = `
+Interview questions, solutions, tutorial, guides for JavaScript promises, async-await, setTimeout, setInterval, asyncronous programming.
+`;
+
 const introSubtitle = `
 Intro
 `;
@@ -122,6 +126,7 @@ And you can also check the application running on codesandbox
 
 const complexStateManagement = {
   title,
+  seo,
   text: [
     {
       subtitle: introSubtitle,
