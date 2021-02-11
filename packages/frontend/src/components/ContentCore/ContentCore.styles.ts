@@ -53,6 +53,17 @@ const ContentCoreHighlight = styled.span`
   background: rgba(255, 0, 0, 0.1);
 `;
 
+const FilePath = styled.span`
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  border: .3em solid hsl(0, 0%, 33%);
+  border-radius: 10px;
+  background: hsl(0, 0%, 8%);
+  color: white;
+  letter-spacing: 0.5px;
+`;
+
 export {
   Article,
   ContentCoreHeading,
@@ -61,5 +72,6 @@ export {
   ContentCoreLink,
   ContentCoreContainer,
   ContentCoreCommand,
-  ContentCoreHighlight
+  ContentCoreHighlight,
+  FilePath
 };

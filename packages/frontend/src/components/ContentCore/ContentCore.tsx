@@ -12,7 +12,8 @@ import {
   ContentCoreText,
   ContentCoreLink,
   ContentCoreContainer,
-  ContentCoreCommand
+  ContentCoreCommand,
+  FilePath
 } from './ContentCore.styles';
 import { ContentCoreProps } from './ContentCore.types';
 import { getTitleSpring, getSectionSpring } from './ContentCore.animations';
@@ -81,16 +82,9 @@ const ContentCore: FunctionComponent<ContentCoreProps> = ({
               Object.prototype.hasOwnProperty.call(innerElement, 'filePath')
             ) {
               return (
-                <pre key={index}>
-                  <code
-                    className='language-typescript'
-                    style={{
-                      wordBreak: 'break-word'
-                    }}
-                  >
-                    {innerElement.filePath.trim()}
-                  </code>
-                </pre>
+                <FilePath>
+                  {innerElement.filePath.trim()}
+                </FilePath>
               );
             } if (
               Object.prototype.hasOwnProperty.call(innerElement, 'codeBlock')
