@@ -82,7 +82,7 @@ const ContentCore: FunctionComponent<ContentCoreProps> = ({
               Object.prototype.hasOwnProperty.call(innerElement, 'filePath')
             ) {
               return (
-                <FilePath>
+                <FilePath key={index}>
                   {innerElement.filePath.trim()}
                 </FilePath>
               );

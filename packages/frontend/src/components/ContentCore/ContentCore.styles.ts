@@ -27,7 +27,6 @@ const ContentCoreLink = styled.a`
   top: 0.5px;
   color: red;
   transition: color 250ms;
-  /* border: 1px solid red; */
 
   &:hover {
     color: orange;

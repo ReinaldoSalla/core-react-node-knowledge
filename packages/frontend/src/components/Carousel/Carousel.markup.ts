@@ -4,7 +4,7 @@ const markup = [
   {
     name: 'javascript',
     title: titleGenerator('JavaScript'),
-    description: 'From data processing to asyncronous programming',
+    description: 'From data processing to asynchronous programming',
     check: checkGenerator('JavaScript')
   },
   {
