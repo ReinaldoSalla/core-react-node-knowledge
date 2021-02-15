@@ -227,7 +227,7 @@ be executed on the next event loop.
 `;
 
 const subtitle24 = `
-Synchronous
+Sync
 `;
 
 const paragraph25 = `
@@ -301,7 +301,7 @@ const commands28 = [
 ];
 
 const subtitle29 = `
-Microtask Queue
+Microtask
 `;
 
 const paragraph30 = `
@@ -454,7 +454,7 @@ On Chrome, Edge and on Node.js, it will be 1ms, 0ms and 2ms.
 const paragraphWithLink40 = `
 Node.js will convert 0ms to 1ms, so both are interpreted as 1ms. 
 The first one to run will be the first one declared. 
-That's why 1ms gets logged before 0ms. The code bellow is from the Node.js
+That's why 1ms gets logged before 0ms. The code bellow is from the Node.js 
 *#repository(https://github.com/nodejs/node/blob/master/lib/internal/timers.js)*, and
 it demonstrates the conversion of anything bellow 1ms to 1ms.
 `;

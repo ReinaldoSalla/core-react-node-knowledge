@@ -30,7 +30,11 @@ const ContentNavigation: FunctionComponent<ContentNavigationProps> = ({
     useSpring(getCircleAnimation(isIntersecting[2], isIntersecting[1])),
     useSpring(getCircleAnimation(isIntersecting[3], isIntersecting[2])),
     useSpring(getCircleAnimation(isIntersecting[4], isIntersecting[3])),
-    useSpring(getCircleAnimation(isIntersecting[5], isIntersecting[4]))
+    useSpring(getCircleAnimation(isIntersecting[5], isIntersecting[4])),
+    useSpring(getCircleAnimation(isIntersecting[6], isIntersecting[5])),
+    useSpring(getCircleAnimation(isIntersecting[7], isIntersecting[6])),
+    useSpring(getCircleAnimation(isIntersecting[8], isIntersecting[7])),
+    useSpring(getCircleAnimation(isIntersecting[9], isIntersecting[8]))
   ];
 
   const textAnimations = [
@@ -39,7 +43,11 @@ const ContentNavigation: FunctionComponent<ContentNavigationProps> = ({
     useSpring(getTextAnimation(isIntersecting[2], isIntersecting[1])),
     useSpring(getTextAnimation(isIntersecting[3], isIntersecting[2])),
     useSpring(getTextAnimation(isIntersecting[4], isIntersecting[3])),
-    useSpring(getTextAnimation(isIntersecting[5], isIntersecting[4]))
+    useSpring(getTextAnimation(isIntersecting[5], isIntersecting[4])),
+    useSpring(getTextAnimation(isIntersecting[6], isIntersecting[5])),
+    useSpring(getTextAnimation(isIntersecting[7], isIntersecting[6])),
+    useSpring(getTextAnimation(isIntersecting[8], isIntersecting[7])),
+    useSpring(getTextAnimation(isIntersecting[9], isIntersecting[8]))
   ];
 
   return (

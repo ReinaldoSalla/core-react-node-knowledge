@@ -18,18 +18,15 @@ const ContentCoreTitle = styled.h2`
 const ContentCoreText = styled.p`
   line-height: 1.7;
   color: ${(props): string => props.theme.secondaryTextColor};
+  font-size: 1rem;
 `;
 
 const ContentCoreLink = styled.a`
-  font-weight: 600;
-  font-size: 1rem;
-  position: relative;
-  top: 0.5px;
-  color: red;
+  color: yellow;
   transition: color 250ms;
 
   &:hover {
-    color: orange;
+    color: red;
   }
 `;
 
@@ -61,6 +58,7 @@ const FilePath = styled.span`
   background: hsl(0, 0%, 8%);
   color: white;
   letter-spacing: 0.5px;
+  word-break: break-word;
 `;
 
 export {

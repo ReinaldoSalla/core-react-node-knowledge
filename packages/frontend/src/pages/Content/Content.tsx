@@ -33,17 +33,16 @@ const Content = (): JSX.Element | null => {
     useRef<HTMLElement | null>(null),
     useRef<HTMLElement | null>(null),
     useRef<HTMLElement | null>(null),
+    useRef<HTMLElement | null>(null),
+    useRef<HTMLElement | null>(null),
+    useRef<HTMLElement | null>(null),
+    useRef<HTMLElement | null>(null),
     useRef<HTMLElement | null>(null)
   ];
 
-  const scrolls = [
-    (): void => scrollToElement(domNodes[0], -10),
-    (): void => scrollToElement(domNodes[1], -10),
-    (): void => scrollToElement(domNodes[2], -10),
-    (): void => scrollToElement(domNodes[3], -10),
-    (): void => scrollToElement(domNodes[4], -10),
-    (): void => scrollToElement(domNodes[5], -10)
-  ];
+  const scrolls = new Array(10).fill(0).map((_, index) => (
+    (): void => scrollToElement(domNodes[index], -10)
+  ));
 
   const isIntersecting = [
     useIsIntersecting(domNodes[0], '-100px'),
@@ -51,7 +50,12 @@ const Content = (): JSX.Element | null => {
     useIsIntersecting(domNodes[2]),
     useIsIntersecting(domNodes[3]),
     useIsIntersecting(domNodes[4]),
-    useIsIntersecting(domNodes[5])
+    useIsIntersecting(domNodes[5]),
+    useIsIntersecting(domNodes[6]),
+    useIsIntersecting(domNodes[7]),
+    useIsIntersecting(domNodes[8]),
+    useIsIntersecting(domNodes[8]),
+    useIsIntersecting(domNodes[9])
   ];
 
   const { isTopbarSidebarVisible } = useContext(ModalsState);
