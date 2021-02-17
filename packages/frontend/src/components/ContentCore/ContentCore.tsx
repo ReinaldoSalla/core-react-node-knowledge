@@ -89,10 +89,12 @@ const ContentCore: FunctionComponent<ContentCoreProps> = ({
             } if (
               Object.prototype.hasOwnProperty.call(innerElement, 'codeBlock')
             ) {
+              const lineNumbers = innerElement.codeBlock.disableLineNumbers ? '' : 'line-numbers';
               return (
                 <pre
                   key={index}
-                  className='line-numbers code-scrollbar'
+                  // className={`${lineNumbers} code-scrollbar´}
+                  className={`${lineNumbers} code-scrollbar`}
                 >
                   <code
                     className={innerElement.codeBlock.language}

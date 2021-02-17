@@ -5,7 +5,7 @@ JavaScript - Order for timers, promises, async-await
 `;
 
 const seo = `
-Interview questions, solutions, tutorial, guides for JavaScript promises, async-await, setTimeout, setInterval, asyncronous programming.
+Interview questions, solutions, tutorials, guides for JavaScript promises, async-await, setTimeout, setInterval, asyncronous programming.
 `;
 
 const subtitle1 = `

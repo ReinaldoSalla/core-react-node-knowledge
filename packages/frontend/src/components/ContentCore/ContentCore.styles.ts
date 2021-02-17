@@ -22,11 +22,17 @@ const ContentCoreText = styled.p`
 `;
 
 const ContentCoreLink = styled.a`
-  color: yellow;
-  transition: color 250ms;
+  display: inline-block;
+  margin: 0 4px;
+  padding-bottom: 2px;
+  border-bottom: 1px solid red;
+  line-height: 1;
+  color: red;
+  transition: color 250ms, border 250ms;
 
   &:hover {
-    color: red;
+    color: orange;
+    border-bottom: 1px solid orange;
   }
 `;
 
