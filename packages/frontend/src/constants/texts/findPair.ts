@@ -4,8 +4,12 @@ const language = `
 language-typescript
 `;
 
+const filePath = `
+./src/app.ts
+`;
+
 const title = `
-JavaScript - Find Pair 
+JavaScript - Find Pair
 `;
 
 const seo = `
@@ -98,7 +102,7 @@ const code13 = `
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon "
+    "start": "nodemon"
   },
   "author": "",
   "license": "ISC",
@@ -112,387 +116,62 @@ const code13 = `
 
 const paragraph14 = `
 Then, create a folder called src, and inside create a file
-called app.ts, where you can paste the code for this question
+called app.ts, where you can write the code for this question.
 `;
 
-const filePath = `
-./src/app.ts
+const paragraph15 = `
+Finally, to execute code inside ./src/app.ts, run this command
 `;
 
-const code16 = `
-console.log('sync start');
-
-setTimeout(() => {
-  console.log('top-level setTimeout 2ms');
-}, 2);
-
-setTimeout(() => {
-  console.log('top-level setTimeout 1ms');
-}, 1);
-
-setTimeout(() => {
-  console.log('top-level setTimeout 0ms');
-}, 0);
-
-const promise = new Promise((resolve) => {
-  console.log('promise constructor before resolve');
-  resolve('promise resolved');
-});
-
-const callPromise = async (): Promise<void> => {
-  console.log('started async function callPromise');
-  const result = await promise; 
-  console.log(\`result of await promise = \${result}\`);
-  console.log(\`finished async function callPromise\`);
-};
-
-callPromise();
-
-promise.then((result) => {
-  console.log(\`result of promise.then = \${result}\`);
-});
-
-const asyncSleep = (ms: number): Promise<void> => (
-  new Promise((resolve) => {
-    setTimeout(resolve, ms);
-  })
-);
-
-const callAsyncSleep = async (ms: number): Promise<void> => {
-  console.log('start async function callAsyncSleep');
-  await asyncSleep(ms);
-  console.log(\`finished async function callAsyncSleep\`);
-};
-
-callAsyncSleep(1000);
-
-console.log('sync finished');
-`;
-
-const paragraph17 = `
-Finally, to execute the project, run this command
-`;
-
-const commands18 = [
+const command16 = [
   '$ npm run start'
 ];
 
-const subtitle19 = `
-Separation
+const subtitle17 = `
+For loops
 `;
 
-const paragraph20 = `
-First, it's worth mentioning that the code can be separated in three parts.
+const paragraph18 = `
+The easy solution would be to iterate all the items, and then iterate
+all the other items, and return if the codition is true (firstNumber 
++ secondNumber = sum). This would require quadratic time complexity,
+due to having a loop inside a loop. A quadratic time complexity solution
+would not be received well in a serious job interview, when there is a better linear
+alternative.
 `;
 
-const paragraph21 = `
-Synchronous code will be execute right away.
+const paragraph19 = `
+One method for solving the question in linear time is to use a set
+as an auxiliary variable to check the items on the array. As we iterate
+the array, we can check for elements inside a set in constant time, using
+the set.has method. The only catch is that we need to check for elements 
+that are declared before the current item we're iterating. This is necessary
+to avoid false positives.
 `;
 
-const paragraph22 = `
-Resolved promises, either with .then or async-await, will be executed
-as a microtask on the microtask queue. Therefore, they will be executed
-when the current stack is empty, but before the next iteration of the
-event loop.
-`;
-
-const paragraph23 = `
-Timers, like setTimeout or setInterval, are able to schedule code to be
-executed as a task on the task queue, which is also called 
-macrotask queue or callback queue. This means that they will 
-be executed on the next event loop.
-`;
-
-const subtitle24 = `
-Sync
-`;
-
-const paragraph25 = `
-Top-level console logs will be executed right away. Also, the code
-inside the promise contructor, before the resolve invocation, will
-be executed synchronously. Code written before the await in an async
-function will also be executed right away. Thus, the non-commented
-code below will be executed first
-`;
-
-const code26 = `
-console.log('sync start');
-
-setTimeout(() => {
-  // console.log('top-level setTimeout 2ms');
-}, 2);
-
-setTimeout(() => {
-  // console.log('top-level setTimeout 1ms');
-}, 1);
-
-setTimeout(() => {
-  // console.log('top-level setTimeout 0ms');
-}, 0);
-
-const promise = new Promise((resolve) => {
-  console.log('promise constructor before resolve');
-  // resolve('promise resolved');
-});
-
-const callPromise = async (): Promise<void> => {
-  console.log('started async function callPromise');
-  // const result = await promise; 
-  // console.log(\`result of await promise = \${result}\`);
-  // console.log\`finished async function callPromise\`);
-};
-
-callPromise();
-
-promise.then((result) => {
-  // console.log(\`result of promise.then = \${result}\`);
-});
-
-const asyncSleep = (ms: number): Promise<void> => (
-  new Promise((resolve) => {
-    setTimeout(resolve, ms);
-  })
-);
-
-const callAsyncSleep = async (ms: number): Promise<void> => {
-  console.log('start async function callAsyncSleep');
-  // await asyncSleep(ms);
-  // console.log(\`finished async function callAsyncSleep\`);
-};
-
-callAsyncSleep(1000);
-
-console.log('sync finished');
-`;
-
-const paragraph27 = `
-Therefore, these are the first logs to be executed.
-`;
-
-const commands28 = [
-  'sync start',
-  'promise constructor before resolve',
-  'started async function callPromise',
-  'start async function callAsyncSleep',
-  'sync finished'
-];
-
-const subtitle29 = `
-Microtask
-`;
-
-const paragraph30 = `
-As mentioned above, resolved promises are executed on the microtask
-queue. Hence, the non-commented code bellow represents the next batch
-of log executed.
-`;
-
-const code31 = `
-// console.log('sync start');
-
-setTimeout(() => {
-  // console.log('top-level setTimeout 2ms');
-}, 2);
-
-setTimeout(() => {
-  // console.log('top-level setTimeout 1ms');
-}, 1);
-
-setTimeout(() => {
-  // console.log('top-level setTimeout 0ms');
-}, 0);
-
-const promise = new Promise((resolve) => {
-  // console.log('promise constructor before resolve');
-  resolve('promise resolved');
-});
-
-const callPromise = async (): Promise<void> => {
-  // console.log('started async function callPromise');
-  const result = await promise; 
-  console.log(\`result of await promise = \${result}\`);
-  console.log(\`finished async function callPromise\`);
-};
-
-callPromise();
-
-promise.then((result) => {
-  console.log(\`result of promise.then = \${result}\`);
-});
-
-const asyncSleep = (ms: number): Promise<void> => (
-  new Promise((resolve) => {
-    setTimeout(resolve, ms);
-  })
-);
-
-const callAsyncSleep = async (ms: number): Promise<void> => {
-  // console.log('start async function callAsyncSleep');
-  // await asyncSleep(ms);
-  // console.log(\`finished async function callAsyncSleep\`);
-};
-
-callAsyncSleep(1000);
-
-// console.log('sync finished');
-`;
-
-const paragraph32 = `
-Even if the .then on line 30 was declared after the await on line 22,
-when the promise is resolved, the .then will be executed before.
-Also, after the promise resolution, the async function continue it's
-normal execution. In practical words, it takes back control 
-and unpauses itself.
-`;
-
-const paragraph33 = `
-The callAsyncSleep function won't be executed on this second batch
-because it contains a setTimeout, so it will only be executed on the
-task queue after the delay of 1000ms.
-`;
-
-const paragraph34 = `
-These are the logs executed on the microtask queue.
-`;
-
-const commands35 = [
-  'result of promise.then = promise resolved',
-  'result of await promise = promise resolved',
-  'finished async function callPromise'
-];
-
-const subtitle36 = `
-Task Queue
-`;
-
-const paragraph37 = `
-The non-commented code bellow represents the code scheduled to be executed
-after specific deplays, on the task queue.
-`;
-
-const code38 = `
-// console.log('sync start');
-
-setTimeout(() => {
-  console.log('top-level setTimeout 2ms');
-}, 2);
-
-setTimeout(() => {
-  console.log('top-level setTimeout 1ms');
-}, 1);
-
-setTimeout(() => {
-  console.log('top-level setTimeout 0ms');
-}, 0);
-
-const promise = new Promise((resolve) => {
-  // console.log('promise constructor before resolve');
-  // resolve('promise resolved');
-});
-
-const callPromise = async (): Promise<void> => {
-  // console.log('started async function callPromise');
-  // const result = await promise; 
-  // console.log(\`result of await promise = \${result}\`);
-  // console.log(\`finished async function callPromise\`);
-};
-
-callPromise();
-
-promise.then((result) => {
-  // console.log(\`result of promise.then = \${result}\`);
-});
-
-const asyncSleep = (ms: number): Promise<void> => (
-  new Promise((resolve) => {
-    setTimeout(resolve, ms);
-  })
-);
-
-const callAsyncSleep = async (ms: number): Promise<void> => {
-  // console.log('start async function callAsyncSleep');
-  await asyncSleep(ms);
-  console.log(\`finished async function callAsyncSleep\`);
-};
-
-callAsyncSleep(1000);
-
-// console.log('sync finished');
-`;
-
-const paragraph39 = `
-Theoretically, regarding the top-level console logs from line 3 
-to line 13, the execution order shold be 0ms, 1ms and 2ms.
-However, in practice, the result will depend on which environment 
-the code is executed. On Firefox, it will be 0ms, 1ms and 2ms. 
-On Chrome, Edge and on Node.js, it will be 1ms, 0ms and 2ms.
-`;
-
-const paragraphWithLink40 = `
-Node.js will convert 0ms to 1ms, so both are interpreted as 1ms. 
-The first one to run will be the first one declared. 
-That's why 1ms gets logged before 0ms. The code bellow is from the Node.js 
-*#repository(https://github.com/nodejs/node/blob/master/lib/internal/timers.js)*, and
-it demonstrates the conversion of anything bellow 1ms to 1ms.
-`;
-
-const filePath41 = `
-https://github.com/nodejs/node/blob/master/lib/internal/timers.js
-`;
-
-const code42 = `
-function Timeout(callback, after, args, isRepeat, isRefed) {
-  after *= 1; // Coalesce to number or NaN
-  if (!(after >= 1 && after <= TIMEOUT_MAX)) {
-    if (after > TIMEOUT_MAX) {
-      process.emitWarning(\`\${after} does not fit into\` +
-                          ' a 32-bit signed integer.' +
-                          'Timeout duration was set to 1.',
-                          'TimeoutOverflowWarning');
+const code20 = `
+function findPair(numbers: Array<number>, sum: number) {
+  const lookup = new Set();
+  let secondNumber;
+  for (let i = 0; i < numbers.length; i++) {
+    if (lookup.has(sum - numbers[i])) {
+      secondNumber = numbers[i];
     }
-    after = 1; // Schedule on next tick, follows browser behavior
+    lookup.add(numbers[i])
   }
+  if (!secondNumber) {
+    return null;
+  }
+  const firstNumber = sum - secondNumber; 
+  return [firstNumber, secondNumber];
 }
+
+const numbers = [0, 5, 5, 4, 4, 1, 1, 1, 10];
+const sum = 2;
+
+const result = findPair(numbers, sum);
+console.log(result);
 `;
-
-const paragraph43 = `
-Lastly, the callAsyncSleep on line 41 will continue it's 
-execution after the delay of 1000ms, and it contains last log.
-`;
-
-const paragraph44 = `
-These are the finals logs
-`;
-
-const commands45 = [
-  'top-level setTimeout 1ms',
-  'top-level setTimeout 0ms',
-  'top-level setTimeout 2ms',
-  'finished async function callAsyncSleep'
-];
-
-const subtitle46 = `
-Result
-`;
-
-const paragraph47 = `
-This is the order of all the logs
-`;
-
-const commands48 = [
-  'sync start',
-  'promise constructor before resolve',
-  'started async function callPromise',
-  'start async function callAsyncSleep',
-  'sync finished',
-  'result of promise.then = promise resolved',
-  'result of await promise = promise resolved',
-  'finished async function callPromise',
-  'top-level setTimeout 1ms',
-  'top-level setTimeout 0ms',
-  'top-level setTimeout 2ms',
-  'finished async function callAsyncSleep'
-];
 
 const orderTimersPromisesAsyncAwait = {
   title,
@@ -503,7 +182,6 @@ const orderTimersPromisesAsyncAwait = {
       paragraphsCommandsCode: [
         { paragraph: paragraph2 },
         { paragraph: paragraph3 },
-        // { command: commands4 },
         {
           codeBlock: {
             code: code4,
@@ -545,86 +223,23 @@ const orderTimersPromisesAsyncAwait = {
           }
         },
         { paragraph: paragraph14 },
+        { paragraph: paragraph15 },
+        { command: command16 }
+
+      ]
+    },
+    {
+      subtitle: subtitle17,
+      paragraphsCommandsCode: [
+        { paragraph: paragraph18 },
+        { paragraph: paragraph19 },
         { filePath },
         {
           codeBlock: {
-            code: code16,
+            code: code20,
             language
           }
-        },
-        { paragraph: paragraph17 },
-        { command: commands18 }
-      ]
-    },
-    {
-      subtitle: subtitle19,
-      paragraphsCommandsCode: [
-        { paragraph: paragraph20 },
-        { paragraph: paragraph21 },
-        { paragraph: paragraph22 },
-        { paragraph: paragraph23 }
-      ]
-    },
-    {
-      subtitle: subtitle24,
-      paragraphsCommandsCode: [
-        { paragraph: paragraph25 },
-        { filePath },
-        {
-          codeBlock: {
-            code: code26,
-            language
-          }
-        },
-        { paragraph: paragraph27 },
-        { command: commands28 }
-      ]
-    },
-    {
-      subtitle: subtitle29,
-      paragraphsCommandsCode: [
-        { paragraph: paragraph30 },
-        {
-          codeBlock: {
-            code: code31,
-            language
-          }
-        },
-        { paragraph: paragraph32 },
-        { paragraph: paragraph33 },
-        { paragraph: paragraph34 },
-        { command: commands35 }
-      ]
-    },
-    {
-      subtitle: subtitle36,
-      paragraphsCommandsCode: [
-        { paragraph: paragraph37 },
-        {
-          codeBlock: {
-            code: code38,
-            language
-          }
-        },
-        { paragraph: paragraph39 },
-        { paragraphWithLink: paragraphWithLink40 },
-        { filePath: filePath41 },
-        {
-          codeBlock: {
-            code: code42,
-            language
-          }
-        },
-        { paragraph: paragraph43 },
-        { paragraph: paragraph44 },
-        { command: commands45 }
-      ]
-    },
-    {
-      subtitle: subtitle46,
-      paragraphsCommandsCode: [
-        { paragraph: paragraph47 },
-        { command: commands48 }
+        }
       ]
     }
   ]

@@ -2,7 +2,7 @@
 /* eslint-disable react/no-array-index-key */
 /* eslint-disable no-shadow */
 
-import React, { useEffect, FunctionComponent } from 'react';
+import React, { useLayoutEffect, FunctionComponent } from 'react';
 import { animated, useSpring } from 'react-spring';
 import Prism from 'prismjs';
 import {
@@ -30,7 +30,11 @@ const ContentCore: FunctionComponent<ContentCoreProps> = ({
   domNodes,
   target
 }): JSX.Element => {
-  useEffect(() => {
+  // useEffect(() => {
+  //   Prism.highlightAll();
+  // }, []);
+
+  useLayoutEffect(() => {
     Prism.highlightAll();
   }, []);
 
