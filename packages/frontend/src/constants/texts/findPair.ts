@@ -144,18 +144,26 @@ const paragraph19 = `
 One method for solving the question in linear time is to use a set
 as an auxiliary variable to check the items on the array. As we iterate
 the array, we can check for elements inside a set in constant time, using
-the set.has method. The only catch is that we need to check for elements 
-that are declared before the current item we're iterating. This is necessary
-to avoid false positives.
+the set.has method. 
 `;
 
-const code20 = `
+const paragraph20 = `
+The only catch is that we need to check for elements 
+that are declared before the current item we're iterating. This is necessary
+to avoid false positives. For example, if we simply add all elements from
+the array in the set and the input array had only one item with the value 1, 
+the program would falsly detect a pair. The code bellow exemplifies
+how to iterate the array abd check for previous elements through the set.
+`;
+
+const code21 = `
 function findPair(numbers: Array<number>, sum: number) {
   const lookup = new Set();
   let secondNumber;
   for (let i = 0; i < numbers.length; i++) {
     if (lookup.has(sum - numbers[i])) {
       secondNumber = numbers[i];
+      break;
     }
     lookup.add(numbers[i])
   }
@@ -171,6 +179,126 @@ const sum = 2;
 
 const result = findPair(numbers, sum);
 console.log(result);
+`;
+
+const paragraph22 = `
+To check for the indexes, we can iterate the the array again, populate
+the object properties and return once all properties have been added. We
+can also create a TypeScript interface to improve the type checking.
+`;
+
+const code23 = `
+interface PairInfo {
+  firstNumber?: number;
+  firstNumberIndex?: number;
+  secondNumber?: number;
+  secondNumberIndex?: number;
+}
+
+function findPair(numbers: Array<number>, sum: number) {
+  const lookup = new Set();
+  let secondNumber;
+  for (let i = 0; i < numbers.length; i++) {
+    if (lookup.has(sum - numbers[i])) {
+      secondNumber = numbers[i];
+      break;
+    }
+    lookup.add(numbers[i])
+  }
+  if (!secondNumber) {
+    return null;
+  }
+  const firstNumber = sum - secondNumber;
+  const pairInfo: PairInfo = {};
+  for (let i = 0; i < numbers.length; i++) {
+    if (numbers[i] === firstNumber && !('firstNumber' in pairInfo)) {
+      pairInfo.firstNumber = numbers[i];
+      pairInfo.firstNumberIndex = i;
+    } else if (numbers[i] === secondNumber && !('secondNumber' in pairInfo)) {
+      pairInfo.secondNumber = numbers[i];
+      pairInfo.secondNumberIndex = i;
+    }
+    if ('firstNumber' in pairInfo && 'secondNumber' in pairInfo) {
+      return pairInfo;
+    }
+  }
+}
+
+const numbers = [0, 5, 5, 4, 4, 1, 1, 1, 10];
+const sum = 2;
+
+const result = findPair(numbers, sum);
+console.log(result);
+`;
+
+const subtitle24 = `
+Iteration
+`;
+
+const paragraph25 = `
+Instead of using for loops, the problem could be solve with JavaScript
+built-in array iterations methods, like Array.find and Array.reduce.
+This would be more idiomatic and funcional, but less efficient. It would
+be less eficient becase we can't exit the function during the reduce
+execution, due to the fact that the callback will be called for every element.
+In other others, reduce will traverse every element and we could only 
+return the pair information after every element has been processed.
+`;
+
+const paragraph26 = `
+Nevertheless, the code bellow demonstrates the solution with find and reduce.
+Array.find will return the current element whenever the callback returns true, and
+Array.reduce will populate the object as an accumulator, starting as an empty
+object.
+`;
+
+const code27 = `
+interface PairInfo {
+  firstNumber?: number;
+  firstNumberIndex?: number;
+  secondNumber?: number;
+  secondNumberIndex?: number;
+}
+
+function findPair(numbers: Array<number>, sum: number) {
+  const lookup = new Set();
+  const found = numbers.find((item) => {
+    if (lookup.has(sum - item)) {
+      return true;
+    }
+    lookup.add(item)
+  });
+  if (!found) {
+    return null;
+  }
+  const secondNumber = found;
+  const firstNumber = sum - found;
+  const pairInfo = numbers.reduce((acc: PairInfo, curr, index) => {
+    if (curr === firstNumber && !('firstNumber' in acc)) {
+      acc.firstNumber = curr;
+      acc.firstNumberIndex = index;
+    } else if (curr === secondNumber && !('secondNumber' in acc)) {
+      acc.secondNumber = curr;
+      acc.secondNumberIndex = index;
+    }
+    return acc;
+  }, {});
+  return pairInfo;
+}
+
+const numbers = [0, 5, 5, 4, 4, 1, 1, 1, 10];
+const sum = 2;
+
+const result = findPair(numbers, sum);
+console.log(result);
+`;
+
+const subtitle28 = `
+Unit Testing
+`;
+
+const paragraph29 = `
+The unit tests blablalba
 `;
 
 const orderTimersPromisesAsyncAwait = {
@@ -233,13 +361,26 @@ const orderTimersPromisesAsyncAwait = {
       paragraphsCommandsCode: [
         { paragraph: paragraph18 },
         { paragraph: paragraph19 },
+        { paragraph: paragraph20 },
         { filePath },
-        {
-          codeBlock: {
-            code: code20,
-            language
-          }
-        }
+        { codeBlock: { code: code21, language } },
+        { paragraph: paragraph22 },
+        { filePath },
+        { codeBlock: { code: code23, language } }
+      ]
+    },
+    {
+      subtitle: subtitle24,
+      paragraphsCommandsCode: [
+        { paragraph: paragraph25 },
+        { paragraph: paragraph26 },
+        { codeBlock: { code: code27, language } }
+      ]
+    },
+    {
+      subtitle: subtitle28,
+      paragraphsCommandsCode: [
+        { paragraph: paragraph29 }
       ]
     }
   ]
