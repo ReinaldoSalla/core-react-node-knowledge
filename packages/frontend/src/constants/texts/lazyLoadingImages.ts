@@ -43,10 +43,8 @@ Initialize a react/typescript project using CRA.
 `;
 
 const commands7 = [
-  '$ npx create-react-app lazy-loading-images --template typescript',
+  '$ npx create-react-app lazy-loading-images --template typescript'
 ];
-
-
 
 const orderTimersPromisesAsyncAwait = {
   title,
@@ -55,7 +53,7 @@ const orderTimersPromisesAsyncAwait = {
     {
       subtitle: subtitle1,
       paragraphsCommandsCode: [
-        { paragraph: paragraph2 },
+        { paragraph: paragraph2 }
       ]
     },
     {
@@ -63,9 +61,9 @@ const orderTimersPromisesAsyncAwait = {
       paragraphsCommandsCode: [
         { paragraphWithLink: paragraphWithLink5 },
         { paragraph: paragraph6 },
-        { command: commands7 },
+        { command: commands7 }
       ]
-    },
+    }
   ]
 };
 

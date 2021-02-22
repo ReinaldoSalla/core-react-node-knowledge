@@ -298,7 +298,13 @@ Unit Testing
 `;
 
 const paragraph29 = `
-The unit tests blablalba
+The idea is to add unit tests for every article on this website, since
+this is a relatively common topic on job interviews, but it's often 
+overlook on tutorials.
+`;
+
+const paragraph30 = `
+For this article, we'l be using the jest library to execute the tests
 `;
 
 const orderTimersPromisesAsyncAwait = {
@@ -353,7 +359,6 @@ const orderTimersPromisesAsyncAwait = {
         { paragraph: paragraph14 },
         { paragraph: paragraph15 },
         { command: command16 }
-
       ]
     },
     {
@@ -380,7 +385,8 @@ const orderTimersPromisesAsyncAwait = {
     {
       subtitle: subtitle28,
       paragraphsCommandsCode: [
-        { paragraph: paragraph29 }
+        { paragraph: paragraph29 },
+        { paragraph: paragraph30 }
       ]
     }
   ]
