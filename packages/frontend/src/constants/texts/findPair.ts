@@ -298,13 +298,113 @@ Unit Testing
 `;
 
 const paragraph29 = `
-The idea is to add unit tests for every article on this website, since
+The idea is to add unit tests for the majority of articles on this website, since
 this is a relatively common topic on job interviews, but it's often 
 overlook on tutorials.
 `;
 
 const paragraph30 = `
 For this article, we'l be using the jest library to execute the tests
+`;
+
+const paragraph31 = `
+To add jest in a node/typescript project, add the following modules
+`;
+
+const commands32 = [
+  '$ npm install jest ts-jest @types/jest'
+];
+
+const paragraph33 = `
+Then, add the test script in the package.json. The final package.json
+should look similar to this:
+`;
+
+const filePath34 = `
+./package.json
+`;
+
+const code35 = `
+{
+  "name": "progrtmp-cb-promises-asyncawait",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon",
+    "test": "jest --detectOpenHandles --watchAll"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/jest": "26.0.20",
+    "jest": "26.6.3",
+    "nodemon": "2.0.6",
+    "ts-jest": "26.5.1",
+    "ts-node": "9.1.1",
+    "typescript": "4.1.3"
+  }
+}
+`;
+
+const paragraph36 = `
+--detectOpenHandles is to help identify if there are any asynchronous 
+operations left open in the program after the test has finished. And 
+--watchAll is to update the tests whenever the files are saved.
+`;
+
+const paragraph37 = `
+Finally, create a file called app.test.ts inside the src folder, where we'll
+add the test code.
+`;
+
+const paragraph38 = `
+The test consists of creating an array with elements from 0 to 999, and 
+find a pair for the last 2 elements.
+`;
+
+const filePath39 = `
+./src/app.test.ts
+`;
+
+const code40 = `
+import findPair from './app';
+
+describe('findPair', () => {
+  // arrange global
+  const numbers = Array(1000).fill(0).map((_, index) => index);
+
+  it('Should return the pair information if the sequence has a pair equal to the target sum', () => {
+    //arrange
+    const penultimateIndex = numbers.length-2;
+    const lastIndex = numbers.length-1;
+    const sum = numbers[penultimateIndex] + numbers[lastIndex];
+    const mockedResult = {
+      firstNumber: numbers[penultimateIndex],
+      firstNumberIndex: penultimateIndex,
+      secondNumber: numbers[lastIndex],
+      secondNumberIndex: lastIndex
+    };
+
+    // act
+    const result = findPair(numbers, sum);
+
+    //assert
+    expect(result).toStrictEqual(mockedResult);
+  });
+
+  it('Should return null is the sequence does not have a pair equal to the target sum', () => {
+    // arrange
+    const sum = 0;
+    const mockResult = null;
+
+    // act
+    const result = findPair(numbers, sum);
+
+    // assert
+    expect(result).toBe(mockResult);
+  });
+});
 `;
 
 const orderTimersPromisesAsyncAwait = {
@@ -386,7 +486,17 @@ const orderTimersPromisesAsyncAwait = {
       subtitle: subtitle28,
       paragraphsCommandsCode: [
         { paragraph: paragraph29 },
-        { paragraph: paragraph30 }
+        { paragraph: paragraph30 },
+        { paragraph: paragraph31 },
+        { command: commands32 },
+        { paragraph: paragraph33 },
+        { filePath: filePath34 },
+        { codeBlock: { code: code35, language } },
+        { paragraph: paragraph36 },
+        { paragraph: paragraph37 },
+        { paragraph: paragraph38 },
+        { filePath: filePath39 },
+        { codeBlock: { code: code40, language } }
       ]
     }
   ]
