@@ -133,10 +133,10 @@ For loops
 
 const paragraph18 = `
 The easy solution would be to iterate all the items, and then iterate
-all the other items, and return if the codition is true (firstNumber 
+all the other items, and return if the condition is true (firstNumber 
 + secondNumber = sum). This would require quadratic time complexity,
 due to having a loop inside a loop. A quadratic time complexity solution
-would not be received well in a serious job interview, when there is a better linear
+would not be received well in a job interview, when there is a better linear
 alternative.
 `;
 
@@ -150,10 +150,10 @@ the set.has method.
 const paragraph20 = `
 The only catch is that we need to check for elements 
 that are declared before the current item we're iterating. This is necessary
-to avoid false positives. For example, if we simply add all elements from
-the array in the set and the input array had only one item with the value 1, 
-the program would falsly detect a pair. The code bellow exemplifies
-how to iterate the array abd check for previous elements through the set.
+to avoid false positives. Taking a look at the input example, if we simply 
+add all elements from the array into the set, the program would falsly detect a pair when
+the current element is the first number 1. The code bellow exemplifies
+how to iterate the array and check for previous elements through the set.
 `;
 
 const code21 = `
@@ -236,7 +236,7 @@ Iteration
 `;
 
 const paragraph25 = `
-Instead of using for loops, the problem could be solve with JavaScript
+Instead of using for loops, the problem can be solve with JavaScript
 built-in array iterations methods, like Array.find and Array.reduce.
 This would be more idiomatic and funcional, but less efficient. It would
 be less eficient becase we can't exit the function during the reduce
@@ -304,11 +304,11 @@ overlook on tutorials.
 `;
 
 const paragraph30 = `
-For this article, we'l be using the jest library to execute the tests
+For this article, we'l be using the jest library to execute the tests.
 `;
 
 const paragraph31 = `
-To add jest in a node/typescript project, add the following modules
+To add jest in a node/typescript project, add the following modules.
 `;
 
 const commands32 = [
@@ -348,9 +348,9 @@ const code35 = `
 `;
 
 const paragraph36 = `
---detectOpenHandles is to help identify if there are any asynchronous 
+The option --detectOpenHandles is enabled to help identify if there are any asynchronous 
 operations left open in the program after the test has finished. And 
---watchAll is to update the tests whenever the files are saved.
+--watchAll allows to update the tests whenever the files are saved.
 `;
 
 const paragraph37 = `
