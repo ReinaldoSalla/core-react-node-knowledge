@@ -48,7 +48,7 @@ const Footer = (): JSX.Element => {
           All the code in this website is MIT licensed
         </FooterText>
         <FooterText italic>
-          Always bet on JS
+          Programming JavaScript/TypeScript/React
         </FooterText>
       </FooterContainer>
     </FooterWrapper>

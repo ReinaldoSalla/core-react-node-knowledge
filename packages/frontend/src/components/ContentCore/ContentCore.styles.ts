@@ -7,18 +7,24 @@ const Article = styled.article`
 
 const ContentCoreHeading = styled(animated.h1)`
   font-size: 2em;
-  padding: 0.5em 0;
+  margin: 32px 0;
   color: ${(props): string => props.theme.primaryTextColor};
 `;
 
 const ContentCoreTitle = styled.h2`
+  margin: 16px 0;
   color: ${(props): string => props.theme.primaryTextColor};
 `;
 
 const ContentCoreText = styled.p`
   line-height: 1.7;
+  font-size: 17px;
+  margin: 16px 0;
   color: ${(props): string => props.theme.secondaryTextColor};
-  font-size: 1rem;
+
+  @media only screen and (max-width: 432px) {
+    font-size: 16px;
+  }
 `;
 
 const ContentCoreLink = styled.a`
@@ -37,11 +43,12 @@ const ContentCoreLink = styled.a`
 `;
 
 const ContentCoreContainer = styled.ul`
-  padding-bottom: 20px;
   display: flex;
   flex-direction: column;
-  background: rgb(35, 38, 43);
+  padding-bottom: 20px;
+  margin: 24px 0;
   border-radius: 10px;
+  background: rgb(35, 38, 43);
 `;
 
 const ContentCoreCommand = styled.li`
@@ -59,6 +66,7 @@ const FilePath = styled.span`
   display: flex;
   align-items: center;
   padding: 20px;
+  margin-top: 24px;
   border: .3em solid hsl(0, 0%, 33%);
   border-radius: 10px;
   background: hsl(0, 0%, 8%);

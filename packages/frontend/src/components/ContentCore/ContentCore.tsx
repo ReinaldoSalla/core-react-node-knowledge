@@ -99,6 +99,9 @@ const ContentCore: FunctionComponent<ContentCoreProps> = ({
                   key={index}
                   // className={`${lineNumbers} code-scrollbar´}
                   className={`${lineNumbers} code-scrollbar`}
+                  style={{
+                    marginBottom: '24px'
+                  }}
                 >
                   <code
                     className={innerElement.codeBlock.language}

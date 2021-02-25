@@ -24,7 +24,6 @@ const Login = lazy(() => import('./pages/Login'));
 const About = lazy(() => import('./pages/About'));
 const Content = lazy(() => import('./pages/Content'));
 
-// const Crud = lazy(() => import('./pages/Crud'));
 const Crud = lazy(() => import('./pages/Crud'));
 
 const App = (): JSX.Element => {
@@ -66,3 +65,28 @@ const App = (): JSX.Element => {
 };
 
 export default App;
+
+// import React from 'react';
+
+// export default function App() {
+//   return (
+//     <div>
+//       <div
+//         style={{
+//           border: '1px solid black',
+//           margin: '48px 0px'
+//         }}
+//       >
+//         first box
+//       </div>
+//       <div
+//         style={{
+//           border: '1px solid black',
+//           margin: '32px 0px'
+//         }}
+//       >
+//         second box
+//       </div>
+//     </div>
+//   );
+// }
