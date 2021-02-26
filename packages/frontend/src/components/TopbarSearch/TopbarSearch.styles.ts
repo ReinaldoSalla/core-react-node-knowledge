@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 import { animated } from 'react-spring';
 
 const SearchWrapper = styled(animated.aside)`

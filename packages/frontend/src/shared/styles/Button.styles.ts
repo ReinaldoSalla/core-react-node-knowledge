@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 import genericButton from './genericButton.styles';
 
 const Button = styled.button`

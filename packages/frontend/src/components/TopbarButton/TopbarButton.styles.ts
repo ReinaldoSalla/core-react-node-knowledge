@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 import { animated } from 'react-spring';
 import SvgProps from './TopbarButton.types';
 

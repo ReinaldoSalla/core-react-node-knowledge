@@ -2,8 +2,8 @@ const contents = [
   {
     title: 'JavaScript',
     subcontents: [
-      'Loops',
-      'Promises',
+      'Find Pair',
+      'Order Timers Promises Async-Await',
       'Async Await'
     ]
   },

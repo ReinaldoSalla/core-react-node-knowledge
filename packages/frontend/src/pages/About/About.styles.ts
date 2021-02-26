@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 
 const Container = styled.section`
   padding-top: calc(${(props): string => props.theme.topbarHeight} + 100px);

@@ -517,6 +517,15 @@ const commands48 = [
   'finished async function callAsyncSleep'
 ];
 
+const subtitle49 = `
+Repository
+`;
+
+const paragraphWithLink50 = `
+You can check the code on the github
+*#Repository(https://github.com/ReinaldoSalla/progrtmp-order-timers-promises-async-await)*.
+`;
+
 const orderTimersPromisesAsyncAwait = {
   title,
   seo,
@@ -636,6 +645,12 @@ const orderTimersPromisesAsyncAwait = {
       paragraphsCommandsCode: [
         { paragraph: paragraph47 },
         { command: commands48 }
+      ]
+    },
+    {
+      subtitle: subtitle49,
+      paragraphsCommandsCode: [
+        { paragraphWithLink: paragraphWithLink50 }
       ]
     }
   ]

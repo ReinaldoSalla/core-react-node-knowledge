@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 import { Link } from 'react-router-dom';
 import { animated } from 'react-spring';
 import { FooterTextProps, FooterLinkProps } from './Footer.types';

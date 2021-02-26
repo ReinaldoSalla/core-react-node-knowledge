@@ -407,6 +407,15 @@ describe('findPair', () => {
 });
 `;
 
+const subtitle41 = `
+Repository
+`;
+
+const paragraphWithLink42 = `
+You can check the code on the github
+*#Repository(https://github.com/ReinaldoSalla/progrtmp-find-pair)*.
+`;
+
 const orderTimersPromisesAsyncAwait = {
   title,
   seo,
@@ -497,6 +506,12 @@ const orderTimersPromisesAsyncAwait = {
         { paragraph: paragraph38 },
         { filePath: filePath39 },
         { codeBlock: { code: code40, language } }
+      ]
+    },
+    {
+      subtitle: subtitle41,
+      paragraphsCommandsCode: [
+        { paragraphWithLink: paragraphWithLink42 }
       ]
     }
   ]

@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 
 const Wrapper = styled.section`
   padding: 0 32px;

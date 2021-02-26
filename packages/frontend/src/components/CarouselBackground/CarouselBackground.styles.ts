@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 import { VideoProps } from './CarouselBackground.types';
 
 const Video = styled.video<VideoProps>`
