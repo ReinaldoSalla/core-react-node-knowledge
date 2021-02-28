@@ -1,12 +1,8 @@
 /* eslint-disable max-len */
 
-// const language = `
-// language-typescript
-// `;
-
-// const filePath = `
-// ./src/app.ts
-// `;
+const language = `
+language-tsx
+`;
 
 const title = `
 React - Lazy Loading Images
@@ -46,6 +42,82 @@ const commands7 = [
   '$ npx create-react-app lazy-loading-images --template typescript'
 ];
 
+const subtitle8 = `
+Hook
+`;
+
+const paragraph9 = `
+We're going to create e custom hook in React to abstract the communication
+with the Intersection Observer API. 
+`;
+
+const paragraph10 = `
+Inside the src folder, create a folder named hooks and inside create 
+a file named useIntersection.ts.
+`;
+
+const filePath11 = `
+./src/hooks/useIntersection.ts
+`;
+
+const code12 = `
+import { 
+  useState, 
+  useEffect,
+  MutableRefObject 
+} from 'react';
+
+function useIntersection(
+  domNode: MutableRefObject<HTMLDivElement>,
+  threshold = 0.5, 
+  rootMargin = '0px'
+) {
+  const [isVisible, setIsVisible] = useState(false);
+  
+  useEffect(() => {
+    const currentDomNode = domNode.current;
+    const observer = new IntersectionObserver(([entry], element) => {
+      if (entry.isIntersecting) {
+        setIsVisible(true);
+        element.unobserve(currentDomNode)
+      }
+    }, { root: null, rootMargin, threshold }); 
+    observer.observe(currentDomNode);
+    return () => observer.unobserve(currentDomNode);
+  }, [domNode, rootMargin, threshold]);
+
+  return isVisible;
+};
+
+export default useIntersection;
+`;
+
+// const paragraph13 = `
+// The Intersection Observer on line 16 accepts two parameters. One is the callback
+// that will be invoked once the dom element becomes visible. More specifically,
+// we\'re saying that the callback will be invoked once 50% of the dom element 
+// becomes visible, because the second parameter of the Intersection Observer
+// allows you to customize this API. The threshold will be passed as a argument
+// on the custom hook, and we give the base value of 0.5 (50%).
+// `;
+
+// const paragraph14 = `
+// With respect to React, we're passing the domNode to this custom hook. This domNode
+// will be a reference to the actual dom node or dom elements that we're tracking the
+// visibility. The most interesting part is the useEffect hooks, which runs after
+// the first render and when the dependencies array changes, on line x. Neither 
+// domNode, rootMargin or threshold will change. As a result, the "new Intersection
+// Observer" instantiation will only happends once for each imagem. For exampple,
+// if we have 100 images, we will instantiate the Intersection Observer 100 times.
+// `;
+
+const paragraph13 = `
+The first argument received by the hooks will be the reference to the dom
+element that we're tracking the visibility. The second is how much of the
+dom element should be visible to invoke the Intersection Observer. We're specifing
+0.5 (50%). The third argument is the margin for the elements, and we're specifing 0.
+`;
+
 const orderTimersPromisesAsyncAwait = {
   title,
   seo,
@@ -62,6 +134,16 @@ const orderTimersPromisesAsyncAwait = {
         { paragraphWithLink: paragraphWithLink5 },
         { paragraph: paragraph6 },
         { command: commands7 }
+      ]
+    },
+    {
+      subtitle: subtitle8,
+      paragraphsCommandsCode: [
+        { paragraph: paragraph9 },
+        { paragraph: paragraph10 },
+        { filePath: filePath11 },
+        { codeBlock: { code: code12, language }},
+        { paragraph: paragraph13 }
       ]
     }
   ]
