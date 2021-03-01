@@ -6,15 +6,14 @@ const getBroadTargets = (possibleTargets: typeof contents): Array<string> => (
   ))
 );
 
-const getSpecificTargets = (
-  possibleTargets: typeof contents
-): Array<string> => (
-  possibleTargets.flatMap((possibleTarget) => (
-    possibleTarget.subcontents.map((item) => (
-      `${item} - ${possibleTarget.title}`
+function getSpecificTargets(possibleTargets: typeof contents) {
+  const specificTargets = possibleTargets.map((possibleTarget) => (
+    possibleTarget.subcontents.map((subcontent) => (
+      `${subcontent} - ${possibleTarget.title}`
     ))
-  ))
-);
+  ));
+  return specificTargets.reduce((acc, curr) => acc.concat(curr), []);
+}
 
 const getMatch = (text: string): string | null => {
   const targets = {
