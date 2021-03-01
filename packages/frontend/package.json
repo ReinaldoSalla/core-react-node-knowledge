@@ -10,6 +10,7 @@
     "fontsource-source-sans-pro": "3.0.9",
     "prismjs": "1.23.0",
     "react": "16.13.1",
+    "react-app-polyfill": "2.0.0",
     "react-dom": "16.13.1",
     "react-helmet-async": "1.0.7",
     "react-icons": "4.1.0",
