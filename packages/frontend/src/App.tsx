@@ -20,11 +20,10 @@ const Topbar = lazy(() => import('./components/Topbar'));
 const Footer = lazy(() => import('./components/Footer'));
 
 const Home = lazy(() => import('./pages/Home'));
+const Content = lazy(() => import('./pages/Content'));
 const Login = lazy(() => import('./pages/Login'));
 const About = lazy(() => import('./pages/About'));
-const Content = lazy(() => import('./pages/Content'));
-
-const Crud = lazy(() => import('./pages/Crud'));
+const Legal = lazy(() => import('./pages/Legal'));
 
 const App = (): JSX.Element => {
   useTabOutline();
@@ -48,8 +47,8 @@ const App = (): JSX.Element => {
                 <Route exact path='/about'>
                   <About />
                 </Route>
-                <Route exact path='/progrtmp-test-backend'>
-                  <Crud />
+                <Route exact path='/legal'>
+                  <Legal />
                 </Route>
                 <Route path='/:id'>
                   <Content />
