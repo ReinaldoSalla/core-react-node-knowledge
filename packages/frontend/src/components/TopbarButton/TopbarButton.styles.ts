@@ -43,6 +43,10 @@ const Text = styled.span`
   ${(props): string => props.theme.breakpoints.small} {
     font-size: 16px;
   }
+
+  @media only screen and (max-width: 300px) {
+    font-size: 14px;
+  }
 `;
 
 const Filler = styled(animated.div)`

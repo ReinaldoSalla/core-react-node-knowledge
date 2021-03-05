@@ -79,7 +79,6 @@ const Description = styled.p`
 
 const Check = styled.span`
   font-size: 16px;
-  line-height: 70%;
   margin-right: 8px;
   font-weight: 300;
   text-align: center;

@@ -44,6 +44,11 @@ const CarouselInputButton = styled.button`
     width: 80px;
     height: 24px;
   }
+
+  @media only screen and (max-width: 300px) {
+    width: 65px;
+    height: 20px;
+  }
 `;
 
 const CarouselInputText = styled(animated.span)` 
@@ -54,6 +59,10 @@ const CarouselInputText = styled(animated.span)`
   ${(props): string => props.theme.breakpoints.small} {
     font-size: 16px;
     width: 80px;
+  }
+
+  @media only screen and (max-width: 300px) {
+    font-size: 14px;
   }
 `;
 

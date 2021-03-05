@@ -8,6 +8,10 @@ import {
 } from './Footer.styles';
 import { ModalsState } from '../../shared/context/ModalsContext';
 
+const bottomText = window.innerWidth >= 280
+  ? 'Programming JavaScript/TypeScript/React'
+  : 'Programming JavaScript TypeScript React';
+
 const Footer = (): JSX.Element => {
   const { isTopbarSidebarVisible } = useContext(ModalsState);
   const spring = useSpring({
@@ -48,7 +52,7 @@ const Footer = (): JSX.Element => {
           All the code in this website is MIT licensed
         </FooterText>
         <FooterText italic>
-          Programming JavaScript/TypeScript/React
+          {bottomText}
         </FooterText>
       </FooterContainer>
     </FooterWrapper>

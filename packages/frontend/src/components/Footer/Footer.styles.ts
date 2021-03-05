@@ -39,10 +39,14 @@ const FooterLink = styled(Link)`
   ${(props): string => props.theme.breakpoints.small} {
     font-size: 24px
   }
+  
+  @media only screen and (max-width: 300px) {
+    font-size: calc(16px + 2vmin);
+  }
 `;
 
 const FooterText = styled.span<FooterTextProps>`
-  margin: 0 1rem;
+  margin: 0 16px;
   font-size: 32px;
   text-align: center;
   color: white;
@@ -50,6 +54,10 @@ const FooterText = styled.span<FooterTextProps>`
 
   ${(props): string => props.theme.breakpoints.small} {
     font-size: 24px
+  }
+
+  @media only screen and (max-width: 300px) {
+    font-size: calc(16px + 2vmin);
   }
 `;
 

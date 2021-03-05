@@ -10,7 +10,6 @@ import {
   CarouselInputRow
 } from './CarouselInput.styles';
 import {
-  // carouselTimerAnimation,
   getTextProps,
   getInnerProps
 } from './CarouselInput.animations';
@@ -63,14 +62,9 @@ const CarouselInput: FunctionComponent<CarouselInputProps> = ({
         </CarouselInputButton>
       </CarouselInputArea>
       <CarouselInputTimer>
-        <CarouselInputRow
-          key={index}
-          style={{
-            display: isTopbarSidebarVisible || !isDocumentVisible
-              ? 'none'
-              : 'block'
-          }}
-        />
+        {!isTopbarSidebarVisible && isDocumentVisible && (
+          <CarouselInputRow />
+        )}
       </CarouselInputTimer>
     </CarouselInputWrapper>
   );
