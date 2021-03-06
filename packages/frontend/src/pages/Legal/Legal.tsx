@@ -1,16 +1,30 @@
-/* eslint-disable */
+/* eslint-disable max-len*/
 
-import React from 'react';
+import React, { useContext } from 'react';
+import { useSpring, config } from 'react-spring';
 import {
   Container,
   Title,
   Text
 } from './Legal.styles';
+import { ModalsState } from '../../shared/context/ModalsContext';
 
 function Legal() {
+  const { isTopbarSidebarVisible } = useContext(ModalsState);
+  const spring = useSpring({
+    config: config.molasses,
+    from: {
+      opacity: isTopbarSidebarVisible ? 0.2 : 1
+    },
+    to: async (next: any) => {
+      await next({
+        opacity: isTopbarSidebarVisible ? 0.2 : 1
+      });
+    }
+  });
   return (
-    <Container>
-      <Title>For every block of code found on this website, the following MIT licence is applied</Title>
+    <Container style={spring}>
+      <Title>For all the content found in progrtmp.com, the following MIT licence is applied</Title>
       <Text>
         MIT License
       </Text>

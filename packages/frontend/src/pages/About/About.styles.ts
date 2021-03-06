@@ -1,7 +1,10 @@
 import styled from 'styled-components/macro';
+import { animated } from 'react-spring';
 
-const Container = styled.section`
+const Container = styled(animated.section)`
   padding-top: calc(${(props): string => props.theme.topbarHeight} + 100px);
+  padding-left: 60px;
+  padding-right: 60px;
   height: 100%;
 `;
 
@@ -11,6 +14,7 @@ const Title = styled.h1`
 
 const Text = styled.p`
   color: white;
+  font-size: 17px;
 `;
 
 export { Container, Title, Text };

@@ -1,6 +1,7 @@
 import styled from 'styled-components';
+import { animated } from 'react-spring';
 
-const Container = styled.div`
+const Container = styled(animated.div)`
   height: 100vh;
   padding: 120px 40px 0 40px;
 `;
