@@ -63,7 +63,7 @@ const CarouselInput: FunctionComponent<CarouselInputProps> = ({
       </CarouselInputArea>
       <CarouselInputTimer>
         {!isTopbarSidebarVisible && isDocumentVisible && (
-          <CarouselInputRow />
+          <CarouselInputRow key={index}/>
         )}
       </CarouselInputTimer>
     </CarouselInputWrapper>

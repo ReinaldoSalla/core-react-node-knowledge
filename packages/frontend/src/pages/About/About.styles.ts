@@ -15,6 +15,7 @@ const Title = styled.h1`
 const Text = styled.p`
   color: white;
   font-size: 17px;
+  line-height: 1.7;
 `;
 
 export { Container, Title, Text };

@@ -24,7 +24,7 @@ function Legal() {
   });
   return (
     <Container style={spring}>
-      <Title>For all the content found in progrtmp.com, the following MIT licence is applied</Title>
+      <Title>For all the content found in progrtmp.com, the following MIT license is applied</Title>
       <Text>
         MIT License
       </Text>

@@ -27,7 +27,7 @@ function About() {
       </Text>
       <Text>
         If you have any complains/comments/suggestions about
-        this application, fell free to email at reinaldosalla95@gmail.com.
+        this application, fell free to email me at reinaldosalla95@gmail.com.
       </Text>
     </Container>
   );

@@ -241,35 +241,35 @@ code below will be executed first
 const code26 = `
 console.log('sync start');
 
-setTimeout(() => {
-  // console.log('top-level setTimeout 2ms');
-}, 2);
+// setTimeout(() => {
+//   console.log('top-level setTimeout 2ms');
+// }, 2);
 
-setTimeout(() => {
-  // console.log('top-level setTimeout 1ms');
-}, 1);
+// setTimeout(() => {
+//   console.log('top-level setTimeout 1ms');
+// }, 1);
 
-setTimeout(() => {
-  // console.log('top-level setTimeout 0ms');
-}, 0);
+// setTimeout(() => {
+//   console.log('top-level setTimeout 0ms');
+// }, 0);
 
 const promise = new Promise((resolve) => {
-  // console.log('promise constructor before resolve');
-  resolve('promise resolved');
+  console.log('promise constructor before resolve');
+  // resolve('promise resolved');
 });
 
 async function callPromise() {
-  // console.log('started async function callPromise');
-  const result = await promise; 
-  console.log(\`result of await promise = \${result}\`);
-  console.log(\`finished async function callPromise\`);
+  console.log('started async function callPromise');
+  // const result = await promise; 
+  // console.log(\`result of await promise = \${result}\`);
+  // console.log(\`finished async function callPromise\`);
 };
 
 callPromise();
 
-promise.then((result) => {
-  console.log(\`result of promise.then = \${result}\`);
-});
+// promise.then((result) => {
+//   console.log(\`result of promise.then = \${result}\`);
+// });
 
 async function asyncSleep(ms: number) {
   return new Promise((resolve) => {
@@ -278,9 +278,9 @@ async function asyncSleep(ms: number) {
 }
 
 async function callAsyncSleep(ms: number) {
-  // console.log('start async function callAsyncSleep');
-  await asyncSleep(ms);
-  console.log(\`finished async function callAsyncSleep\`);
+  console.log('start async function callAsyncSleep');
+  // await asyncSleep(ms);
+  // console.log(\`finished async function callAsyncSleep\`);
 };
 
 callAsyncSleep(1000);
@@ -311,19 +311,19 @@ of log executed.
 `;
 
 const code31 = `
-console.log('sync start');
+// console.log('sync start');
 
-setTimeout(() => {
-  // console.log('top-level setTimeout 2ms');
-}, 2);
+// setTimeout(() => {
+//   console.log('top-level setTimeout 2ms');
+// }, 2);
 
-setTimeout(() => {
-  // console.log('top-level setTimeout 1ms');
-}, 1);
+// setTimeout(() => {
+//   console.log('top-level setTimeout 1ms');
+// }, 1);
 
-setTimeout(() => {
-  // console.log('top-level setTimeout 0ms');
-}, 0);
+// setTimeout(() => {
+//   console.log('top-level setTimeout 0ms');
+// }, 0);
 
 const promise = new Promise((resolve) => {
   // console.log('promise constructor before resolve');
@@ -357,7 +357,7 @@ async function callAsyncSleep(ms: number) {
 
 callAsyncSleep(1000);
 
-console.log('sync finished');
+// console.log('sync finished');
 `;
 
 const paragraph32 = `
@@ -394,7 +394,7 @@ after specific deplays, on the task queue.
 `;
 
 const code38 = `
-console.log('sync start');
+// console.log('sync start');
 
 setTimeout(() => {
   console.log('top-level setTimeout 2ms');
@@ -440,7 +440,7 @@ async function callAsyncSleep(ms: number) {
 
 callAsyncSleep(1000);
 
-console.log('sync finished');
+// console.log('sync finished');
 `;
 
 const paragraph39 = `
@@ -523,7 +523,7 @@ Repository
 
 const paragraphWithLink50 = `
 You can check the code on the github
-*#Repository(https://github.com/ReinaldoSalla/progrtmp-order-timers-promises-async-await)*.
+*#repository(https://github.com/ReinaldoSalla/progrtmp-order-timers-promises-async-await)*.
 `;
 
 const orderTimersPromisesAsyncAwait = {
