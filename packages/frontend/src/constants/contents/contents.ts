@@ -1,28 +1,26 @@
 const contents = [
   {
-    title: 'JavaScript',
+    title: 'Asynchronous',
+    subcontents: [
+      'Order for Timeouts and Promises',
+      'TODO #1.2',
+      'TODO #1.3'
+    ]
+  },
+  {
+    title: 'Collections',
     subcontents: [
       'Find Pair',
-      'Order Timers Promises Async-Await',
-      'Async Await'
+      'TODO #2.2',
+      'TODO #2.3'
     ]
   },
   {
     title: 'React',
     subcontents: [
-      'Simple State Management',
-      'Complex State Management',
-      'Side Effects',
-      'Intersection Observer',
-      'Optimizing images'
-    ]
-  },
-  {
-    title: 'Full Stack',
-    subcontents: [
-      'GraphQL',
-      'MongoDB',
-      'Passport.js'
+      'Lazy Loading Images',
+      'TODO #3.2',
+      'TODO #3.3'
     ]
   }
 ];

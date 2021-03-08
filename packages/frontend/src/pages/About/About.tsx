@@ -23,7 +23,7 @@ function About() {
         Hello, my name is Reinaldo Salla and I am a Software Developer.
       </Text>
       <Text>
-        I created this website as a portfolio App. 
+        I created this website as a portfolio App.
       </Text>
       <Text>
         If you have any complains/comments/suggestions about

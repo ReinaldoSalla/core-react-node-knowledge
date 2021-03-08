@@ -21,7 +21,7 @@ Problem
 `;
 
 const paragraph2 = `
-Create a function that returns information about the first pair of 
+Create a function able to return information about the first pair of 
 items inside an array whose sum equals a target number. 
 The function should return the numbers on the pair and their 
 indexes mapped into an object. If there is no such pair, 

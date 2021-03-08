@@ -1,4 +1,4 @@
-/* eslint-disable max-len*/
+/* eslint-disable*/
 
 import React, { useContext } from 'react';
 import { useSpring, config } from 'react-spring';

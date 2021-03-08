@@ -20,7 +20,7 @@ const paragraph2 = `
 Create a component able to only load images when they are visible on the viewport.
 Note: modern browsers allow the usage of a attribute called loading on the image tag
 (<img loading='lazy' />). The problem with this attribute is that it loads the image before it's
-visible on the viewport, and the ideia here is to load only when it'a visible.
+visible on the viewport, and the ideia here is to load only when it's visible.
 Therefore, to solve this problem, we're going to use the Intersection Observer, which is
 a browser API able to track the visiblity of items on the screen.
 `;
@@ -115,9 +115,9 @@ into the custom book, as explained above.
 `;
 
 const paragraph16 = `
-The return on line 23 is executed when the components calling the hook gets
+The return on line 23 is executed when the components calling the hook is
 unmounted. An example for unmounting could be considered a website consisting
-of multiple pages, and the user goes to aonther page. That way, if the user 
+of multiple pages, and the user going to another page. That way, if the user 
 goes to another page before the element becomes visible, we remove the intersection
 observer, since it's no longer necessary.
 `;
@@ -160,7 +160,7 @@ const orderTimersPromisesAsyncAwait = {
         { paragraph: paragraph14 },
         { paragraph: paragraph15 },
         { paragraph: paragraph16 },
-        { paragraph: paragraph17 },
+        { paragraph: paragraph17 }
       ]
     }
   ]

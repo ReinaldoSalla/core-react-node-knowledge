@@ -1,25 +1,24 @@
-import { titleGenerator, checkGenerator } from './Carousel.utils';
-
 const markup = [
   {
-    name: 'javascript',
-    title: titleGenerator('JavaScript'),
-    description: 'From data processing to asynchronous programming',
-    check: checkGenerator('JavaScript')
+    name: 'asynchronous',
+    title: 'Asynchronous JavaScript',
+    description:
+    'Interview questions covering asynchronous programming',
+    check: 'Check Async Guides'
+  },
+  {
+    name: 'collections',
+    title: 'JavaScript Collections',
+    description:
+      'Interview questions tailored towards traversing Objects and Arrays',
+    check: 'Check Objects Guides'
   },
   {
     name: 'react',
-    title: titleGenerator('React'),
+    title: 'React Questions',
     description:
       'Modern frontend development with the popular facebook library',
-    check: checkGenerator('React')
-  },
-  {
-    name: 'full-stack',
-    title: titleGenerator('Full Stack'),
-    description:
-			'Dynamic backend structures with Node.js and GraphQL',
-    check: checkGenerator('Node')
+    check: 'Check React Guides'
   }
 ];
 

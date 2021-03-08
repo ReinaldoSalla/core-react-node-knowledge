@@ -18,24 +18,24 @@ import { ModalsState } from '../../shared/context/ModalsContext';
 const Home: FunctionComponent = (): JSX.Element => {
   const { isTopbarSidebarVisible } = useContext(ModalsState);
 
-  const javascriptNode = useRef<HTMLElement>(null);
+  const asyncNode = useRef<HTMLElement>(null);
+  const collectionsNode = useRef<HTMLElement>(null);
   const reactNode = useRef<HTMLElement>(null);
-  const fullstackNode = useRef<HTMLElement>(null);
-  const domNodes = [javascriptNode, reactNode, fullstackNode];
+  const domNodes = [asyncNode, collectionsNode, reactNode];
 
-  const scrollToJavascript = useCallback(() => {
-    scrollToElement(javascriptNode, -100);
-  }, [javascriptNode]);
+  const scrollToAsync = useCallback(() => {
+    scrollToElement(asyncNode, -100);
+  }, [asyncNode]);
+
+  const scrollToCollections = useCallback(() => {
+    scrollToElement(collectionsNode, -100);
+  }, [collectionsNode]);
 
   const scrollToReact = useCallback(() => {
     scrollToElement(reactNode, -100);
   }, [reactNode]);
 
-  const scrollToNode = useCallback(() => {
-    scrollToElement(fullstackNode, -100);
-  }, [fullstackNode]);
-
-  const scrolls = [scrollToJavascript, scrollToReact, scrollToNode];
+  const scrolls = [scrollToAsync, scrollToCollections, scrollToReact];
 
   const { hash } = useLocation();
 
@@ -48,14 +48,14 @@ const Home: FunctionComponent = (): JSX.Element => {
   // }, [hash]);
 
   useEffect(() => {
-    if (hash === '#javascript') {
-      scrollToJavascript();
+    if (hash === '#asynchronous') {
+      scrollToAsync();
+    } else if (hash === '#collections') {
+      scrollToCollections();
     } else if (hash === '#react') {
       scrollToReact();
-    } else if (hash === '#full-stack') {
-      scrollToNode();
     }
-  }, [hash, scrollToJavascript, scrollToReact, scrollToNode]);
+  }, [hash, scrollToAsync, scrollToCollections, scrollToReact]);
 
   const spring = useSpring(getOpacitySpring(isTopbarSidebarVisible));
 

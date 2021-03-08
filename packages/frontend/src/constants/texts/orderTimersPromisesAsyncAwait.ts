@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 
 const title = `
-JavaScript - Order for timers, promises, async-await
+JavaScript - Order for timers, promises and async-await
 `;
 
 const seo = `

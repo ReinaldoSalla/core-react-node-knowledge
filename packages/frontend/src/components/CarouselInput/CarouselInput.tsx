@@ -44,26 +44,26 @@ const CarouselInput: FunctionComponent<CarouselInputProps> = ({
       <CarouselInputArea>
         <CarouselInputButton onClick={handleFirstClick}>
           <CarouselInputText style={firstTextAnimation}>
-            JavaScript
+            Async
           </CarouselInputText>
           <CarouselInputInner style={firstInnerAnimation} />
         </CarouselInputButton>
         <CarouselInputButton onClick={handleSecondClick}>
           <CarouselInputText style={secondTextAnimation}>
-            React
+            Objects
           </CarouselInputText>
           <CarouselInputInner style={secondInnerAnimation} />
         </CarouselInputButton>
         <CarouselInputButton onClick={handleThirdClick}>
           <CarouselInputText style={thirdTextAnimation}>
-            Node
+            React
           </CarouselInputText>
           <CarouselInputInner style={thirdInnerAnimation} />
         </CarouselInputButton>
       </CarouselInputArea>
       <CarouselInputTimer>
         {!isTopbarSidebarVisible && isDocumentVisible && (
-          <CarouselInputRow key={index}/>
+          <CarouselInputRow key={index} />
         )}
       </CarouselInputTimer>
     </CarouselInputWrapper>

@@ -48,7 +48,7 @@ const Icon = styled.div`
 `;
 
 const Title = styled.h4`
-  margin: 0;
+  margin: 0 1rem;
   padding: 0;
   font-size: 20px;
   font-weight: 600;
@@ -79,7 +79,7 @@ const Description = styled.p`
 
 const Check = styled.span`
   font-size: 16px;
-  margin-right: 8px;
+  margin: 0 12px;
   font-weight: 300;
   text-align: center;
   transform: translateY(-2.5px);

@@ -8,7 +8,7 @@ const texts: any = {
   simpleStateManagement,
   complexStateManagement,
   findPair,
-  orderTimersPromisesAsyncAwait,
+  orderForTimeoutsAndPromises: orderTimersPromisesAsyncAwait,
   lazyLoadingImages
 };
 
