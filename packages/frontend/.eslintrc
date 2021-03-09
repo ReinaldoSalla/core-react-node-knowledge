@@ -45,7 +45,10 @@
     "react/jsx-filename-extension": [1, { "extensions": [".tsx"] }],
     "react/jsx-closing-bracket-location": [1, "line-aligned"],
     "react/prop-types": "off",
-    "jsx-quotes": ["error", "prefer-single"]
+    "jsx-quotes": ["error", "prefer-single"],
+    "no-use-before-define": "off",
+    "@typescript-eslint/no-use-before-define": ["error"],
+    "@typescript-eslint/explicit-module-boundary-types": "off"
   },
   "overrides": [{
     "files": ["**/*.ts"],
