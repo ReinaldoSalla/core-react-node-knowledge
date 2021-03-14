@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import CONSTANTS from './Carousel.constants';
 
 interface MoveToNextItem {
