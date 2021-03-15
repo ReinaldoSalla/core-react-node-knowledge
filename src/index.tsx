@@ -5,7 +5,8 @@ import 'fontsource-source-sans-pro/600-normal.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import * as serviceWorker from './serviceWorker';
+import * as serviceWorkerRegistration from './serviceWorkerRegistration';
+import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -14,4 +15,6 @@ ReactDOM.render(
   document.getElementById('root') as HTMLElement
 );
 
-serviceWorker.register();
+serviceWorkerRegistration.register();
+
+reportWebVitals();
