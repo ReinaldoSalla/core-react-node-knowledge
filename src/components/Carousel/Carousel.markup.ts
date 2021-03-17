@@ -10,7 +10,7 @@ const markup = [
     name: 'collections',
     title: 'JavaScript Collections',
     description:
-      'Interview questions tailored towards traversing Objects and Arrays',
+      'Interview questions envolving Objects and Arrays',
     check: 'Check Objects Guides'
   },
   {
