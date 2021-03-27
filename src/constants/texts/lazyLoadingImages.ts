@@ -47,7 +47,7 @@ App
 `;
 
 const paragraph9 = `
-Write the following code into App.ts. 
+Write the following code into App.tsx.
 `;
 
 const filePath10 = `
@@ -76,9 +76,13 @@ export default App;
 `;
 
 const paragraph12 = `
-App is the main root component that calls 
+App is the main component, that calls 
 the Lazy component. The Lazy component does all the heavy work, and it's instantiated
 100 times, receiving a unique image from unsplash each time. 
+A React component can only return a single html tag (also called host components), 
+or another react component. However, the <> and the </> on lines 7 and 14 act as a wrapper.
+It would be same thing as returning a div, but using <> is considered a better because
+it does't create an additional node on the html document.
 `;
 
 const paragraph13 = `
@@ -99,9 +103,135 @@ export default getPlaceholders;
 `;
 
 const paragraph16 = `
-This function returns an array with integers from 0 to 99. Each number
+This function returns an array with integers from 0 to the argument 'n' - 1. Since
+We're passing 100, it will create an array from 0 to 99. Each number
 represents an unique id that gets passed to the Lazy component.
 `;
+
+const subtitle17 = `
+Lazy
+`;
+
+// const paragraph18 = `
+// To add the Lazy component, create a folder named components and inside another
+// folder called Lazy. This file contains all the files related to the Lazy component.
+// This is the TypeScript and the CSS for Lazy.tsx and Lazy.css. Also, be sure to add
+// a file named index.ts that imports and exports the Lazy.tsx component. This simplifies 
+// the import of the file that calls this component. For example, App.tsx can import like this:
+// import Lazy from './components/Lazy', instead of: import Lazy from './components/Lazy/Lazy'.
+// `;
+
+const paragraph18 = `
+To add the Lazy component, create a folder named components and inside create 
+another folder names Lazy. This folder will contain all the files related to the
+Lazy component. The TypeScript code for the Lazy component is represented
+bellow.
+`
+
+const filePath19 = `
+./src/components/Lazy/Lazy.tsx
+`;
+
+const code20 = `
+import React, {
+  useState,
+  useRef
+} from 'react';
+import useIntersection from '../../hooks/useIntersection';
+import computeCN from '../../utils/computeCN';
+import LazyProps from './Lazy.types';
+import './Lazy.css';
+
+function Lazy({ src }: LazyProps) {
+  const [hasLoaded, setHasLoaded] = useState(false);
+  const ref = useRef<HTMLDivElement>(null!);
+  const isVisible = useIntersection(ref);
+  const wrapperLoadingCN = computeCN('wrapper-loading', 'finished', hasLoaded);
+  const imgCN = computeCN('img', 'loaded', hasLoaded);
+  return (
+    <div className='wrapper'>
+      <div className={wrapperLoadingCN} ref={ref}>
+      {isVisible && (
+        <img
+          className={imgCN}
+          src={src}
+          alt='random demonstration'
+          onLoad={() => setHasLoaded(true)}
+        />
+      )}
+      </div>
+    </div> 
+  );
+};
+
+export default Lazy;
+`;
+
+const paragraph21 = `
+This component will receive the src as a prop. Like explained before, src will be the
+url with a image from unsplash. We're destructuring this prop on line 10, to avoid
+having to access as prop.src later on.
+`;
+
+const paragraph22 = `
+The hasLoaded state variable on line 11 will be toggled to true when the callback
+for the onLoad listener gets invoked on line 24.
+`;
+
+// const filePath21 = `
+// ./src/components/Lazy/Lazy.css
+// `;
+
+// const language22 = `
+// language-css
+// `;
+
+// const code23 = `
+// .wrapper {
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   height: 100vh;
+// }
+
+// .wrapper-loading {
+//   position: relative;
+//   width: 75vw;
+//   height: 75vh;
+//   background: grey;
+//   animation: loading-data 1s infinite;
+// }
+
+// @keyframes loading-data {
+//   0% {
+//     opacity: 0.7;
+//   }
+
+//   50% {
+//     opacity: 1;
+//   }
+
+//   100% {
+//     opacity: 0.7;
+//   }
+// }
+
+// .finished {
+//   animation: none;
+// }
+
+// .img {
+//   position: absolute;
+//   width: 75vw;
+//   height: 75vh;
+//   opacity: 0;
+//   transition: opacity 0.5s;
+// }
+
+// .loaded {
+//   opacity: 1;
+// }
+// `;
 
 // const subtitle8 = `
 // Hook
@@ -217,6 +347,16 @@ const orderTimersPromisesAsyncAwait = {
         { filePath: filePath14 },
         { codeBlock: { code: code15, language }},
         { paragraph: paragraph16 }
+      ]
+    },
+    {
+      subtitle: subtitle17,
+      paragraphsCommandsCode: [
+        { paragraph: paragraph18 },
+        { filePath: filePath19 },
+        { codeBlock: { code: code20, language }},
+        { paragraph: paragraph21 },
+        { paragraph: paragraph22 }
       ]
     }
   ]

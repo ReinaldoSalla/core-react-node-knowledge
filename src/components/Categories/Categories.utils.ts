@@ -23,7 +23,7 @@ const injectableSubcontents = [
   },
   {
     description: [
-      'Find a pair of numbers inside an array whose sum equals to a target sum',
+      'Find a pair of numbers inside an array whose sum equals to a target number',
       'todo description placeholder',
       'todo description placeholder'
     ]
