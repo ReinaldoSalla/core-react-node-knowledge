@@ -12,14 +12,25 @@ const Input = styled(animated.input)`
   width: calc(100% - 200px);
   margin-top: 48px;
   border-radius: 20px;
-  font-size: 24px;
   padding: 0 16px;
+  border: white;
+  font-size: 24px;
+  /* box-shadow: 0 0 4px 4px transparent;
+  transition: box-shadow 500ms; */
 
   ${(props): string => props.theme.breakpoints.small} {
     width: calc(100% - 100px);
     height: 40px;
     margin-top: 20px;
     font-size: 1rem;
+  }
+
+  &:hover {
+    /* box-shadow: 0 0 8px 4px white; */
+  }
+
+  &:focus {
+    /* box-shadow: 0 0 4px 4px gray; */
   }
 `;
 

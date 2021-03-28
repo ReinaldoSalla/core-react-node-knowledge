@@ -9,16 +9,20 @@ const Wrapper = styled(Link)`
   flex: 1 1 auto;
   width: 350px;
   min-height: 350px;
-  border-width: 1px 2px;
-  border-style: solid;
-  border-color: #393838;
   margin: 0 32px 48px 32px;
   background: ${(props): string => props.theme.boxBgColor};
-  transition: border-color;
+  box-shadow: 0px 0px 10px 1px gray;
+  /* border-width: 1px 2px;
+  border-style: solid;
+  border-color: #393838;
+  transition: border-color; */
+  transition: transform 500ms, box-shadow 500ms;
   
   &:hover {
     cursor: pointer;
-    border-color: red;
+    box-shadow: 0px 0px 10px 1px red;
+    /* border-color: red; */
+    transform: scale(1.06);
   }
 `;
 
