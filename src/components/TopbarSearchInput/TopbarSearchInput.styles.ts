@@ -13,10 +13,9 @@ const Input = styled(animated.input)`
   margin-top: 48px;
   border-radius: 20px;
   padding: 0 16px;
-  border: white;
   font-size: 24px;
-  /* box-shadow: 0 0 4px 4px transparent;
-  transition: box-shadow 500ms; */
+  box-shadow: 0 0 4px 4px transparent;
+  transition: box-shadow 500ms;
 
   ${(props): string => props.theme.breakpoints.small} {
     width: calc(100% - 100px);
@@ -25,12 +24,12 @@ const Input = styled(animated.input)`
     font-size: 1rem;
   }
 
-  &:hover {
-    /* box-shadow: 0 0 8px 4px white; */
-  }
+  /* &:hover {
+    box-shadow: 0 0 8px 2px white;
+  } */
 
   &:focus {
-    /* box-shadow: 0 0 4px 4px gray; */
+    box-shadow: 0 0 8px 2px white;
   }
 `;
 

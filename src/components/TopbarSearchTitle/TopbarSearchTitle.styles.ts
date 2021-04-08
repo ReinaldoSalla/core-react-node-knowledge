@@ -13,6 +13,10 @@ const Title = styled(animated.label)`
     font-size: 1.5rem;
     margin-top: calc(${(props): string => props.theme.topbarHeight} + 20px);
   }
+
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 export default Title;

@@ -17,7 +17,7 @@ const TopbarSearchInput: FunctionComponent<any> = ({
         <Input
           style={style}
           type='text'
-          placeholder='e.g. GraphQL'
+          placeholder='e.g. React'
           value={text}
           onChange={handleChange}
           id='TopbarSearch'
