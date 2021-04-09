@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import styled from 'styled-components/macro';
 import { animated } from 'react-spring';
 import { Link } from 'react-router-dom';
@@ -16,12 +18,37 @@ const CarouselItemWrapper = styled(CarouselItemharedWrapper)`
   padding-bottom: 20px;
 `;
 
-const CarouselItemTitle = styled(animated(Link))`
+// const CarouselItemTitle = styled(animated(Link))`
+//   font-size: 46px;
+//   font-weight: 600;
+//   margin: 0 16px;
+//   color: white;
+//   text-align: center;
+
+//   ${(props): string => props.theme.breakpoints.small} {
+//     font-size: 38px;
+//   }
+
+//   @media only screen and (max-height: 500px) {
+//     display: none;
+//   }
+
+//   &:hover {
+//     cursor: pointer;
+//   }
+// `;
+
+// ? '1px 1px 2px white, 0 0 1em white, 0 0 1px white'
+// : '0px 0px 0px white, 0 0 0em white, 0 0 0px white'
+
+const CarouselItemTitle = styled(Link)<any>`
   font-size: 46px;
   font-weight: 600;
   margin: 0 16px;
   color: white;
   text-align: center;
+  text-shadow: ${(props) => props.$isHovering ? '1px 1px 2px white, 0 0 1em white, 0 0 1px white' : '0px 0px 0px white, 0 0 0em white, 0 0 0px white'};
+  transition: text-shadow 500ms;
 
   ${(props): string => props.theme.breakpoints.small} {
     font-size: 38px;

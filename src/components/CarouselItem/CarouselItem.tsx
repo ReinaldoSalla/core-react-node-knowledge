@@ -36,12 +36,19 @@ const CarouselItem: FunctionComponent<CarouselItemProps> = ({
 
   return (
     <CarouselItemWrapper style={style}>
-      <CarouselItemTitle
+      {/* <CarouselItemTitle
         onClick={scrolls[index]}
         style={animationProps}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
         to={`${pathname}#${name}`}
+      > */}
+      <CarouselItemTitle
+        onClick={scrolls[index]}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+        to={`${pathname}#${name}`}
+        $isHovering={isHovering}
       >
         {title}
       </CarouselItemTitle>
