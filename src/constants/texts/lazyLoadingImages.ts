@@ -1,7 +1,11 @@
 /* eslint-disable */
 
-const language = `
+const languageTSX = `
 language-tsx
+`;
+
+const languageCSS = `
+language-css
 `;
 
 const title = `
@@ -35,7 +39,7 @@ Install the latest recommended version of
 `;
 
 const paragraph6 = `
-Initialize a react/typescript project using CRA.
+Initialize a React/TypeScript project using CRA.
 `;
 
 const commands7 = [
@@ -146,19 +150,19 @@ function Lazy({ src }: LazyProps) {
   const [hasLoaded, setHasLoaded] = useState(false);
   const ref = useRef<HTMLDivElement>(null!);
   const isVisible = useIntersection(ref);
-  const wrapperLoadingCN = computeCN('wrapper-loading', 'finished', hasLoaded);
-  const imgCN = computeCN('img', 'loaded', hasLoaded);
+  const wrapperLoadingCN = computeCN('loading', 'finished', hasLoaded);
+  const imgCN = computeCN('img', 'finished', hasLoaded);
   return (
     <div className='wrapper'>
       <div className={wrapperLoadingCN} ref={ref}>
-      {isVisible && (
-        <img
-          className={imgCN}
-          src={src}
-          alt='random demonstration'
-          onLoad={() => setHasLoaded(true)}
-        />
-      )}
+        {isVisible && (
+          <img
+            className={imgCN}
+            src={src}
+            alt='random demonstration'
+            onLoad={() => setHasLoaded(true)}
+          />
+        )}
       </div>
     </div> 
   );
@@ -169,7 +173,7 @@ export default Lazy;
 
 const paragraph21 = `
 This component will receive the src as a prop. Like explained before, src will be the
-url with a image from unsplash. We're destructuring this prop on line 10, to avoid
+url with an image from unsplash. We're destructuring this prop on line 10, to avoid
 having to access as prop.src later on.
 `;
 
@@ -178,60 +182,115 @@ The hasLoaded state variable on line 11 will be toggled to true when the callbac
 for the onLoad listener gets invoked on line 24.
 `;
 
-// const filePath21 = `
-// ./src/components/Lazy/Lazy.css
-// `;
+const paragraph23 = `
+On line 12, we initialize the ref, and tell TypeScript that it's going to be
+used as a reference for a div element. The null! means "non-null-assertation",
+that it tells TypeScript that we are gived given the initial value of null to the ref,
+but TypeScript should't check for type errors on the future envolving this
+variable. This disables something called strict-null-checking in TypeScript,
+but it\`s going to make our lives easier on future, to integrate React with the
+Intersection Observer (more on that later). The reference will be passed
+to the div on line 18.
+`;
 
-// const language22 = `
-// language-css
-// `;
+const paragraph24 = `
+On line 13 we use the custom hook that will be used to integrate React with 
+the Intersection Observer, and lines 13 and 14 contain the values returned by utility
+functions. These functions enable us to modify the css classes from the JavaScript code
+`;
 
-// const code23 = `
-// .wrapper {
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   height: 100vh;
-// }
+const paragraph25 = `
+The image will appear on the DOM when the custom hook returns true. The
+code for this logic in on the lines 19 to 26. The logic is very straigthforward,
+if isVisible is true the image should appear on the DOM, otherwise it should't.
+`;
 
-// .wrapper-loading {
-//   position: relative;
-//   width: 75vw;
-//   height: 75vh;
-//   background: grey;
-//   animation: loading-data 1s infinite;
-// }
+const paragraph26 = `
+To add the CSS for the Lazy component, create a file named Lazy.css,
+and add the code from the section bellow.
+`;
 
-// @keyframes loading-data {
-//   0% {
-//     opacity: 0.7;
-//   }
+const filePath27 = `
+./src/components/Lazy/Lazy.css
+`;
 
-//   50% {
-//     opacity: 1;
-//   }
+const code28 = `
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
 
-//   100% {
-//     opacity: 0.7;
-//   }
-// }
+.loading {
+  width: 75vw;
+  height: 75vh;
+  background: grey;
+  animation: loading 1s infinite;
+}
 
-// .finished {
-//   animation: none;
-// }
+@keyframes loading {
+  0% {
+    opacity: 0.7;
+  }
 
-// .img {
-//   position: absolute;
-//   width: 75vw;
-//   height: 75vh;
-//   opacity: 0;
-//   transition: opacity 0.5s;
-// }
+  50% {
+    opacity: 1;
+  }
 
-// .loaded {
-//   opacity: 1;
-// }
-// `;
+  100% {
+    opacity: 0.7;
+  }
+}
+
+.loading.finished {
+  animation: none;
+}
+
+.img {
+  width: 75vw;
+  height: 75vh;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+.img.finished {
+  opacity: 1;
+}
+`;
+
+const paragraph29 = `
+The wrapper will center its children (the image and the loading placeholder)
+using flexbox. The loading placeholder is a gray box that keeps changing its
+opacity until the image gets loaded. Both the image and the loading placeholder
+will have 75% of the viewport width and height.`
+
+const paragraph30 = `
+The animation for the loading placeholder
+it implemented with CSS keyframes. Also, the image will have a 'fade-in' effect,
+implemented througth CSS transitions. The JavaScript code that control these
+class names in described on the next section.
+`;
+
+const subtitle31 = `
+CSS Util
+`;
+
+const paragraph32 = `
+The code demonstrates how the function that changes the CSS class names is defined
+`;
+
+const filePath33 = `
+./src/utils/computeCN.ts
+`;
+
+const code34 = `
+function computeCN(element: string, modifier: string, state: boolean) {
+  return state ? \`\${element} \${modifier}\` : element;
+}
+
+export default computeCN;
+`
 
 // const subtitle8 = `
 // Hook
@@ -341,11 +400,11 @@ const orderTimersPromisesAsyncAwait = {
       paragraphsCommandsCode: [
         { paragraph: paragraph9 },
         { filePath: filePath10 },
-        { codeBlock: { code: code11, language } },
+        { codeBlock: { code: code11, language: languageTSX }},
         { paragraph: paragraph12 },
         { paragraph: paragraph13 },
         { filePath: filePath14 },
-        { codeBlock: { code: code15, language }},
+        { codeBlock: { code: code15, language: languageTSX }},
         { paragraph: paragraph16 }
       ]
     },
@@ -354,9 +413,25 @@ const orderTimersPromisesAsyncAwait = {
       paragraphsCommandsCode: [
         { paragraph: paragraph18 },
         { filePath: filePath19 },
-        { codeBlock: { code: code20, language }},
+        { codeBlock: { code: code20, language: languageTSX }},
         { paragraph: paragraph21 },
-        { paragraph: paragraph22 }
+        { paragraph: paragraph22 },
+        { paragraph: paragraph23 },
+        { paragraph: paragraph24 },
+        { paragraph: paragraph25 },
+        { paragraph: paragraph26 },
+        { filePath: filePath27 },
+        { codeBlock: { code: code28, language: languageCSS }},
+        { paragraph: paragraph29 },
+        { paragraph: paragraph30 }
+      ],
+    },
+    {
+      subtitle: subtitle31,
+      paragraphsCommandsCode: [
+        { paragraph: paragraph32 },
+        { filePath: filePath33 },
+        { codeBlock: { code: code34, language: languageTSX }}
       ]
     }
   ]
