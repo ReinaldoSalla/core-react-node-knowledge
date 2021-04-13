@@ -11,3 +11,7 @@ export interface CarouselItemProps {
 export interface TextProps {
   $isTopbarSidebarVisible: boolean;
 }
+
+export interface HoverProps {
+  $isHovering: boolean;
+}

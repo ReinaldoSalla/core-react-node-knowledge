@@ -1,5 +1,4 @@
 import React, { useState, FunctionComponent } from 'react';
-import { useSpring } from 'react-spring';
 import { useLocation } from 'react-router-dom';
 import {
   CarouselItemWrapper,
@@ -8,7 +7,6 @@ import {
   CarouselItemCheckWrapper,
   CarouselItemCheck
 } from './CarouselItem.styles';
-import getCarouselItemProps from './CarouselItem.animations';
 import { CarouselItemProps } from './CarouselItem.types';
 
 const CarouselItem: FunctionComponent<CarouselItemProps> = ({
@@ -24,8 +22,6 @@ const CarouselItem: FunctionComponent<CarouselItemProps> = ({
 
   const { pathname } = useLocation();
 
-  const animationProps = useSpring(getCarouselItemProps(isHovering));
-
   const handleMouseEnter = (): void => {
     setIsHovering(true);
   };
@@ -36,13 +32,6 @@ const CarouselItem: FunctionComponent<CarouselItemProps> = ({
 
   return (
     <CarouselItemWrapper style={style}>
-      {/* <CarouselItemTitle
-        onClick={scrolls[index]}
-        style={animationProps}
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
-        to={`${pathname}#${name}`}
-      > */}
       <CarouselItemTitle
         onClick={scrolls[index]}
         onMouseEnter={handleMouseEnter}
@@ -54,20 +43,20 @@ const CarouselItem: FunctionComponent<CarouselItemProps> = ({
       </CarouselItemTitle>
       <CarouselItemDescription
         onClick={scrolls[index]}
-        style={animationProps}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
         to={`${pathname}#${name}`}
+        $isHovering={isHovering}
       >
         {description}
       </CarouselItemDescription>
-      <CarouselItemCheckWrapper>
+      <CarouselItemCheckWrapper $isHovering={isHovering}>
         <CarouselItemCheck
           onClick={scrolls[index]}
-          style={animationProps}
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
           to={`${pathname}#${name}`}
+          $isHovering={isHovering}
         >
           {check}
         </CarouselItemCheck>

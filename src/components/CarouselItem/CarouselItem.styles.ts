@@ -3,6 +3,7 @@
 import styled from 'styled-components/macro';
 import { animated } from 'react-spring';
 import { Link } from 'react-router-dom';
+import { HoverProps } from './CarouselItem.types';
 
 const CarouselItemharedWrapper = styled(animated.div)`
   display: flex;
@@ -18,30 +19,7 @@ const CarouselItemWrapper = styled(CarouselItemharedWrapper)`
   padding-bottom: 20px;
 `;
 
-// const CarouselItemTitle = styled(animated(Link))`
-//   font-size: 46px;
-//   font-weight: 600;
-//   margin: 0 16px;
-//   color: white;
-//   text-align: center;
-
-//   ${(props): string => props.theme.breakpoints.small} {
-//     font-size: 38px;
-//   }
-
-//   @media only screen and (max-height: 500px) {
-//     display: none;
-//   }
-
-//   &:hover {
-//     cursor: pointer;
-//   }
-// `;
-
-// ? '1px 1px 2px white, 0 0 1em white, 0 0 1px white'
-// : '0px 0px 0px white, 0 0 0em white, 0 0 0px white'
-
-const CarouselItemTitle = styled(Link)<any>`
+const CarouselItemTitle = styled(Link)<HoverProps>`
   font-size: 46px;
   font-weight: 600;
   margin: 0 16px;
@@ -63,12 +41,14 @@ const CarouselItemTitle = styled(Link)<any>`
   }
 `;
 
-const CarouselItemDescription = styled(animated(Link))`
+const CarouselItemDescription = styled(Link)<HoverProps>`
   font-size: 32px;
   font-weight: 600;
   margin: 0 16px;
   color: white;
   text-align: center;
+  text-shadow: ${(props) => props.$isHovering ? '1px 1px 2px white, 0 0 1em white, 0 0 1px white' : '0px 0px 0px white, 0 0 0em white, 0 0 0px white'};
+  transition: text-shadow 500ms;
 
   ${(props): string => props.theme.breakpoints.small} {
     font-size: 28px;
@@ -83,12 +63,14 @@ const CarouselItemDescription = styled(animated(Link))`
   }
 `;
 
-const CarouselItemCheckWrapper = styled(CarouselItemharedWrapper)`
+const CarouselItemCheckWrapper = styled(CarouselItemharedWrapper)<HoverProps>`
   justify-content: center;
   width: 150px;
   height: 130px;
   border: 1px solid white;
   border-radius: 20px;
+  box-shadow: ${(props) => props.$isHovering ? '0 0 3px 3px white' : 'none'};
+  transition: box-shadow 500ms;
 
   ${(props): string => props.theme.breakpoints.small} {
     width: 130px;
@@ -100,13 +82,15 @@ const CarouselItemCheckWrapper = styled(CarouselItemharedWrapper)`
   }
 `;
 
-const CarouselItemCheck = styled(animated(Link))`
+const CarouselItemCheck = styled(Link)<HoverProps>`
   padding-bottom: 4px;
   font-size: 28px;
   font-weight: 600;
   margin: 0 16px;
   color: white;
   text-align: center;
+  text-shadow: ${(props) => props.$isHovering ? '1px 1px 2px white, 0 0 1em white, 0 0 1px white' : '0px 0px 0px white, 0 0 0em white, 0 0 0px white'};
+  transition: text-shadow 500ms;
 
   ${(props): string => props.theme.breakpoints.small} {
     font-size: 24px;
