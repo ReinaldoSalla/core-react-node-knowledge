@@ -11,7 +11,7 @@ const Wrapper = styled(Link)`
   min-height: 350px;
   margin: 0 32px 48px 32px;
   background: ${(props): string => props.theme.boxBgColor};
-  box-shadow: 0px 0px 10px 1px gray;
+  box-shadow: 0px 0px 5px 1px gray;
   /* border-width: 1px 2px;
   border-style: solid;
   border-color: #393838;
@@ -20,7 +20,7 @@ const Wrapper = styled(Link)`
   
   &:hover {
     cursor: pointer;
-    box-shadow: 0px 0px 10px 1px red;
+    box-shadow: 0px 0px 5px 1px red;
     /* border-color: red; */
     transform: scale(1.06);
   }
