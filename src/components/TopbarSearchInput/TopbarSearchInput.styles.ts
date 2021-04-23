@@ -14,7 +14,9 @@ const Input = styled(animated.input)`
   border-radius: 20px;
   padding: 0 16px;
   font-size: 24px;
-  box-shadow: 0 0 4px 4px transparent;
+  box-shadow: 0 0 1px 1px transparent;
+  /* TODO: use a pseudo-element to transition the opacity instead of 
+  the box-shadow directly */
   transition: box-shadow 500ms;
 
   ${(props): string => props.theme.breakpoints.small} {
@@ -29,7 +31,7 @@ const Input = styled(animated.input)`
   } */
 
   &:focus {
-    box-shadow: 0 0 8px 2px white;
+    box-shadow: 0 0 1px 1px white;
   }
 `;
 
