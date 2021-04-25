@@ -267,17 +267,17 @@ will have 75% of the viewport width and height.`
 
 const paragraph30 = `
 The animation for the loading placeholder
-it implemented with CSS keyframes. Also, the image will have a 'fade-in' effect,
+is implemented with CSS keyframes. Also, the image will have a 'fade-in' effect,
 implemented througth CSS transitions. The JavaScript code that control these
 class names in described on the next section.
 `;
 
 const subtitle31 = `
-CSS Util
+Classes
 `;
 
 const paragraph32 = `
-The code demonstrates how the function that changes the CSS class names is defined
+The code bellow demonstrates how the function that dynamically changes the CSS class names is defined
 `;
 
 const filePath33 = `
@@ -290,7 +290,15 @@ function computeCN(element: string, modifier: string, state: boolean) {
 }
 
 export default computeCN;
-`
+`;
+
+const paragraph35 = `
+For example, when we pass the arguments, loading, finished and hasLoaded and the hasLoaded
+boolean variable is true, the function returns 'loading finished'. Otherwise, it returns
+only the string 'loading'. In short, this would be a way to create a utility function
+to control css classNames. In an large application, it could be used in multiple
+places.
+`;
 
 // const subtitle8 = `
 // Hook
@@ -431,7 +439,8 @@ const orderTimersPromisesAsyncAwait = {
       paragraphsCommandsCode: [
         { paragraph: paragraph32 },
         { filePath: filePath33 },
-        { codeBlock: { code: code34, language: languageTSX }}
+        { codeBlock: { code: code34, language: languageTSX }},
+        { paragraph: paragraph35 }
       ]
     }
   ]
