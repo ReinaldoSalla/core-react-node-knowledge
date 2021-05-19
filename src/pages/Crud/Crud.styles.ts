@@ -9,11 +9,16 @@ const Container = styled.div`
   border: 10px solid red;
 `;
 
-const Label = styled.label`
-  color: white;
+const Heading = styled.h1`
+  color: ${(props) => props.theme.primaryTextColor};
+`;
+
+const Input = styled.input`
+  border: 1px solid black;
 `;
 
 export {
   Container,
-  Label
+  Heading,
+  Input
 };

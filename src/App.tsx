@@ -24,6 +24,7 @@ const Content = lazy(() => import('./pages/Content'));
 const Login = lazy(() => import('./pages/Login'));
 const About = lazy(() => import('./pages/About'));
 const Legal = lazy(() => import('./pages/Legal'));
+const Crud = lazy(() => import('./pages/Crud'));
 
 const App = (): JSX.Element => {
   useTabOutline();
@@ -49,6 +50,9 @@ const App = (): JSX.Element => {
                 </Route>
                 <Route exact path='/legal'>
                   <Legal />
+                </Route>
+                <Route exact path='/crud'>
+                  <Crud />
                 </Route>
                 <Route path='/:id'>
                   <Content />
