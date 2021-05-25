@@ -1,7 +1,6 @@
 import styled from 'styled-components/macro';
 
 const Container = styled.div`
-  width: 100%;
   /* width: 100vw; */
   height: 100vh;
   padding-top: 200px;
@@ -14,7 +13,10 @@ const Heading = styled.h1`
 `;
 
 const Input = styled.input`
-  border: 1px solid black;
+  border: 1px solid blue;
+  color: white;
+  background: black;
+  font-size: 2rem;
 `;
 
 export {

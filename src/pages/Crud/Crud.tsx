@@ -19,15 +19,15 @@ import React, {
 } from 'react';
 import {
   Container,
-  Heading,
+  // Heading,
   Input
 } from './Crud.styles';
 
 function Crud() {
-  const [text, setText] = useState('');
+  const [text, setText] = useState('Title');
   return (
     <Container>
-      <Heading>Add a title</Heading>
+      {/* <Heading>Add a title</Heading> */}
       <Input
         type='text'
         value={text}
