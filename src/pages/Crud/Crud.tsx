@@ -22,17 +22,25 @@ import {
   // Heading,
   Input
 } from './Crud.styles';
+import Button from '../../shared/styles/Button.styles';
 
 function Crud() {
-  const [text, setText] = useState('Title');
+  const [text, setText] = useState('Page Title');
+  const [numSections, setNumSections] = useState(2);
   return (
     <Container>
-      {/* <Heading>Add a title</Heading> */}
       <Input
         type='text'
         value={text}
         onChange={(event) => setText(event.target.value)}
       />
+      <br />
+      <br />
+      <br />
+      <br />
+      <Button onClick={() => setNumSections(numSections + 1)}>
+        add new section
+      </Button>
     </Container>
   );
 }

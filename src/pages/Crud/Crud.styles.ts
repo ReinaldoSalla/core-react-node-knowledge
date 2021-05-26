@@ -19,8 +19,13 @@ const Input = styled.input`
   font-size: 2rem;
 `;
 
+const Button = styled.button`
+  border: 1px solid red;
+`;
+
 export {
   Container,
   Heading,
-  Input
+  Input,
+  Button
 };
