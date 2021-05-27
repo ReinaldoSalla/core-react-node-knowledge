@@ -2,10 +2,10 @@ import styled from 'styled-components/macro';
 
 const Container = styled.div`
   /* width: 100vw; */
-  height: 100vh;
-  padding-top: 200px;
   box-sizing: border-box;
-  border: 10px solid red;
+  min-height: 100vh;
+  padding-top: 200px;
+  margin: 2rem;
 `;
 
 const Heading = styled.h1`

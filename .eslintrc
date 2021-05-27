@@ -28,7 +28,7 @@
       { "ts": "never", "tsx": "never" }
     ],
     "no-tabs": "off",
-    "no-console": "error",
+    // "no-console": "error",
     "curly": ["error", "all"],
     // "func-style": ["error", "expression"],
     "max-len": ["error", { "code": 80 }],

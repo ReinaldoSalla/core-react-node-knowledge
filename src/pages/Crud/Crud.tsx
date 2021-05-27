@@ -1,32 +1,16 @@
-// import React, { FunctionComponent } from 'react';
-// import {
-//   Container,
-//   Label
-// } from './Crud.styles';
-
-// const Crud: FunctionComponent = (): JSX.Element => (
-//   <Container>
-//     <Label htmlFor='name'>Type your name</Label>
-//     <input id='name' type='text' />
-//     <br />
-//     <Label htmlFor='msg'>Type a message</Label>
-//     <input id='msg' type='text' />
-//   </Container>
-// );
-
 import React, {
   useState
 } from 'react';
 import {
   Container,
-  // Heading,
   Input
 } from './Crud.styles';
 import Button from '../../shared/styles/Button.styles';
 
 function Crud() {
   const [text, setText] = useState('Page Title');
-  const [numSections, setNumSections] = useState(2);
+  const [numSections, setNumSections] = useState(0);
+  const [sectionsText, setSectionsText] = useState<string[]>([]);
   return (
     <Container>
       <Input
@@ -34,11 +18,31 @@ function Crud() {
         value={text}
         onChange={(event) => setText(event.target.value)}
       />
-      <br />
-      <br />
-      <br />
-      <br />
-      <Button onClick={() => setNumSections(numSections + 1)}>
+
+      {new Array(numSections).fill(0).map((_, index) => (
+        <div key={index.toString()}>
+          <hr />
+          <Input
+            type='text'
+            value={sectionsText[index]}
+            onChange={(event) => {
+              const items = [...sectionsText];
+              items[index] = event.target.value;
+              setSectionsText(items);
+            }}
+          />
+          <br />
+          <Button>add a paragraph</Button>
+          <Button>add code</Button>
+        </div>
+      ))}
+
+      <hr />
+      <Button onClick={() => {
+        setNumSections(numSections + 1);
+        setSectionsText([...sectionsText, `Section title ${numSections + 1}`]);
+      }}
+      >
         add new section
       </Button>
     </Container>
