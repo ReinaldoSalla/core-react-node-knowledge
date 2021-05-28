@@ -19,23 +19,25 @@ function Crud() {
         onChange={(event) => setText(event.target.value)}
       />
 
-      {new Array(numSections).fill(0).map((_, index) => (
-        <div key={index.toString()}>
-          <hr />
-          <Input
-            type='text'
-            value={sectionsText[index]}
-            onChange={(event) => {
-              const items = [...sectionsText];
-              items[index] = event.target.value;
-              setSectionsText(items);
-            }}
-          />
-          <br />
-          <Button>add a paragraph</Button>
-          <Button>add code</Button>
-        </div>
-      ))}
+      <ul>
+        {new Array(numSections).fill(0).map((_, index) => (
+          <li key={index.toString()}>
+            <hr />
+            <Input
+              type='text'
+              value={sectionsText[index]}
+              onChange={(event) => {
+                const items = [...sectionsText];
+                items[index] = event.target.value;
+                setSectionsText(items);
+              }}
+            />
+            <br />
+            <Button>add a paragraph</Button>
+            <Button>add code</Button>
+          </li>
+        ))}
+      </ul>
 
       <hr />
       <Button onClick={() => {
@@ -50,3 +52,26 @@ function Crud() {
 }
 
 export default Crud;
+
+/*
+[
+  {
+    title: microtask,
+    content: [
+      { paragraph: 'paragraph exemple' },
+      { codePath: './parser.js' },
+      { code: 'import Parser from 'parser' },
+      { paragraph: 'paragraph example' },
+    ]
+  },
+  {
+    title: event loop,
+    content: [
+      { paragraph: 'paragraph exemple' },
+      { codePath: './parser.js' },
+      { code: 'import Parser from 'parser' },
+      { paragraph: 'paragraph example' },
+    ]
+  },
+]
+*/
