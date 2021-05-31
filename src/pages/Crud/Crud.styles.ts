@@ -23,9 +23,14 @@ const Button = styled.button`
   border: 1px solid red;
 `;
 
+const SubsectionTitle = styled.p`
+  color: white;
+`;
+
 export {
   Container,
   Heading,
   Input,
-  Button
+  Button,
+  SubsectionTitle
 };

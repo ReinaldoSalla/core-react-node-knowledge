@@ -1,62 +1,29 @@
+/* eslint-disable */
+
 import React, {
   useState
 } from 'react';
 import {
   Container,
-  Input
+  Input,
+  SubsectionTitle
 } from './Crud.styles';
 import Button from '../../shared/styles/Button.styles';
 
-// function Crud() {
-//   const [text, setText] = useState('Page Title');
-//   const [numSections, setNumSections] = useState(0);
-//   const [sectionsText, setSectionsText] = useState<string[]>([]);
-//   return (
-//     <Container>
-//       <Input
-//         type='text'
-//         value={text}
-//         onChange={(event) => setText(event.target.value)}
-//       />
-
-//       <ul>
-//         {new Array(numSections).fill(0).map((_, index) => (
-//           <li key={index.toString()}>
-//             <hr />
-//             <Input
-//               type='text'
-//               value={sectionsText[index]}
-//               onChange={(event) => {
-//                 const items = [...sectionsText];
-//                 items[index] = event.target.value;
-//                 setSectionsText(items);
-//               }}
-//             />
-//             <br />
-//             <Button>add a paragraph</Button>
-//             <Button>add code</Button>
-//           </li>
-//         ))}
-//       </ul>
-
-//       <hr />
-//       <Button onClick={() => {
-//         setNumSections(numSections + 1);
-//         setSectionsText(
-//          [...sectionsText, `Section title ${numSections + 1}`]
-//         );
-//       }}
-//       >
-//         add new section
-//       </Button>
-//     </Container>
-//   );
-// }
-
 function Crud() {
+  const [title, setTitle] = useState('');
   const [sections, setSections] = useState<any[]>([]);
+  console.log(sections);
   return (
     <Container>
+      <Input
+        type='text'
+        value={title}
+        onChange={(event) => setTitle(event.target.value)}
+      />
+      <br />
+      <br />
+      <br />
       <ul>
         {sections.map((section, index) => (
           <li key={index.toString()}>
@@ -65,21 +32,44 @@ function Crud() {
               type='text'
               value={section.title}
               onChange={(event) => {
-                const items = [...sections];
-                items[index].title = event.target.value;
-                setSections(items);
+                const newSections = [...sections];
+                newSections[index].title = event.target.value;
+                setSections(newSections);
               }}
             />
             <br />
             <br />
-            <Button>add a paragraph</Button>
+            <ul>
+              {sections[index].content.map((content: any, contentIndex: any) => (
+                <li key={contentIndex.toString()}>
+                  <SubsectionTitle>{Object.keys(content)[0]} {contentIndex + 1}</SubsectionTitle>
+                  <Input />
+                </li>
+              ))}
+            </ul>
+            <br />
+            <br />
+            <Button
+              onClick={() => {
+                const newSections = [...sections];
+                newSections[index].content = [
+                  ...sections[index].content,
+                  { paragraph: 'paragraph' }
+                ];
+                setSections(newSections);
+              }}
+            >
+              add a paragraph
+            </Button>
             <Button>add code</Button>
             <br />
             <br />
           </li>
         ))}
       </ul>
-
+      <br />
+      <br />
+      <br />
       <Button
         onClick={() => {
           const newSection = {
