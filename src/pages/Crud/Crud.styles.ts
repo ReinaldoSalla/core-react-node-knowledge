@@ -1,7 +1,6 @@
 import styled from 'styled-components/macro';
 
 const Container = styled.div`
-  /* width: 100vw; */
   box-sizing: border-box;
   min-height: 100vh;
   padding-top: 200px;
@@ -19,18 +18,19 @@ const Input = styled.input`
   font-size: 2rem;
 `;
 
-const Button = styled.button`
-  border: 1px solid red;
-`;
-
 const SubsectionTitle = styled.p`
   color: white;
+`;
+
+const Label = styled.label`
+  color: white;
+  margin-right: 32px;
 `;
 
 export {
   Container,
   Heading,
   Input,
-  Button,
-  SubsectionTitle
+  SubsectionTitle,
+  Label
 };

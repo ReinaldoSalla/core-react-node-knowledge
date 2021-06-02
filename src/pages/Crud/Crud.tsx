@@ -3,12 +3,13 @@
 import React, {
   useState
 } from 'react';
+import Button from '../../shared/styles/Button.styles';
 import {
   Container,
   Input,
-  SubsectionTitle
+  SubsectionTitle,
+  Label
 } from './Crud.styles';
-import Button from '../../shared/styles/Button.styles';
 
 function Crud() {
   const [title, setTitle] = useState('article title');
@@ -42,15 +43,25 @@ function Crud() {
             <ul>
               {sections[index].contents.map((content: any, contentIndex: any) => (
                 <li key={contentIndex.toString()}>
-                  <SubsectionTitle>{Object.keys(content)[0]} {contentIndex + 1}</SubsectionTitle>
-                  <Input 
-                    // value={Object.values(content)[0]}
-                    // onChange={(event) => {
-                    //   const newSections = [...sections];
-                    //   newSections[index] = { paragraph: event.target.value }
-                    //   setSections(newSections);
-                    // }} 
-                  />
+                  {Object.keys(content)[0] === 'paragraph' && (
+                    <div>
+                      <SubsectionTitle>{Object.keys(content)[0]} {contentIndex + 1}</SubsectionTitle>
+                      <Input />
+                    </div>
+                  )}
+                  {Object.keys(content)[0] === 'code' && (
+                    <div>
+                      <SubsectionTitle>{Object.keys(content)[0]} {contentIndex + 1}</SubsectionTitle>
+                      <Label htmlFor='language'>Chose a language</Label>
+                      <select id='language'>
+                        <option>TypeScript</option>
+                        <option>TSX</option>
+                      </select>
+                      <br />
+                      <br />
+                      <Input />
+                    </div>
+                  )}
                 </li>
               ))}
             </ul>
