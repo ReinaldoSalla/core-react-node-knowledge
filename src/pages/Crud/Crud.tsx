@@ -49,17 +49,32 @@ function Crud() {
                       <Input />
                     </div>
                   )}
-                  {Object.keys(content)[0] === 'code' && (
+                  {Object.keys(content)[0] === 'codeBlock' && (
                     <div>
                       <SubsectionTitle>{Object.keys(content)[0]} {contentIndex + 1}</SubsectionTitle>
                       <Label htmlFor='language'>Chose a language</Label>
-                      <select id='language'>
+                      <select 
+                        id='language'
+                        value={content.codeBlock.language}
+                        onChange={(event) => {
+                          const newSections = [...sections];
+                          newSections[index].contents[contentIndex].codeBlock.language = event.target.value;
+                          setSections(newSections);
+                        }}
+                      >
                         <option>TypeScript</option>
                         <option>TSX</option>
                       </select>
                       <br />
                       <br />
-                      <Input />
+                      <Input 
+                        value={content.codeBlock.code}
+                        onChange={(event) => {
+                          const newSections = [...sections];
+                          newSections[index].contents[contentIndex].codeBlock.code = event.target.value;
+                          setSections(newSections);
+                        }}
+                      />
                     </div>
                   )}
                 </li>
@@ -77,19 +92,27 @@ function Crud() {
                 setSections(newSections);
               }}
             >
-              add a paragraph {section.title}
+              add paragraph {section.title}
             </Button>
             <Button
               onClick={() => {
                 const newSections = [...sections];
                 newSections[index].contents = [
                   ...sections[index].contents,
-                  { code: 'code' }
+                  { 
+                    codeBlock: {
+                      language: 'tsx',
+                      code: '',
+                      filePath: './app.ts',
+                      disableLineNumbers: false,
+                      disableFilePath: false,
+                    }
+                  }
                 ];
                 setSections(newSections);
               }} 
             >
-              add code with syntax {section.title}
+              add codeblock {section.title}
             </Button>
             <br />
             <br />
@@ -132,19 +155,41 @@ export default Crud;
   {
     title: microtask,
     contents: [
-      { paragraph: 'paragraph exemple' },
-      { codePath: './parser.js' },
-      { code: 'import Parser from 'parser' },
-      { paragraph: 'paragraph example' },
+      { 
+        paragraph: 'paragraph exemple' 
+      },
+      { 
+        codeBlock: { 
+          language: 'ts', 
+          codePath: './app.ts;', 
+          code: 'import something from somewhere' 
+          disableCodePath" false
+          disableLineNumbers: false, 
+        } 
+      },
+      { 
+        paragraph: 'paragraph example' 
+      },
     ]
   },
   {
-    title: event loop,
+    title: microtask,
     contents: [
-      { paragraph: 'paragraph exemple' },
-      { codePath: './parser.js' },
-      { code: 'import Parser from 'parser' },
-      { paragraph: 'paragraph example' },
+      { 
+        paragraph: 'paragraph exemple' 
+      },
+      { 
+        codeBlock: { 
+          language: 'ts', 
+          codePath: './app.ts;', 
+          code: 'import something from somewhere' 
+          disableCodePath" false
+          disableLineNumbers: false, 
+        } 
+      },
+      { 
+        paragraph: 'paragraph example' 
+      },
     ]
   },
 ]
