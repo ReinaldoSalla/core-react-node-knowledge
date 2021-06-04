@@ -14,7 +14,6 @@ import {
 function Crud() {
   const [title, setTitle] = useState('article title');
   const [sections, setSections] = useState<any[]>([]);
-  console.log(sections);
   return (
     <Container>
       <Input
@@ -26,22 +25,22 @@ function Crud() {
       <br />
       <br />
       <ul>
-        {sections.map((section, index) => (
-          <li key={index.toString()}>
+        {sections.map((section, sectionIndex) => (
+          <li key={sectionIndex.toString()}>
             <hr />
             <Input
               type='text'
               value={section.title}
               onChange={(event) => {
                 const newSections = [...sections];
-                newSections[index].title = event.target.value;
+                newSections[sectionIndex].title = event.target.value;
                 setSections(newSections);
               }}
             />
             <br />
             <br />
             <ul>
-              {sections[index].contents.map((content: any, contentIndex: any) => (
+              {sections[sectionIndex].contents.map((content: any, contentIndex: any) => (
                 <li key={contentIndex.toString()}>
                   {Object.keys(content)[0] === 'paragraph' && (
                     <div>
@@ -52,13 +51,17 @@ function Crud() {
                   {Object.keys(content)[0] === 'codeBlock' && (
                     <div>
                       <SubsectionTitle>{Object.keys(content)[0]} {contentIndex + 1}</SubsectionTitle>
-                      <Label htmlFor='language'>Chose a language</Label>
+                      <Label 
+                        htmlFor={`language${sectionIndex}x${contentIndex}`}
+                      >
+                        Chose a language
+                      </Label>
                       <select 
-                        id='language'
+                        id={`language${sectionIndex}x${contentIndex}`}
                         value={content.codeBlock.language}
                         onChange={(event) => {
                           const newSections = [...sections];
-                          newSections[index].contents[contentIndex].codeBlock.language = event.target.value;
+                          newSections[sectionIndex].contents[contentIndex].codeBlock.language = event.target.value;
                           setSections(newSections);
                         }}
                       >
@@ -67,11 +70,69 @@ function Crud() {
                       </select>
                       <br />
                       <br />
+                      <Label
+                        htmlFor={`disable-line-numbers${sectionIndex}x${contentIndex}`} 
+                      >
+                        disable line numbers
+                      </Label>
+                      <input
+                        id={`disable-line-numbers${sectionIndex}x${contentIndex}`} 
+                        type='checkbox'
+                        checked={content.codeBlock.disableLineNumbers}
+                        onChange={(event) => {
+                          const newSections = [...sections];
+                          newSections[sectionIndex].contents[contentIndex].codeBlock.disableLineNumbers = event.target.checked;
+                          setSections(newSections);
+                        }}
+                      />  
+                      <br />
+                      <br />
+                      <Label
+                        htmlFor={`disable-file-path${sectionIndex}x${contentIndex}`} 
+                      >
+                        disable file path
+                      </Label>
+                      <input 
+                        id={`disable-file-path${sectionIndex}x${contentIndex}`} 
+                        type='checkbox'
+                        checked={content.codeBlock.disableCodePath}
+                        onChange={(event) => {
+                          const newSections = [...sections];
+                          newSections[sectionIndex].contents[contentIndex].codeBlock.disableFilePath = event.target.checked;
+                          setSections(newSections);
+                        }}
+                      />
+                      <br />
+                      <br />
+                      <Label
+                        htmlFor={`code-path${sectionIndex}x${contentIndex}`}
+                      >
+                        File Path
+                      </Label>
+                      <Input
+                        id={`file-path${sectionIndex}x${contentIndex}`}
+                        value={content.codeBlock.filePath}
+                        onChange={(event) => {
+                          const newSections = [...sections];
+                          newSections[sectionIndex].contents[contentIndex].codeBlock.filePath = event.target.value;
+                          setSections(newSections);
+                        }}
+                      />
+                      <br />
+                      <br />
+                      <Label
+                        htmlFor={`code${sectionIndex}x${contentIndex}`}
+                      >
+                        code
+                      </Label>
+                      <br />
+                      <br />
                       <Input 
+                        id={`code${sectionIndex}x${contentIndex}`}
                         value={content.codeBlock.code}
                         onChange={(event) => {
                           const newSections = [...sections];
-                          newSections[index].contents[contentIndex].codeBlock.code = event.target.value;
+                          newSections[sectionIndex].contents[contentIndex].codeBlock.code = event.target.value;
                           setSections(newSections);
                         }}
                       />
@@ -85,8 +146,8 @@ function Crud() {
             <Button
               onClick={() => {
                 const newSections = [...sections];
-                newSections[index].contents = [
-                  ...sections[index].contents,
+                newSections[sectionIndex].contents = [
+                  ...sections[sectionIndex].contents,
                   { paragraph: 'paragraph' }
                 ];
                 setSections(newSections);
@@ -97,8 +158,8 @@ function Crud() {
             <Button
               onClick={() => {
                 const newSections = [...sections];
-                newSections[index].contents = [
-                  ...sections[index].contents,
+                newSections[sectionIndex].contents = [
+                  ...sections[sectionIndex].contents,
                   { 
                     codeBlock: {
                       language: 'tsx',
