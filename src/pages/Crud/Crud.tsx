@@ -7,6 +7,7 @@ import Button from '../../shared/styles/Button.styles';
 import {
   Container,
   Input,
+  TextArea,
   SubsectionTitle,
   Label
 } from './Crud.styles';
@@ -45,7 +46,15 @@ function Crud() {
                   {Object.keys(content)[0] === 'paragraph' && (
                     <div>
                       <SubsectionTitle>{Object.keys(content)[0]} {contentIndex + 1}</SubsectionTitle>
-                      <Input />
+                      {/* <Input /> */}
+                      <TextArea 
+                        value={content.paragraph} 
+                        onChange={(event) => {
+                          const newSections = [...sections];
+                          newSections[sectionIndex].contents[contentIndex].paragraph = event.target.value;
+                          setSections(newSections);
+                        }}
+                      />
                     </div>
                   )}
                   {Object.keys(content)[0] === 'codeBlock' && (
@@ -106,6 +115,7 @@ function Crud() {
                       <br />
                       <Label
                         htmlFor={`code-path${sectionIndex}x${contentIndex}`}
+                        hide={content.codeBlock.disableFilePath}
                       >
                         File Path
                       </Label>
@@ -117,6 +127,7 @@ function Crud() {
                           newSections[sectionIndex].contents[contentIndex].codeBlock.filePath = event.target.value;
                           setSections(newSections);
                         }}
+                        hide={content.codeBlock.disableFilePath}
                       />
                       <br />
                       <br />
@@ -127,7 +138,7 @@ function Crud() {
                       </Label>
                       <br />
                       <br />
-                      <Input 
+                      <TextArea 
                         id={`code${sectionIndex}x${contentIndex}`}
                         value={content.codeBlock.code}
                         onChange={(event) => {
@@ -148,7 +159,7 @@ function Crud() {
                 const newSections = [...sections];
                 newSections[sectionIndex].contents = [
                   ...sections[sectionIndex].contents,
-                  { paragraph: 'paragraph' }
+                  { paragraph: '' }
                 ];
                 setSections(newSections);
               }}
