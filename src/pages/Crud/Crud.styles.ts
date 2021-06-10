@@ -14,6 +14,7 @@ const Heading = styled.h1`
 
 const Input = styled.input<HideProps>`
   border: 1px solid blue;
+  margin-bottom: 48px;
   color: white;
   background: black;
   font-size: 2rem;
@@ -31,13 +32,29 @@ const TextArea = styled.textarea`
 
 const SubsectionTitle = styled.p`
   color: white;
+  font-size: 18px;
+  font-weight: 700;
 `;
 
 const Label = styled.label<HideProps>`
   color: white;
-  margin-right: 32px;
+  margin-right: 8px;
   opacity: ${(props) => (props.hide ? 0.5 : 1)};
   pointer-events: ${(props) => (props.hide ? 'none' : 'auto')};
+`;
+
+const Select = styled.select`
+  margin-right: 32px;
+`;
+
+const Checkbox = styled.input`
+  margin-right: 32px;
+`;
+
+const ButtonsContainer = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+  margin: 64px 0;
 `;
 
 export {
@@ -46,5 +63,8 @@ export {
   TextArea,
   Input,
   SubsectionTitle,
-  Label
+  Label,
+  Select,
+  Checkbox,
+  ButtonsContainer
 };

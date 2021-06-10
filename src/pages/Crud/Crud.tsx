@@ -9,7 +9,10 @@ import {
   Input,
   TextArea,
   SubsectionTitle,
-  Label
+  Label,
+  Select,
+  Checkbox,
+  ButtonsContainer
 } from './Crud.styles';
 
 function Crud() {
@@ -22,9 +25,6 @@ function Crud() {
         value={title}
         onChange={(event) => setTitle(event.target.value)}
       />
-      <br />
-      <br />
-      <br />
       <ul>
         {sections.map((section, sectionIndex) => (
           <li key={sectionIndex.toString()}>
@@ -38,15 +38,12 @@ function Crud() {
                 setSections(newSections);
               }}
             />
-            <br />
-            <br />
             <ul>
               {sections[sectionIndex].contents.map((content: any, contentIndex: any) => (
                 <li key={contentIndex.toString()}>
                   {Object.keys(content)[0] === 'paragraph' && (
                     <div>
                       <SubsectionTitle>{Object.keys(content)[0]} {contentIndex + 1}</SubsectionTitle>
-                      {/* <Input /> */}
                       <TextArea 
                         value={content.paragraph} 
                         onChange={(event) => {
@@ -65,7 +62,7 @@ function Crud() {
                       >
                         Chose a language
                       </Label>
-                      <select 
+                      <Select 
                         id={`language${sectionIndex}x${contentIndex}`}
                         value={content.codeBlock.language}
                         onChange={(event) => {
@@ -76,15 +73,13 @@ function Crud() {
                       >
                         <option>TypeScript</option>
                         <option>TSX</option>
-                      </select>
-                      <br />
-                      <br />
+                      </Select>
                       <Label
                         htmlFor={`disable-line-numbers${sectionIndex}x${contentIndex}`} 
                       >
                         disable line numbers
                       </Label>
-                      <input
+                      <Checkbox
                         id={`disable-line-numbers${sectionIndex}x${contentIndex}`} 
                         type='checkbox'
                         checked={content.codeBlock.disableLineNumbers}
@@ -94,14 +89,12 @@ function Crud() {
                           setSections(newSections);
                         }}
                       />  
-                      <br />
-                      <br />
                       <Label
                         htmlFor={`disable-file-path${sectionIndex}x${contentIndex}`} 
                       >
                         disable file path
                       </Label>
-                      <input 
+                      <Checkbox 
                         id={`disable-file-path${sectionIndex}x${contentIndex}`} 
                         type='checkbox'
                         checked={content.codeBlock.disableCodePath}
@@ -152,42 +145,41 @@ function Crud() {
                 </li>
               ))}
             </ul>
-            <br />
-            <br />
-            <Button
-              onClick={() => {
-                const newSections = [...sections];
-                newSections[sectionIndex].contents = [
-                  ...sections[sectionIndex].contents,
-                  { paragraph: '' }
-                ];
-                setSections(newSections);
-              }}
-            >
-              add paragraph {section.title}
-            </Button>
-            <Button
-              onClick={() => {
-                const newSections = [...sections];
-                newSections[sectionIndex].contents = [
-                  ...sections[sectionIndex].contents,
-                  { 
-                    codeBlock: {
-                      language: 'tsx',
-                      code: '',
-                      filePath: './app.ts',
-                      disableLineNumbers: false,
-                      disableFilePath: false,
+            <ButtonsContainer>
+
+              <Button
+                onClick={() => {
+                  const newSections = [...sections];
+                  newSections[sectionIndex].contents = [
+                    ...sections[sectionIndex].contents,
+                    { paragraph: '' }
+                  ];
+                  setSections(newSections);
+                }}
+              >
+                add paragraph {section.title}
+              </Button>
+              <Button
+                onClick={() => {
+                  const newSections = [...sections];
+                  newSections[sectionIndex].contents = [
+                    ...sections[sectionIndex].contents,
+                    { 
+                      codeBlock: {
+                        language: 'tsx',
+                        code: '',
+                        filePath: './app.ts',
+                        disableLineNumbers: false,
+                        disableFilePath: false,
+                      }
                     }
-                  }
-                ];
-                setSections(newSections);
-              }} 
-            >
-              add codeblock {section.title}
-            </Button>
-            <br />
-            <br />
+                  ];
+                  setSections(newSections);
+                }} 
+              >
+                add codeblock {section.title}
+              </Button>
+            </ButtonsContainer>
           </li>
         ))}
       </ul>
