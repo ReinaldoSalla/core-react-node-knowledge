@@ -438,8 +438,7 @@ const orderTimersPromisesAsyncAwait = {
       subtitle: subtitle31,
       paragraphsCommandsCode: [
         { paragraph: paragraph32 },
-        { filePath: filePath33 },
-        { codeBlock: { code: code34, language: languageTSX }},
+        { codeBlock: { code: code34, language: languageTSX, filePath: filePath33, disableFilePath: false }},
         { paragraph: paragraph35 }
       ]
     }

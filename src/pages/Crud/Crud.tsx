@@ -73,6 +73,7 @@ function Crud() {
                       >
                         <option>TypeScript</option>
                         <option>TSX</option>
+                        <option>CSS</option>
                       </Select>
                       <Label
                         htmlFor={`disable-line-numbers${sectionIndex}x${contentIndex}`} 
@@ -97,7 +98,7 @@ function Crud() {
                       <Checkbox 
                         id={`disable-file-path${sectionIndex}x${contentIndex}`} 
                         type='checkbox'
-                        checked={content.codeBlock.disableCodePath}
+                        checked={content.codeBlock.disableFilePath}
                         onChange={(event) => {
                           const newSections = [...sections];
                           newSections[sectionIndex].contents[contentIndex].codeBlock.disableFilePath = event.target.checked;
@@ -146,7 +147,6 @@ function Crud() {
               ))}
             </ul>
             <ButtonsContainer>
-
               <Button
                 onClick={() => {
                   const newSections = [...sections];
@@ -168,7 +168,7 @@ function Crud() {
                       codeBlock: {
                         language: 'tsx',
                         code: '',
-                        filePath: './app.ts',
+                        filePath: '',
                         disableLineNumbers: false,
                         disableFilePath: false,
                       }
@@ -225,9 +225,9 @@ export default Crud;
       { 
         codeBlock: { 
           language: 'ts', 
-          codePath: './app.ts;', 
+          filePath: './app.ts;', 
           code: 'import something from somewhere' 
-          disableCodePath" false
+          disableFilePath" false
           disableLineNumbers: false, 
         } 
       },
@@ -245,9 +245,9 @@ export default Crud;
       { 
         codeBlock: { 
           language: 'ts', 
-          codePath: './app.ts;', 
+          filePath: './app.ts;', 
           code: 'import something from somewhere' 
-          disableCodePath" false
+          disableFilePath" false
           disableLineNumbers: false, 
         } 
       },

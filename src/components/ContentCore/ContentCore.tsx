@@ -1,6 +1,4 @@
-/* eslint-disable max-len */
-/* eslint-disable react/no-array-index-key */
-/* eslint-disable no-shadow */
+/* eslint-disable */
 
 import React, { useLayoutEffect, FunctionComponent } from 'react';
 import { animated, useSpring } from 'react-spring';
@@ -85,6 +83,8 @@ const ContentCore: FunctionComponent<ContentCoreProps> = ({
             } if (
               Object.prototype.hasOwnProperty.call(innerElement, 'filePath')
             ) {
+              // This is a legacy feature, when filePath was declared outside codeBlock.
+              // From now on, the filePath should always be inside codeblock.
               return (
                 <FilePath key={index}>
                   {innerElement.filePath.trim()}
@@ -94,24 +94,34 @@ const ContentCore: FunctionComponent<ContentCoreProps> = ({
               Object.prototype.hasOwnProperty.call(innerElement, 'codeBlock')
             ) {
               const lineNumbers = innerElement.codeBlock.disableLineNumbers ? '' : 'line-numbers';
+              const shouldRenderFilePath = 
+                Object.prototype.hasOwnProperty.call(innerElement.codeBlock, 'filePath') &&
+                Object.prototype.hasOwnProperty.call(innerElement.codeBlock, 'disableFilePath') &&
+                !innerElement.codeBlock.disableFilePath;
               return (
-                <pre
-                  key={index}
-                  // className={`${lineNumbers} code-scrollbar´}
-                  className={`${lineNumbers} code-scrollbar`}
-                  style={{
-                    marginBottom: '24px'
-                  }}
-                >
-                  <code
-                    className={innerElement.codeBlock.language}
+                <div key={`codeBlock${index}`}>
+                  {shouldRenderFilePath && (
+                    <FilePath key={`fp${index}`}>
+                      {innerElement.codeBlock.filePath.trim()}
+                    </FilePath>
+                  )}
+                  <pre
+                    key={`code${index}`}
+                    className={`${lineNumbers} code-scrollbar`}
                     style={{
-                      wordBreak: 'break-word'
+                      marginBottom: '24px'
                     }}
                   >
-                    {innerElement.codeBlock.code.trim()}
-                  </code>
-                </pre>
+                    <code
+                      className={innerElement.codeBlock.language}
+                      style={{
+                        wordBreak: 'break-word'
+                      }}
+                    >
+                      {innerElement.codeBlock.code.trim()}
+                    </code>
+                  </pre>
+                </div>
               );
             } if (
               Object.prototype.hasOwnProperty.call(
