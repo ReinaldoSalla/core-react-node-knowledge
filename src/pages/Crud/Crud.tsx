@@ -190,6 +190,7 @@ function Crud() {
         onClick={() => {
           const newSection = {
             title: `section title ${sections.length + 1}`,
+            seo: '',
             contents: []
           };
           setSections([...sections, newSection]);
@@ -203,7 +204,8 @@ function Crud() {
       <Button
         onClick={() => {
           const data = { title, sections };
-          alert(JSON.stringify(data));
+          // alert(JSON.stringify(data));
+          console.log(JSON.stringify(data));
         }} 
       >
         generate article
@@ -258,3 +260,62 @@ export default Crud;
   },
 ]
 */
+
+
+// diff
+/*
+
+const orderTimersPromisesAsyncAwait = {
+  title,
+  seo,
+  text: [
+    {
+      subtitle: subtitle1,
+      paragraphsCommandsCode: [
+        { paragraph: paragraph2 },
+        { paragraph: paragraph3 },
+        {
+          codeBlock: {
+            code: code4,
+            disableLineNumbers: true,
+            language
+          }
+        },
+        { paragraph: paragraph5 },
+        {
+          codeBlock: {
+            code: code6,
+            disableLineNumbers: true,
+            language
+          }
+        }
+      ]
+    },
+
+
+const test = {
+  "title": "page title",
+  "sections": [
+    {
+      "title": "1. Problem",
+      "contents": [
+        {
+          "paragraph": "solve the problem in js"
+        },
+        {
+          "codeBlock": {
+            "language": "tsx",
+            "code": "const process = dt.next();",
+            "filePath": "./app.ts",
+            "disableLineNumbers": false,
+            "disableFilePath": false
+          }
+        },
+        {
+          "paragraph": "solution is aboved"
+        }
+      ]
+    },
+	
+*/
+

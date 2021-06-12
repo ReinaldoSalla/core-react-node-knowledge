@@ -7,6 +7,7 @@ import { GlobalStyle, globalTheme } from './App.styles';
 import ScrollToTop from './utils/ScrollToTop';
 import ContentSuspense from './components/ContentSuspense';
 import { ModalsProvider } from './shared/context/ModalsContext';
+// import json from './test.json';
 
 // import Topbar from './components/Topbar';
 // import Footer from './components/Footer';
@@ -28,7 +29,10 @@ const Crud = lazy(() => import('./pages/Crud'));
 
 const App = (): JSX.Element => {
   useTabOutline();
-
+  // React.useEffect(() => {
+  //   console.log(json);
+  //   console.log(json.key);
+  // }, []);
   return (
     <BrowserRouter>
       <HelmetProvider>
