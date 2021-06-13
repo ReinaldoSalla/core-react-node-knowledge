@@ -292,6 +292,8 @@ function computeCN(element: string, modifier: string, state: boolean) {
 export default computeCN;
 `;
 
+const codeTest = 'function computeCN(element: string, modifier: string, state: boolean) {}\nexport default computeCN;'
+
 const paragraph35 = `
 For example, when we pass the arguments, loading, finished and hasLoaded and the hasLoaded
 boolean variable is true, the function returns 'loading finished'. Otherwise, it returns
@@ -439,7 +441,8 @@ const orderTimersPromisesAsyncAwait = {
       paragraphsCommandsCode: [
         { paragraph: paragraph32 },
         { codeBlock: { code: code34, language: languageTSX, filePath: filePath33, disableFilePath: false }},
-        { paragraph: paragraph35 }
+        { paragraph: paragraph35 },
+        { codeBlock: { code: codeTest, language: languageTSX, disableFilePath: false, disableLineNumbers: false}}
       ]
     }
   ]

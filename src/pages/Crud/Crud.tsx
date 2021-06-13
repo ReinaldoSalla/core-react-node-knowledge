@@ -39,7 +39,7 @@ function Crud() {
               }}
             />
             <ul>
-              {sections[sectionIndex].contents.map((content: any, contentIndex: any) => (
+              {sections[sectionIndex].paragraphsCommandsCode.map((content: any, contentIndex: any) => (
                 <li key={contentIndex.toString()}>
                   {Object.keys(content)[0] === 'paragraph' && (
                     <div>
@@ -48,7 +48,7 @@ function Crud() {
                         value={content.paragraph} 
                         onChange={(event) => {
                           const newSections = [...sections];
-                          newSections[sectionIndex].contents[contentIndex].paragraph = event.target.value;
+                          newSections[sectionIndex].paragraphsCommandsCode[contentIndex].paragraph = event.target.value;
                           setSections(newSections);
                         }}
                       />
@@ -67,7 +67,7 @@ function Crud() {
                         value={content.codeBlock.language}
                         onChange={(event) => {
                           const newSections = [...sections];
-                          newSections[sectionIndex].contents[contentIndex].codeBlock.language = event.target.value;
+                          newSections[sectionIndex].paragraphsCommandsCode[contentIndex].codeBlock.language = `language-${event.target.value}`;
                           setSections(newSections);
                         }}
                       >
@@ -86,7 +86,7 @@ function Crud() {
                         checked={content.codeBlock.disableLineNumbers}
                         onChange={(event) => {
                           const newSections = [...sections];
-                          newSections[sectionIndex].contents[contentIndex].codeBlock.disableLineNumbers = event.target.checked;
+                          newSections[sectionIndex].paragraphsCommandsCode[contentIndex].codeBlock.disableLineNumbers = event.target.checked;
                           setSections(newSections);
                         }}
                       />  
@@ -101,7 +101,7 @@ function Crud() {
                         checked={content.codeBlock.disableFilePath}
                         onChange={(event) => {
                           const newSections = [...sections];
-                          newSections[sectionIndex].contents[contentIndex].codeBlock.disableFilePath = event.target.checked;
+                          newSections[sectionIndex].paragraphsCommandsCode[contentIndex].codeBlock.disableFilePath = event.target.checked;
                           setSections(newSections);
                         }}
                       />
@@ -118,7 +118,7 @@ function Crud() {
                         value={content.codeBlock.filePath}
                         onChange={(event) => {
                           const newSections = [...sections];
-                          newSections[sectionIndex].contents[contentIndex].codeBlock.filePath = event.target.value;
+                          newSections[sectionIndex].paragraphsCommandsCode[contentIndex].codeBlock.filePath = event.target.value;
                           setSections(newSections);
                         }}
                         hide={content.codeBlock.disableFilePath}
@@ -137,7 +137,7 @@ function Crud() {
                         value={content.codeBlock.code}
                         onChange={(event) => {
                           const newSections = [...sections];
-                          newSections[sectionIndex].contents[contentIndex].codeBlock.code = event.target.value;
+                          newSections[sectionIndex].paragraphsCommandsCode[contentIndex].codeBlock.code = event.target.value;
                           setSections(newSections);
                         }}
                       />
@@ -150,8 +150,8 @@ function Crud() {
               <Button
                 onClick={() => {
                   const newSections = [...sections];
-                  newSections[sectionIndex].contents = [
-                    ...sections[sectionIndex].contents,
+                  newSections[sectionIndex].paragraphsCommandsCode = [
+                    ...sections[sectionIndex].paragraphsCommandsCode,
                     { paragraph: '' }
                   ];
                   setSections(newSections);
@@ -162,8 +162,8 @@ function Crud() {
               <Button
                 onClick={() => {
                   const newSections = [...sections];
-                  newSections[sectionIndex].contents = [
-                    ...sections[sectionIndex].contents,
+                  newSections[sectionIndex].paragraphsCommandsCode = [
+                    ...sections[sectionIndex].paragraphsCommandsCode,
                     { 
                       codeBlock: {
                         language: 'tsx',
@@ -190,8 +190,7 @@ function Crud() {
         onClick={() => {
           const newSection = {
             title: `section title ${sections.length + 1}`,
-            seo: '',
-            contents: []
+            paragraphsCommandsCode: []
           };
           setSections([...sections, newSection]);
         }}
@@ -203,7 +202,7 @@ function Crud() {
       <br />
       <Button
         onClick={() => {
-          const data = { title, sections };
+          const data = { title, seo: '', text: sections };
           // alert(JSON.stringify(data));
           console.log(JSON.stringify(data));
         }} 
@@ -220,7 +219,7 @@ export default Crud;
 [
   {
     title: microtask,
-    contents: [
+    paragraphsCommandsCode: [
       { 
         paragraph: 'paragraph exemple' 
       },
@@ -240,7 +239,7 @@ export default Crud;
   },
   {
     title: microtask,
-    contents: [
+    paragraphsCommandsCode: [
       { 
         paragraph: 'paragraph exemple' 
       },
@@ -298,7 +297,7 @@ const test = {
   "sections": [
     {
       "title": "1. Problem",
-      "contents": [
+      "paragraphsCommandsCode": [
         {
           "paragraph": "solve the problem in js"
         },

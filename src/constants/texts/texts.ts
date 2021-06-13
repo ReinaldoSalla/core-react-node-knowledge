@@ -6,54 +6,7 @@ import findPair from './findPair';
 import orderTimersPromisesAsyncAwait from './orderTimersPromisesAsyncAwait';
 import lazyLoadingImages from './lazyLoadingImages';
 
-const test = {
-  "title": "page title",
-  "sections": [
-    {
-      "title": "1. Problem",
-      "contents": [
-        {
-          "paragraph": "solve the problem in js"
-        },
-        {
-          "codeBlock": {
-            "language": "tsx",
-            "code": "const process = dt.next();",
-            "filePath": "./app.ts",
-            "disableLineNumbers": false,
-            "disableFilePath": false
-          }
-        },
-        {
-          "paragraph": "solution is aboved"
-        }
-      ]
-    },
-    {
-      "title": "second paragraph",
-      "contents": [
-        {
-          "codeBlock": {
-            "language": "tsx",
-            "code": "final thoughts",
-            "filePath": "",
-            "disableLineNumbers": true,
-            "disableFilePath": true
-          }
-        },
-        {
-          "codeBlock": {
-            "language": "tsx",
-            "code": "function test() {\n  console.log('data');\n}\n\nfor (let i = 0; i < 10; i++) {\n  test()\n}",
-            "filePath": "",
-            "disableLineNumbers": false,
-            "disableFilePath": true
-          }
-        }
-      ]
-    }
-  ]
-};
+const test = {"title":"page title","seo":"","text":[{"title":"first section","paragraphsCommandsCode":[{"paragraph":"first paragraph"},{"codeBlock":{"language":"tsx","code":"import { something } from somewhere;\n\nfunction test() {\n  for (let i = 0; i < 1e1000; i++) {\n    console.log(i);\n  }\n}\n\ntest()","filePath":"","disableLineNumbers":false,"disableFilePath":false}},{"paragraph":"second paragraph"}]},{"title":"second section","paragraphsCommandsCode":[{"paragraph":"final p"}]}]};
 
 const texts: any = {
   simpleStateManagement,
