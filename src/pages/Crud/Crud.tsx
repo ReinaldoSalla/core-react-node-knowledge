@@ -67,13 +67,13 @@ function Crud() {
                         value={content.codeBlock.language}
                         onChange={(event) => {
                           const newSections = [...sections];
-                          newSections[sectionIndex].paragraphsCommandsCode[contentIndex].codeBlock.language = `language-${event.target.value}`;
+                          newSections[sectionIndex].paragraphsCommandsCode[contentIndex].codeBlock.language = event.target.value;
                           setSections(newSections);
                         }}
                       >
-                        <option>TypeScript</option>
-                        <option>TSX</option>
-                        <option>CSS</option>
+                        <option value='language-typescript'>TypeScript</option>
+                        <option value='language-tsx'>TSX</option>
+                        <option value='language-css'>CSS</option>
                       </Select>
                       <Label
                         htmlFor={`disable-line-numbers${sectionIndex}x${contentIndex}`} 
@@ -166,7 +166,7 @@ function Crud() {
                     ...sections[sectionIndex].paragraphsCommandsCode,
                     { 
                       codeBlock: {
-                        language: 'tsx',
+                        language: 'language-typescript',
                         code: '',
                         filePath: '',
                         disableLineNumbers: false,
@@ -203,7 +203,7 @@ function Crud() {
       <Button
         onClick={() => {
           const data = { title, seo: '', text: sections };
-          // alert(JSON.stringify(data));
+          alert(JSON.stringify(data));
           console.log(JSON.stringify(data));
         }} 
       >
