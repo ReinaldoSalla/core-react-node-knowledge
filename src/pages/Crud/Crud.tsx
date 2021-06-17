@@ -15,6 +15,51 @@ import {
   ButtonsContainer
 } from './Crud.styles';
 
+/*
+{
+  "title": "article title",
+  "seo": "",
+  "text": [
+    {
+      "title": "section title 1",
+      "paragraphsCommandsCode": [
+        {
+          "command": []
+        },
+        {
+          "command": []
+        },
+        {
+          "command": "sdjffasdf\npadsfhnaskjldfn\naksdjfhals"
+        },
+        {
+          "codeBlock": {
+            "language": "language-typescript",
+            "code": "psjdfnasl\nsadkfjn\naçsdfjn",
+            "filePath": "",
+            "disableLineNumbers": false,
+            "disableFilePath": false
+          }
+        },
+        {
+          "command": []
+        },
+        {
+          "command": []
+        },
+        {
+          "command": "$ funoint\n$ int32\n$ int &&34"
+        }
+      ]
+    }
+  ]
+}
+*/
+
+function splitCommands(data: any) {
+  return data;
+}
+
 function Crud() {
   const [title, setTitle] = useState('article title');
   const [sections, setSections] = useState<any[]>([]);
@@ -52,6 +97,20 @@ function Crud() {
                           setSections(newSections);
                         }}
                       />
+                    </div>
+                  )}
+                  {Object.keys(content)[0] === 'command' && (
+                    <div>
+                      <SubsectionTitle>{Object.keys(content)[0]} {contentIndex + 1}</SubsectionTitle>
+                      <TextArea
+                        value={content.command}
+                        onChange={(event) => {
+                          const newSections = [...sections];
+                          newSections[sectionIndex].paragraphsCommandsCode[contentIndex].command = event.target.value;
+                          setSections(newSections);
+                        }}
+                      >
+                      </TextArea> 
                     </div>
                   )}
                   {Object.keys(content)[0] === 'codeBlock' && (
@@ -164,6 +223,18 @@ function Crud() {
                   const newSections = [...sections];
                   newSections[sectionIndex].paragraphsCommandsCode = [
                     ...sections[sectionIndex].paragraphsCommandsCode,
+                    { command: [] }
+                  ];
+                  setSections(newSections);
+                }}
+              >
+                add commands {section.title}
+              </Button>
+              <Button
+                onClick={() => {
+                  const newSections = [...sections];
+                  newSections[sectionIndex].paragraphsCommandsCode = [
+                    ...sections[sectionIndex].paragraphsCommandsCode,
                     { 
                       codeBlock: {
                         language: 'language-typescript',
@@ -190,7 +261,7 @@ function Crud() {
         onClick={() => {
           const newSection = {
             title: `section title ${sections.length + 1}`,
-            paragraphsCommandsCode: []
+            paragraphsCommandsCode: '' 
           };
           setSections([...sections, newSection]);
         }}
@@ -203,8 +274,9 @@ function Crud() {
       <Button
         onClick={() => {
           const data = { title, seo: '', text: sections };
-          alert(JSON.stringify(data));
-          console.log(JSON.stringify(data));
+          const processedData = splitCommands(data);
+          // alert(JSON.stringify(data));
+          console.log(JSON.stringify(processedData));
         }} 
       >
         generate article
