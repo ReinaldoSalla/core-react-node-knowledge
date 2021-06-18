@@ -3,6 +3,7 @@
 import React, {
   useState
 } from 'react';
+import { processData } from './text-processor';
 import Button from '../../shared/styles/Button.styles';
 import {
   Container,
@@ -14,51 +15,6 @@ import {
   Checkbox,
   ButtonsContainer
 } from './Crud.styles';
-
-/*
-{
-  "title": "article title",
-  "seo": "",
-  "text": [
-    {
-      "title": "section title 1",
-      "paragraphsCommandsCode": [
-        {
-          "command": []
-        },
-        {
-          "command": []
-        },
-        {
-          "command": "sdjffasdf\npadsfhnaskjldfn\naksdjfhals"
-        },
-        {
-          "codeBlock": {
-            "language": "language-typescript",
-            "code": "psjdfnasl\nsadkfjn\naçsdfjn",
-            "filePath": "",
-            "disableLineNumbers": false,
-            "disableFilePath": false
-          }
-        },
-        {
-          "command": []
-        },
-        {
-          "command": []
-        },
-        {
-          "command": "$ funoint\n$ int32\n$ int &&34"
-        }
-      ]
-    }
-  ]
-}
-*/
-
-function splitCommands(data: any) {
-  return data;
-}
 
 function Crud() {
   const [title, setTitle] = useState('article title');
@@ -183,7 +139,6 @@ function Crud() {
                         hide={content.codeBlock.disableFilePath}
                       />
                       <br />
-                      <br />
                       <Label
                         htmlFor={`code${sectionIndex}x${contentIndex}`}
                       >
@@ -223,7 +178,7 @@ function Crud() {
                   const newSections = [...sections];
                   newSections[sectionIndex].paragraphsCommandsCode = [
                     ...sections[sectionIndex].paragraphsCommandsCode,
-                    { command: [] }
+                    { command: '' }
                   ];
                   setSections(newSections);
                 }}
@@ -261,7 +216,7 @@ function Crud() {
         onClick={() => {
           const newSection = {
             title: `section title ${sections.length + 1}`,
-            paragraphsCommandsCode: '' 
+            paragraphsCommandsCode: []
           };
           setSections([...sections, newSection]);
         }}
@@ -274,8 +229,7 @@ function Crud() {
       <Button
         onClick={() => {
           const data = { title, seo: '', text: sections };
-          const processedData = splitCommands(data);
-          // alert(JSON.stringify(data));
+          const processedData = processData(data);
           console.log(JSON.stringify(processedData));
         }} 
       >
@@ -335,7 +289,6 @@ export default Crud;
 
 // diff
 /*
-
 const orderTimersPromisesAsyncAwait = {
   title,
   seo,
@@ -362,8 +315,6 @@ const orderTimersPromisesAsyncAwait = {
         }
       ]
     },
-
-
 const test = {
   "title": "page title",
   "sections": [
