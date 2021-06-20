@@ -32,10 +32,10 @@ function Crud() {
             <hr />
             <Input
               type='text'
-              value={section.title}
+              value={section.subtitle}
               onChange={(event) => {
                 const newSections = [...sections];
-                newSections[sectionIndex].title = event.target.value;
+                newSections[sectionIndex].subtitle = event.target.value;
                 setSections(newSections);
               }}
             />
@@ -215,7 +215,7 @@ function Crud() {
       <Button
         onClick={() => {
           const newSection = {
-            title: `section title ${sections.length + 1}`,
+            subtitle: `section title ${sections.length + 1}`,
             paragraphsCommandsCode: []
           };
           setSections([...sections, newSection]);

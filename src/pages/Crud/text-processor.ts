@@ -17,7 +17,7 @@ function processText(text: Array<any>) {
   return text.map((textItem) => {
     return {
       ...textItem,
-      paragraphsCommandsCode: processParagraphsCommandsCode(textItem.paragraphsCommandCode)
+      paragraphsCommandsCode: processParagraphsCommandsCode(textItem.paragraphsCommandsCode)
     }
   });
 }

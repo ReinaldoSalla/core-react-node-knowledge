@@ -61,14 +61,6 @@ const ContentCore: FunctionComponent<ContentCoreProps> = ({
           </ContentCoreTitle>
           {element.paragraphsCommandsCode.map((innerElement: any, index: number) => {
             if (
-              Object.prototype.hasOwnProperty.call(innerElement, 'paragraph')
-            ) {
-              return (
-                <ContentCoreText key={index}>
-                  {innerElement.paragraph}
-                </ContentCoreText>
-              );
-            } if (
               Object.prototype.hasOwnProperty.call(innerElement, 'command')
             ) {
               return (
@@ -80,17 +72,8 @@ const ContentCore: FunctionComponent<ContentCoreProps> = ({
                   ))}
                 </ContentCoreContainer>
               );
-            } if (
-              Object.prototype.hasOwnProperty.call(innerElement, 'filePath')
-            ) {
-              // This is a legacy feature, when filePath was declared outside codeBlock.
-              // From now on, the filePath should always be inside codeblock.
-              return (
-                <FilePath key={index}>
-                  {innerElement.filePath.trim()}
-                </FilePath>
-              );
-            } if (
+            } 
+            if (
               Object.prototype.hasOwnProperty.call(innerElement, 'codeBlock')
             ) {
               const lineNumbers = innerElement.codeBlock.disableLineNumbers ? '' : 'line-numbers';
@@ -123,7 +106,54 @@ const ContentCore: FunctionComponent<ContentCoreProps> = ({
                   </pre>
                 </div>
               );
-            } if (
+            } 
+            if (
+              Object.prototype.hasOwnProperty.call(
+                innerElement,
+                'paragraph'
+              )
+            ) {
+              const blocks = innerElement.paragraph.split('*');
+              return (
+                <ContentCoreText key={index}>
+                  {blocks.map((block: any) => {
+                    if (block[0] === '#') {
+                      const withoutHash = block.replace('#', '');
+                      const [text, link] = withoutHash.split('(');
+                      const processedLink = link.replace(')', '');
+                      return (
+                        <ContentCoreLink
+                          href={processedLink}
+                          target='_blank'
+                          rel='nofollow noopener noreferrer'
+                          key={link}
+                        >
+                          {' '}
+                          {text}
+                        </ContentCoreLink>
+                      );
+                    }
+                    return (
+                      String(block.trim())
+                    );
+                  })}
+                </ContentCoreText>
+              );
+            }
+            // This is a legacy feature, when filePath was declared outside codeBlock.
+            // From now on, the filePath should always be inside codeblock.
+            if (
+              Object.prototype.hasOwnProperty.call(innerElement, 'filePath')
+            ) {
+              return (
+                <FilePath key={index}>
+                  {innerElement.filePath.trim()}
+                </FilePath>
+              );
+            } 
+            // This is a legacy feature, when paragrapn and paragraphWithLink where separated.
+            // For now on, paragraph and paragraphWithLink are integrated into one paragraph block.
+            if (
               Object.prototype.hasOwnProperty.call(
                 innerElement,
                 'paragraphWithLink'
