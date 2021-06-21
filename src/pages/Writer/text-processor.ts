@@ -22,9 +22,11 @@ function processText(text: Array<any>) {
   });
 }
 
-export function processData(data: any) {
+function processData(data: any) {
   return {
     ...data,
     text: processText(data.text)
   };
 }
+
+export default processData;

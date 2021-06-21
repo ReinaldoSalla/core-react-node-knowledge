@@ -3,7 +3,8 @@
 import React, {
   useState
 } from 'react';
-import { processData } from './text-processor';
+import getUniqueId from '../../utils/get-unique-id';
+import processData from './text-processor';
 import Button from '../../shared/styles/Button.styles';
 import {
   Container,
@@ -13,12 +14,21 @@ import {
   Label,
   Select,
   Checkbox,
-  ButtonsContainer
-} from './Crud.styles';
+  ButtonsContainer,
+  RemoveButton
+} from './Writer.styles';
 
-function Crud() {
+function Writer() {
   const [title, setTitle] = useState('article title');
   const [sections, setSections] = useState<any[]>([]);
+
+  function remove(currId: any) {
+    const newSections = sections.filter((sectionItem) => {
+      return sectionItem.id !== currId
+    });
+    setSections(newSections);
+  }
+
   return (
     <Container>
       <Input
@@ -28,17 +38,22 @@ function Crud() {
       />
       <ul>
         {sections.map((section, sectionIndex) => (
-          <li key={sectionIndex.toString()}>
+          <li key={section.id}>
             <hr />
             <Input
               type='text'
               value={section.subtitle}
               onChange={(event) => {
                 const newSections = [...sections];
+                // Todo: use the unique id instead of the index.
+                // Because the index causes a re-render on all the other items
                 newSections[sectionIndex].subtitle = event.target.value;
                 setSections(newSections);
               }}
             />
+            <RemoveButton onClick={() => remove(section.id)}>
+              X
+            </RemoveButton> 
             <ul>
               {sections[sectionIndex].paragraphsCommandsCode.map((content: any, contentIndex: any) => (
                 <li key={contentIndex.toString()}>
@@ -216,7 +231,8 @@ function Crud() {
         onClick={() => {
           const newSection = {
             subtitle: `section title ${sections.length + 1}`,
-            paragraphsCommandsCode: []
+            paragraphsCommandsCode: [],
+            id: getUniqueId('section'),
           };
           setSections([...sections, newSection]);
         }}
@@ -239,105 +255,4 @@ function Crud() {
   );
 }
 
-export default Crud;
-
-/*
-[
-  {
-    title: microtask,
-    paragraphsCommandsCode: [
-      { 
-        paragraph: 'paragraph exemple' 
-      },
-      { 
-        codeBlock: { 
-          language: 'ts', 
-          filePath: './app.ts;', 
-          code: 'import something from somewhere' 
-          disableFilePath" false
-          disableLineNumbers: false, 
-        } 
-      },
-      { 
-        paragraph: 'paragraph example' 
-      },
-    ]
-  },
-  {
-    title: microtask,
-    paragraphsCommandsCode: [
-      { 
-        paragraph: 'paragraph exemple' 
-      },
-      { 
-        codeBlock: { 
-          language: 'ts', 
-          filePath: './app.ts;', 
-          code: 'import something from somewhere' 
-          disableFilePath" false
-          disableLineNumbers: false, 
-        } 
-      },
-      { 
-        paragraph: 'paragraph example' 
-      },
-    ]
-  },
-]
-*/
-
-
-// diff
-/*
-const orderTimersPromisesAsyncAwait = {
-  title,
-  seo,
-  text: [
-    {
-      subtitle: subtitle1,
-      paragraphsCommandsCode: [
-        { paragraph: paragraph2 },
-        { paragraph: paragraph3 },
-        {
-          codeBlock: {
-            code: code4,
-            disableLineNumbers: true,
-            language
-          }
-        },
-        { paragraph: paragraph5 },
-        {
-          codeBlock: {
-            code: code6,
-            disableLineNumbers: true,
-            language
-          }
-        }
-      ]
-    },
-const test = {
-  "title": "page title",
-  "sections": [
-    {
-      "title": "1. Problem",
-      "paragraphsCommandsCode": [
-        {
-          "paragraph": "solve the problem in js"
-        },
-        {
-          "codeBlock": {
-            "language": "tsx",
-            "code": "const process = dt.next();",
-            "filePath": "./app.ts",
-            "disableLineNumbers": false,
-            "disableFilePath": false
-          }
-        },
-        {
-          "paragraph": "solution is aboved"
-        }
-      ]
-    },
-	
-*/
-
+export default Writer;

@@ -1,5 +1,5 @@
 import styled from 'styled-components/macro';
-import { HideProps } from './Crud.types';
+import { HideProps } from './Writer.types';
 
 const Container = styled.div`
   box-sizing: border-box;
@@ -57,6 +57,14 @@ const ButtonsContainer = styled.div`
   margin: 64px 0;
 `;
 
+const RemoveButton = styled.span`
+  display: inline-block;
+  font-size: 32px;
+  margin-left: 32px;
+  color: white;
+  cursor: pointer;
+`;
+
 export {
   Container,
   Heading,
@@ -66,5 +74,6 @@ export {
   Label,
   Select,
   Checkbox,
-  ButtonsContainer
+  ButtonsContainer,
+  RemoveButton
 };

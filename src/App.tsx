@@ -25,7 +25,7 @@ const Content = lazy(() => import('./pages/Content'));
 const Login = lazy(() => import('./pages/Login'));
 const About = lazy(() => import('./pages/About'));
 const Legal = lazy(() => import('./pages/Legal'));
-const Crud = lazy(() => import('./pages/Crud'));
+const Crud = lazy(() => import('./pages/Writer'));
 
 const App = (): JSX.Element => {
   useTabOutline();
