@@ -3,6 +3,7 @@
 import React, {
   useState
 } from 'react';
+import WriterRemove from '../../components/WriterRemove';
 import getUniqueId from '../../utils/get-unique-id';
 import processData from './text-processor';
 import Button from '../../shared/styles/Button.styles';
@@ -15,17 +16,15 @@ import {
   Select,
   Checkbox,
   ButtonsContainer,
-  RemoveButton
 } from './Writer.styles';
+
 
 function Writer() {
   const [title, setTitle] = useState('article title');
   const [sections, setSections] = useState<any[]>([]);
 
-  function remove(currId: any) {
-    const newSections = sections.filter((sectionItem) => {
-      return sectionItem.id !== currId
-    });
+  function remove(idToRemove: any) {
+    const newSections = sections.filter(({ id }) => id !== idToRemove);
     setSections(newSections);
   }
 
@@ -51,9 +50,7 @@ function Writer() {
                 setSections(newSections);
               }}
             />
-            <RemoveButton onClick={() => remove(section.id)}>
-              X
-            </RemoveButton> 
+            <WriterRemove onClick={() => remove(section.id)} />
             <ul>
               {sections[sectionIndex].paragraphsCommandsCode.map((content: any, contentIndex: any) => (
                 <li key={contentIndex.toString()}>
@@ -181,7 +178,10 @@ function Writer() {
                   const newSections = [...sections];
                   newSections[sectionIndex].paragraphsCommandsCode = [
                     ...sections[sectionIndex].paragraphsCommandsCode,
-                    { paragraph: '' }
+                    { 
+                      paragraph: '' ,
+                      id: getUniqueId('paragraph')
+                    }
                   ];
                   setSections(newSections);
                 }}
@@ -193,7 +193,10 @@ function Writer() {
                   const newSections = [...sections];
                   newSections[sectionIndex].paragraphsCommandsCode = [
                     ...sections[sectionIndex].paragraphsCommandsCode,
-                    { command: '' }
+                    { 
+                      command: '',
+                      id: getUniqueId('command')
+                    }
                   ];
                   setSections(newSections);
                 }}
@@ -212,7 +215,8 @@ function Writer() {
                         filePath: '',
                         disableLineNumbers: false,
                         disableFilePath: false,
-                      }
+                      },
+                      id: getUniqueId('code-block')
                     }
                   ];
                   setSections(newSections);
