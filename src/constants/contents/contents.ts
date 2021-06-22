@@ -3,7 +3,7 @@ const contents = [
     title: 'Asynchronous',
     subcontents: [
       'Order for Timeouts and Promises',
-      'TODO #1.2',
+      'test',
       'TODO #1.3'
     ]
   },
