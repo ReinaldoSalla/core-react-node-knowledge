@@ -23,7 +23,7 @@ function Writer() {
   const [title, setTitle] = useState('article title');
   const [sections, setSections] = useState<any[]>([]);
 
-  function remove(idToRemove: any) {
+  function removeSection(idToRemove: string) {
     const newSections = sections.filter(({ id }) => id !== idToRemove);
     setSections(newSections);
   }
@@ -50,10 +50,10 @@ function Writer() {
                 setSections(newSections);
               }}
             />
-            <WriterRemove onClick={() => remove(section.id)} />
+            <WriterRemove onClick={() => removeSection(section.id)} />
             <ul>
               {sections[sectionIndex].paragraphsCommandsCode.map((content: any, contentIndex: any) => (
-                <li key={contentIndex.toString()}>
+                <li key={content.id}>
                   {Object.keys(content)[0] === 'paragraph' && (
                     <div>
                       <SubsectionTitle>{Object.keys(content)[0]} {contentIndex + 1}</SubsectionTitle>
@@ -180,7 +180,6 @@ function Writer() {
                     ...sections[sectionIndex].paragraphsCommandsCode,
                     { 
                       paragraph: '' ,
-                      id: getUniqueId('paragraph')
                     }
                   ];
                   setSections(newSections);
@@ -195,7 +194,6 @@ function Writer() {
                     ...sections[sectionIndex].paragraphsCommandsCode,
                     { 
                       command: '',
-                      id: getUniqueId('command')
                     }
                   ];
                   setSections(newSections);
@@ -216,7 +214,6 @@ function Writer() {
                         disableLineNumbers: false,
                         disableFilePath: false,
                       },
-                      id: getUniqueId('code-block')
                     }
                   ];
                   setSections(newSections);
