@@ -17,7 +17,10 @@ import {
   Checkbox,
   ButtonsContainer,
 } from './Writer.styles';
+// import data from '../../test.json';
+// import an object that loads all the JSON files  
 
+// const data = {"title":"article title","seo":"","text":[{"subtitle":"section title 1","paragraphsCommandsCode":[{"paragraph":"paragraph1"},{"command":["1","2","3","4","54",""]},{"codeBlock":{"language":"language-typescript","code":"function test() {\n  for (let i = 0; i < 10; i++);\n}\n\ntest()","filePath":"","disableLineNumbers":false,"disableFilePath":false}}],"id":"section-2021-06-22T22:24:18.224Z-2370.800000011921"},{"subtitle":"section after a deleted one","paragraphsCommandsCode":[{"paragraph":"second paragrapg"}],"id":"section-2021-06-22T22:24:55.766Z-39914.40000003576"}]};
 
 function Writer() {
   const [title, setTitle] = useState('article title');
@@ -239,6 +242,28 @@ function Writer() {
         }}
       >
         add new section
+      </Button>
+      <br />
+      <br />
+      <br />
+      <Button 
+        onClick={() => {
+          // setTitle(data.title);
+          // setSections(data.text)
+          // async function getData() {
+          //   try {
+          //     const response = await fetch('../../test.json');
+          //     const json = await response.json();
+          //     console.log(json);
+          //     return json;
+          //   } catch (error) {
+          //     console.error(`Error while fething JSON. ${error}`);
+          //   }
+          // }
+          // const data: any = getData();
+        }}
+      >
+        load article 
       </Button>
       <br />
       <br />
