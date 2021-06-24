@@ -3,10 +3,11 @@
 import React, {
   useState
 } from 'react';
+import processData from './text-processor';
 import WriterRemove from '../../components/WriterRemove';
 import getUniqueId from '../../utils/get-unique-id';
-import processData from './text-processor';
 import Button from '../../shared/styles/Button.styles';
+import texts from '../../constants/texts';
 import {
   Container,
   Input,
@@ -16,15 +17,13 @@ import {
   Select,
   Checkbox,
   ButtonsContainer,
+  LoadArticleSelect
 } from './Writer.styles';
-// import data from '../../test.json';
-// import an object that loads all the JSON files  
-
-// const data = {"title":"article title","seo":"","text":[{"subtitle":"section title 1","paragraphsCommandsCode":[{"paragraph":"paragraph1"},{"command":["1","2","3","4","54",""]},{"codeBlock":{"language":"language-typescript","code":"function test() {\n  for (let i = 0; i < 10; i++);\n}\n\ntest()","filePath":"","disableLineNumbers":false,"disableFilePath":false}}],"id":"section-2021-06-22T22:24:18.224Z-2370.800000011921"},{"subtitle":"section after a deleted one","paragraphsCommandsCode":[{"paragraph":"second paragrapg"}],"id":"section-2021-06-22T22:24:55.766Z-39914.40000003576"}]};
 
 function Writer() {
   const [title, setTitle] = useState('article title');
   const [sections, setSections] = useState<any[]>([]);
+  
 
   function removeSection(idToRemove: string) {
     const newSections = sections.filter(({ id }) => id !== idToRemove);
@@ -56,7 +55,7 @@ function Writer() {
             <WriterRemove onClick={() => removeSection(section.id)} />
             <ul>
               {sections[sectionIndex].paragraphsCommandsCode.map((content: any, contentIndex: any) => (
-                <li key={content.id}>
+                <li key={contentIndex}>
                   {Object.keys(content)[0] === 'paragraph' && (
                     <div>
                       <SubsectionTitle>{Object.keys(content)[0]} {contentIndex + 1}</SubsectionTitle>
@@ -246,28 +245,6 @@ function Writer() {
       <br />
       <br />
       <br />
-      <Button 
-        onClick={() => {
-          // setTitle(data.title);
-          // setSections(data.text)
-          // async function getData() {
-          //   try {
-          //     const response = await fetch('../../test.json');
-          //     const json = await response.json();
-          //     console.log(json);
-          //     return json;
-          //   } catch (error) {
-          //     console.error(`Error while fething JSON. ${error}`);
-          //   }
-          // }
-          // const data: any = getData();
-        }}
-      >
-        load article 
-      </Button>
-      <br />
-      <br />
-      <br />
       <Button
         onClick={() => {
           const data = { title, seo: '', text: sections };
@@ -277,8 +254,23 @@ function Writer() {
       >
         generate article
       </Button>
+      <br />
+      <br />
+      <br />
+      <Button 
+        onClick={() => {
+          setTitle(texts.test.title);
+          setSections(texts.test.text);
+        }}
+      >
+        load article 
+      </Button>
+      <LoadArticleSelect>
+
+      </LoadArticleSelect>
     </Container>
   );
 }
 
 export default Writer;
+

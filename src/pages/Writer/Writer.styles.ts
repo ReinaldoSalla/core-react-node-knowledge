@@ -65,6 +65,11 @@ const RemoveButton = styled.span`
   cursor: pointer;
 `;
 
+const LoadArticleSelect = styled.select`
+  display: block;
+  margin-top: 32px;
+`;
+
 export {
   Container,
   Heading,
@@ -75,5 +80,6 @@ export {
   Select,
   Checkbox,
   ButtonsContainer,
-  RemoveButton
+  RemoveButton,
+  LoadArticleSelect
 };
