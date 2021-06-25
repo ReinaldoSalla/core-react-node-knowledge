@@ -1,4 +1,6 @@
-const contents = [
+import Content from './contents.types';
+
+const contents: Content[] = [
   {
     title: 'Asynchronous',
     subcontents: [
