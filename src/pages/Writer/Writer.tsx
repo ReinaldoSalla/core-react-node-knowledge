@@ -19,8 +19,6 @@ import {
   ButtonsContainer,
   LoadArticleSelect
 } from './Writer.styles';
-import contents from '../../constants/contents';
-import getSubcontentsFlatList from '../../constants/contents/contents.utils';
 
 function Writer() {
   const [title, setTitle] = useState('article title');
@@ -30,9 +28,6 @@ function Writer() {
     const newSections = sections.filter(({ id }) => id !== idToRemove);
     setSections(newSections);
   }
-
-  const result = getSubcontentsFlatList(contents);
-  console.log(result);
 
   return (
     <Container>

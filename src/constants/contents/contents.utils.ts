@@ -1,3 +1,4 @@
+import contents from './contents';
 import Content from './contents.types';
 
 function flatReducer(flatArray: string[], itemArray: string[]) {
@@ -8,8 +9,8 @@ function flat(nestedArray: string[][]) {
   return nestedArray.reduce(flatReducer, []);
 }
 
-function getSubcontentsFlatList(contents: Content[]) {
-  const nestedList = contents.map((content) => {
+function getSubcontentsFlatList(contentsFull: Content[]) {
+  const nestedList = contentsFull.map((content) => {
     return content.subcontents.map((subcontent) => {
       return subcontent;
     });
@@ -18,4 +19,6 @@ function getSubcontentsFlatList(contents: Content[]) {
   return flatArray;
 }
 
-export default getSubcontentsFlatList;
+const subcontentsFlatList = getSubcontentsFlatList(contents);
+
+export default subcontentsFlatList;
