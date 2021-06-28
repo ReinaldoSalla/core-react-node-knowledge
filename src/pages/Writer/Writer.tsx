@@ -19,14 +19,20 @@ import {
   ButtonsContainer,
   LoadArticleSelect
 } from './Writer.styles';
+import subcontents from '../../constants/contents/subcontents';
 
 function Writer() {
   const [title, setTitle] = useState('article title');
   const [sections, setSections] = useState<any[]>([]);
+  const [articleToLoad, setArticleToLoad] = useState(subcontents[0]);
   
   function removeSection(idToRemove: string) {
     const newSections = sections.filter(({ id }) => id !== idToRemove);
     setSections(newSections);
+  }
+
+  function onChangeArticleSelect(event: any) {
+    setArticleToLoad(event.target.value);
   }
 
   return (
@@ -258,18 +264,22 @@ function Writer() {
       <br />
       <Button 
         onClick={() => {
-          setTitle(texts.test.title);
-          setSections(texts.test.text);
+          setTitle(texts[`${articleToLoad}`].title);
+          setSections(texts[`${articleToLoad}`].text);
         }}
       >
         load article 
       </Button>
-      <LoadArticleSelect>
-
+      <LoadArticleSelect
+        value={articleToLoad}
+        onChange={onChangeArticleSelect} 
+      >
+        {subcontents.map((subcontent) => (
+          <option key={subcontent} value={subcontent}>{subcontent}</option>
+        ))}
       </LoadArticleSelect>
     </Container>
   );
 }
 
 export default Writer;
-
