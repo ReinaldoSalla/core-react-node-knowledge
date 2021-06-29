@@ -7,6 +7,8 @@ import orderTimersPromisesAsyncAwait from './orderTimersPromisesAsyncAwait';
 import lazyLoadingImages from './lazyLoadingImages';
 
 import test from './test.json';
+import test2 from './test2.json';
+import test3 from './test3.json';
 
 const texts: any = {
   simpleStateManagement,
@@ -14,7 +16,9 @@ const texts: any = {
   findPair,
   orderForTimeoutsAndPromises: orderTimersPromisesAsyncAwait,
   lazyLoadingImages,
-  test
+  test,
+  test2,
+  test3
 };
 
 export default texts;

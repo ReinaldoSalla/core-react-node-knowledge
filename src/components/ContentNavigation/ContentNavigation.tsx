@@ -62,6 +62,7 @@ const ContentNavigation: FunctionComponent<ContentNavigationProps> = ({
             <ContentNavigationText style={textAnimations[index]}>
               {index + 1}
               .
+              {' '}
               {item}
             </ContentNavigationText>
           </ContentNavigationItem>
