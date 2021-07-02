@@ -7,32 +7,19 @@ import { GlobalStyle, globalTheme } from './App.styles';
 import ScrollToTop from './utils/ScrollToTop';
 import ContentSuspense from './components/ContentSuspense';
 import { ModalsProvider } from './shared/context/ModalsContext';
-// import json from './test.json';
-
-// import Topbar from './components/Topbar';
-// import Footer from './components/Footer';
-
-// import Home from './pages/Home';
-// import Login from './pages/Login';
-// import About from './pages/About';
-// import Content from './pages/Content';
 
 const Topbar = lazy(() => import('./components/Topbar'));
 const Footer = lazy(() => import('./components/Footer'));
-
 const Home = lazy(() => import('./pages/Home'));
 const Content = lazy(() => import('./pages/Content'));
 const Login = lazy(() => import('./pages/Login'));
 const About = lazy(() => import('./pages/About'));
 const Legal = lazy(() => import('./pages/Legal'));
-const Crud = lazy(() => import('./pages/Writer'));
+const Writer = lazy(() => import('./pages/Writer'));
+const Stack = lazy(() => import('./pages/Stack'));
 
 const App = (): JSX.Element => {
   useTabOutline();
-  // React.useEffect(() => {
-  //   console.log(json);
-  //   console.log(json.key);
-  // }, []);
   return (
     <BrowserRouter>
       <HelmetProvider>
@@ -55,8 +42,11 @@ const App = (): JSX.Element => {
                 <Route exact path='/legal'>
                   <Legal />
                 </Route>
-                <Route exact path='/crud'>
-                  <Crud />
+                <Route exact path='/stack'>
+                  <Stack />
+                </Route>
+                <Route exact path='/writer'>
+                  <Writer />
                 </Route>
                 <Route path='/:id'>
                   <Content />
