@@ -6,7 +6,30 @@ id             main   css
 1              cra    styled components
 2              next   css modules
 3              gatby  tailwind
+4                -    materialui
 */
+
+const data = {
+  main: [
+    'cra',
+    'next',
+    'gatsby'
+  ],
+  rendering: [
+    'client side rendering',
+    'server side rendering',
+    'static content generation',
+    'incremental static regeneration'
+  ],
+  css: [
+    'css modules',
+    'styled components',
+    'tailwind'
+  ]
+};
+
+// eslint-disable-next-line
+// [[cra. client side rendering, css modules], [next, server side, styled components]]
 
 function Stack() {
   return (
@@ -14,11 +37,11 @@ function Stack() {
       <h1>React Stack</h1>
       <table>
         <tr>
-          <th>id</th>
-          <th>main</th>
-          <th>css</th>
+          {Object.keys(data).map((key) => (
+            <th key={key}>{key}</th>
+          ))}
         </tr>
-        <tr>
+        {/* <tr>
           <td>1</td>
           <td>cra</td>
           <td>styled components</td>
@@ -32,7 +55,14 @@ function Stack() {
           <td>3</td>
           <td>gatsby</td>
           <td>tailwind</td>
-        </tr>
+        </tr> */}
+        {Object.values(data).map((array, index) => (
+          <tr key={index.toString()}>
+            {array.map((string) => (
+              <td key={string}>{string}</td>
+            ))}
+          </tr>
+        ))}
       </table>
     </div>
   );
